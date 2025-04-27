@@ -1,0 +1,160 @@
+.view-info-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #f6f6f6;
+    min-height: 100vh;
+  }
+  
+  /* Estilos del encabezado */
+  .header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: #f6f6f6;
+    margin-bottom: 10px;
+  }
+  
+  .header-icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  /* Contenido principal con columnas */
+  .content {
+    display: flex;
+    padding: 20px;
+    gap: 24px;
+  }
+  
+  /* Columna izquierda */
+  .left-column {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  /* Tarjeta de empresa/perfil */
+  .company-card {
+    background-color: var(--neutral-4);
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .logo-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 80%;
+    height: auto;
+  }
+  
+  .profile-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .company-card h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 14px;
+  }
+  
+  .role-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+  }
+  
+  .role-info span:first-child {
+    color: var(--neutral-1_3);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .role-info span:last-child {
+    color: var(--neutral-1_4);
+    font-size: 14px;
+  }
+  
+  /* Tarjeta de descripción */
+  .description-card {
+    background-color: var(--neutral-4);
+    border-radius: 8px;
+    padding: 24px;
+  }
+  
+  .description-card h3 {
+    color: var(--neutral-1_3);
+    font-size: 16px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--neutral-1);
+  }
+  
+  .description-card ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .description-card ul li {
+    color: var(--neutral-1_4);
+    font-size: 14px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  
+  /* Columna derecha */
+  .right-column {
+    width: 70%;
+  }
+  
+  /* Contenedor de tarjetas de información */
+  .info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  /* Tarjetas individuales de información */
+  .info-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .info-title {
+    font-weight: 600;
+    color: var(--neutral-1_3);
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  
+  .info-value {
+    color: var(--neutral-1_5);
+    font-size: 15px;
+  }
+  
+  
+  
+ 

@@ -1,0 +1,29 @@
+#Buttons-exports {
+    .exports {
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid var(--neutral-1_2);
+        border-radius: 6px;
+        width: 4rem;
+        height: 2%;
+        background-color: var(--neutral-1);
+    }
+    
+    .pdf {
+        border-right: 0.5px solid var(--neutral-1_2);
+    }
+    
+    .box-exports {
+        padding: 8px;
+        cursor: pointer;
+        height: 1rem;
+    }
+    
+    .logo-pdf {
+        color: red;
+    }
+    
+    .logo-exel {
+        color: var(--color-primary);
+    }
+}

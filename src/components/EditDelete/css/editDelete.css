@@ -1,0 +1,44 @@
+#EditDelete{
+    .action-card {
+        background-color: #f6f6f6;
+        border-radius: 8px;
+        width: 15%;
+        padding: 12px;
+        display: flex;
+        justify-content: center;
+        border: 1px solid var(--neutral-1_2);
+      }
+
+
+  .edit-button {
+    color: var(--color-primary);
+    
+  }
+  
+  .delete-button {
+    color: var(--color-secundary-1);
+  }
+  
+  .edit-button svg, .delete-button svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+    }
+    
+    .left-column, .right-column {
+      width: 100%;
+    }
+  
+  }
+
+}  
+    
+    
+    
+    
+   

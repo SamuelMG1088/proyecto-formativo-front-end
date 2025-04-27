@@ -1,0 +1,16 @@
+#barra-navegacion{
+    nav {
+        position: relative;
+        top: 0;
+        height: 5rem;
+        display: flex;
+        align-items: center;
+        /* background-color: var(--color-primary); */
+    }
+
+    nav img {
+        width: 3rem;
+        height: 3rem;
+        margin: 0rem 1rem 0rem 5rem;
+    }
+}
