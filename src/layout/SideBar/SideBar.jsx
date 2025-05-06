@@ -49,7 +49,7 @@ const Navigation = () => {
 
   return (
     <>
-      {/* Sidebar */}
+      
       <div id="Sidebar" className={`container ${isMobile ? 'mobile' : isTablet ? 'tablet' : 'desktop'}`}>
         <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
           {!isCollapsed && <div className="sidebar-border"></div>}
@@ -92,7 +92,7 @@ const Navigation = () => {
 
           <button className="logout">
             <CiLogout className="icon" />
-            {!isCollapsed && <span>Cerrar sesión</span>}
+            {!isCollapsed && <span>Logout</span>}
           </button>
         </aside>
       </div>

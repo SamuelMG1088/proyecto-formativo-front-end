@@ -1,8 +1,3 @@
-
-
-
-
-
 /* ========== ESTILOS NAVBAR ========== */
 .nav-section {
   display: flex;
@@ -119,6 +114,7 @@
 }
 
 #Sidebar .logo {
+  margin-top: 16%;
   color: var(--neutral-3);
   font-weight: bold;
   margin-bottom: 2vw;
@@ -126,21 +122,24 @@
 
 #Sidebar .logosena img {
   width: 3vw;
-  max-width: 3vw;
+  height: 3vw;
+  margin-left: 1.3rem;
+  max-width: 40vw;
+  margin-top: 11%;
 }
 
 #Sidebar .sidebar {
-  width: 13.5%;
+  width: 15%;
   background-color: var(--neutral-4);
   border-right: none;
-  padding: 1.25%;
+  padding: 0.5%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   font-family: var(--font-family);
   position: fixed;
   top: 0;
-  left: 0;
+  left: -0.3rem;
   z-index: 999;
   height: 100vh;
   overflow-y: auto;
@@ -156,24 +155,28 @@
 }
 
 #Sidebar .sidebar ul li {
-  padding: 0.75vw 0.625vw;
+  padding: 0.78vw 3vw; 
   color: var(--neutral-1_6);
   cursor: pointer;
   display: flex;
   align-items: center;
-  font-size: 1vw;
+  font-size: 0.9rem;
   transition: background 0.3s, color 0.3s;
   border-radius: 0.3125vw;
+  
 }
 
 #Sidebar .button-Sidebar {
   border: none;
   background: none;
   padding: 0;
-  display: flex;
+  margin-left: -40%;
   align-items: center;
   justify-content: center;
+  
+  
 }
+
 
 #Sidebar .line-bottom {
   width: 115.38%;
@@ -188,29 +191,36 @@
   font-size: 1.1vw;
   color: var(--neutral-3);
   margin-right: 1vw;
+
 }
 
-#Sidebar .sidebar ul li:hover {
+#Sidebar .sidebar ul li:hover  {
   background: var(--color-primary);
   color: var(--neutral-4);
+  
+
 }
+
 
 #Sidebar .sidebar ul li:hover .icon {
   color: var(--neutral-4);
 }
 
+
+
 #Sidebar .logout {
   background: none;
   border: none;
   color: var(--neutral-3);
-  font-size: 1vw;
+  font-size: 1vw;   /*Para ponerlo mas grande el icono*/
   cursor: pointer;
-  margin-top: 2vw;
+  margin-top: 1vw;
   display: flex;
-  align-items: center;
+  align-items: center;  
   border-radius: 0.3125vw;
-  padding: 0.75vw 0.625vw;
+  padding: 1.5vw;
   transition: background 0.3s, color 0.3s;
+  gap: 1rem;
 }
 
 #Sidebar .logout:hover {
@@ -220,6 +230,7 @@
 
 #Sidebar .logout:hover .icon {
   color: var(--neutral-4);
+  
 }
 
 /* ========== ESTRUCTURA PRINCIPAL Y MEDIA QUERIES ========== */
@@ -252,6 +263,7 @@ body {
 
 .sidebar.collapsed {
   width: 5.2% !important;
+  /* margin-right: 5rem; */
 }
 
 .sidebar.collapsed + .main-content,
@@ -277,3 +289,4 @@ body {
 .sidebar .logout {
   transition: all 0.3s ease;
 }
+
