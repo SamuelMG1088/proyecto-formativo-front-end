@@ -6,7 +6,7 @@
     }
 
     .VerifyPage .frame {
-        width: 50rem;
+        width: 50%;
         margin: 7% 0% 0% 20%;
     }
 
@@ -54,7 +54,7 @@
         left: 98%;
     }
 
-    .BottonOld {
+    .BottonVerify {
         width: 105%;
         height: 2rem;
         margin-top: 2rem;
@@ -62,30 +62,8 @@
         border-radius: 0.4rem;
         color: var(--neutral-4);
         background-color: var(--color-primary);
-
-    }
-
-    /* Recordar Contraseña */
-    .frame .remember-forgot{
-        display: flex;
-        justify-content: space-between;
-        font-size: 16px;
-        margin-top: 2.5rem;
-    }
-
-    .remember-forgot label input {
-        margin-right: 4px;
-    }
-
-    .remember-forgot a{
-        text-decoration: none;
-        color: var(--color-primary);
         font-weight: 600;
-    }
 
-    .remember-forgot a:hover {
-        text-decoration: underline;
-        color: var(--color-primary);
     }
 
     /* Imagen de Fondo */
