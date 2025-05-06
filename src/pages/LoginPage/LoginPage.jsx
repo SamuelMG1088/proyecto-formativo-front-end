@@ -16,7 +16,7 @@ export const OldPasswordPage = () => {
             <div className="LoginPage">
                 <div className="frame">
                     <h1>Iniciar Sesión</h1>
-                    <p>Accede a tu cuenta con tu email y contraseña </p>
+                    <p className="P_Accede" >Accede a tu cuenta con tu email y contraseña </p>
                     <div className="input-box-email">
                         <label htmlFor="">Correo electrónico</label>
                         <input type="email"/>
@@ -29,12 +29,16 @@ export const OldPasswordPage = () => {
 
                     <div className="remember-forgot">
                         <label><input type="checkbox"/>Recordarme</label>
-                        <Link to="/Old">Olvide mi contraseña</Link>
+                        <a className="OldMyPass" >Olvide mi contraseña</a>
                     </div> {/* -- Link para recuprar cuenta -- */}
 
-                    <Link to="">
-                        <button className="BottonOld" type="submit">Login</button>
-                    </Link>
+                    <button className="Bottonlogin" type="submit">LOGIN</button>
+
+                    <div className="NotAccount">
+                        <p className="TextNotAccount" >No tienes cuenta?</p>
+                        <span className="SpanCreate" >Crea una</span>
+                    </div>
+
                     <div className="accesses">
                     <p className='direct'>Accesos Directos</p>
                     <div className="box-assest">
@@ -49,6 +53,7 @@ export const OldPasswordPage = () => {
                         </div>
                     </div> {/* -- Cajas de accesos -- */}
                     </div>
+
                 </div>
 
                 <div className="img-LoginPage">

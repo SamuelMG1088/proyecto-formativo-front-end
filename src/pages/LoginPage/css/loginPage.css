@@ -1,5 +1,4 @@
 #LoginPage {
-    /* Pagina - Page */
     .LoginPage {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -10,16 +9,11 @@
         margin: 7% 0% 0% 20%;
     }
 
-    .LoginPage .frame a{
-        text-decoration: none;
-        color: var(--neutral-1_5);
-    }
-
     .LoginPage .frame h1 {
         margin: 1rem 0 1rem 0;
     }
 
-    .LoginPage .frame p {
+    .LoginPage .frame .P_Accede {
         font-size: 12px;
         color: var(--neutral-1_5);
         margin-bottom: 1rem;
@@ -54,15 +48,34 @@
         left: 98%;
     }
 
-    .BottonOld {
+    .Bottonlogin {
         width: 105%;
         height: 2rem;
         margin-top: 2rem;
         border: none ;
-        border-radius: 6px;
+        border-radius: 4px;
         color: var(--neutral-4);
         background-color: var(--color-primary);
+        font-weight: 700;
 
+    }
+
+    /*No tienes cuenta*/
+    .NotAccount {
+        display: flex;
+        margin-top: 1rem;
+        justify-content: center;
+    }
+
+    .NotAccount .TextNotAccount {
+        font-size: 16px;
+        color: var(--neutral-1_5);
+    }
+
+    .NotAccount .SpanCreate {
+        margin-top: 1rem;
+        color: var(--color-primary);
+        font-weight: 600;
     }
 
     /* Recordar Contraseña */
@@ -77,15 +90,14 @@
         margin-right: 4px;
     }
 
-    .remember-forgot a{
-        text-decoration: none;
-        color: var(--color-primary);
+    .remember-forgot .OldMyPass{
         font-weight: 600;
+        color: var(--color-primary);
     }
 
-    .remember-forgot a:hover {
-        text-decoration: underline;
-        color: var(--color-primary);
+    .remember-forgot .OldMyPass:hover {
+        color: var(--neutral-1_5);
+        cursor: pointer;
     }
 
     /* Accesos directos */
@@ -133,6 +145,6 @@
     .img-LoginPage {
         background-color: var(--neutral-1);
         border-radius: 12px;
-        width: 38rem;
+        width: 78%;
     }
 }
