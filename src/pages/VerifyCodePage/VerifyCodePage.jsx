@@ -1,10 +1,10 @@
 import React from "react"
-import './css/verifyCodePage.css'
-import '../../styles/variables.css'
 import imgVerify from '../../assets/images/img-VerifyCode.svg'
 import HeaderLogin from '../../layout/HeaderLogin/HeaderLogin.jsx';
 import { Link } from 'react-router-dom';
 import { BsEyeSlashFill } from "react-icons/bs";
+import './css/verifyCodePage.css'
+import '../../styles/variables.css'
 
 export const VerifyCodePage = () => {
     return (
