@@ -22,7 +22,7 @@ export const OldPasswordPage = () => {
                         <input type="email"/>
                     </div>
                     <Link to="/verify">
-                        <button className="BottonOld" type="submit">Enviar</button>
+                        <button className="BottonOld" type="submit">ENVIAR</button>
                     </Link>
                     <div className="accesses">
                     <p className='direct'>Accesos Directos</p>
