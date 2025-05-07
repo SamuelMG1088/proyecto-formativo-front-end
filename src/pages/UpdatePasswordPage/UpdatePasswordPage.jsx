@@ -26,7 +26,7 @@ export const UpdatePasswordPage = () => {
                     </div>
 
                     <Link to="">
-                        <button className="BottonOld" type="submit">Actualizar Contraseña</button>
+                        <button className="BottonUpdate" type="submit">ACTUALIZAR CONTRASEÑA</button>
                     </Link>
                 </div>
                 <div className="img-UpdatePage">

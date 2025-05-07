@@ -1,10 +1,11 @@
 import React from "react"
-import './css/verifyCodePage.css'
-import '../../styles/variables.css'
 import imgVerify from '../../assets/images/img-VerifyCode.svg'
 import HeaderLogin from '../../layout/HeaderLogin/HeaderLogin.jsx';
 import { Link } from 'react-router-dom';
+import { FaAngleLeft } from "react-icons/fa";
 import { BsEyeSlashFill } from "react-icons/bs";
+import './css/verifyCodePage.css'
+import '../../styles/variables.css'
 
 export const VerifyCodePage = () => {
     return (
@@ -22,10 +23,10 @@ export const VerifyCodePage = () => {
                     </div>
 
                     <Link to="">
-                        <button className="BottonOld" type="submit">Verificar</button>
+                        <button className="BottonVerify" type="submit">VERIFICAR</button>
                     </Link>
                 </div>
-                <div className="img-UpdatePage">
+                <div className="img-VerifyPage">
                     <img src={imgVerify} alt=""/>
                 </div>
             </div>

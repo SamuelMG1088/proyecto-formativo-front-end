@@ -6,7 +6,7 @@
     }
 
     .VerifyPage .frame {
-        width: 23rem;
+        width: 50%;
         margin: 7% 0% 0% 20%;
     }
 
@@ -20,7 +20,7 @@
     }
 
     .VerifyPage .frame p {
-        font-size: 12px;
+        font-size: 0.8rem;
         color: var(--neutral-1_5);
         margin-bottom: 1rem;
     }
@@ -54,85 +54,22 @@
         left: 98%;
     }
 
-    .BottonOld {
+    .BottonVerify {
         width: 105%;
         height: 2rem;
         margin-top: 2rem;
         border: none ;
-        border-radius: 6px;
+        border-radius: 0.4rem;
         color: var(--neutral-4);
         background-color: var(--color-primary);
-
-    }
-
-    /* Recordar Contraseña */
-    .frame .remember-forgot{
-        display: flex;
-        justify-content: space-between;
-        font-size: 16px;
-        margin-top: 2.5rem;
-    }
-
-    .remember-forgot label input {
-        margin-right: 4px;
-    }
-
-    .remember-forgot a{
-        text-decoration: none;
-        color: var(--color-primary);
         font-weight: 600;
-    }
 
-    .remember-forgot a:hover {
-        text-decoration: underline;
-        color: var(--color-primary);
-    }
-
-    /* Accesos directos */
-    .box-assest{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    /* Caja de Acceso directos */
-    .box {
-        width: 100px;
-        height: 50px;
-        border: 1px solid var(--color-secundary-2);
-        margin: 8px;
-        border-radius: 6px;
-    }
-
-    .direct {
-        color: var(--neutral-1_5);
-        font-size: 10px;
-        margin: 2rem 2rem;
-        text-align: center;
-    }
-
-    /* Img de accesos directos */
-    .box .sofiaplus{
-        width: 2rem;
-        margin-left: 2rem;
-        margin-top: 0.4rem;
-    }
-
-    .box .sgva {
-        width: 4rem;
-        margin-left: 1rem;
-        margin-top: 0.6rem;
-    }
-
-    .box .zajuna{
-        width: 5rem;
-        margin-left: 0.5rem;
-        margin-top: 1rem;
     }
 
     /* Imagen de Fondo */
     .img-VerifyPage {
         background-color: var(--neutral-1);
-        border-radius: 12px;
-        width: 38rem;
+        border-radius: 0.6rem;
+        width: 78%;
     }
 }
