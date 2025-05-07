@@ -11,10 +11,7 @@ import { AiOutlineUser } from "react-icons/ai";
 import { CiLogout } from "react-icons/ci";
 import LogoSena from '../../assets/logos/logo-Sena.png';
 import Profilepic from '../../assets/logos/logo-Sena.png';
-import './css/sideBar.css';
-import '../../styles/variables.css'
-// import {Navigationprovider} from '../../contexts/SidebarContext.jsx'
-
+import './css/SideBar.css';
 
 // Contexto de navegación
 const NavigationContext = createContext();
@@ -49,9 +46,9 @@ const Navigation = () => {
 
   return (
     <>
-      
+      {/* Sidebar */}
       <div id="Sidebar" className={`container ${isMobile ? 'mobile' : isTablet ? 'tablet' : 'desktop'}`}>
-        <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
+      <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
           {!isCollapsed && <div className="sidebar-border"></div>}
 
           <header className="logosena">
@@ -75,7 +72,7 @@ const Navigation = () => {
               </li>
               <li className={isMobile ? 'mobile-item' : ''}>
                 <button className="button-Sidebar"><MdOutlineAlignVerticalBottom className="icon" /></button>
-                {!isCollapsed && <span>Programa de formacion</span>}
+                {!isCollapsed && <span>Progama de formación</span>}
               </li>
               <li className={isMobile ? 'mobile-item' : ''}>
                 <button className="button-Sidebar"><TfiStatsUp className="icon" /></button>
@@ -92,7 +89,7 @@ const Navigation = () => {
 
           <button className="logout">
             <CiLogout className="icon" />
-            {!isCollapsed && <span>Logout</span>}
+            {!isCollapsed && <span>Cerrar sesión</span>} 
           </button>
         </aside>
       </div>
@@ -124,10 +121,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
-
-
-
-
-
-
