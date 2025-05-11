@@ -6,8 +6,8 @@ import sgva from '../../assets/icons/icon-sgva.png'
 import zajuna from '../../assets/icons/icon-zajuna.png'
 import imglogin from '../../assets/images/img-login.svg'
 import HeaderLogin from '../../layout/HeaderLogin/HeaderLogin.jsx';
-import { Link } from 'react-router-dom';
 import { BsEyeSlashFill } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
 export const OldPasswordPage = () => {
     return (
@@ -29,15 +29,14 @@ export const OldPasswordPage = () => {
 
                     <div className="remember-forgot">
                         <label><input type="checkbox"/>Recordarme</label>
-                        <a className="OldMyPass" >Olvide mi contraseña</a>
-                    </div> {/* -- Link para recuprar cuenta -- */}
-
-                    <button className="Bottonlogin" type="submit">LOGIN</button>
-
-                    <div className="NotAccount">
-                        <p className="TextNotAccount" >No tienes cuenta?</p>
-                        <span className="SpanCreate" >Crea una</span>
+                        <Link to="/update" className="OldMyPass">
+                            Olvide mi contraseña
+                        </Link>
                     </div>
+
+                    <Link to="/home">
+                        <button className="Bottonlogin" type="submit">LOGIN</button>
+                    </Link>
 
                     <div className="accesses">
                     <p className='direct'>Accesos Directos</p>
