@@ -25,7 +25,7 @@ const viewProfilePage = () => {
                             />
                         </div>
 
-                        <h2>MCLaren</h2>
+                        <h2>Stephania Duque</h2>
 
                         <div className="role-info">
                             <span>ROL</span>
@@ -36,12 +36,10 @@ const viewProfilePage = () => {
                     <div className="description-card">
                         <h3>Descripción</h3>
                         <ul>
-                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing</li>
-                            <li>Adipisicing elit. Perferendis natus non et ut quas carrera</li>
-                            <li>Quisque maximus diam lobore et elit, sed</li>
-                            <li>Vestibulum hendrerit nibh sed dolor congue</li>
-                            <li>Quis tempus neque eleifend</li>
-                            <li>Ac nunc!</li>
+                            <li>Soy una mujer Emprendedora</li>
+                            <li>Soy una mujer que lo que me propongo lucho hasta conseguirlo</li>
+                            <li>Soy una mujer aficionada a las vacas y a lo marranos</li>
+                            <li>mi marca de electrodomenticos favorita es Huawei</li>
                         </ul>
                             
                     </div>
@@ -52,31 +50,31 @@ const viewProfilePage = () => {
                     <div className="info-cards">
                         <div className="info-card">
                             <div className="info-title">Tipo de documento</div>
-                            <div className="info-value">Cédula</div>
+                            <div className="info-value">Tarjeta de identidad</div>
                         </div>
 
                         <div className="info-card">
-                            <div className="info-title">Número de documento</div>
-                            <div className="info-value">8001</div>
+                            <div className="info-title">Numero Telefonico</div>
+                            <div className="info-value">+57 314-7539505</div>
                         </div>
 
                         <div className="info-card">
-                            <div className="info-title">Representante legal</div>
-                            <div className="info-value">2859355</div>
-                        </div>
-
-                        <div className="info-card">
-                            <div className="info-title">Razón social</div>
-                            <div className="info-value">05/12/2028</div>
+                            <div className="info-title">Correo Electronicol</div>
+                            <div className="info-value">niaduq1@gmail.com</div>
                         </div>
 
                         <div className="info-card">
                             <div className="info-title">Dirección</div>
-                            <div className="info-value">Dignal 25 Conjunto Residencial Ciprés</div>
+                            <div className="info-value">Barrio Antioquia - Medellin</div>
+                        </div>
+
+                        <div className="info-card">
+                            <div className="info-title">Contraseña</div>
+                            <div className="info-value">1085816708Niaduq1</div>
                         </div>
 
                         <div className="action-card">
-                            <Link to="/editProfilePage">
+                            <Link to="/editProfile">
                                 <button className="icon-button edit-button">
                                     <FaRegEdit />
                                 </button>
