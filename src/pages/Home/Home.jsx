@@ -1,35 +1,43 @@
-// App.js - Componente principal
+// Home.jsx
 import React from 'react';
+import CardUser from '../../components/Cards/CardUser/CardUser.jsx';
+import CardOrder from '../../components/Cards/CardOrder/CardOrder.jsx';
+import CardSales from '../../components/Cards/CardSales/CardSales.jsx';
+import CardPending from '../../Components/Cards/CardPending/CardPending.jsx';
 import EnEjecucionChart from '../../components/GraphicHome/GraphicHome.jsx';
-import CardUser from '../../components/Cards/CardUser/CardUser.jsx'
-import CardOrder from '../../components/Cards/CardOrder/CardOrder.jsx'
-import CardSales from '../../components/Cards/CardSales/CardSales.jsx'
-import CardPending from '../../components/Cards/CardPending/CardPending.jsx'
-import { NavigationProvider } from '../../layout/SideBar/SideBar.jsx';
-import './css/home.css'
-import '../../styles/variables.css'
-import Navigation from '../../layout/SideBar/SideBar.jsx';
-const Home = () => {
+import Navigation, { NavigationProvider, useNavigation } from '../../layout/SideBar/SideBar.jsx';
+import './css/Home.css';
+
+const HomeContent = () => {
+  const { isCollapsed } = useNavigation();
+
   return (
-    <NavigationProvider>
-        <Navigation/>
-          <div className="h1">
-            <h2>Bienvenida, Stephania Duque</h2>
-          </div>
+    <>
+      <Navigation />
+      <div id="Home" className={isCollapsed ? 'collapsed' : ''}>
+        <div className="h1">
+          <h2>Bienvenida, Stephania Duque</h2>
+        </div>
 
-          <div className="cards-container">
-            <CardUser />
-            <CardSales />
-            <CardOrder />
-            <CardPending />
-          </div>
+        <div className="cards-container">
+          <CardUser />
+          <CardSales />
+          <CardOrder />
+          <CardPending />
+        </div>
 
-          <div className="Grafics">
-            <EnEjecucionChart />
-          </div>
-        
-    </NavigationProvider>
+        <div className="Grafics">
+          <EnEjecucionChart />
+        </div>
+      </div>
+    </>
   );
-}
+};
+
+const Home = () => (
+  <NavigationProvider>
+    <HomeContent />
+  </NavigationProvider>
+);
 
 export default Home;

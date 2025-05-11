@@ -5,7 +5,7 @@ import OldPasswordPage from './pages/OldPasswordPage/OldPasswordPage.jsx';
 import LoginPage from './pages/LoginPage/LoginPage.jsx' /* Importamos el componente LoginPage */
 import UpdatePasswordPage from './pages/UpdatePasswordPage/UpdatePasswordPage'; /* Importamos el componente UpdatePasswordPage */
 import VerifyCodePage from './pages/VerifyCodePage/VerifyCodePage.jsx';
-import Home from './pages/Home/Home.jsx'; /* Importamos el componente Home */
+import Home from './pages/Home/Home.jsx' /* Importamos el componente Home */
 
 function App() {
   return (

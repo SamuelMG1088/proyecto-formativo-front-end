@@ -9,10 +9,10 @@ import { PiUsers } from "react-icons/pi";
 import { MdOutlineAlignVerticalBottom } from "react-icons/md";
 import { AiOutlineUser } from "react-icons/ai";
 import { CiLogout } from "react-icons/ci";
+import { BsBuildings } from "react-icons/bs";
 import LogoSena from '../../assets/logos/logo-Sena.png';
 import Profilepic from '../../assets/logos/logo-Sena.png';
 import './css/SideBar.css';
-import '../../styles/variables.css'
 
 // Contexto de navegación
 const NavigationContext = createContext();
@@ -50,7 +50,7 @@ const Navigation = () => {
       {/* Sidebar */}
       <div id="Sidebar" className={`container ${isMobile ? 'mobile' : isTablet ? 'tablet' : 'desktop'}`}>
       <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
-          {!isCollapsed && <div className="sidebar-border"></div>}
+           <div className="sidebar-border"></div>
 
           <header className="logosena">
             <img src={LogoSena} alt="Logo SENA" />
@@ -64,7 +64,7 @@ const Navigation = () => {
                 {!isCollapsed && <span>Home</span>}
               </li>
               <li className={isMobile ? 'mobile-item' : ''}>
-                <button className="button-Sidebar"><FaRegBuilding className="icon" /></button>
+                <button className="button-Sidebar"><BsBuildings className="icon" /></button>
                 {!isCollapsed && <span>Empresas</span>}
               </li>
               <li className={isMobile ? 'mobile-item' : ''}>
@@ -73,7 +73,7 @@ const Navigation = () => {
               </li>
               <li className={isMobile ? 'mobile-item' : ''}>
                 <button className="button-Sidebar"><MdOutlineAlignVerticalBottom className="icon" /></button>
-                {!isCollapsed && <span>Progama de formación</span>}
+                {!isCollapsed && <span>Programa de formación</span>}
               </li>
               <li className={isMobile ? 'mobile-item' : ''}>
                 <button className="button-Sidebar"><TfiStatsUp className="icon" /></button>
@@ -121,4 +121,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default Navigation;

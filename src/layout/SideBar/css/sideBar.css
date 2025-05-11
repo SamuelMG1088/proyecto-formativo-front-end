@@ -7,7 +7,7 @@
   border-bottom: 0.07vw solid var(--color-border);
   padding: 0.5vw 2vw;
   background-color: var(--neutral-4);
-  height: 4vw;
+  height: 2.8rem;
   box-sizing: border-box;
   margin-left: 15%;
   width: 85%;
@@ -23,6 +23,7 @@
   border: 0.07vw solid var(--color-border);
   gap: 0.5vw;
   width: 100%;
+  margin-left: 0.5rem;
 }
 
 .search-bar input {
@@ -32,6 +33,7 @@
   flex: 1;
   font-size: 1vw;
   color: var(--neutral-1_6);
+  width: 15rem;
 }
 
 .search-icon {
@@ -110,22 +112,29 @@
 #Sidebar .logosena {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2vw;
-  margin-right: 13%;
+  /* margin-bottom: 2vw;     */
+  margin-right: 35%;  
 }
 
 #Sidebar .logo {
   color: var(--neutral-3);
   font-weight: bold;
-  margin-bottom: 2vw;
+  font-size: 1rem;
+  margin-left: 0.8rem;
+  margin-top: 1.5rem;
+
 }
 
 #Sidebar .logosena img {
-  width: 3vw;
   max-height: 3vw;
   max-width: 3vw;
+  margin-top: 9%;
+
 }
 
+.icon{
+  font-size: 1rem;
+}
 
 #Sidebar .sidebar {
   width: 13.5%;
@@ -140,41 +149,43 @@
   top: 0;
   left: 0;
   z-index: 999;
-  height: 100vh;
+  height: 100%;
   overflow-y: auto;
+
 }
 
 #Sidebar .sidebar-border {
   position: absolute;
-  top: 4vw;
+  top: 4.2vw;
   right: 0;
   width: 0.07vw;
-  height: calc(100% - 5vw);
+  height: calc(100% - 4.2vw);
   background-color: var(--color-border);
 }
 
 #Sidebar .sidebar ul li {
   padding: 0.75vw 0.625vw;
-  color: var(--neutral-1_6);
+  color: black;
   cursor: pointer;
   display: flex;
   align-items: center;
   font-size: 1vw;
   transition: background 0.3s, color 0.3s;
   border-radius: 0.3125vw;
+  gap: 0.8rem;
 }
 
 #Sidebar .button-Sidebar {
   border: none;
   background: none;
-  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 1.4rem;
 }
 
-#Sidebar .line-bottom {
-  width: 115.38%;
+#Sidebar .line-bottom { 
+  width: 150%;
   height: 0.07vw;
   background-color: var(--color-border);
   margin: 1vw 0;
@@ -182,19 +193,31 @@
   left: -9.62%;
 }
 
+
+
 #Sidebar .sidebar ul li .icon {
-  font-size: 1.1vw;
   color: var(--neutral-3);
-  margin-right: 1vw;
+  font-size: 1rem ;
+  display: flex;
+  align-items: center;
+
+
+  
+  
 }
 
 #Sidebar .sidebar ul li:hover {
   background: var(--color-primary);
   color: var(--neutral-4);
+  /* height: 2rem; */
 }
 
 #Sidebar .sidebar ul li:hover .icon {
   color: var(--neutral-4);
+}
+
+.sidebar-menu{
+  margin-left: -17%;  /* ajustar a la izquierda los iconos y la letra en el sidebar*/
 }
 
 #Sidebar .logout {
@@ -209,6 +232,7 @@
   border-radius: 0.3125vw;
   padding: 0.75vw 0.625vw;
   transition: background 0.3s, color 0.3s;
+  gap: 0.9rem;
 }
 
 #Sidebar .logout:hover {
@@ -218,6 +242,7 @@
 
 #Sidebar .logout:hover .icon {
   color: var(--neutral-4);
+  background: var(--color-primary);
 }
 
 /* ========== ESTRUCTURA PRINCIPAL Y MEDIA QUERIES ========== */
@@ -246,16 +271,20 @@ body {
   margin-top: 4vw;
   margin-left: 13.5%;
   transition: margin 0.3s ease;
+  
 }
 
 .sidebar.collapsed {
   width: 5.2% !important;
+  
 }
 
 .sidebar.collapsed + .main-content,
 .sidebar-collapsed + .main-content {
   margin-left: 5.2%;
+  
 }
+
 
 .sidebar.collapsed .logosena {
   justify-content: center;
@@ -263,15 +292,26 @@ body {
 
 .sidebar.collapsed .sidebar-menu li {
   justify-content: center;
+  margin-left: -55%
+  
 }
 
 .sidebar.collapsed .logout {
   justify-content: center;
+
+  
 }
+
+.sidebar-menu li{
+  margin-left: -0.6rem;
+  
+}
+
 
 .sidebar,
 .sidebar .logosena,
 .sidebar .sidebar-menu li,
 .sidebar .logout {
-  transition: all 0.3s ease;
+  transition: all 0.3s ease;
+
 }
