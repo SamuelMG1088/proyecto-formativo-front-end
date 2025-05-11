@@ -22,7 +22,7 @@ export const VerifyCodePage = () => {
                         <BsEyeSlashFill className='icon'/>
                     </div>
 
-                    <Link to="">
+                    <Link to="/update">
                         <button className="BottonVerify" type="submit">VERIFICAR</button>
                     </Link>
                 </div>

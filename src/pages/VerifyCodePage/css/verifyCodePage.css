@@ -68,7 +68,7 @@
 
     /* Imagen de Fondo */
     .img-VerifyPage {
-        background-color: var(--neutral-1);
+        background-color: var(--color-secundary2_5);
         border-radius: 0.6rem;
         width: 78%;
     }
