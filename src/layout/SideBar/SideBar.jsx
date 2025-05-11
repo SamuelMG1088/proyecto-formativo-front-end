@@ -12,6 +12,7 @@ import { CiLogout } from "react-icons/ci";
 import LogoSena from '../../assets/logos/logo-Sena.png';
 import Profilepic from '../../assets/logos/logo-Sena.png';
 import './css/SideBar.css';
+import '../../styles/variables.css'
 
 // Contexto de navegación
 const NavigationContext = createContext();
