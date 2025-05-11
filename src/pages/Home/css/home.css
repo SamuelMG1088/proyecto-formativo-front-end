@@ -1,17 +1,15 @@
 #Home {
     display: flex;
-    /* padding: 0; */
     width: 105%;
     height: 99vh;
     
-  }
-  html, body {
+    html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     background: var(--neutral-1_7);
   }
-  
+}
   .sidebar {
     width: 250px;
     background-color: white;

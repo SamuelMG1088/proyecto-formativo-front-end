@@ -29,7 +29,7 @@ export const OldPasswordPage = () => {
 
                     <div className="remember-forgot">
                         <label><input type="checkbox"/>Recordarme</label>
-                        <Link to="/update" className="OldMyPass">
+                        <Link to="/old" className="OldMyPass">
                             Olvide mi contraseña
                         </Link>
                     </div>
@@ -42,13 +42,19 @@ export const OldPasswordPage = () => {
                     <p className='direct'>Accesos Directos</p>
                     <div className="box-assest">
                         <div className="box">
-                            <img className='sofiaplus' src={sofiaplus} alt=''/>
+                            <a href="https://zajuna.sena.edu.co/" target="_blank" rel="noopener noreferrer">
+                                <img className='sofiaplus' src={sofiaplus} alt=''/>
+                            </a>
                         </div>
                         <div className="box">
-                            <img className='sgva' src={sgva} alt="" />
+                            <a href="https://caprendizaje.sena.edu.co/sgva/SGVA_Diseno/pag/login.aspx" target="_blank" rel="noopener noreferrer" >
+                                <img className='sgva' src={sgva} alt="" />
+                            </a>
                         </div>
                         <div className="box">
-                            <img  className='zajuna' src={zajuna} alt=""/>
+                            <a href="https://zajuna-sena-edu.co/ayuda-y-soporte/" target="_blank" rel="noopener noreferrer" >
+                                <img  className='zajuna' src={zajuna} alt=""/>
+                            </a>
                         </div>
                     </div> {/* -- Cajas de accesos -- */}
                     </div>

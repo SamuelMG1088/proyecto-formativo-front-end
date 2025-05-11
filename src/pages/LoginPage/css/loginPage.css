@@ -130,4 +130,105 @@
         border-radius: 0.6rem;
         width: 78%;
     }
+
+}
+
+@media (max-width: 1024px) {
+    .LoginPage {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .LoginPage .frame {
+        width: 80%;
+        margin: 5% auto;
+    }
+
+    .img-LoginPage {
+        width: 100%;
+    }
+
+    .box-assest {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .LoginPage .frame {
+        width: 90%;
+        margin: 5% auto;
+    }
+
+    .LoginPage .frame h1 {
+        font-size: 1.5rem;
+    }
+
+    .LoginPage .frame .P_Accede {
+        font-size: 0.9rem;
+    }
+
+    .input-box-email input {
+        font-size: 1rem;
+    }
+
+    .icon {
+        display: none;
+    }
+
+    .Bottonlogin {
+        width: 100%;
+        height: 2.5rem;
+    }
+
+    .box-assest {
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .box {
+        width: 5rem;
+        height: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .box img {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .LoginPage {
+        padding: 2rem;
+    }
+
+    .LoginPage .frame {
+        width: 100%;
+        margin: 2% auto;
+    }
+
+    .icon {
+        display: none;
+    }
+
+    .box-assest {
+        grid-template-columns: repeat(1, 1fr);
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .box {
+        width: 100%;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .box img {
+        width: 50%;
+    }
 }
