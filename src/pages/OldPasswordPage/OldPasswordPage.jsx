@@ -1,5 +1,4 @@
 import React from "react"
-import './css/oldPasswordPage.css'
 import sofiaplus from '../../assets/icons/icon-sofiaplus.png'
 import sgva from '../../assets/icons/icon-sgva.png'
 import zajuna from '../../assets/icons/icon-zajuna.png'
@@ -7,6 +6,8 @@ import svgoldPassword from '../../assets/images/img-oldPassword.svg'
 import HeaderLogin from '../../layout/HeaderLogin/HeaderLogin.jsx';
 import { Link } from 'react-router-dom';
 import { FaAngleLeft } from "react-icons/fa6";
+import './css/oldPasswordPage.css'
+import '../../styles/variables.css'
 
 export const OldPasswordPage = () => {
     return (
