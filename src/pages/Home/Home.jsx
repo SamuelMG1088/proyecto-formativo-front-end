@@ -13,7 +13,7 @@ const HomeContent = () => {
 
   return (
     <>
-      <Navigation />
+      <Navigation/>
       <div id="Homepage">
         <div id="Home" className={isCollapsed ? 'collapsed' : ''}>
             <div className="h1">

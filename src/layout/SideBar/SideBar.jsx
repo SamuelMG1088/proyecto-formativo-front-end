@@ -12,6 +12,7 @@ import { CiLogout } from "react-icons/ci";
 import { BsBuildings } from "react-icons/bs";
 import LogoSena from '../../assets/logos/logo-Sena.png';
 import Profilepic from '../../assets/logos/logo-Sena.png';
+import { Link } from 'react-router-dom';
 import './css/SideBar.css';
 
 // Contexto de navegación
@@ -59,10 +60,12 @@ const Navigation = () => {
 
           <nav>
             <ul className="sidebar-menu">
+              <Link to="/home">
               <li className={isMobile ? 'mobile-item' : ''}>
                 <button className="button-Sidebar"><IoHomeOutline className="icon" /></button>
                 {!isCollapsed && <span>Home</span>}
               </li>
+              </Link>
               <li className={isMobile ? 'mobile-item' : ''}>
                 <button className="button-Sidebar"><BsBuildings className="icon" /></button>
                 {!isCollapsed && <span>Empresas</span>}
@@ -79,10 +82,12 @@ const Navigation = () => {
                 <button className="button-Sidebar"><TfiStatsUp className="icon" /></button>
                 {!isCollapsed && <span>Gráficos</span>}
               </li>
+              <Link to="/viewProfile">
               <li className={isMobile ? 'mobile-item' : ''}>
                 <button className="button-Sidebar"><AiOutlineUser className="icon" /></button>
                 {!isCollapsed && <span>Perfil</span>}
               </li>
+              </Link>
             </ul>
           </nav>
 
