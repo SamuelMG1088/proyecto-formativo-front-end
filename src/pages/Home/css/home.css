@@ -1,70 +1,69 @@
-#Home {
-    display: flex;
-    /* padding: 0; */
-    width: 105%;
-    height: auto;
-}
-  html, body {
+#Homepage{
+
+    #Home {
+        display: flex;
+        width: 115%;
+        height: auto;
+        background: var(--neutral-1);
+    }
+
+    html, body {
     margin: 0;
-    background: var(--neutral-1);
     padding: 0;
     height: 100%;
-    /* background: var(--neutral-1); */
-  }
-  
 
-  
-  
-  .content {
-    flex: 1;    
-    display: flex;
-    flex-direction: column; 
-    font-size: 20px;
+  }
+
+    .content {
+        flex: 1;    
+        display: flex;
+        flex-direction: column; 
+        font-size: 20px;
+        
+    }
     
-  }
-  
-  .h1 {
-    font-size: 20px;
-    margin-left: 46.9%;
-    font-weight: bold;
-    color: var(--neutral-3);
-  }
-  h2{
-    color: #000000;
-    white-space: nowrap;  /* Evita que el texto se divida en dos líneas*/
-    margin-left: -49%;
-  
-  }
-  
-  .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3rem;
-    margin-left: 20.9%;
-    margin-bottom: 2%;
-  
-  }
-  
-  
-  .Grafics {
-    flex: 1;
-    display: flex;
-    margin-left: 26%;
-    flex-direction: column;
-  }
+    .h1 {
+        font-size: 20px;
+        margin-left: 46.9%;
+        font-weight: bold;
+        color: var(--neutral-3);
+    }
+    h2{
+        color: #000000;
+        white-space: nowrap;  /* Evita que el texto se divida en dos líneas*/
+        margin-left: -49%;
+    
+    }
+    
+    .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
+        margin-left: 20.9%;
+        margin-bottom: 2%;
+    
+    }
 
-  /* Cuando el sidebar esté colapsado */
-  #Home.collapsed {
-    margin-left: -10%;
-    transition: margin-left 0.3s ease;
+    .Grafics {
+        flex: 1;
+        display: flex;
+        margin-left: 20%;
+        flex-direction: column;
+    }
 
-  } 
+    /* Cuando el sidebar esté colapsado */
+    #Home.collapsed {
+        margin-left: -10%;
+        transition: margin-left 0.3s ease;
+
+    } 
 
 
-  #Home {
-    transition: margin-right 0.3s ease;
-    display: flex;
-    flex-direction: column;
+    #Home {
+        transition: margin-right 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 

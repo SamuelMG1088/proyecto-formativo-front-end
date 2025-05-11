@@ -14,22 +14,24 @@ const HomeContent = () => {
   return (
     <>
       <Navigation />
-      <div id="Home" className={isCollapsed ? 'collapsed' : ''}>
-        <div className="h1">
-          <h2>Bienvenida, Stephania Duque</h2>
-        </div>
+      <div id="Homepage">
+        <div id="Home" className={isCollapsed ? 'collapsed' : ''}>
+            <div className="h1">
+            <h2>Bienvenida, Stephania Duque</h2>
+            </div>
 
-        <div className="cards-container">
-          <CardUser />
-          <CardSales />
-          <CardOrder />
-          <CardPending />
-        </div>
+            <div className="cards-container">
+            <CardUser />
+            <CardSales />
+            <CardOrder />
+            <CardPending />
+            </div>
 
-        <div className="Grafics">
-          <EnEjecucionChart />
+            <div className="Grafics">
+            <EnEjecucionChart />
+            </div>
         </div>
-      </div>
+       </div>
     </>
   );
 };
