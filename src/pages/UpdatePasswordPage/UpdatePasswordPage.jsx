@@ -25,7 +25,7 @@ export const UpdatePasswordPage = () => {
                         <BsEyeSlashFill className='icon'/>
                     </div>
 
-                    <Link to="">
+                    <Link to="/">
                         <button className="BottonUpdate" type="submit">ACTUALIZAR CONTRASEÑA</button>
                     </Link>
                 </div>
