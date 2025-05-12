@@ -1,7 +1,7 @@
 import { useState } from "react"
 import "./css/listCompany.css"
 import { FaRegEdit } from "react-icons/fa"
-import ButtonView from "../../components/Buttons/ButtonView/ButtonView.jsx"
+import ButtonViewInactive from "../../components/Buttons/ButtonViewInactive/ButtonViewInactive.jsx"
 import ButtonAdd from "../../components/Buttons/ButtonAdd/ButtonAdd.jsx"
 import ButtonsExports from "../../components/ExportPdfExcel/ExportPdfExcel.jsx"
 import { FiFilter } from "react-icons/fi"
@@ -56,7 +56,7 @@ export default function Visualizar_empresa() {
                 <ButtonsExports />
               </div>
               <div className="button__view">
-                <ButtonView />
+                <ButtonViewInactive />
               </div>
               <Link to='/createCompany'>
               <div className="button--Add">

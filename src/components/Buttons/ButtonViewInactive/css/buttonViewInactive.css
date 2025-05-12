@@ -1,0 +1,9 @@
+.ViewInactive{ /* Se hace el llamado al ClassName para realizar los estilos - ClassName is called to make the styles */
+    border-radius: 6px;
+    width: 100%;
+    height: 40px;
+    color: var(--neutral-4);
+    background-color: var( --color-secundary-1);
+    border: none;
+    margin-bottom: 2rem;
+}
