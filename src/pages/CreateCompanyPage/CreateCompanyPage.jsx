@@ -4,6 +4,8 @@ import './css/CreateCompanyPage.css';
 import perfil from '../../assets/icons/icon-form-create.png';
 import Crear from '../../components/Buttons/ButtonCreate/ButtonCreate.jsx'
 import Navigation, { NavigationProvider, useNavigation } from '../../layout/SideBar/SideBar.jsx';
+import { Link } from 'react-router-dom';
+
 
 const FormCreate = () => {
   return (
@@ -84,9 +86,11 @@ const FormCreate = () => {
             <label>Contraseña</label>
             <input className="input-form" type="password" placeholder="***************" />
             </div>
+            <Link to='/listcompany'>
             <div className='button'>
-            <Crear />       
+                <Crear />       
             </div>
+            </Link>
                 
         </form>
         </div>

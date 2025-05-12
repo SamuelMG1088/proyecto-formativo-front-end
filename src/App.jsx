@@ -8,6 +8,8 @@ import Home from './pages/Home/Home.jsx' /* Importamos el componente Home */
 import ViewProfilePage from './pages/ViewProfilePage/ViewProfilePage.jsx' /* Importamos el componente ViewProfilePage */
 import EditProfilePage from './pages/EditProfilePage/EditProfilepage.jsx';
 import FormCreate from './pages/CreateCompanyPage/CreateCompanyPage.jsx';
+import InfoView from './pages/ListCompany/ListCompany.jsx'
+
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
         <Route path="/viewProfile" element={<ViewProfilePage/>}/> {/* Definimos la ruta para el componente ViewProfilePage */}
         <Route path="/editProfile" element={<EditProfilePage/>}/> {/* Definimos la ruta para el componente EditProfilePage */}
         <Route path="/createCompany" element={<FormCreate/>}/> {/* Definimos la ruta para el componente CreateUserForCompanyPage */}
+        <Route path="/listcompany" element={<InfoView/>}/> {/* Definimos la ruta para el componente ListCompany */}
       </Routes>
     </BrowserRouter>
     </>

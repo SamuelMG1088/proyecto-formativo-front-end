@@ -67,7 +67,7 @@ const Navigation = () => {
                 </li>
               </Link>
 
-              <Link  className='sidebar-link' to="/viewCompanies">
+              <Link  className='sidebar-link' to="/listcompany">
                 <li className={isMobile ? 'mobile-item' : ''}>
                   <button className="button-Sidebar"><BsBuildings className="icon" /></button>
                   {!isCollapsed && <span>Empresas</span>}

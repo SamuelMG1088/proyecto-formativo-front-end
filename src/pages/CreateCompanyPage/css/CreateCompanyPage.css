@@ -166,8 +166,10 @@
 
     .button{
         position: relative;        
-        width: 200%;
-        left: -9%;
+        width: 56rem;
+        right: 6rem;
+        top: 10%;
+        
     }
 }
 

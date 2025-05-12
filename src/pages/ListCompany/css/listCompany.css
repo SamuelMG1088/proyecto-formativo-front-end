@@ -1,0 +1,228 @@
+#ListarEmpresa {
+    .container-principal {
+        width: 100%;
+        height: 95%;
+        background: var(--neutral-1);
+        position: absolute;
+    }
+  
+    .exports {
+        margin-left: 13rem;
+    }
+  
+    .titles-container {
+        display: flex;
+        width: 68%;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2rem;
+        margin-left: 20rem;
+    }
+  
+    .boxes-buttons {
+        height: 2.5rem;
+    }
+  
+    /* Filtro */
+    .filter-container {
+        margin-left: 19.3rem;
+        position: relative;
+        width: 75%;
+        z-index: 100;
+    }
+  
+    .filter-bar {
+        display: flex;
+        align-items: center;
+        margin-top: 1.5rem;
+        border: 1px solid var(--neutral-1);
+        border-radius: 2%;
+        width: 69%;
+        height: 3rem;
+        background-color: var(--neutral-4);
+    }
+  
+    .filter-item {
+        display: flex;
+        align-items: center;
+        padding: 0 1rem;
+        height: 100%;
+        cursor: pointer;
+    }
+  
+    .filter-by {
+        border-right: 2px solid var(--neutral-1);
+        gap: 0.5rem;
+    }
+  
+    .document-type,
+    .status {
+        border-right: 2px solid var(--neutral-1);
+        justify-content: space-between;
+        padding: 0 1rem;
+        flex: 1;
+    }
+  
+    .reset {
+        color: var(--color-primary);
+        gap: 0.5rem;
+        margin-left: auto;
+        padding-right: 1.5rem;
+    }
+  
+    .refresh-icon {
+        font-size: 1.2rem;
+    }
+  
+    .reset-text {
+        font-weight: 500;
+    }
+  
+    /* Dropdown de filtros */
+    .filter-dropdown {
+        position: absolute;
+        top: 4.5rem;
+        background-color: var(--neutral-4);
+        border-radius: 8%;
+        box-shadow: 0 4% 12% rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        z-index: 1000;
+        width: 35%;
+    }
+  
+    .document-type-dropdown {
+        left: 8%;
+    }
+  
+    .status-dropdown {
+        left: 35%;
+    }
+  
+    .filter-dropdown h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: var(--neutral-1_6);
+    }
+  
+    .filter-options {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+  
+    .filter-option {
+        flex: 1;
+        padding: 0.75rem;
+        border: 1px solid var(--neutral-1);
+        border-radius: 50px;
+        background-color: var(--neutral-4);
+        color: var(--neutral-1_6);
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.2s;
+    }
+  
+    .filter-option.selected {
+        background-color: var(--color-primary);
+        color: var(--neutral-4);
+        border-color: var(--color-primary);
+    }
+  
+    .select-button {
+        width: 100%;
+        padding: 0.75rem;
+        background-color: var(--color-primary);
+        color: var(--neutral-4);
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: background-color 0.2s;
+    }
+    .button--Add{
+        width: 200%;
+        margin-top: 49%;
+    }
+
+    .button__view {
+        margin-left: 7rem;
+        width: 10%;
+        margin-top: 2.5%;
+    }
+  
+    .select-button:hover {
+        background-color: var(--color-primary);
+    }
+  
+    /* Estilos para la tabla de empresas */
+    .border {
+        border: 1px solid var(--neutral-1_2);
+        width: 70.5%;
+        border-radius: 6px;
+    }
+  
+    .empresa-table-container {
+        margin-left: 18rem;
+        padding: 20px;
+        width: 100%;
+        overflow-x: auto; /*Para cuando el contenido de la tabla se desborda*/
+    }
+  
+    .empresa-table {
+      border: 1px solid var(--neutral-1_2); 
+      width: 100%;
+      border-collapse: collapse;
+      background-color: var(--neutral-4);
+      border-radius: 8px;
+      overflow: hidden;
+      /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); */
+    }
+  
+    .empresa-table thead {
+      background-color: var(--neutral-);
+    }
+  
+    .empresa-table th {
+      padding: 12px 15px;
+      text-align: left;
+      font-weight: 600;
+      color: var(--neutral-1_6);
+      border-bottom: 1px solid var(--neutral-1_2);
+    }
+  
+    .empresa-table td {
+      padding: 12px 15px;
+      border-bottom: 2px solid #f6f6f6;
+      color: var(--neutral-1_5);
+    }
+  
+    .empresa-table tbody tr:hover {
+      background-color: var(--neutral-2);
+    }
+  
+    .status-badge {
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      display: inline-block;
+    }
+  
+    .status-badge.active {
+      background-color: var(--color-primary6);
+      color: var(--color-primary);
+    }
+  
+    .edit-button {
+      background: none;
+      border: none;
+      color: var(--neutral-1_6);
+      cursor: pointer;
+      font-size: 16px;
+    }
+  
+    .edit-button:hover {
+      color: var(--color-primary);
+    }
+}
+  
