@@ -7,6 +7,7 @@ import VerifyCodePage from './pages/VerifyCodePage/VerifyCodePage.jsx';
 import Home from './pages/Home/Home.jsx' /* Importamos el componente Home */
 import ViewProfilePage from './pages/ViewProfilePage/ViewProfilePage.jsx' /* Importamos el componente ViewProfilePage */
 import EditProfilePage from './pages/EditProfilePage/EditProfilepage.jsx';
+import FormCreate from './pages/CreateCompanyPage/CreateCompanyPage.jsx';
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
         <Route path="/verify" element={<VerifyCodePage/>} /> {/* Definimos la ruta para el componente VerifyCodePage */}
         <Route path="/home" element={<Home/>}/> {/* Definimos la ruta para el componente Home */}
         <Route path="/viewProfile" element={<ViewProfilePage/>}/> {/* Definimos la ruta para el componente ViewProfilePage */}
-        <Route path="/editProfile" element={<EditProfilePage/>}/> {/* Definimos la ruta para el componente ViewProfilePage */}
+        <Route path="/editProfile" element={<EditProfilePage/>}/> {/* Definimos la ruta para el componente EditProfilePage */}
+        <Route path="/createCompany" element={<FormCreate/>}/> {/* Definimos la ruta para el componente CreateUserForCompanyPage */}
       </Routes>
     </BrowserRouter>
     </>
