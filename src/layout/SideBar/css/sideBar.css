@@ -175,6 +175,10 @@
   gap: 0.8rem;
 }
 
+.sidebar-link {
+  text-decoration: none;
+}
+
 #Sidebar .button-Sidebar {
   border: none;
   background: none;

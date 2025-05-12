@@ -60,7 +60,7 @@ const Navigation = () => {
 
           <nav>
             <ul className="sidebar-menu">
-              <Link to="/home">
+              <Link  className='sidebar-link' to="/home">
               <li className={isMobile ? 'mobile-item' : ''}>
                 <button className="button-Sidebar"><IoHomeOutline className="icon" /></button>
                 {!isCollapsed && <span>Home</span>}
@@ -82,7 +82,7 @@ const Navigation = () => {
                 <button className="button-Sidebar"><TfiStatsUp className="icon" /></button>
                 {!isCollapsed && <span>Gráficos</span>}
               </li>
-              <Link to="/viewProfile">
+              <Link  className='sidebar-link' to="/viewProfile">
               <li className={isMobile ? 'mobile-item' : ''}>
                 <button className="button-Sidebar"><AiOutlineUser className="icon" /></button>
                 {!isCollapsed && <span>Perfil</span>}
