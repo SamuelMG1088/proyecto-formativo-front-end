@@ -61,42 +61,59 @@ const Navigation = () => {
           <nav>
             <ul className="sidebar-menu">
               <Link  className='sidebar-link' to="/home">
-              <li className={isMobile ? 'mobile-item' : ''}>
-                <button className="button-Sidebar"><IoHomeOutline className="icon" /></button>
-                {!isCollapsed && <span>Home</span>}
-              </li>
+                <li className={isMobile ? 'mobile-item' : ''}>
+                  <button className="button-Sidebar"><IoHomeOutline className="icon" /></button>
+                  {!isCollapsed && <span>Home</span>}
+                </li>
               </Link>
-              <li className={isMobile ? 'mobile-item' : ''}>
-                <button className="button-Sidebar"><BsBuildings className="icon" /></button>
-                {!isCollapsed && <span>Empresas</span>}
-              </li>
-              <li className={isMobile ? 'mobile-item' : ''}>
-                <button className="button-Sidebar"><PiUsers className="icon" /></button>
-                {!isCollapsed && <span>Usuarios</span>}
-              </li>
-              <li className={isMobile ? 'mobile-item' : ''}>
-                <button className="button-Sidebar"><MdOutlineAlignVerticalBottom className="icon" /></button>
-                {!isCollapsed && <span>Programa de formación</span>}
-              </li>
-              <li className={isMobile ? 'mobile-item' : ''}>
-                <button className="button-Sidebar"><TfiStatsUp className="icon" /></button>
-                {!isCollapsed && <span>Gráficos</span>}
-              </li>
+
+              <Link  className='sidebar-link' to="/viewCompanies">
+                <li className={isMobile ? 'mobile-item' : ''}>
+                  <button className="button-Sidebar"><BsBuildings className="icon" /></button>
+                  {!isCollapsed && <span>Empresas</span>}
+                </li>
+              </Link>
+
+              <Link  className='sidebar-link' to="/viewInternships">
+                <li className={isMobile ? 'mobile-item' : ''}>
+                  <button className="button-Sidebar"><PiUsers className="icon" /></button>
+                  {!isCollapsed && <span>Usuarios</span>}
+                </li>
+              </Link>
+
+              <Link  className='sidebar-link' to="/viewInternships">
+                <li className={isMobile ? 'mobile-item' : ''}>
+                  <button className="button-Sidebar"><MdOutlineAlignVerticalBottom className="icon" /></button>
+                  {!isCollapsed && <span>Programa de formación</span>}
+                </li>
+              </Link>
+
+              <Link className='sidebar-link' to="/viewReports">
+                <li className={isMobile ? 'mobile-item' : ''}>
+                  <button className="button-Sidebar"><TfiStatsUp className="icon" /></button>
+                  {!isCollapsed && <span>Gráficos</span>}
+                </li>
+              </Link>
+
               <Link  className='sidebar-link' to="/viewProfile">
-              <li className={isMobile ? 'mobile-item' : ''}>
-                <button className="button-Sidebar"><AiOutlineUser className="icon" /></button>
-                {!isCollapsed && <span>Perfil</span>}
-              </li>
+                <li className={isMobile ? 'mobile-item' : ''}>
+                  <button className="button-Sidebar"><AiOutlineUser className="icon" /></button>
+                  {!isCollapsed && <span>Perfil</span>}
+                </li>
               </Link>
+
             </ul>
           </nav>
 
           {!isCollapsed && <div className="line-bottom" />}
-
-          <button className="logout">
-            <CiLogout className="icon" />
-            {!isCollapsed && <span>Cerrar sesión</span>} 
-          </button>
+          
+          <Link  className='sidebar-link' to="/">
+            <button className="logout">
+              <CiLogout className="icon" />
+              {!isCollapsed && <span>Cerrar sesión</span>} 
+            </button>
+          </Link>
+          
         </aside>
       </div>
 
