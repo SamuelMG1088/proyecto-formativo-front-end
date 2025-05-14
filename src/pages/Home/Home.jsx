@@ -8,14 +8,14 @@ import EnEjecucionChart from '../../components/GraphicHome/GraphicHome.jsx';
 import Navigation, { NavigationProvider, useNavigation } from '../../layout/SideBar/SideBar.jsx';
 import './css/Home.css';
 
-const HomeContent = () => {
-  const { isCollapsed } = useNavigation();
-
+const Home = () => {
   return (
     <>
+    <NavigationProvider>
+
       <Navigation/>
       <div id="Homepage">
-        <div id="Home" className={isCollapsed ? 'collapsed' : ''}>
+        <div id="Home">
             <div className="h1">
             <h2>Bienvenida, Stephania Duque</h2>
             </div>
@@ -32,14 +32,9 @@ const HomeContent = () => {
             </div>
         </div>
        </div>
+    </NavigationProvider>
     </>
   );
-};
-
-const Home = () => (
-  <NavigationProvider>
-    <HomeContent />
-  </NavigationProvider>
-);
+}
 
 export default Home;

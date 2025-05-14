@@ -1,14 +1,16 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LoginPage from './pages/LoginPage/LoginPage.jsx' /* Importamos el componente LoginPage */
+import LoginPage from './pages/LoginPage/LoginPage.jsx'; /* Importamos el componente LoginPage */
 import OldPasswordPage from './pages/OldPasswordPage/OldPasswordPage.jsx';
 import UpdatePasswordPage from './pages/UpdatePasswordPage/UpdatePasswordPage'; /* Importamos el componente UpdatePasswordPage */
 import VerifyCodePage from './pages/VerifyCodePage/VerifyCodePage.jsx';
-import Home from './pages/Home/Home.jsx' /* Importamos el componente Home */
-import ViewProfilePage from './pages/ViewProfilePage/ViewProfilePage.jsx' /* Importamos el componente ViewProfilePage */
+import Home from './pages/Home/Home.jsx'; /* Importamos el componente Home */
+import ViewProfilePage from './pages/ViewProfilePage/ViewProfilePage.jsx'; /* Importamos el componente ViewProfilePage */
 import EditProfilePage from './pages/EditProfilePage/EditProfilepage.jsx';
 import FormCreate from './pages/CreateCompanyPage/CreateCompanyPage.jsx';
-import InfoView from './pages/ListCompany/ListCompany.jsx'
+import InfoView from './pages/ListCompany/ListCompany.jsx';
+import EditCompany from './pages/EditCompany/EditCompany.jsx'
+import ListarInactivas from './pages/InactiveStateCompaniesPage/InactiveStateCompaniesPage.jsx';
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
         <Route path="/editProfile" element={<EditProfilePage/>}/> {/* Definimos la ruta para el componente EditProfilePage */}
         <Route path="/createCompany" element={<FormCreate/>}/> {/* Definimos la ruta para el componente CreateUserForCompanyPage */}
         <Route path="/listcompany" element={<InfoView/>}/> {/* Definimos la ruta para el componente ListCompany */}
+        <Route path="/editCompany" element={<EditCompany/>}/> {/* Definimos la ruta para el componente ListCompany */}
+        <Route path="/listarInactivas" element={<ListarInactivas/>}/> {/* Definimos la ruta para el componente ListCompany */}
       </Routes>
     </BrowserRouter>
     </>

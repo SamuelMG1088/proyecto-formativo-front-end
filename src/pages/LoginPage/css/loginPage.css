@@ -79,7 +79,6 @@
     }
 
     .remember-forgot .OldMyPass:hover {
-        color: var(--neutral-1_5);
         cursor: pointer;
     }
 

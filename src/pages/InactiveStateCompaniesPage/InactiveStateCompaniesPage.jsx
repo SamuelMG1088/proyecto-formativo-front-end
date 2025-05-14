@@ -1,16 +1,15 @@
 import { useState } from "react"
-import "./css/listCompany.css"
+import "./css/InactiveStateCompaniesPage.css"
 import { FaRegEdit } from "react-icons/fa"
-import ButtonViewInactive from "../../components/Buttons/ButtonViewInactive/ButtonViewInactive.jsx"
-import ButtonAdd from "../../components/Buttons/ButtonAdd/ButtonAdd.jsx"
+import Navigation, { NavigationProvider, useNavigation } from '../../layout/SideBar/SideBar.jsx';
 import ButtonsExports from "../../components/ExportPdfExcel/ExportPdfExcel.jsx"
 import { FiFilter } from "react-icons/fi"
 import { IoIosArrowForward } from "react-icons/io"
 import { IoRefreshOutline } from "react-icons/io5"
-import Navigation, { NavigationProvider, useNavigation } from '../../layout/SideBar/SideBar.jsx';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { FaAngleLeft } from "react-icons/fa6";
 
-export default function Visualizar_empresa() {
+export default function ListarInactivas() {
   const [showTipoDocumento, setShowTipoDocumento] = useState(false) //|Para determinar que la ventana del filtro este abierta
   const [showEstado, setShowEstado] = useState(false)
   const [selectedDocumento, setSelectedTipoDocumento] = useState("") //|Para almacenar el valor de la opcion seleccionada
@@ -44,29 +43,17 @@ export default function Visualizar_empresa() {
   return (
     <>
       <div id="ListarEmpresa">
-            <NavigationProvider>
+        <NavigationProvider>
                 <Navigation/>
             </NavigationProvider>
-        
-          
-          <div className="container-principal">
+            <div className="container-principal">
             <div className="titles-container">
-              <h2>Empresas</h2>      
+              <h2>Empresas Inactivas</h2>
               <div className="exports">
                 <ButtonsExports />
               </div>
-              <Link to='/listarInactivas'>
-              <div className="button__view">
-                <ButtonViewInactive />
-              </div>
-              </Link>
-              <Link to='/createCompany'>
-              <div className="button--Add">
-                <ButtonAdd />
-              </div>
-              </Link>
             </div>
-
+              <Link to="/listcompany" className="Prueba"> <FaAngleLeft /> Volver a Empresas</Link>
             {/* Filtro */}
             <div className="filter-container">
               <div className="filter-bar">
@@ -148,13 +135,12 @@ export default function Visualizar_empresa() {
                 <table className="empresa-table">
                   <thead>
                     <tr>
-                      <th>NUMERO DE DOCUMENTO</th>
-                      <th>NOMBRE</th>
+                      <th>NIT</th>
                       <th>CORREO</th>
-                      <th>ACTIVIDAD</th>
-                      <th>RAZÓN SOCIAL</th>
-                      <th>ESTADO</th>
-                      <th></th>
+                      <th>NUMERO TELEFONICO</th>
+                      <th>RAZÓN SOCIALl</th>
+                      <th>REPRESENTANTE LEGAL</th>
+                      <th>ACCIONES</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -165,14 +151,7 @@ export default function Visualizar_empresa() {
                       <td>04 Sep 2019</td>
                       <td>Electric</td>
                       <td>
-                        <span className="status-badge active">Activo</span>
-                      </td>
-                      <td>
-                        <Link to ='/editCompany'>
-                          <button className="edit-button">
-                            <FaRegEdit />
-                          </button>
-                        </Link>
+                        <span className="status-badge active">Habilitar</span>
                       </td>
                     </tr>
                     <tr>
@@ -182,15 +161,9 @@ export default function Visualizar_empresa() {
                       <td>28 May 2019</td>
                       <td>Book</td>
                       <td>
-                        <span className="status-badge active">Activo</span>
+                        <span className="status-badge active">Habilitar</span>
                       </td>
-                      <td>
-                      <Link to ='/editCompany'>
-                        <button className="edit-button">
-                          <FaRegEdit />
-                        </button>
-                      </Link>
-                      </td>
+                      
                     </tr>
                     <tr>
                       <td>00003</td>
@@ -199,14 +172,7 @@ export default function Visualizar_empresa() {
                       <td>23 Nov 2019</td>
                       <td>Medicine</td>
                       <td>
-                        <span className="status-badge active">Activo</span>
-                      </td>
-                      <td>
-                        <Link to ='/editCompany'>
-                        <button className="edit-button">
-                          <FaRegEdit />
-                        </button>
-                      </Link>
+                        <span className="status-badge active">Habilitar</span>
                       </td>
                     </tr>
                     <tr>
@@ -216,14 +182,7 @@ export default function Visualizar_empresa() {
                       <td>05 Feb 2019</td>
                       <td>Mobile</td>
                       <td>
-                        <span className="status-badge active">Activo</span>
-                      </td>
-                      <td>
-                        <Link to ='/editCompany'>
-                        <button className="edit-button">
-                          <FaRegEdit />
-                        </button>
-                      </Link>
+                        <span className="status-badge active">Habilitar</span>
                       </td>
                     </tr>
                   </tbody>

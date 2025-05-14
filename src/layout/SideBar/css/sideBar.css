@@ -302,6 +302,7 @@ body {
 
 .sidebar.collapsed .logout {
   justify-content: center;
+  margin-left: 1.3rem;
 
   
 }

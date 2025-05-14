@@ -1,6 +1,6 @@
 #Homepage{
 
-    #Home {
+    .Home {
         display: flex;
         width: 115%;
         height: auto;
@@ -51,19 +51,7 @@
         flex-direction: column;
     }
 
-    /* Cuando el sidebar esté colapsado */
-    #Home.collapsed {
-        margin-left: -10%;
-        transition: margin-left 0.3s ease;
-
-    } 
-
-
-    #Home {
-        transition: margin-right 0.3s ease;
-        display: flex;
-        flex-direction: column;
-    }
+    
 }
 
 
