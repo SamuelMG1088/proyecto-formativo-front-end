@@ -81,7 +81,7 @@ const Navigation = () => {
                 </li>
               </Link>
 
-              <Link  className='sidebar-link' to="/viewInternships">
+              <Link  className='sidebar-link' to="/listarProgramaFormacion">
                 <li className={isMobile ? 'mobile-item' : ''}>
                   <button className="button-Sidebar"><MdOutlineAlignVerticalBottom className="icon" /></button>
                   {!isCollapsed && <span>Programa de formación</span>}

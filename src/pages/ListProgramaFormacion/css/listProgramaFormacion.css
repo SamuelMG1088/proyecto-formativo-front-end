@@ -1,0 +1,103 @@
+#ListarProgramaFormacion {
+    .container-principal {
+        width: 100%;
+        height: 95%;
+        background: var(--neutral-1);
+        position: absolute;
+    }
+  
+    .titles-container {
+        display: flex;
+        width: 68%;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2rem;
+        margin-left: 20rem;
+    }
+  
+    .boxes-buttons {
+        height: 2.5rem;
+    }
+
+    .button__view {
+        width: auto;
+        height: 2.5rem;
+    }
+
+    .button--Add {
+        height: 2.5rem;
+        width: 3rem;
+    }
+  
+    /* Estilos para la tabla de empresas */
+    .border {
+        border: 1px solid var(--neutral-1_2);
+        width: 70.5%;
+        border-radius: 6px;
+    }
+  
+    .programas-table-container {
+        margin-left: 18rem;
+        padding: 20px;
+        width: 100%;
+        overflow-x: auto; /*Para cuando el contenido de la tabla se desborda*/
+    }
+  
+    .programas-table {
+      border: 1px solid var(--neutral-1_2); 
+      width: 100%;
+      border-collapse: collapse;
+      background-color: var(--neutral-4);
+      border-radius: 8px;
+      overflow: hidden;
+      /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); */
+    }
+  
+    .programas-table thead {
+      background-color: var(--neutral-);
+    }
+  
+    .programas-table th {
+      padding: 12px 15px;
+      text-align: left;
+      font-weight: 600;
+      color: var(--neutral-1_6);
+      border-bottom: 1px solid var(--neutral-1_2);
+    }
+  
+    .programas-table td {
+      padding: 12px 15px;
+      border-bottom: 2px solid #f6f6f6;
+      color: var(--neutral-1_5);
+    }
+  
+    .programas-table tbody tr:hover {
+      background-color: var(--neutral-2);
+    }
+  
+    .status-badge {
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      display: inline-block;
+    }
+  
+    .status-badge.active {
+      background-color: var(--color-primary6);
+      color: var(--color-primary);
+    }
+  
+    .edit-button {
+      background: none;
+      border: none;
+      color: var(--neutral-1_6);
+      cursor: pointer;
+      font-size: 16px;
+    }
+  
+    .edit-button:hover {
+      color: var(--color-primary);
+    }
+}
+  

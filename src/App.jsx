@@ -11,6 +11,7 @@ import FormCreate from './pages/CreateCompanyPage/CreateCompanyPage.jsx';
 import InfoView from './pages/ListCompany/ListCompany.jsx';
 import EditCompany from './pages/EditCompany/EditCompany.jsx'
 import ListarInactivas from './pages/InactiveStateCompaniesPage/InactiveStateCompaniesPage.jsx';
+import ListarProgramaFormacion from './pages/ListProgramaFormacion/ListProgramaFormacion.jsx';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/listcompany" element={<InfoView/>}/> {/* Definimos la ruta para el componente ListCompany */}
         <Route path="/editCompany" element={<EditCompany/>}/> {/* Definimos la ruta para el componente ListCompany */}
         <Route path="/listarInactivas" element={<ListarInactivas/>}/> {/* Definimos la ruta para el componente ListCompany */}
+        <Route path="/listarProgramaFormacion" element={<ListarProgramaFormacion/>}/> {/* Definimos la ruta para el componente ListCompany */}
       </Routes>
     </BrowserRouter>
     </>

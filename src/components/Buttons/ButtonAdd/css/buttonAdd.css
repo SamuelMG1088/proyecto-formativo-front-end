@@ -1,6 +1,6 @@
 .Add { /* Se hace el llamado al ClassName para realizar los estilos - ClassName is called to make the styles */
     border-radius: 6px; 
-    width: 100%;
+    width: 5rem;
     height: 40px;
     color: var(--neutral-4);
     background-color: var(--color-primary);

@@ -8,7 +8,7 @@ const HeaderLogin = () => {
             <div id='barra-navegacion'>
                 <nav>
                     <img src={logosena} alt="logo-sena"/>
-                    <h1>SISGEEC</h1>  
+                    <h1>SISGEEC</h1>
                 </nav>
             </div>
         </>

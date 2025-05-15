@@ -48,7 +48,7 @@ const EditProfilePage = () => {
                         <div className="company-card">
                             <div className="logo-container">
                                 <input type="file" onChange={handleImageChange} className="image-upload" />
-                                <img src={profileImage} className="profile-image" />
+                                <img src={profileImage} className="profile-image"/>
                             </div>
 
                             <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} className="name-input"/>
