@@ -1,0 +1,96 @@
+#UsersInactive {
+    .container-principal {
+        width: 100%;
+        height: 105%;
+        background: var(--neutral-1);
+        position: absolute;
+    }
+  
+    .titles-container {
+        display: flex;
+        justify-content: start;
+        margin-top: 2rem;
+        margin-left: 20rem;
+    }
+  
+    .boxes-buttons {
+        height: 2.5rem;
+    }
+
+    .button__view {
+        width: auto;
+        height: 2.5rem;
+    }
+
+    .button--Add {
+        height: 2.5rem;
+        width: 3rem;
+    }
+
+    /* Creacion de cartas */
+    .container-users {
+        margin-left: 22rem;
+        width: 80%;
+    }
+
+    .fila-1,
+    .fila-2{
+        display: flex;
+        margin-top: 3rem;
+        gap: 7rem;
+    }
+
+    .card-user {
+        width: 15rem;
+        height: 17rem;
+        text-align: center;
+        border-radius: 1rem;
+        background-color: var(--neutral-4);
+        box-shadow: 0px 0px 5px var(--neutral-1_2);
+    }
+
+    .img-card-user {
+        width: 100%;
+        height: 8rem;
+        object-fit: cover;
+        border-top-right-radius: 0.9rem;
+        border-top-left-radius: 0.9rem;
+    }
+
+    .user-name {
+        font-size: 1rem;
+        margin-bottom: -5px;
+        margin-top: 1rem;
+    }
+
+    .user-email {
+        font-size: 0.8rem;
+        color: var(--neutral-1_4);
+    }
+
+    .user-button {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .button-activate {
+        height: 1.5rem;
+        width: 5rem;
+        border-radius: 12px;
+        border: none;
+        background-color: var(--color-primary);
+        color: var(--neutral-1);
+
+    }
+
+    .button-delete {
+        height: 1.5rem;
+        width: 5rem;
+        border-radius: 12px;
+        border: none;
+        background-color: var(--color-secundary-1);
+        color: var(--neutral-1);
+    }
+}
+  

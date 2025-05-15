@@ -13,6 +13,7 @@ import EditCompany from './pages/EditCompany/EditCompany.jsx'
 import ListarInactivas from './pages/InactiveStateCompaniesPage/InactiveStateCompaniesPage.jsx';
 import ListarProgramaFormacion from './pages/ListProgramaFormacion/ListProgramaFormacion.jsx';
 import ListarUsuarios from './pages/ListUsers/ListUsers.jsx'; /* Importamos el componente ListarUsuarios */
+import InactiveStateUsers from './pages/InactiveStateUsers/InactiveStateUsers.jsx'; /* Importamos el componente InactiveStateUsers */
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/listarInactivas" element={<ListarInactivas/>}/> {/* Definimos la ruta para el componente ListCompany */}
         <Route path="/listarProgramaFormacion" element={<ListarProgramaFormacion/>}/> {/* Definimos la ruta para el componente ListProgramaFormacion */}
         <Route path='/listUser' element={<ListarUsuarios/>}/> {/* Definimos la ruta para el componente ListarUsuarios */}
+        <Route path='/listInactiveUsers' element={<InactiveStateUsers/>}/> {/* Definimos la ruta para el componente ListarUsuarios */}
       </Routes>
     </BrowserRouter>
     </>
