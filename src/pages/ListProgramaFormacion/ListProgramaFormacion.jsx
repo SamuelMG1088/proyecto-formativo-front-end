@@ -29,7 +29,7 @@ return (
                 <ButtonViewInactive />
               </div>
               </Link>
-              <Link to='/createCompany'>
+              <Link to='/createProgramTraining'>
               <div className="button--Add">
                 <ButtonAdd />
               </div>
@@ -61,7 +61,7 @@ return (
                         <span className="status-badge active">Activo</span>
                       </td>
                       <td>
-                        <Link to ='/editCompany'>
+                        <Link to ='/EditTraining'>
                           <button className="edit-button">
                             <FaRegEdit />
                           </button>
@@ -78,7 +78,7 @@ return (
                         <span className="status-badge active">Activo</span>
                       </td>
                       <td>
-                      <Link to ='/editCompany'>
+                      <Link to ='/EditTraining'>
                         <button className="edit-button">
                           <FaRegEdit />
                         </button>
@@ -95,7 +95,7 @@ return (
                         <span className="status-badge active">Activo</span>
                       </td>
                       <td>
-                        <Link to ='/editCompany'>
+                        <Link to ='/EditTraining'>
                         <button className="edit-button">
                           <FaRegEdit />
                         </button>
@@ -112,7 +112,7 @@ return (
                         <span className="status-badge active">Activo</span>
                       </td>
                       <td>
-                        <Link to ='/editCompany'>
+                        <Link to ='/EditTraining'>
                         <button className="edit-button">
                           <FaRegEdit/>
                         </button>
@@ -129,7 +129,7 @@ return (
                         <span className="status-badge active">Activo</span>
                       </td>
                       <td>
-                        <Link to ='/editCompany'>
+                        <Link to ='/EditTraining'>
                         <button className="edit-button">
                           <FaRegEdit/>
                         </button>
@@ -146,7 +146,7 @@ return (
                         <span className="status-badge active">Activo</span>
                       </td>
                       <td>
-                        <Link to ='/editCompany'>
+                        <Link to ='/EditTraining'>
                         <button className="edit-button">
                           <FaRegEdit/>
                         </button>
@@ -163,7 +163,7 @@ return (
                         <span className="status-badge active">Activo</span>
                       </td>
                       <td>
-                        <Link to ='/editCompany'>
+                        <Link to ='/EditTraining'>
                         <button className="edit-button">
                           <FaRegEdit/>
                         </button>
@@ -180,7 +180,7 @@ return (
                         <span className="status-badge active">Activo</span>
                       </td>
                       <td>
-                        <Link to ='/editCompany'>
+                        <Link to ='/EditTraining'>
                         <button className="edit-button">
                           <FaRegEdit/>
                         </button>
@@ -197,7 +197,7 @@ return (
                         <span className="status-badge active">Activo</span>
                       </td>
                       <td>
-                        <Link to ='/editCompany'>
+                        <Link to ='/EditTraining'>
                         <button className="edit-button">
                           <FaRegEdit/>
                         </button>

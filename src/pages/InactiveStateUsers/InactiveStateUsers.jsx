@@ -33,8 +33,8 @@ return (
                                 <p className="user-email">monsalvegomezsamuel2@gmail.com</p>
                             </div>
                             <div className="user-button">
-                                <button className="button-activate">Visualizar</button>
-                                <button className="button-delete">Visualizar</button>
+                                <button className="button-activate">Activar</button>
+                                <button className="button-delete">Eliminar</button>
                             </div>
                         </div>
 
@@ -45,8 +45,8 @@ return (
                                 <p className="user-email">mendomacuqui@gmail.com</p>
                             </div>
                             <div className="user-button">
-                                <button className="button-activate">Visualizar</button>
-                                <button className="button-delete">Visualizar</button>
+                                <button className="button-activate">Activar</button>
+                                <button className="button-delete">Eliminar</button>
                             </div>
                         </div>
 
@@ -57,8 +57,8 @@ return (
                                 <p className="user-email">niadqu1@gmail.com</p>
                             </div>
                             <div className="user-button">
-                                <button className="button-activate">Visualizar</button>
-                                <button className="button-delete">Visualizar</button>
+                                <button className="button-activate">Activar</button>
+                                <button className="button-delete">Eliminar</button>
                             </div>
                         </div>
 
@@ -73,8 +73,8 @@ return (
                                 <p className="user-email">quicenin1489@gmail.com</p>
                             </div>
                             <div className="user-button">
-                                <button className="button-activate">Visualizar</button>
-                                <button className="button-delete">Visualizar</button>
+                                <button className="button-activate">Activar</button>
+                                <button className="button-delete">Eliminar</button>
                             </div>
                         </div>
 
@@ -85,8 +85,8 @@ return (
                                 <p className="user-email">osoriojuanjoñp88@gmail.com</p>
                             </div>
                             <div className="user-button">
-                                <button className="button-activate">Visualizar</button>
-                                <button className="button-delete">Visualizar</button>
+                                <button className="button-activate">Activar</button>
+                                <button className="button-delete">Eliminar</button>
                             </div>
                         </div>
 
@@ -97,8 +97,8 @@ return (
                                 <p className="user-email">ladinladinchica@gmail.com</p>
                             </div>
                             <div className="user-button">
-                                <button className="button-activate">Visualizar</button>
-                                <button className="button-delete">Visualizar</button>
+                                <button className="button-activate">Activar</button>
+                                <button className="button-delete">Eliminar</button>
                             </div>
                         </div>
 

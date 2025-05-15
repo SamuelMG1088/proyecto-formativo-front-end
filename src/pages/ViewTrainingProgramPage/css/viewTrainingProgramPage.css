@@ -1,0 +1,82 @@
+#training-container{
+    #Container-training{
+        background-color: var(--neutral-1);
+        height: 46.5rem;
+    }
+    
+    .title-card{
+        display: flex;
+        align-items: center;
+        margin-left: 43rem;
+    }
+    
+    .Button-Exports{
+        margin-left: 80%;
+        margin-top: 3rem;
+    }
+    
+    .form-grid {
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+        margin-left: 10rem;
+        margin-top: 3rem;
+    }
+
+    .column {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 20%;
+    }
+
+    .perfil-card {
+        background-color: var(--neutral-4);
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .perfil-title {
+        font-weight: bold;
+        font-size: 14px;
+        color: var(--neutral-1_6);
+        margin-bottom: 8px;
+    }
+
+    .perfil-input {
+        width: 100%;
+        padding: 3.5%;
+        font-size: 11px;
+        border: 1px solid var(--color-border);
+        border-radius: 4px;
+        background-color: var(--neutral-1);
+        color: var(--neutral-1_6);
+        width: 15rem;
+    }
+    
+    .action-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+        margin-left: 13rem;
+    }
+
+    .icon-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.7rem;
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        font-size: 18px;
+        cursor: pointer;
+        background-color: var(--neutral-4);
+    }
+    
+    .icon-button.delete {
+        color: var(--color-secundary-1);
+    }
+
+}

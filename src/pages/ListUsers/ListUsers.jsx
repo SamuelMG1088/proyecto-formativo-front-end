@@ -25,7 +25,7 @@ return (
 
                 <div className="titles-container">
 
-                    <Link to=''>
+                    <Link to='/listInactiveUsers'>
                     <div className="button__view">
                         <ButtonViewInactive />
                     </div>
