@@ -12,7 +12,7 @@ import InfoView from './pages/ListCompany/ListCompany.jsx';
 import EditCompany from './pages/EditCompany/EditCompany.jsx'
 import ListarInactivas from './pages/InactiveStateCompaniesPage/InactiveStateCompaniesPage.jsx';
 import ListarProgramaFormacion from './pages/ListProgramaFormacion/ListProgramaFormacion.jsx';
-
+import ListarUsuarios from './pages/ListUsers/ListUsers.jsx'; /* Importamos el componente ListarUsuarios */
 
 function App() {
   return (
@@ -30,7 +30,8 @@ function App() {
         <Route path="/listcompany" element={<InfoView/>}/> {/* Definimos la ruta para el componente ListCompany */}
         <Route path="/editCompany" element={<EditCompany/>}/> {/* Definimos la ruta para el componente ListCompany */}
         <Route path="/listarInactivas" element={<ListarInactivas/>}/> {/* Definimos la ruta para el componente ListCompany */}
-        <Route path="/listarProgramaFormacion" element={<ListarProgramaFormacion/>}/> {/* Definimos la ruta para el componente ListCompany */}
+        <Route path="/listarProgramaFormacion" element={<ListarProgramaFormacion/>}/> {/* Definimos la ruta para el componente ListProgramaFormacion */}
+        <Route path='/listUser' element={<ListarUsuarios/>}/> {/* Definimos la ruta para el componente ListarUsuarios */}
       </Routes>
     </BrowserRouter>
     </>

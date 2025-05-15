@@ -74,7 +74,7 @@ const Navigation = () => {
                 </li>
               </Link>
 
-              <Link  className='sidebar-link' to="/viewInternships">
+              <Link  className='sidebar-link' to="/listUser">
                 <li className={isMobile ? 'mobile-item' : ''}>
                   <button className="button-Sidebar"><PiUsers className="icon" /></button>
                   {!isCollapsed && <span>Usuarios</span>}
