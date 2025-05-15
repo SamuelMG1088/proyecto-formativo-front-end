@@ -197,23 +197,16 @@
   left: -9.62%;
 }
 
-
-
 #Sidebar .sidebar ul li .icon {
   color: var(--neutral-3);
   font-size: 1rem ;
   display: flex;
   align-items: center;
-
-
-  
-  
 }
 
 #Sidebar .sidebar ul li:hover {
   background: var(--color-primary);
   color: var(--neutral-4);
-  /* height: 2rem; */
 }
 
 #Sidebar .sidebar ul li:hover .icon {
@@ -230,23 +223,19 @@
   color: var(--neutral-3);
   font-size: 1vw;
   cursor: pointer;
-  margin-top: 2vw;
   display: flex;
+  margin-left: 0%;
   align-items: center;
   border-radius: 0.3125vw;
-  padding: 0.75vw 0.625vw;
+  padding: 1rem 0.5rem;
   transition: background 0.3s, color 0.3s;
-  gap: 0.9rem;
+  gap: 1.2rem;
+  width: 100%;
 }
 
 #Sidebar .logout:hover {
   background: var(--color-primary);
   color: var(--neutral-4);
-}
-
-#Sidebar .logout:hover .icon {
-  color: var(--neutral-4);
-  background: var(--color-primary);
 }
 
 /* ========== ESTRUCTURA PRINCIPAL Y MEDIA QUERIES ========== */
@@ -275,18 +264,15 @@ body {
   margin-top: 4vw;
   margin-left: 13.5%;
   transition: margin 0.3s ease;
-  
 }
 
 .sidebar.collapsed {
   width: 5.2% !important;
-  
 }
 
 .sidebar.collapsed + .main-content,
 .sidebar-collapsed + .main-content {
   margin-left: 5.2%;
-  
 }
 
 
@@ -297,14 +283,11 @@ body {
 .sidebar.collapsed .sidebar-menu li {
   justify-content: center;
   margin-left: -55%
-  
 }
 
 .sidebar.collapsed .logout {
   justify-content: center;
-  margin-left: 1.3rem;
-
-  
+  margin-left: 1.3rem; 
 }
 
 .sidebar-menu li{
@@ -312,11 +295,9 @@ body {
   
 }
 
-
 .sidebar,
 .sidebar .logosena,
 .sidebar .sidebar-menu li,
 .sidebar .logout {
   transition: all 0.3s ease;
-
 }

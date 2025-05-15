@@ -176,6 +176,74 @@ export default function Visualizar_empresa() {
                       </td>
                     </tr>
                     <tr>
+                      <td>00001</td>
+                      <td>Christine Brooks</td>
+                      <td>089 Kutch Green Apt. 448</td>
+                      <td>04 Sep 2019</td>
+                      <td>Electric</td>
+                      <td>
+                        <span className="status-badge active">Activo</span>
+                      </td>
+                      <td>
+                        <Link to ='/editCompany'>
+                          <button className="edit-button">
+                            <FaRegEdit />
+                          </button>
+                        </Link>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>00001</td>
+                      <td>Christine Brooks</td>
+                      <td>089 Kutch Green Apt. 448</td>
+                      <td>04 Sep 2019</td>
+                      <td>Electric</td>
+                      <td>
+                        <span className="status-badge active">Activo</span>
+                      </td>
+                      <td>
+                        <Link to ='/editCompany'>
+                          <button className="edit-button">
+                            <FaRegEdit />
+                          </button>
+                        </Link>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>00001</td>
+                      <td>Christine Brooks</td>
+                      <td>089 Kutch Green Apt. 448</td>
+                      <td>04 Sep 2019</td>
+                      <td>Electric</td>
+                      <td>
+                        <span className="status-badge active">Activo</span>
+                      </td>
+                      <td>
+                        <Link to ='/editCompany'>
+                          <button className="edit-button">
+                            <FaRegEdit />
+                          </button>
+                        </Link>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>00001</td>
+                      <td>Christine Brooks</td>
+                      <td>089 Kutch Green Apt. 448</td>
+                      <td>04 Sep 2019</td>
+                      <td>Electric</td>
+                      <td>
+                        <span className="status-badge active">Activo</span>
+                      </td>
+                      <td>
+                        <Link to ='/editCompany'>
+                          <button className="edit-button">
+                            <FaRegEdit />
+                          </button>
+                        </Link>
+                      </td>
+                    </tr>
+                    <tr>
                       <td>00002</td>
                       <td>Rosie Pearson</td>
                       <td>979 Immanuel Ferry Suite 526</td>

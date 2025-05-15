@@ -57,6 +57,7 @@
         color: var(--neutral-4);
         background-color: var(--color-primary);
         font-weight: 600;
+        cursor: pointer;
 
     }
 
