@@ -16,12 +16,12 @@ export const UpdatePasswordPage = () => {
                     <p>Actualiza tu contraseña y esta vez pon una que recuerdes ;)</p>
                     <div className="input-box-email">
                         <label htmlFor="">Crear Contraseña</label>
-                        <input type="email"/>
+                        <input type="password"/>
                         <BsEyeSlashFill className='icon'/>
                     </div>
                     <div className="input-box-email">
                         <label htmlFor="">Actualizar contraseña</label>
-                        <input type="email"/>
+                        <input type="password"/>
                         <BsEyeSlashFill className='icon'/>
                     </div>
 

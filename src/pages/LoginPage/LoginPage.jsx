@@ -23,7 +23,7 @@ export const OldPasswordPage = () => {
                     </div>
                     <div className="input-box-email">
                         <label htmlFor="">Contraseña</label>
-                        <input type="email"/>
+                        <input type="password"/>
                         <BsEyeSlashFill className='icon'/>
                     </div>
 
