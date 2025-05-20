@@ -22,30 +22,24 @@
     .VerifyPage .frame p {
         font-size: 0.8rem;
         color: var(--neutral-1_5);
-        margin-bottom: 1rem;
+        margin-bottom: 1.4rem;
     }
 
     .VerifyPage .frame .input-box-email {
-        width: 100%;
-        height: 2.5rem;
+        width: 90%;
+        display: flex;
+        justify-content: space-around;
+        height: 3rem;
         margin-bottom: 1.5rem;
     }
 
     .VerifyPage .frame .input-box-email input {
-        width: 100%;
+        width: 10%;
         height: 100%;
-        padding-left: 1rem;
-        border-radius: 6px;
+        padding-left: 1.5rem;
+        border-radius: 4px;
         border: 1px solid var(--neutral-1_5);
-    }
-
-    .input-box-email label {
-        position: relative;
-        left: 2%;
-        top: 25%;
-        background-color: var(--neutral-4);
-        margin: 0px 2px 0px 2px;
-        padding: 0px 5px;
+        font-size: 1.6rem;
     }
 
     .icon {
@@ -55,7 +49,7 @@
     }
 
     .BottonVerify {
-        width: 105%;
+        width: 90%;
         height: 2rem;
         margin-top: 2rem;
         border: none ;

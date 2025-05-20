@@ -29,7 +29,7 @@ function App() {
         <Route path="/old" element={<OldPasswordPage/>} /> {/* Definimos la ruta para el componente OldPassword */}
         <Route path="/update" element={<UpdatePasswordPage/>} /> {/* Definimos la ruta para el componente UpdatePassword */}
         <Route path="/verify" element={<VerifyCodePage/>} /> {/* Definimos la ruta para el componente VerifyCodePage */}
-        <Route path="/home" element={<Home/>}/> {/* Definimos la ruta para el componente Home */}
+        <Route path="/home" element={<Home/>} /> {/* Definimos la ruta para el componente Home */}
         <Route path="/viewProfile" element={<ViewProfilePage/>}/> {/* Definimos la ruta para el componente ViewProfilePage */}
         <Route path="/editProfile" element={<EditProfilePage/>}/> {/* Definimos la ruta para el componente EditProfilePage */}
         <Route path="/createCompany" element={<FormCreate/>}/> {/* Definimos la ruta para el componente CreateUserForCompanyPage */}
