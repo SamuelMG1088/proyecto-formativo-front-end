@@ -17,6 +17,7 @@ import InactiveStateUsers from './pages/InactiveStateUsers/InactiveStateUsers.js
 import TrainingProgramForm from './pages/CreateTrainingProgramPage/CreateTrainingProgramPage.jsx'; /* Importamos el componente TrainingProgramForm */
 import EditTraining from './pages/EditTrainingProgramsPage/EditTrainingPrograms.jsx'; /* Importamos el componente EditTraining */
 import ViewTraining from './pages/ViewTrainingProgramPage/ViewTrainingProgramPage.jsx' /* Importamos el componente ViewTraining */
+import Carrusel from './components/Carrusel/Carrusel.jsx'; /* Importamos el componente Carrusel */
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route path='/createProgramTraining' element={<TrainingProgramForm/>}/> {/* Definimos la ruta para el componente crear Programa de Formación*/}
         <Route path='/EditTraining' element={<EditTraining/>}/> {/* Definimos la ruta para el componente Programa de formacion*/}
         <Route path="/viewTraining" element={<ViewTraining/>}/> {/* Definimos la ruta para el componente visualizar Programa de formacion  */}
+        <Route path="/carrusel" element={<Carrusel/>} /> {/* Definimos la ruta para el componente LoginPage */}
       </Routes>
     </BrowserRouter>
     </>
