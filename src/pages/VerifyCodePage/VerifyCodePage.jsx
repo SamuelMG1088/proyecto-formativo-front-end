@@ -18,10 +18,10 @@ export const VerifyCodePage = () => {
                         <h1>Verificar Codigo</h1>
                         <p>Ingresa el código que enviamos a tu email</p>
                         <div className="input-box-email">
-                            <input type="" min="0" max="9" step="1"/>
-                            <input type="" min="0" max="9" step="1"/>
-                            <input type="" min="0" max="9" step="1"/>
-                            <input type="" min="0" max="9" step="1"/>
+                            <input type="" min="0" max="9" maxLength="1"/>
+                            <input type="" min="0" max="9" maxLength="1"/>
+                            <input type="" min="0" max="9" maxLength="1"/>
+                            <input type="" min="0" max="9" maxLength="1"/>
                         </div>
 
                         <Link to="/update">
