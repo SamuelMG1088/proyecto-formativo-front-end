@@ -91,7 +91,7 @@ const Navigation = () => {
               <Link className='sidebar-link' to="/viewReports">
                 <li className={isMobile ? 'mobile-item' : ''}>
                   <button className="button-Sidebar"><TfiStatsUp className="icon" /></button>
-                  {!isCollapsed && <span>Gráficos</span>}
+                  {!isCollapsed && <span>Diagnostico</span>}
                 </li>
               </Link>
 

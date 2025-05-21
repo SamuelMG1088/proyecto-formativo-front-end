@@ -107,6 +107,15 @@
       background-color: var(--color-primary6);
       color: var(--color-primary);
     }
+
+    .footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        background-color: var(--neutral-1);
+        margin-top: auto;
+    }
 }
 
 

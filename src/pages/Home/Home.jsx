@@ -33,45 +33,15 @@ const Home = () => {
                 <div className="Grafics">
                   <EnEjecucionChart />
                 </div>
-                <div className="empresa-table-container">
-              <div className="border">
-                <table className="empresa-table">
-                  <thead>
-                    <tr>
-                      <th>NUMERO DE DOCUMENTO</th>
-                      <th>NOMBRE</th>
-                      <th>CORREO</th>
-                      <th>ACTIVIDAD</th>
-                      <th>RAZÓN SOCIAL</th>
-                      <th>ESTADO</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>00001</td>
-                      <td>Christine Brooks</td>
-                      <td>089 Kutch Green Apt. 448</td>
-                      <td>04 Sep 2019</td>
-                      <td>Electric</td>
-                      <td>
-                        <span className="status-badge active">Activo</span>
-                      </td>
-                      <td>
-                        <Link to ='/editCompany'>
-                          <button className="edit-button">
-                            <FaRegEdit />
-                          </button>
-                        </Link>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
               </div>
-            </div>
-              </div>
+              <footer> 
+                <div className="footer">
+                  <p>© 2023 Sisgeec. Todos los derechos reservados.</p>
+                </div>
+              </footer>
           </div>
-      </div>
+        </div>
+
     </>
   );
 }

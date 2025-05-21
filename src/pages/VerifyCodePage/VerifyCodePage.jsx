@@ -18,19 +18,22 @@ export const VerifyCodePage = () => {
                         <h1>Verificar Codigo</h1>
                         <p>Ingresa el código que enviamos a tu email</p>
                         <div className="input-box-email">
-                            <input type="" min="0" max="9" maxLength="1"/>
-                            <input type="" min="0" max="9" maxLength="1"/>
-                            <input type="" min="0" max="9" maxLength="1"/>
-                            <input type="" min="0" max="9" maxLength="1"/>
+                            <input type="text" min="0" max="9" maxLength="1" id="input1" />
+                            <input type="text" min="0" max="9" maxLength="1" id="input2"/>
+                            <input type="text" min="0" max="9" maxLength="1" id="input3"/>
+                            <input type="text" min="0" max="9" maxLength="1" id="input4"/>
                         </div>
 
                         <Link to="/update">
                             <button className="BottonVerify" type="submit">VERIFICAR</button>
                         </Link>
+
                     </div>
+
                     <div className="img-VerifyPage">
                         <img src={imgVerify} alt=""/>
                     </div>
+                    
                 </div>
             </div>
         </>
