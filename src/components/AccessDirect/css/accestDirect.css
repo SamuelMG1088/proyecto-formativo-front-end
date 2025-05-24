@@ -1,0 +1,39 @@
+#frame-accest {
+    /* Accesos directos */
+    .box-assest{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Caja de Acceso directos */
+    .box {
+        width: 7.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 2.8rem;
+        border: 1px solid var(--color-primary);
+        margin: 8px;
+        border-radius: 0.2rem;
+    }
+
+    .direct {
+        color: var(--neutral-1_5);
+        font-size: 0.7rem;
+        margin: 2rem 2rem;
+        text-align: center;
+    }
+
+    /* Img de accesos directos */
+    .box .sofiaplus{
+        width: 2rem;
+    }
+
+    .box .sgva {
+        width: 4rem;
+    }
+
+    .box .zajuna{
+        width: 5rem;
+    }
+}

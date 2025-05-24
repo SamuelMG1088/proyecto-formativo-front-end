@@ -24,21 +24,27 @@ const Home = () => {
                 </div>
 
                 <div className="cards-container">
-                <CardUser />
-                <CardSales />
-                <CardOrder />
-                <CardPending />
+                  <CardUser />
+                  <CardSales />
+                  <CardOrder />
+                  <CardPending />
                 </div>
 
                 <div className="Grafics">
                   <EnEjecucionChart />
                 </div>
               </div>
-              <footer> 
-                <div className="footer">
-                  <p>© 2023 Sisgeec. Todos los derechos reservados.</p>
+              {/* <footer> 
+                <div className="box-front">
+                  <p>JkkJK</p>
                 </div>
-              </footer>
+                <div className="footer">
+                  <p>© 2025 Sisgeec. Todos los derechos reservados.</p>
+                </div>
+                <div className="box-back">
+                    <p>JkkJK</p>
+                </div>
+              </footer> */}
           </div>
         </div>
 

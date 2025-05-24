@@ -49,72 +49,33 @@
         flex-direction: column;
     }
 
-        /* Estilos para la tabla de empresas */
-    .border {
-        border: 1px solid var(--neutral-1_2);
-        width: 70.5%;
-        border-radius: 6px;
-    }
-  
-    .empresa-table-container {
-        margin-left: 18rem;
-        padding: 20px;
-        width: 100%;
-        overflow-x: auto; /*Para cuando el contenido de la tabla se desborda*/
-    }
-  
-    .empresa-table {
-      border: 1px solid var(--neutral-1_2); 
-      width: 100%;
-      border-collapse: collapse;
-      background-color: var(--neutral-4);
-      border-radius: 8px;
-      overflow: hidden;
-      /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); */
-    }
-  
-    .empresa-table thead {
-      background-color: var(--neutral-);
-    }
-  
-    .empresa-table th {
-      padding: 12px 15px;
-      text-align: left;
-      font-weight: 600;
-      color: var(--neutral-1_6);
-      border-bottom: 1px solid var(--neutral-1_2);
-    }
-  
-    .empresa-table td {
-      padding: 12px 15px;
-      border-bottom: 2px solid #f6f6f6;
-      color: var(--neutral-1_5);
-    }
-  
-    .empresa-table tbody tr:hover {
-      background-color: var(--neutral-2);
-    }
-  
-    .status-badge {
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 500;
-      display: inline-block;
-    }
-  
-    .status-badge.active {
-      background-color: var(--color-primary6);
-      color: var(--color-primary);
-    }
-
     .footer {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100px;
-        background-color: var(--neutral-1);
+        height: 2rem;
+        background-color: var(--color-primary);
         margin-top: auto;
+    }
+
+    .box-front {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3rem;
+        width: 75rem;
+        background-color: var(--color-secundary-1);
+        margin-left: 19rem;
+    }
+
+    .box-back {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 1rem;
+        width: 75rem;
+        background-color: var(--color-secundary-1);
+        margin-left: 19rem;
     }
 }
 

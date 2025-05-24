@@ -1,14 +1,15 @@
 import './css/headerLogin.css'
 import '../../styles/variables.css'
 import logosena from '../../assets/logos/logo-Sena.png'
+import logosisgeec from '../../assets/logos/logo-sisgeec.png'
 
 const HeaderLogin = () => {
     return (
         <>
             <div id='barra-navegacion'>
                 <nav>
-                    <img src={logosena} alt="logo-sena"/>
-                    <h1>SISGEEC</h1>
+                    <img src={logosisgeec} alt="logo-sisgeec"/>
+                    <img  className='img-sena' src={logosena} alt="logo-sena"/>
                 </nav>
             </div>
         </>

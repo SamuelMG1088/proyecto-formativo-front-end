@@ -4,12 +4,12 @@
   
   :root {
     /* Primary*/
-    --color-primary: #39a900;
-    --color-primary2: #64b83f;
-    --color-primary3: #87c667;
-    --color-primary4: #a6d58c;
-    --color-primary5: #c4e3b2;
-    --color-primary6: #e2f1d8;
+    --color-primary: #00304d;
+    --color-primary2: #334e68;
+    --color-primary3: #5a6e84;
+    --color-primary4: #8290a2;
+    --color-primary5: # aab4c0;
+    --color-primary6: #d4d9df;
     /*Secundary*/
     --color-secundary-1: #F4D03F;
     --color-secundary1_2: #ffcc48;
@@ -17,12 +17,12 @@
     --color-secundary1_4: #ffe095;
     --color-secundary1_5: #ffeab8;
     --color-secundary1_6: #fff4db;
-    --color-secundary-2: #00304d;
-    --color-secundary-2_1: #334e68;
-    --color-secundary-2_2: #5a6e84;
-    --color-secundary2_3: #8290a2;
-    --color-secundary2_4: #aab4c0;
-    --color-secundary2_5: #d4d9df;
+    --color-secundary-2: #39a900;
+    --color-secundary-2_1: #64b83f;
+    --color-secundary-2_2: #87c667;
+    --color-secundary2_3: #a6d58c;
+    --color-secundary2_4: #c4e3b2;
+    --color-secundary2_5: #e2f1d8;
       /*Neutral*/
     --neutral-1: #F5F6FA;
     --neutral-1_2: #aeaeae;

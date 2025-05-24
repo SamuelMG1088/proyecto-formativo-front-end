@@ -1,0 +1,13 @@
+#barra-gov {
+    header {
+        background-color: #3366cc;
+        height: 3rem;
+    }
+
+    img {
+        width: 12rem;
+        margin-top: -1rem;
+        margin-left: 5.2rem;
+        
+    }
+}

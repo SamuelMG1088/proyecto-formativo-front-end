@@ -1,234 +1,247 @@
 #LoginPage {
-    .LoginPage {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .LoginPage {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .LoginPage .frame {
-        width: 50%;
-        margin: 7% 0% 0% 20%;
-    }
+  .LoginPage .frame {
+    width: 50%;
+    margin: 7% 0% 0% 20%;
+    margin-bottom: 0%;
+  }
 
-    .LoginPage .frame h1 {
-        margin: 1rem 0 1rem 0;
-    }
+  .LoginPage .frame h1 {
+    color: var(--color-primary);
+    margin: 1rem 0 1rem 0;
+  }
 
-    .LoginPage .frame .P_Accede {
-        font-size: 0.8rem;
-        color: var(--neutral-1_5);
-        margin-bottom: 1rem;
-    }
+  .LoginPage .frame .P_Accede {
+    font-size: 0.8rem;
+    color: var(--neutral-1_5);
+    margin-bottom: 1rem;
+  }
 
-    .LoginPage .frame .input-box-email {
-        width: 100%;
-        height: 2.5rem;
-        margin-bottom: 1.5rem;
-    }
+  .LoginPage .frame .input-box-email {
+    width: 100%;
+    height: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
 
-    .LoginPage .frame .input-box-email input {
-        width: 100%;
-        height: 100%;
-        padding-left: 1rem;
-        border-radius: 0.4rem;
-        border: 1px solid var(--neutral-1_5);
-    }
+  .LoginPage .frame .input-box-email input {
+    width: 100%;
+    height: 100%;
+    padding-left: 1rem;
+    border-radius: 0.4rem;
+    border: 1px solid var(--neutral-1_5);
+  }
 
-    .input-box-email label {
-        position: relative;
-        left: 2%;
-        top: 25%;
-        background-color: var(--neutral-4);
-        margin: 0px 2px 0px 2px;
-        padding: 0px 5px;
-    }
+  .input-box-email label {
+    position: relative;
+    left: 2%;
+    top: 25%;
+    background-color: var(--neutral-4);
+    margin: 0px 2px 0px 2px;
+    padding: 0px 5px;
+  }
 
-    .icon {
-        position: relative;
-        top: -70%;
-        left: 98%;
-    }
+  .icon {
+    position: relative;
+    top: -70%;
+    left: 98%;
+  }
 
-    .Bottonlogin {
-        width: 105%;
-        height: 2rem;
-        margin-top: 2rem;
-        border: none;
-        border-radius: 0.2rem;
-        color: var(--neutral-4);
-        background-color: var(--color-primary);
-        font-weight: 600;
-        cursor: pointer;
+  .Bottonlogin {
+    width: 105%;
+    height: 2rem;
+    margin-top: 2rem;
+    border: none;
+    border-radius: 0.2rem;
+    color: var(--neutral-4);
+    background-color: var(--color-primary);
+    font-weight: 600;
+    cursor: pointer;
+  }
 
-    }
+  /* Recordar Contraseña */
+  .frame .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    margin-top: 2.5rem;
+  }
 
-    /* Recordar Contraseña */
-    .frame .remember-forgot{
-        display: flex;
-        justify-content: space-between;
-        font-size: 1rem;
-        margin-top: 2.5rem;
-    }
+  .remember-forgot label input {
+    margin-right: 4px;
+  }
 
-    .remember-forgot label input {
-        margin-right: 4px;
-    }
+  .remember-forgot .OldMyPass {
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
 
-    .remember-forgot .OldMyPass{
-        font-weight: 600;
-        color: var(--color-primary);
-        text-decoration: none;
-    }
+  .remember-forgot .OldMyPass:hover {
+    cursor: pointer;
+  }
 
-    .remember-forgot .OldMyPass:hover {
-        cursor: pointer;
-    }
+  /* Carrusel de Imágenes */
+  .img-LoginPage {
+    background-color: var(--color-secundary2_5);
+    width: 100%;
+    height: 119%;
+    margin-bottom: 0%;
+    position: relative;
+    overflow: hidden;
+  }
 
-    /* Accesos directos */
-    .box-assest{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-    }
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
 
-    /* Caja de Acceso directos */
-    .box {
-        width: 6rem;
-        height: 2.8rem;
-        border: 1px solid var(--color-secundary-2);
-        margin: 8px;
-        border-radius: 0.2rem;
-    }
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
 
-    .direct {
-        color: var(--neutral-1_5);
-        font-size: 0.7rem;
-        margin: 2rem 2rem;
-        text-align: center;
-    }
+  .carousel-slide.active {
+    opacity: 1;
+  }
 
-    /* Img de accesos directos */
-    .box .sofiaplus{
-        width: 2rem;
-        margin-left: 2rem;
-        margin-top: 0.4rem;
-    }
+  .carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
 
-    .box .sgva {
-        width: 4rem;
-        margin-left: 1rem;
-        margin-top: 0.6rem;
-    }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
 
-    .box .zajuna{
-        width: 5rem;
-        margin-left: 0.5rem;
-        margin-top: 1rem;
-    }
-
-    /* Imagen de Fondo */
-    .img-LoginPage {
-        background-color: var(--color-secundary2_5);
-        border-radius: 0.6rem;
-        width: 78%;
-    }
-
+  .dot.active {
+    background-color: var(--color-primary);
+  }
 }
 
 @media (max-width: 1024px) {
-    .LoginPage {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
+  .LoginPage {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 
-    .LoginPage .frame {
-        width: 80%;
-        margin: 5% auto;
-    }
+  .LoginPage .frame {
+    width: 80%;
+    margin: 5% auto;
+  }
 
-    .img-LoginPage {
-        width: 100%;
-    }
+  .img-LoginPage {
+    width: 100%;
+    height: 400px;
+    margin-top: 2rem;
+  }
 
-    .box-assest {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
+  .box-assest {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
-    .LoginPage .frame {
-        width: 90%;
-        margin: 5% auto;
-    }
+  .LoginPage .frame {
+    width: 90%;
+    margin: 5% auto;
+  }
 
-    .LoginPage .frame h1 {
-        font-size: 1.5rem;
-    }
+  .LoginPage .frame h1 {
+    font-size: 1.5rem;
+  }
 
-    .LoginPage .frame .P_Accede {
-        font-size: 0.9rem;
-    }
+  .LoginPage .frame .P_Accede {
+    font-size: 0.9rem;
+  }
 
-    .input-box-email input {
-        font-size: 1rem;
-    }
+  .input-box-email input {
+    font-size: 1rem;
+  }
 
-    .icon {
-        display: none;
-    }
+  .icon {
+    display: none;
+  }
 
-    .Bottonlogin {
-        width: 100%;
-        height: 2.5rem;
-    }
+  .Bottonlogin {
+    width: 100%;
+    height: 2.5rem;
+  }
 
-    .box-assest {
-        grid-template-columns: repeat(2, 1fr);
-        justify-content: center;
-        gap: 1rem;
-    }
+  .box-assest {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    gap: 1rem;
+  }
 
-    .box {
-        width: 5rem;
-        height: 2.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  .box {
+    width: 5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .box img {
-        width: 80%;
-    }
+  .box img {
+    width: 80%;
+  }
 }
 
 @media (max-width: 480px) {
-    .LoginPage {
-        padding: 2rem;
-    }
+  .LoginPage {
+    padding: 2rem;
+  }
 
-    .LoginPage .frame {
-        width: 100%;
-        margin: 2% auto;
-    }
+  .LoginPage .frame {
+    width: 100%;
+    margin: 2% auto;
+  }
 
-    .icon {
-        display: none;
-    }
+  .icon {
+    display: none;
+  }
 
-    .box-assest {
-        grid-template-columns: repeat(1, 1fr);
-        justify-content: center;
-        gap: 0.5rem;
-    }
+  .img-LoginPage {
+    height: 300px;
+  }
 
-    .box {
-        width: 100%;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  .box-assest {
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+    gap: 0.5rem;
+  }
 
-    .box img {
-        width: 50%;
-    }
+  .box {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .box img {
+    width: 50%;
+  }
 }
