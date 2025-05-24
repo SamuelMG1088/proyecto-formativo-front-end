@@ -1,60 +1,74 @@
-import React from "react"
-import sofiaplus from '../../assets/icons/icon-sofiaplus.png'
-import sgva from '../../assets/icons/icon-sgva.png'
-import zajuna from '../../assets/icons/icon-zajuna.png'
-import svgoldPassword from '../../assets/images/img-oldPassword.svg'
+import React, { useState, useEffect } from 'react';
+import svgoldPassword from '../../assets/images/img-oldPassword.svg';
 import HeaderLogin from '../../layout/HeaderLogin/HeaderLogin.jsx';
+import AccestDirect from '../../components/AccessDirect/AccestDirect.jsx';
+import Gov from '../../layout/Gov/Gov.jsx';
 import { Link } from 'react-router-dom';
 import { FaAngleLeft } from "react-icons/fa6";
-import './css/oldPasswordPage.css'
-import '../../styles/variables.css'
+import './css/oldPasswordPage.css';
+import '../../styles/variables.css';
+import factor1 from '../../assets/images/factorHumano1.jpg'; 
+import factor2 from '../../assets/images/factorHumano2.png'; 
+import factor3 from '../../assets/images/factorHumano3.png';
 
 export const OldPasswordPage = () => {
-    return (
-        <div id="OldPasswrodPage">
-            <HeaderLogin/>
-            <div className="old-password">
-                <div className="frame">
-                    <a href=""> <FaAngleLeft /><Link to="/">Ir a inicio de Sesión</Link></a>
-                    <h1>Olvido su contraseña?</h1>
-                    <p>No se preocupe, se le enviará un código de verificación a su correo electrónico, escríbalo acá</p>
-                    <div className="input-box-email">
-                        <label htmlFor="">Email</label>
-                        <input type="email"/>
-                    </div>
+  // Estado para el carrusel
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const images = [factor1, factor2, factor3]; // Array de imágenes para el carrusel
 
-                    <Link to="/verify">
-                        <button className="BottonOld" type="submit">ENVIAR</button>
-                    </Link>
-                    
-                    <div className="accesses">
-                    <p className='direct'>Accesos Directos</p>
-                    <div className="box-assest">
-                        <div className="box">
-                            <a href="https://zajuna.sena.edu.co/" target="_blank" rel="noopener noreferrer">
-                                <img className='sofiaplus' src={sofiaplus} alt=''/>
-                            </a>
-                        </div>
-                        <div className="box">
-                            <a href="https://caprendizaje.sena.edu.co/sgva/SGVA_Diseno/pag/login.aspx" target="_blank" rel="noopener noreferrer" >
-                                <img className='sgva' src={sgva} alt="" />
-                            </a>
-                        </div>
-                        <div className="box">
-                            <a href="https://zajuna-sena-edu.co/ayuda-y-soporte/" target="_blank" rel="noopener noreferrer" >
-                                <img  className='zajuna' src={zajuna} alt=""/>
-                            </a>
-                        </div>
-                    </div> {/* -- Cajas de accesos -- */}
-                    </div>
-                </div>
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    }, 3500); // Cambia cada 3.5 segundos
 
-                <div className="img-old-password">
-                    <img src={svgoldPassword} alt=""/>
-                </div>
+    return () => clearInterval(interval);
+  }, [images.length]);
 
-            </div>
+  return (
+    <div id="OldPasswrodPage">
+      <Gov/>
+      <HeaderLogin/>
+      <div className="old-password">
+        <div className="frame">
+          <a href=""> <FaAngleLeft /><Link to="/">Ir a inicio de Sesión</Link></a>
+          <h1>Olvido su contraseña?</h1>
+          <p>No se preocupe, se le enviará un código de verificación a su correo electrónico, escríbalo acá</p>
+          <div className="input-box-email">
+            <label htmlFor="">Email</label>
+            <input type="email"/>
+          </div>
+
+          <Link to="/verify">
+            <button className="BottonOld" type="submit">ENVIAR</button>
+          </Link>
+          
+          <AccestDirect/>
         </div>
-        )
-}
+
+        {/* Carrusel de imágenes */}
+        <div className="img-old-password">
+          <div className="carousel-container">
+            {images.map((image, index) => (
+              <div 
+                key={index}
+                className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
+                style={{ backgroundImage: `url(${image})` }}
+              />
+            ))}
+            <div className="carousel-dots">
+              {images.map((_, index) => (
+                <span 
+                  key={index}
+                  className={`dot ${index === currentSlide ? 'active' : ''}`}
+                  onClick={() => setCurrentSlide(index)}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default OldPasswordPage;

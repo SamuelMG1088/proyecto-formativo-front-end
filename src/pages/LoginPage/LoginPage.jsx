@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import './css/loginPage.css';
-import '../../styles/variables.css';
 import factor1 from '../../assets/images/factorHumano1.jpg'; 
 import factor2 from '../../assets/images/factorHumano2.png'; 
 import factor3 from '../../assets/images/factorHumano3.png';
 import HeaderLogin from '../../layout/HeaderLogin/HeaderLogin.jsx';
 import Gov from '../../layout/Gov/Gov.jsx';
+import AccestDirect from "../../components/AccessDirect/AccestDirect.jsx";
 import { BsEyeSlashFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
-import AccestDirect from "../../components/AccessDirect/AccestDirect.jsx";
+import './css/loginPage.css';
+import '../../styles/variables.css';
 
 export const LoginPage = () => {
   // Estado para el carrusel
@@ -75,6 +75,7 @@ export const LoginPage = () => {
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   );
