@@ -1,93 +1,119 @@
-import React, { useRef, useState } from "react";
-import imgVerify from '../../assets/images/img-VerifyCode.svg';
+import React, { useRef, useState, useEffect } from "react";
 import HeaderLogin from '../../layout/HeaderLogin/HeaderLogin.jsx';
+import Gov from '../../layout/Gov/Gov.jsx';
 import { Link } from 'react-router-dom';
 import { FaAngleLeft } from "react-icons/fa";
 import './css/verifyCodePage.css';
 import '../../styles/variables.css';
+import factor1 from '../../assets/images/factorHumano1.jpg'; 
+import factor2 from '../../assets/images/factorHumano2.png'; 
+import factor3 from '../../assets/images/factorHumano3.png';
 
 export const VerifyCodePage = () => {
     const [code, setCode] = useState(['', '', '', '']); // Estado para almacenar el código de verificación
-    
     const inputsRef = useRef([]); // Referencia para los inputs del código
+    
+    // Estado para el carrusel
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const images = [factor1, factor2, factor3]; // Array de imágenes para el carrusel
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+        }, 3500); // Cambia cada 3.5 segundos
+
+        return () => clearInterval(interval);
+    }, [images.length]);
 
     const handleChange = (index, value) => {
-        if (/^[0-9]$/.test(value) || value === '') { // Valida que el valor sea un número o vacío
-            const newCode = [...code]; // Crea una copia del estado actual
-            newCode[index] = value; // Asigna el nuevo valor al índice correspondiente
+        if (/^[0-9]$/.test(value) || value === '') {
+            const newCode = [...code];
+            newCode[index] = value;
             setCode(newCode);
 
-            if (value !== '' && index < 3) { // Si el valor no está vacío y no es el último campo
-                inputsRef.current[index + 1].focus(); // Pasa al siguiente input
+            if (value !== '' && index < 3) {
+                inputsRef.current[index + 1].focus();
             }
         }
     };
 
     const handleKeyDown = (index, e) => {
-        if (e.key === 'Backspace' && code[index] === '' && index > 0) { // Si se presiona Backspace y el campo está vacío
-            inputsRef.current[index - 1].focus(); // Regresa al campo anterior
+        if (e.key === 'Backspace' && code[index] === '' && index > 0) {
+            inputsRef.current[index - 1].focus();
         }
     };
 
     const handlePaste = (e) => {
-        e.preventDefault(); // Previene el comportamiento por defecto del pegado
-        const pasteData = e.clipboardData.getData('text/plain').slice(0, 4); // Obtiene los primeros 4 caracteres del portapapeles
-        const newCode = [...code]; // Crea una copia del estado actual
+        e.preventDefault();
+        const pasteData = e.clipboardData.getData('text/plain').slice(0, 4);
+        const newCode = [...code];
         
-        for (let i = 0; i < pasteData.length && i < 4; i++) { // Itera sobre los caracteres pegados
-            if (/^[0-9]$/.test(pasteData[i])) { // Valida que el carácter sea un número
-                newCode[i] = pasteData[i]; // Asigna el carácter al índice correspondiente
-                if (i < 3) { 
+        for (let i = 0; i < pasteData.length && i < 4; i++) {
+            if (/^[0-9]$/.test(pasteData[i])) {
+                newCode[i] = pasteData[i];
+                if (i < 3) {
                     inputsRef.current[i + 1].focus();
                 }
             }
         }
 
-        setCode(newCode); // Actualiza el estado con el nuevo código
+        setCode(newCode);
     };
 
     return (
         <>
             <div id="VerifyCodePage">
-                {/* Componente de encabezado */}
+                <Gov/>
                 <HeaderLogin/>
                 
                 <div className="VerifyPage">
                     <div className="frame">
-                        {/* Enlace para volver al inicio de sesión */}
                         <a href=""> <FaAngleLeft /><Link to="/">Ir a inicio de Sesión</Link></a>
                         
-                        {/* Título y descripción */}
                         <h1>Verificar Codigo</h1>
                         <p>Ingresa el código que enviamos a tu email</p>
                         
-                        {/* Contenedor de los inputs del código */}
                         <div className="input-box-email">
-                            {/* Mapea 4 inputs para el código de verificación */}
                             {[0, 1, 2, 3].map((index) => (
                                 <input
-                                    key={index}  // Clave única para React
+                                    key={index}
                                     type="text" 
                                     maxLength="1"
-                                    value={code[index]}  // Valor del input
-                                    onChange={(e) => handleChange(index, e.target.value)}  // Maneja cambios
-                                    onKeyDown={(e) => handleKeyDown(index, e)}  // Maneja teclas
-                                    onPaste={handlePaste}  // Maneja pegado
-                                    ref={(el) => (inputsRef.current[index] = el)}  // Referencia al DOM
-                                    autoFocus={index === 0}  // Autofoco en el primer input
+                                    value={code[index]}
+                                    onChange={(e) => handleChange(index, e.target.value)}
+                                    onKeyDown={(e) => handleKeyDown(index, e)}
+                                    onPaste={handlePaste}
+                                    ref={(el) => (inputsRef.current[index] = el)}
+                                    autoFocus={index === 0}
                                 />
                             ))}
                         </div>
 
-                        {/* Botón de verificación */}
                         <Link to="/update">
                             <button className="BottonVerify" type="submit">VERIFICAR</button>
                         </Link>
                     </div>
 
-                    {/* Imagen decorativa */}
+                    {/* Carrusel de imágenes */}
                     <div className="img-VerifyPage">
-                        <img src={imgVerify} alt="Ilustración de verificación"/>
+                        <div className="carousel-container">
+                            {images.map((image, index) => (
+                                <div 
+                                    key={index}
+                                    className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
+                                    style={{ backgroundImage: `url(${image})` }}
+                                />
+                            ))}
+                            <div className="carousel-dots">
+                                {images.map((_, index) => (
+                                    <span 
+                                        key={index}
+                                        className={`dot ${index === currentSlide ? 'active' : ''}`}
+                                        onClick={() => setCurrentSlide(index)}
+                                    />
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
