@@ -6,8 +6,6 @@ import CardSales from '../../components/Cards/CardSales/CardSales.jsx';
 import CardPending from '../../Components/Cards/CardPending/CardPending.jsx';
 import EnEjecucionChart from '../../components/GraphicHome/GraphicHome.jsx';
 import Navigation, { NavigationProvider, useNavigation } from '../../layout/SideBar/SideBar.jsx';
-import { Link } from 'react-router-dom';
-import { FaRegEdit } from 'react-icons/fa';
 import './css/Home.css';
 
 const Home = () => {
