@@ -1,4 +1,4 @@
-import './css/headerLogin.css'
+import './css/headerIcons.css'
 import '../../styles/variables.css'
 import logosena from '../../assets/logos/logo-Sena.png'
 import logosisgeec from '../../assets/logos/logo-sisgeec.png'

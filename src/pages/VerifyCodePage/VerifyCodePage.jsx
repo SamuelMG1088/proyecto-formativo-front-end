@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import HeaderLogin from '../../layout/HeaderLogin/HeaderLogin.jsx';
+import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
 import Gov from '../../layout/Gov/Gov.jsx';
 import { Link } from 'react-router-dom';
 import { FaAngleLeft } from "react-icons/fa";
@@ -64,7 +64,7 @@ export const VerifyCodePage = () => {
         <>
             <div id="VerifyCodePage">
                 <Gov/>
-                <HeaderLogin/>
+                <HeaderIcons/>
                 
                 <div className="VerifyPage">
                     <div className="frame">

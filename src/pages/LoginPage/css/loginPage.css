@@ -3,6 +3,9 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     background-image: url(../../../assets/images/vector-blanco.png);
+    border-top: 2px solid;
+    background-size: cover;
+    height: 25rem;
   }
 
   .LoginPage .frame {

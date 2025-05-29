@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './css/updatePasswordPage.css';
 import '../../styles/variables.css';
-import HeaderLogin from '../../layout/HeaderLogin/HeaderLogin.jsx';
+import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
 import Gov from '../../layout/Gov/Gov.jsx';
 import { Link } from 'react-router-dom';
 import { BsEyeSlashFill } from "react-icons/bs";
@@ -25,7 +25,7 @@ export const UpdatePasswordPage = () => {
     return (
         <div id="UpdatePasswordPage">
             <Gov/>
-            <HeaderLogin/>
+            <HeaderIcons/>
             <div className="UpdatePage">
                 <div className="frame">
                     <h1>Actualizar Contraseña</h1>

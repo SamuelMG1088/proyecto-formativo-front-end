@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import svgoldPassword from '../../assets/images/img-oldPassword.svg';
-import HeaderLogin from '../../layout/HeaderLogin/HeaderLogin.jsx';
+import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
 import AccestDirect from '../../components/AccessDirect/AccestDirect.jsx';
 import Gov from '../../layout/Gov/Gov.jsx';
 import { Link } from 'react-router-dom';
@@ -27,7 +26,7 @@ export const OldPasswordPage = () => {
   return (
     <div id="OldPasswrodPage">
       <Gov/>
-      <HeaderLogin/>
+      <HeaderIcons/>
       <div className="old-password">
         <div className="frame">
           <a href=""> <FaAngleLeft /><Link to="/">Ir a inicio de Sesión</Link></a>
