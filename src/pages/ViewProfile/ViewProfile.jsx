@@ -59,7 +59,7 @@ const ViewProfile = () => {
               <div className="content-profile-section">
                 <img src={FactorHumano5} alt=""/>
                 <div className="box-text-profile">
-                  <h2>Perfil de Usuario</h2>
+                  <h1>Perfil de Usuario</h1>
                   <p>En esta sección podrás ver y editar tu perfil de usuario. Asegúrate de que toda la información 
                   esté actualizada para mejorar tu experiencia en la plataforma.</p>
                 </div>
@@ -73,25 +73,15 @@ const ViewProfile = () => {
                 <div className="profile-picture-box">
                   <img src={FactorHumano6} alt="" />
                   <h2>Stephania Duque</h2>
-                  <h3>Rol: <span>ADMIN</span></h3>
-                  <h3>Estado: <span>Activo</span></h3>
+                  <h3>Rol: <span className='Rol'>Admin</span></h3>
+                  <h3>Estado: <span className='Estado'>Activo</span></h3>
                 </div>
 
-                <div className="description-profile">
-                  <h3>Descripción</h3>
-                  <ul>
-                    <li>Soy una persona apasionada por la tecnología y la innovación.</li>
-                    <li>Me gusta aprender cosas nuevas y enfrentar desafíos.</li>
-                    <li>Disfruto trabajar en equipo y colaborar con otros.</li>
-                    <li>Me interesa el desarrollo de software y la inteligencia artificial.</li>
-                  </ul>
-                </div>
-
-              </div>
+             </div>
 
               <div className="right-form-box">
                 <div className="title-form">
-                  <h2><FaUserEdit />Infomacion Personal</h2>
+                  <h2><FaUserEdit /> Infomación Personal</h2>
                   <p>Detalles de contacto y ubicación del administrador</p> 
                 </div>
 
@@ -107,7 +97,7 @@ const ViewProfile = () => {
                         </select>
                         
                         <h2>Nombre</h2>
-                        <input className='name' type="text"  placeholder="Ingrese su nombre" />
+                        <input className='name' type="text" placeholder="Ingrese su nombre" />
 
                         <h2>Telefono</h2>
                         <input className='phone' type="text"  placeholder="Ingrese su numero telefonico" />

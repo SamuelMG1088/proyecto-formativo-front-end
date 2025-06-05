@@ -1,0 +1,197 @@
+#BusinessDiagnosisPage {
+  
+  
+  .PageBusinessDiagnosis {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Estilos del carrusel */
+  .diagnosis-carousel {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    margin-bottom: -40px; /* Solapa con el img-header */
+    background-color: #f5f5f5; /* Fondo de respaldo */
+  }
+
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+  }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 2;
+  }
+
+  .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .dot.active {
+    background-color: #ffffff;
+    transform: scale(1.2);
+  }
+
+  .dot:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+
+ 
+  .img-header {
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    position: relative;
+    z-index: 0;
+  }
+
+  .info-diagnosis-section {
+    padding: 2rem;
+    background-color: white;
+  }
+
+  .content-diagnosis-section h1 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .box-camp{
+    margin-left: 30rem;
+  }
+
+  .Campo1{
+      border: 1px solid var(--neutral-1_6);
+      width: 65%;
+      height: 2.55rem;
+      border-radius: 0.4rem;
+  }
+  .Campo2{
+      border: 1px solid var(--neutral-1_6);
+      width: 25%;
+      height: 2.55rem;
+      border-radius: 0.4rem;
+  }
+  .Campo3{
+      border: 1px solid var(--neutral-1_6);
+      width: 25%;
+      height: 2.55rem;
+      border-radius: 0.4rem;
+  }
+  .Campo4{
+      border: 1px solid var(--neutral-1_6);
+      width: 25%;
+      height: 2.55rem;
+      border-radius: 0.4rem;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Media Queries */
+  @media (max-width: 1200px) {
+    .diagnosis-carousel {
+      height: 320px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .diagnosis-carousel {
+      height: 280px;
+      margin-bottom: -30px;
+    }
+    
+    .img-header {
+      height: 180px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .diagnosis-carousel {
+      height: 240px;
+    }
+    
+    .img-header {
+      height: 160px;
+    }
+
+    .content-diagnosis-section h1 {
+      font-size: 1.8rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .diagnosis-carousel {
+      height: 200px;
+      margin-bottom: -20px;
+    }
+    
+    .img-header {
+      height: 140px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+    }
+
+    .content-diagnosis-section h1 {
+      font-size: 1.5rem;
+    }
+  }
+}
