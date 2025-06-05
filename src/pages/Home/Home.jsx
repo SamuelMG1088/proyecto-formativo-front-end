@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import Gov from '../../layout/Gov/Gov.jsx';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
-import HomeBanner1 from '../../assets/images/bannerHome1.jpg'
+import BannerHome2 from '../../assets/images/BanneerHome2.png';
+import BannerHome3 from '../../assets/images/BannerHome3.png';
+import BannerHome4 from '../../assets/images/BannerHome4.png';
+import BannerHome5 from '../../assets/images/BannerHome5.png';
 import BannerActualizar from '../../assets/images/BannerActualizar.png';
 import { IoIosCheckbox } from "react-icons/io";
 import factor1 from '../../assets/images/factorHumano1.jpg'
 import { GiColombia } from "react-icons/gi";
+import Navbar from '../../layout/NavBar/NavBar.jsx';
 import './css/Home.css';
 
 const Home = () => {
   // Estado para el carrusel
   const [currentSlide, setCurrentSlide] = useState(0);
-  const images = [BannerActualizar]; // Array de imágenes para el carrusel
+  const images = [BannerActualizar, BannerHome2, BannerHome3, BannerHome4, BannerHome5]; // Array de imágenes para el carrusel
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -98,7 +102,6 @@ const Home = () => {
                 <h3>Quieres saber que necesitas?</h3>
                 <p>Completa nuestro diagnostico para asi saber que aprendiz elegir.</p>
                 <button className='btn-completar' >COMPLETAR</button>
-                
               </div>
             </section>
 
@@ -106,6 +109,7 @@ const Home = () => {
         </div>
 
       </div>
+      {/* <Navbar /> */}
     </div>
   );
 }

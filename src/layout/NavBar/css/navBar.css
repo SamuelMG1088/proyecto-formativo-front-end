@@ -1,0 +1,71 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #111827;
+}
+
+.navContainer {
+  display: flex;
+  background-color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.navItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.activeCircle {
+  position: absolute;
+  top: -12px;
+  width: 48px;
+  height: 48px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  z-index: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  z-index: 10;
+  transition: color 0.3s ease;
+}
+
+.iconActive {
+  color: black;
+}
+
+.iconInactive {
+  color: #4b5563;
+}
+
+.label {
+  font-size: 12px;
+  margin-top: 0.25rem;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+}
+
+.labelActive {
+  opacity: 1;
+  color: #1f2937;
+}
+
+.labelInactive {
+  opacity: 0;
+}
