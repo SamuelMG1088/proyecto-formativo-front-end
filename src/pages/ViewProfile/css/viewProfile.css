@@ -214,7 +214,8 @@
     .type-document {
         border: 1px solid var(--neutral-1_6);
         width: 71%;
-        height: 2.5rem;
+        height: 2.55rem;
+        border-radius: 0.4rem;
     }
    
     .Num-document{
@@ -270,5 +271,6 @@
     input{
         color: var(--neutral-1_6);
         padding-left: 0.5rem;
+        border-radius: 0.4rem;
     }
 }
