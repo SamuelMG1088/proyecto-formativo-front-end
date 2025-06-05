@@ -6,6 +6,7 @@ import UpdatePasswordPage from './pages/UpdatePasswordPage/UpdatePasswordPage'; 
 import VerifyCodePage from './pages/VerifyCodePage/VerifyCodePage.jsx';
 import Home from './pages/Home/Home.jsx'; /* Importamos el componente Home */
 import ViewProfile from './pages/ViewProfile/ViewProfile.jsx'; /* Importamos el componente ViewProfile */
+import ListCompanyPage from './pages/ListCompanyPage/ListCompanyPage.jsx'; /* Importamos el componente ListCompanyPage */
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/verify" element={<VerifyCodePage/>} /> {/* Definimos la ruta para el componente VerifyCodePage */}
         <Route path="/home" element={<Home/>} /> {/* Definimos la ruta para el componente Home */}
         <Route path='viewprofile' element={<ViewProfile/>} /> {/* Definimos la ruta para el componente ViewProfile */}
+        <Route path="/listcompany" element={<ListCompanyPage/>} /> {/* Ruta comodín para redirigir a LoginPage si no coincide ninguna otra ruta */}
       </Routes>
     </BrowserRouter>
     </>
