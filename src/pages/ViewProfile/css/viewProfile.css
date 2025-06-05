@@ -267,8 +267,8 @@
         margin-left: 0.7rem;
     }
 
-    input::placeholder{
+    input{
         color: var(--neutral-1_6);
-        padding: 0.5rem;
+        padding-left: 0.5rem;
     }
 }
