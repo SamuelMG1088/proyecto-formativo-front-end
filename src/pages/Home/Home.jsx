@@ -5,11 +5,11 @@ import BannerHome2 from '../../assets/images/BanneerHome2.png';
 import BannerHome3 from '../../assets/images/BannerHome3.png';
 import BannerHome4 from '../../assets/images/BannerHome4.png';
 import BannerHome5 from '../../assets/images/BannerHome5.png';
+import NavBar from '../../layout/NavBar/NavBar.jsx';
 import BannerActualizar from '../../assets/images/BannerActualizar.png';
 import { IoIosCheckbox } from "react-icons/io";
 import factor1 from '../../assets/images/factorHumano1.jpg'
 import { GiColombia } from "react-icons/gi";
-import Navbar from '../../layout/NavBar/NavBar.jsx';
 import './css/Home.css';
 
 const Home = () => {
@@ -30,6 +30,7 @@ const Home = () => {
       <div className="home">
         <Gov />
         <HeaderIcons />
+        <NavBar />
 
         {/* // Carrusel */}
         <div className="home-carousel">

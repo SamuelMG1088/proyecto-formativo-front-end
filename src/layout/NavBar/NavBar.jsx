@@ -1,51 +1,35 @@
-import React, { useState } from "react";
-import {AiOutlineHome, AiOutlineUser, AiOutlineMessage, AiOutlineCamera, AiOutlineSetting,} from "react-icons/ai";
-import './css/navBar.css'
-import clsx from "clsx";
+import { NavLink, useLocation } from 'react-router-dom';
+import '../../styles/variables.css'
+import './css/navBar.css';
 
-const navItems = [
-  { label: "Home", icon: AiOutlineHome },
-  { label: "User", icon: AiOutlineUser },
-  { label: "Chat", icon: AiOutlineMessage },
-  { label: "Camera", icon: AiOutlineCamera },
-  { label: "Settings", icon: AiOutlineSetting },
-];
-
-export default function Navbar() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  return (
-    <div className={styles.wrapper}>
-      <div className={styles.navContainer}>
-        {navItems.map((item, index) => {
-          const Icon = item.icon;
-          const isActive = activeIndex === index;
-
-          return (
-            <button
-              key={index}
-              onClick={() => setActiveIndex(index)}
-              className={styles.navItem}
-            >
-              {isActive && <span className={styles.activeCircle}></span>}
-              <Icon
-                className={clsx(
-                  styles.icon,
-                  isActive ? styles.iconActive : styles.iconInactive
-                )}
-              />
-              <span
-                className={clsx(
-                  styles.label,
-                  isActive ? styles.labelActive : styles.labelInactive
-                )}
-              >
-                {item.label}
-              </span>
-            </button>
-          );
-        })}
-      </div>
-    </div>
-  );
+const NavBar = () => {
+    const location = useLocation();
+    
+    return (
+        <div id="navbar">
+            <nav className="navbar">
+                <ul className="navbar-menu">
+                    <li className={location.pathname === '/home' ? 'active' : ''}>
+                        <NavLink to="/home">Home</NavLink>
+                    </li>
+                    <li className={location.pathname === '/users' ? 'active' : ''}>
+                        <NavLink to="/users">Usuarios</NavLink>
+                    </li>
+                    <li className={location.pathname === '/program' ? 'active' : ''}>
+                        <NavLink to="/program">Programa de Formación</NavLink>
+                    </li>
+                    <li className={location.pathname === '/diagnostic' ? 'active' : ''}>
+                        <NavLink to="/diagnostic">Diagnostico Empresarial</NavLink>
+                    </li>
+                    <li className={location.pathname === '/viewprofile' ? 'active' : ''}>
+                        <NavLink to="/viewprofile">Perfil</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/logout">Cerrar Sesión</NavLink>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    )
 }
+export default NavBar;
