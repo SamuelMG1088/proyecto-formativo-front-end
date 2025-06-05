@@ -123,14 +123,11 @@ const ViewProfile = () => {
                     </div>
                   </div>
                 </form>
-                        <h2 className='Text-h2'>Direccion</h2>
-                        <input className='address'  type="text"  placeholder="Ingrese la direccion " />
+                <h2 className='Text-h2'>Direccion</h2>
+                <input className='address'  type="text"  placeholder="Ingrese la direccion " />
               </div>
-
-            </div>
-
+            </div>  
           </div>
-
       </div>
     </div>
   );

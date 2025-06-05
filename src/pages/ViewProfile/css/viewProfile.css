@@ -69,14 +69,14 @@
         display: flex;
         justify-content: center;
         background-image: url(../../../assets/images/ondasGris.jpg);
-        z-index: -1;
+        z-index: 1;
     }
 
     /* Estilos de la seccion */
     .profile-content {
         height: auto;
         position: relative;
-        z-index: -1;
+        z-index: 1;
         background-image: url(../../../assets/images/vector-blanco.png);
         background-size: cover;
     }
@@ -223,9 +223,7 @@
         height: 2.5rem;
 
     }
-    .Num-document::placeholder{
-        color: var(--color-placeholder);
-    }
+    
     .name{
         border: 1px solid var(--neutral-1_6);
         width: 70%;
@@ -233,10 +231,7 @@
 
     }
 
-    .name ::placeholder{
-        margin-right: 3rem;
-        color: var(--color-placeholder);
-    }
+    
     .phone{
         border: 1px solid var(--neutral-1_6);
         width: 70%;
@@ -244,10 +239,7 @@
 
     }
 
-    .phone ::placeholder{
-        margin-right: 3rem;
-        color: var(--color-placeholder);
-    }
+   
     .Lastname{
         border: 1px solid var(--neutral-1_6);
         width: 70%;
@@ -255,19 +247,13 @@
 
     }
 
-    .Lastname ::placeholder{
-        margin-right: 3rem;
-        color: var(--color-placeholder);
-    }
+    
     .Email{
         border: 1px solid var(--neutral-1_6);
         width: 70%;
         height: 2.5rem;
     }
-    .Email::placeholder{
-        margin-right: 3rem;
-        color: var(--color-placeholder);
-    }
+    
 
     .Text-h2{
         gap: 2rem;
@@ -279,5 +265,10 @@
         width: 83%;
         height: 2.5rem;
         margin-left: 0.7rem;
+    }
+
+    input::placeholder{
+        color: var(--neutral-1_6);
+        padding: 0.5rem;
     }
 }
