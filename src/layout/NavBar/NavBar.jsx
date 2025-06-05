@@ -12,7 +12,7 @@ const NavBar = () => {
                     <li className={location.pathname === '/home' ? 'active' : ''}>
                         <NavLink to="/home">Home</NavLink>
                     </li>
-                    <li className={location.pathname === '/users' ? 'active' : ''}>
+                    <li className={location.pathname === '/listcompany' ? 'active' : '' || location.pathname === '/viewcompany' ? 'active' : ''}>
                         <NavLink to="/listcompany">Usuarios</NavLink>
                     </li>
                     <li className={location.pathname === '/program' ? 'active' : ''}>

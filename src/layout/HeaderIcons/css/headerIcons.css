@@ -1,5 +1,6 @@
 #barra-navegacion{
     nav {
+        background-color: var(--neutral-4);
         height: 5rem;
         display: flex;
         align-items: center;
