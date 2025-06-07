@@ -72,25 +72,38 @@ const ViewCompany = () => {
               </select>
 
               <h3>Nombre</h3>
-              <input type="text" />
+              <input type="text"/>
 
               <h3>Numero Telefonico</h3>
               <input type="text" />
 
-              <h3>Estado: </h3>
+              <h3>Estado</h3>
+              <select name="" id="">
+                <option value="">Activo</option>
+                <option value="">Inactivo</option>
+              </select>
 
             </div>
 
             <div className="box-imputs-right">
-              <h3></h3>
+
+              <h3>Número de documento</h3>
+              <input type="number" />
+
+              <h3>Apellido</h3>
               <input type="text" />
+
+              <h3>Correo Electronico</h3>
+              <input type="text" />
+
+              <h3>Direccion</h3>
+              <input type="text" name="" />
+
             </div>
 
 
           </div>
-
-          <span>Direccion</span>
-            <input type="text" name="" id="" />
+          
 
         </section>
         
