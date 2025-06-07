@@ -1,0 +1,231 @@
+#CreateCompanyPage {
+  /* Estilos completos del carrusel */
+  .create-company-carousel {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    margin: 20px 0;
+    background-color: #eef2f6;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  }
+
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+  }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 2;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .dot.active {
+    background-color: #ffffff;
+    transform: scale(1.2);
+  }
+
+  .dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+
+  /* ... (mantén los estilos del carrusel que ya teníamos) ... */
+
+  /* Estilos del formulario */
+  .create-company-form {
+    max-width: 800px;
+    width: 90%;
+    margin: 30px auto;
+    padding: 40px;
+    background-color: var(--neutral-4);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .create-company-form h1 {
+    color: var(--color-primary);
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .form-subtitle {
+    color: var(--neutral-1_3);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+
+  /* Indicador de pasos */
+  .step-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .step {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--neutral-1_2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .step.active {
+    background-color: var(--color-primary);
+    color: var(--neutral-4);
+  }
+
+  .step-line {
+    width: 80px;
+    height: 2px;
+    background-color: var(--neutral-1_2);
+    margin: 0 10px;
+  }
+
+  .step-labels {
+    display: flex;
+    padding: 0 20px;
+    margin-bottom: 3rem;
+  }
+
+  .step-labels span {
+    color: var(--neutral-1_3);
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-left: 6rem;
+  }
+
+  .step-labels span.active {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Estilos de los pasos del formulario */
+  .form-step {
+    padding: 0 10px;
+  }
+
+  .form-step h2 {
+    color: var(--color-primary);
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .step-description {
+    color: var(--neutral-1_3);
+    margin-bottom: 30px;
+    font-size: 15px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--neutral-1_4);
+    font-weight: 500;
+    font-size: 15px;
+  }
+
+  .form-group input, select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--neutral-1_2);
+    border-radius: 0.4rem;
+    font-size: 15px;
+    transition: border 0.3s ease;
+  }
+
+  .form-group input:focus {
+    outline: none;
+    border-color: var(--color-secundary-1);
+    box-shadow: 0 0 0 2px rgba(226, 232, 46, 0.2);
+  }
+
+  .form-group input::placeholder {
+    color: var(--neutral-1_2);
+  }
+
+  /* Navegación del formulario */
+  .form-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+
+  .primary-button {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .secondary-button {
+    background-color: var(--neutral-1_2);
+    color: var(--neutral-1_4);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .secondary-button:hover {
+    background-color: var(--neutral-4);
+  }
+
+  .secondary-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

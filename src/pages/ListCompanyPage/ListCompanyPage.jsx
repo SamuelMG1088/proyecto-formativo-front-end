@@ -76,7 +76,10 @@ const ListCompany = () => {
         {/* Contenido principal */} 
         <div className="list-company-content">
             <section className="list-company-section">
+              <div className="box-links">
                 <NavLink to="/home" className="NavLink"><FaArrowLeftLong className='icon-arrow' />Volver al Inicio</NavLink>
+                <NavLink to="/createCompany" className="NavLink">Ir a Crear una Empresa</NavLink>
+              </div>
                 <h2>Directorio de Empresas</h2>
                 <p>Explora y descubre empresas registradas</p>
                 
@@ -86,13 +89,6 @@ const ListCompany = () => {
                 onStatusChange={handleStatusChange}
                 onResetFilters={handleResetFilters}
                 />
-                
-                {/* Aquí iría la lista de empresas filtradas */}
-                <div className="company-list">
-                {/* {filteredData.map(company => (
-                    <CompanyCard key={company.id} company={company} />
-                ))} */}
-                </div>
 
                 <div className="empresa-table-container">
                     <div className="border">

@@ -9,6 +9,7 @@ import ViewProfile from './pages/ViewProfile/ViewProfile.jsx'; /* Importamos el 
 import ListCompanyPage from './pages/ListCompanyPage/ListCompanyPage.jsx'; /* Importamos el componente ListCompanyPage */
 import ViewCompany from './pages/ViewCompany/ViewCompany.jsx'; /* Importamos el componente ViewCompany */
 import BusinesDiagnosis from './pages/BusinessDiagnosis/BusinessDiagnosis.jsx'; /* Importamos el componente BusinessDiagnosis */
+import CreateCompanyPage from './pages/CreateCompanyPage/CreateCompanyPage.jsx';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/listcompany" element={<ListCompanyPage/>} /> {/* Ruta comodín para redirigir a LoginPage si no coincide ninguna otra ruta */}
         <Route path="/viewcompany" element={<ViewCompany/>} /> {/* Definimos la ruta para el componente ViewCompany */}
         <Route path="/businessdiagnosis" element={<BusinesDiagnosis/>} /> {/* Definimos la ruta para el componente BusinessDiagnosis */}
+        <Route path='/createcompany' element={<CreateCompanyPage/>} /> {/* DEfinimos la ruta para el componente CreateCompanyPage*/}
       </Routes>
     </BrowserRouter>
     </>

@@ -93,12 +93,18 @@
     .icon-arrow {
         margin-right: 0.5rem;
     }
+    
+    .box-links {
+      display: flex;
+      justify-content: space-between;
 
+    }
+    
     .NavLink {
         text-decoration: none;
         /* color: var(--neutral-1); */
     }
-    
+
     .list-company-section h2 {
         font-size: 2rem;
         margin-bottom: 0.5rem;
