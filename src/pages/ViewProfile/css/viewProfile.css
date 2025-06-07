@@ -86,7 +86,6 @@
         position: relative;
         top: -5rem;
         left: 15%;
-        /* border: 1px solid; */
         background-color: var(--neutral-4);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
