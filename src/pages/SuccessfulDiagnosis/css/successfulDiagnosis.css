@@ -1,0 +1,207 @@
+#BusinessDiagnosisPage{
+
+  .PageBusinessDiagnosis {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../../../assets/images/vector-blanco.png);
+    background-size: cover;
+  }
+
+  /* Estilos del carrusel */
+  .diagnosis-carousel {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    margin-bottom: -40px; /* Solapa con el img-header */
+    background-color: #f5f5f5; /* Fondo de respaldo */
+  }
+
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+  }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 2;
+  }
+
+  .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .dot.active {
+    background-color: #ffffff;
+    transform: scale(1.2);
+  }
+
+  .dot:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+
+ .info-successfull-section{
+    display: flex;
+    flex-direction: column;
+    background-image: url(../../../assets/images/vector-blanco.png);
+    background-size: cover;
+    padding: 2rem;
+    margin-top: 5rem;
+  }
+
+  .link-back-diagnosis{
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+  
+  .back-h2{
+    margin: 2rem 0rem 5rem;
+  }
+
+  
+  .box-successfull{
+    background-color: var(--neutral-4);
+    margin-left: 27rem;
+    border: 1px solid;
+    padding: 3rem;
+    width: 35%;
+    padding: none;
+    
+  }
+  .box-successfull h1{
+    color: #333;
+    margin-left: 6.4rem;
+    font-size: 2rem;
+    margin-bottom: 1.5rem
+    }
+    
+    .box-successfull p{
+    margin-left: 8rem;
+    font-size: 0.9rem;
+    width: 29rem;
+    }
+
+    .box-icon-successfull{
+        margin: 0rem 0rem 2rem 0rem ;
+    }
+
+    
+  .icon-successfull {
+    width: 60px;
+    height: 60px;
+    margin-left: 15rem;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+
+
+  .Button-view{
+    margin-top: 3rem;
+    margin-left: 11.5rem;
+    border-radius: 6px; 
+    width: 10rem;
+    height: 2.5rem;
+    color: var(--neutral-4);
+    background-color: var(--color-secundary-2);
+    border: none;
+    cursor: pointer;
+  }
+
+
+
+
+  /* Media Queries Responsivos */
+  @media (max-width: 1200px) {
+    .success-carousel {
+      height: 50vh;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .success-carousel {
+      height: 45vh;
+    }
+
+    .diagnosis-title {
+      font-size: 2.2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .success-carousel {
+      height: 40vh;
+    }
+
+    .diagnosis-header {
+      padding: 2.5rem 0;
+      margin-top: -60px;
+    }
+
+    .diagnosis-title {
+      font-size: 2rem;
+    }
+
+    .diagnosis-subtitle {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .success-carousel {
+      height: 35vh;
+    }
+
+    .carousel-indicators {
+      bottom: 20px;
+    }
+
+    .indicator {
+      width: 12px;
+      height: 12px;
+    }
+
+    .diagnosis-header {
+      padding: 2rem 0;
+      margin-top: -40px;
+    }
+
+    .diagnosis-title {
+      font-size: 1.8rem;
+    }
+
+    .diagnosis-subtitle {
+      font-size: 1rem;
+    }
+  }
+}

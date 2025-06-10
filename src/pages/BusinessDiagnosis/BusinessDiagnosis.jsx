@@ -3,8 +3,11 @@ import Gov from '../../layout/Gov/Gov.jsx';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
 import NavBar from '../../layout/NavBar/NavBar.jsx';
 import './css/businessDiagnosis.css';
+import { IoNewspaperOutline } from "react-icons/io5";
+import { Link } from 'react-router-dom';
+
 // Importa tus imágenes para el carrusel
-import  diagnostic from '../../assets/images/BannerDiagnostico.png';
+import diagnostic from '../../assets/images/BannerDiagnostico.png';
 import banner2 from '../../assets/images/bannerHome2.jpg'; 
 import banner3 from '../../assets/images/bannerHome3.png';
 
@@ -49,23 +52,37 @@ const BusinessDiagnosis = () => {
           </div>
         </div>
         
-        <div className="img-header"></div>
           <section className="info-diagnosis-section">
             <div className="content-diagnosis-section">
-              <h1>Diagnóstico Empresarial</h1>
-              <p>Este diagnostico tiene como objetivo evaluar el estado actual de la empresa y asi saber sus necesidades  </p>
               <div className='box-camp'>
-                <h2>Campo1</h2>
-                <input className ='Campo1'type="text" placeholder='Campo1' />
+                <div className="container-profile-diagnosis">
+                    <IoNewspaperOutline className='icon-diagnosis' />
+                </div>
+                <h1>Diagnóstico Empresarial</h1>
+                <p>Este diagnostico tiene como objetivo evaluar el estado actual de la empresa y asi saber sus necesidades  </p>
+                    <h2>Campo1</h2>
+                    <input className ='Campo1'type="text" placeholder='Campo1' />
 
-                <h2>Campo2</h2>
-                <input className ='Campo2'type="text" placeholder='Campo2' />
+                    <h2>Campo2</h2>
+                    <input className ='Campo2'type="text" placeholder='Campo2' />
 
-                <h2>Campo3</h2>
-                <input className ='Campo3'type="text" placeholder='Campo3' />
+                    <h2>Campo3</h2>
+                    <input className ='Campo3'type="text" placeholder='Campo3' />
 
-                <h2>Campo4</h2>
-                <input className ='Campo4'type="text" placeholder='Campo4' />
+                    <h2>Campo4</h2>
+                    <input className ='Campo4'type="text" placeholder='Campo4' />
+
+                    <h2>Campo5</h2>
+                    <input className ='Campo5'type="text" placeholder='Campo5' />
+
+                    <h2>Campo6</h2>
+                    <input className ='Campo6'type="text" placeholder='Campo6' />
+
+                    <h2>Campo7</h2>
+                    <input className ='Campo7'type="text" placeholder='Campo7' />
+                    <Link to="/successfulldiagnosis">
+                    <button className='Button-send'>Enviar Diagnostico</button>
+                    </Link>
               </div>
             </div>
           </section>

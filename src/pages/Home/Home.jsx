@@ -10,6 +10,7 @@ import BannerActualizar from '../../assets/images/BannerActualizar.png';
 import { IoIosCheckbox } from "react-icons/io";
 import factor1 from '../../assets/images/factorHumano1.jpg'
 import { GiColombia } from "react-icons/gi";
+import { Link } from 'react-router-dom';
 import './css/Home.css';
 
 const Home = () => {
@@ -102,7 +103,9 @@ const Home = () => {
               <div className="content-diagnosis">
                 <h3>Quieres saber que necesitas?</h3>
                 <p>Completa nuestro diagnostico para asi saber que aprendiz elegir.</p>
+                <Link to="/businessdiagnosis">
                 <button className='btn-completar' >COMPLETAR</button>
+                </Link>
               </div>
             </section>
 

@@ -77,15 +77,7 @@ const ViewProfile = () => {
                   <h3>Estado: <span>Activo</span></h3>
                 </div>
 
-                <div className="description-profile">
-                  <h3>Descripción</h3>
-                  <ul>
-                    <li>Soy una persona apasionada por la tecnología y la innovación.</li>
-                    <li>Me gusta aprender cosas nuevas y enfrentar desafíos.</li>
-                    <li>Disfruto trabajar en equipo y colaborar con otros.</li>
-                    <li>Me interesa el desarrollo de software y la inteligencia artificial.</li>
-                  </ul>
-                </div>
+
 
               </div>
 

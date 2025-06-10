@@ -2,29 +2,32 @@ import React, { useState, useEffect } from 'react';
 import Gov from '../../layout/Gov/Gov.jsx';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
 import NavBar from '../../layout/NavBar/NavBar.jsx';
-import BannerHome3 from '../../assets/images/BannerHome3.png';
-import BannerHome4 from '../../assets/images/BannerHome4.png';
-import BannerHome5 from '../../assets/images/BannerHome5.png';
-import FilterComponent from '../../components/Filter/Filter.jsx'; // Importa el componente de filtro
+import './css/diagnosticResult.css';
+import DiagnosisResult from '../../components/GraphicResultDiagnosis/GraphicResultDiagnosis.jsx';
+import { Link } from 'react-router-dom';
+import { FaChartBar } from 'react-icons/fa';
+import { FaRegEdit } from "react-icons/fa"
 import { NavLink } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { FaRegEdit } from "react-icons/fa"
-import { Link } from 'react-router-dom';
-import './css/listCompany.css';
+import FilterComponent from '../../components/Filter/Filter.jsx'; // Importa el componente de filtro
 
-const ListCompany = () => {
+// Importa tus imágenes para el carrusel
+import diagnostic from '../../assets/images/BannerDiagnostico.png';
+import banner2 from '../../assets/images/bannerHome2.jpg'; 
+import banner3 from '../../assets/images/bannerHome3.png';
+
+const DiagnosticResult = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [filteredData, setFilteredData] = useState([]); // Estado para los datos filtrados
-  const images = [BannerHome3, BannerHome4, BannerHome5];
+  const images = [diagnostic, banner2, banner3];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
     }, 3500);
+
     return () => clearInterval(interval);
   }, [images.length]);
-
-  // Función para manejar cambios en el tipo de documento
+    // Función para manejar cambios en el tipo de documento
   const handleDocumentTypeChange = (type) => {
     console.log('Filtrar por tipo de documento:', type);
     // Aquí implementarías la lógica de filtrado real
@@ -44,18 +47,19 @@ const ListCompany = () => {
     // setFilteredData(data); // Restaurar todos los datos
   };
 
+
   return (
-    <div id="ListCompanyPage">
-      <div className="PageListCompany">
+    <div id="DiagnosisResult">
+      <div className="PageresultDiagnosis">
         <Gov />
         <HeaderIcons />
         <NavBar />
-        
+
         {/* Carrusel */}
-        <div className="company-carousel">
+        <div className="diagnosis-carousel">
           <div className="carousel-container">
             {images.map((image, index) => (
-              <div 
+              <div
                 key={index}
                 className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
                 style={{ backgroundImage: `url(${image})` }}
@@ -63,7 +67,7 @@ const ListCompany = () => {
             ))}
             <div className="carousel-dots">
               {images.map((_, index) => (
-                <span 
+                <span
                   key={index}
                   className={`dot ${index === currentSlide ? 'active' : ''}`}
                   onClick={() => setCurrentSlide(index)}
@@ -72,13 +76,20 @@ const ListCompany = () => {
             </div>
           </div>
         </div>
-        
-        {/* Contenido principal */} 
-        <div className="list-company-content">
-            <section className="list-company-section">
+          
+            <section className='info-result-section'>
+                <div className='content-result-section'>
                 <NavLink to="/home" className="NavLink"><FaArrowLeftLong className='icon-arrow' />Volver al Inicio</NavLink>
-                <h2>Directorio de Empresas</h2>
-                <p>Explora y descubre empresas registradas</p>
+                    <div className="chart-header">
+                    <FaChartBar className="chart-icon" />
+                        <h2>Resultado del diagnóstico</h2>
+                        <p>Este es el resultado de tu diagnóstico que realizaste</p>
+                        <DiagnosisResult/>
+                    </div>
+                </div>
+            </section>
+            <div className="list-company-content">
+            <section className="list-company-section">
                 
                 {/* Componente de Filtro integrado aquí */}
                 <FilterComponent
@@ -251,9 +262,9 @@ const ListCompany = () => {
                 </div>
             </section>
         </div>
-      </div>
+        </div>
     </div>
   );
-}
+};
 
-export default ListCompany;
+export default DiagnosticResult;

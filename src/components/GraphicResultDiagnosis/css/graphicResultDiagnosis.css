@@ -1,0 +1,26 @@
+.diagnosis-result-page {
+  padding: 2rem;
+  font-family: 'Arial', sans-serif;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  text-decoration: none;
+}
+
+.chart-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  height: 100%;
+  margin-top: 2rem;
+}
+
+
+
+.chart-container {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

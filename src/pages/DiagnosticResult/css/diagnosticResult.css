@@ -1,90 +1,105 @@
-#ListCompanyPage {
-    .PageListCompany {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        background-image: url(../../../assets/images/vector-blanco.png);
-        background-size: cover;
-    }
+#DiagnosisResult{
 
-    /* Estilos del carrusel */
-    .company-carousel {
-        width: 100%;
-        height: 20rem;
-        position: relative;
-        overflow: hidden;
-        z-index: 2;
-    }
+  .PageresultDiagnosis {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../../../assets/images/vector-blanco.png);
+    background-size: cover;
+  }
 
-    .carousel-container {
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
+  /* Estilos del carrusel */
+  .diagnosis-carousel {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    margin-bottom: -40px; /* Solapa con el img-header */
+    background-color: #f5f5f5; /* Fondo de respaldo */
+  }
 
-    .carousel-slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-    }
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
 
-    .carousel-slide.active {
-        opacity: 1;
-    }
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
 
-    .carousel-dots {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 10px;
-        z-index: 2;
-    }
+  .carousel-slide.active {
+    opacity: 1;
+  }
 
-    .dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background-color: rgba(255, 255, 255, 0.5);
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
+  .carousel-dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 2;
+  }
 
-    .dot.active {
-        background-color: #ffffff;
-        transform: scale(1.2);
-    }
+  .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
 
-    .dot:hover {
-        background-color: rgba(255, 255, 255, 0.8);
-    }
+  .dot.active {
+    background-color: #ffffff;
+    transform: scale(1.2);
+  }
 
-    /* Estilos del img-header */
-    .img-header {
-        width: 100%;
-        position: relative;
-        top: -18.8rem;
-        height: 13rem;
-        display: flex;
-        justify-content: center;
-        background-image: url(../../../assets/images/ondasGris.jpg);
-        z-index: 1;
-    }
+  .dot:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  .chart-container {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
 
-    .list-company-section {
-        width: 70%;
+  .chart-icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: var(--neutral-4);
+    background-color: var(--color-primary);
+    margin: 2rem;
+    padding: 1rem;
+    }
+    
+  .content-result-section{
+    margin-top: 10rem;
+    background-color: var(--neutral-4);
+    margin-left: 5rem;
+    width: 90%;
+    height: 40%;
+    padding: none;
+  }
+  .list-company-section {
+        width: 86.5%;
         height: auto;
         position: relative;
         top: 2rem;
-        left: 15%;
+        left: 5%;
         background-color: var(--neutral-4);
         box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
         padding: 2rem;
@@ -117,6 +132,11 @@
     }
   
     .empresa-table-container {
+        margin: 2rem auto;
+        width: 100%;
+        overflow-x: auto; /*Para cuando el contenido de la tabla se desborda*/
+    }
+  .empresa-table-container {
         margin: 2rem auto;
         width: 100%;
         overflow-x: auto; /*Para cuando el contenido de la tabla se desborda*/
@@ -179,4 +199,13 @@
       color: var(--color-primary);
     }
     
+  
+
+
+
+
+
+
+
+
 }

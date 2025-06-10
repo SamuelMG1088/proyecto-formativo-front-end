@@ -1,3 +1,4 @@
+
 #BusinessDiagnosisPage {
   
   
@@ -70,128 +71,165 @@
   }
 
  
-  .img-header {
-    width: 100%;
-    height: 200px;
-    background-color: #f0f0f0;
-    position: relative;
-    z-index: 0;
-  }
-
+  
+ /*Aca esta la imagen de*/
   .info-diagnosis-section {
+    display: flex;
+    flex-direction: column;
+    background-image: url(../../../assets/images/vector-blanco.png);
+    background-size: cover;
     padding: 2rem;
-    background-color: white;
+    margin-top: 8rem;
   }
 
   .content-diagnosis-section h1 {
-    color: #333;
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .box-camp{
-    margin-left: 30rem;
-  }
-
-  .Campo1{
-      border: 1px solid var(--neutral-1_6);
-      width: 65%;
-      height: 2.55rem;
-      border-radius: 0.4rem;
-  }
-  .Campo2{
-      border: 1px solid var(--neutral-1_6);
-      width: 25%;
-      height: 2.55rem;
-      border-radius: 0.4rem;
-  }
-  .Campo3{
-      border: 1px solid var(--neutral-1_6);
-      width: 25%;
-      height: 2.55rem;
-      border-radius: 0.4rem;
-  }
-  .Campo4{
-      border: 1px solid var(--neutral-1_6);
-      width: 25%;
-      height: 2.55rem;
-      border-radius: 0.4rem;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /* Media Queries */
-  @media (max-width: 1200px) {
-    .diagnosis-carousel {
-      height: 320px;
+      color: #333;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
     }
+    .container-profile-diagnosis {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50%;
+        background-color: var(--color-primary);
+    }
+    .icon-diagnosis {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 2rem;
+    padding: 1rem;
   }
 
-  @media (max-width: 992px) {
-    .diagnosis-carousel {
-      height: 280px;
-      margin-bottom: -30px;
+    .box-camp{
+        background-color: var(--neutral-4);
+        margin-left: 25rem;
+        border: 1px solid;
+        padding: 3rem;
+        width: 45%;
+        padding: none;
     }
     
-    .img-header {
-      height: 180px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .diagnosis-carousel {
-      height: 240px;
+    .box-camp h2{
+        margin: 2rem 0rem 0.5rem 0rem ;
+        margin-left: 6rem;
     }
     
-    .img-header {
-      height: 160px;
+    .box-camp h1 {
+        margin-top: 2rem;  /*Aca es para bajar el titulo*/
+        margin-left: 9rem;
     }
 
-    .content-diagnosis-section h1 {
-      font-size: 1.8rem;
+    .box-camp p{
+        margin-left: 8rem;
+        font-size: 0.9rem;
+        width: 29rem;
+        
     }
-  }
+    .Campo1,
+    .Campo2,
+    .Campo3,
+    .Campo4,
+    .Campo5,
+    .Campo6,
+    .Campo7{
+        margin-left: 14%;
+        border: 1px solid var(--neutral-1_6);
+        width: 75%;
+        height: 2.55rem;
+        border-radius: 0.4rem;
+    }
 
-  @media (max-width: 576px) {
-    .diagnosis-carousel {
-      height: 200px;
-      margin-bottom: -20px;
-    }
-    
-    .img-header {
-      height: 140px;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
+    .Button-send{
+        margin-top: 3rem;
+        margin-left: 15rem;
+        border-radius: 6px; 
+        width: 10rem;
+        height: 2.5rem;
+        color: var(--neutral-4);
+        background-color: var(--color-primary);
+        border: none;
+        cursor: pointer;
     }
 
-    .content-diagnosis-section h1 {
-      font-size: 1.5rem;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Media Queries */
+    @media (max-width: 1200px) {
+        .diagnosis-carousel {
+        height: 320px;
+        }
     }
-  }
+
+    @media (max-width: 992px) {
+        .diagnosis-carousel {
+        height: 280px;
+        margin-bottom: -30px;
+        }
+        
+        .img-header {
+        height: 180px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .diagnosis-carousel {
+        height: 240px;
+        }
+        
+        .img-header {
+        height: 160px;
+        }
+
+        .content-diagnosis-section h1 {
+        font-size: 1.8rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .diagnosis-carousel {
+        height: 200px;
+        margin-bottom: -20px;
+        }
+        
+        .img-header {
+        height: 140px;
+        }
+
+        .dot {
+        width: 10px;
+        height: 10px;
+        }
+
+        .content-diagnosis-section h1 {
+        font-size: 1.5rem;
+        }
+    }
 }

@@ -12,13 +12,11 @@ const NavBar = () => {
                     <li className={location.pathname === '/home' ? 'active' : ''}>
                         <NavLink to="/home">Home</NavLink>
                     </li>
-                    <li className={location.pathname === '/listcompany' ? 'active' : ''
-                        || location.pathname === '/viewcompany' ? 'active' : ''
-                        || location.pathname === '/createCompany' ? 'active' : '' }>
+                    <li className={location.pathname === '/listcompany' ? 'active' : '' || location.pathname === '/viewcompany' ? 'active' : ''}>
                         <NavLink to="/listcompany">Usuarios</NavLink>
                     </li>
                     <li className={location.pathname === '/program' ? 'active' : ''}>
-                        <NavLink to="/program">Programa de Formación</NavLink>
+                        <NavLink to="/ViewTraining">Programa de Formación</NavLink>
                     </li>
                     <li className={location.pathname === '/businessdiagnosis' ? 'active' : ''}>
                         <NavLink to="/businessdiagnosis">Diagnostico Empresarial</NavLink>
@@ -27,7 +25,7 @@ const NavBar = () => {
                         <NavLink to="/viewprofile">Perfil</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/logout">Cerrar Sesión</NavLink>
+                        <NavLink to="/">Cerrar Sesión</NavLink>
                     </li>
                 </ul>
             </nav>
