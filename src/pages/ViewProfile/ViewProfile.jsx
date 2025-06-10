@@ -29,10 +29,7 @@ const ViewProfile = () => {
         <HeaderIcons />
         <NavBar />
 
-        <div className="img-header"></div>
-
           <div className="profile-content">
-
             {/* Carrusel sobre img-header */}
             <div className="profile-carousel">
               <div className="carousel-container">

@@ -49,8 +49,8 @@ const ViewTraining = () => {
             </div>
           </div>
         </div>
-            <div className="program-container">
-                <div className="program-header">
+          <div className="program-container">
+            <div className="program-header">
                     <FaGraduationCap className="icon-Training" />
                 </div>
                     <h1 className="program-title">
@@ -85,9 +85,9 @@ const ViewTraining = () => {
                     <h3>Proceso de Selección</h3>
                     <p>Prueba de aptitud, entrevista y prueba psicotécnica</p>
                     </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
   );
 }

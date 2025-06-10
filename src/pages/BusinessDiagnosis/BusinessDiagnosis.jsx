@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Gov from '../../layout/Gov/Gov.jsx';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
 import NavBar from '../../layout/NavBar/NavBar.jsx';
-import './css/businessDiagnosis.css';
-import { IoNewspaperOutline } from "react-icons/io5";
-import { Link } from 'react-router-dom';
-
-// Importa tus imágenes para el carrusel
 import diagnostic from '../../assets/images/BannerDiagnostico.png';
 import banner2 from '../../assets/images/bannerHome2.jpg'; 
 import banner3 from '../../assets/images/bannerHome3.png';
+import { IoNewspaperOutline } from "react-icons/io5";
+import { Link } from 'react-router-dom';
+import './css/businessDiagnosis.css';
 
 const BusinessDiagnosis = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -56,7 +54,7 @@ const BusinessDiagnosis = () => {
             <div className="content-diagnosis-section">
               <div className='box-camp'>
                 <div className="container-profile-diagnosis">
-                    <IoNewspaperOutline className='icon-diagnosis' />
+                  <IoNewspaperOutline className='icon-diagnosis' />
                 </div>
                 <h1>Diagnóstico Empresarial</h1>
                 <p>Este diagnostico tiene como objetivo evaluar el estado actual de la empresa y asi saber sus necesidades  </p>
@@ -80,9 +78,7 @@ const BusinessDiagnosis = () => {
 
                     <h2>Campo7</h2>
                     <input className ='Campo7'type="text" placeholder='Campo7' />
-                    <Link to="/successfulldiagnosis">
                     <button className='Button-send'>Enviar Diagnostico</button>
-                    </Link>
               </div>
             </div>
           </section>
