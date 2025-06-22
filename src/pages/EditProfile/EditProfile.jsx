@@ -8,13 +8,14 @@ import BannerHome5 from '../../assets/images/BannerHome5.png';
 import FactorHumano5 from '../../assets/images/factorHumano5.png'
 import FactorHumano6 from '../../assets/icons/icon-profile.png'
 import { FaUserEdit } from "react-icons/fa";
-import './css/viewProfile.css';
+import './css/editProfile.css';
 import NavBar from '../../layout/NavBar/NavBar.jsx';
-import ButtonEdit from '../../components/Buttons/ButtonEdit/ButtonEdit.jsx';
 import { Link } from 'react-router-dom';
+import ButtonConfirm from '../../components/Buttons/ButtonConfirm/ButtonConfirm.jsx';
+import Swal from 'sweetalert2';
 
 
-const ViewProfile = () => {
+const editProfile = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const images = [BannerHome3, BannerHome4, BannerHome5];
 
@@ -24,6 +25,16 @@ const ViewProfile = () => {
     }, 3500);
     return () => clearInterval(interval);
   }, [images.length]);
+
+  const mostrarAlerta = () => {
+    Swal.fire({
+      title: '¡Datos actualizados!',
+      text: 'Tus datos han sido actualizados correctamente.',
+      icon: 'success',
+      confirmButtonText: 'Aceptar',
+      confirmButtonColor: '#00304d'
+    });
+  };
 
   return (
     <div id="ViewProfile">
@@ -91,29 +102,35 @@ const ViewProfile = () => {
                   <div className='Box-inputs'>
                     <div className="box-input-left">
                       <h2>Tipo de documento</h2>
-                        <h4 className='type-document'>T.I</h4>
+                        <select className='type-document'>
+                          <option value="select">Seleccione el tipo de documento</option>
+                          <option value="c.c">C.C</option>
+                          <option value="nit">NIT</option>
+                          <option value="c.e">C.E</option>
+                        </select>
+                        
                         <h2>Nombre</h2>
-                        <h4 className='name' type="text" >Stephania</h4>
+                        <input className='name' type="text"  placeholder="Ingrese su nombre" />
 
                         <h2>Telefono</h2>
-                        <h4 className='phone' type="text" >3147539505</h4>
+                        <input className='phone' type="text"  placeholder="Ingrese su numero telefonico" />
 
                     </div>
-                    <div className="Box-input-right">
+                    <div className="box-input-right">
                         <h2>Numero de documento de identidad</h2>
-                        <h4 className='Num-document' type="text">1085816708</h4>                                           
+                        <input className='Num-document' type="text"  placeholder="Ingrese el numero de documento" />                                           
                         <h2>Apellido</h2>
-                        <h4 className='lastname' type="text">Herrera</h4>
+                        <input className='Lastname' type="text"  placeholder="Ingrese Su apellido" />
                         <h2>Correo electronico</h2>
-                        <h4 className='email' type="text">niaduque78@gmail.com</h4>
+                        <input className='Email' type="text"  placeholder="Ingrese Su Correo electronico" />
                     </div>
                   </div>
                 </form>
                 <h2 className='Text-h2'>Direccion</h2>
-                <h4 className='address'  type="text">Dg. 27a #4-2 a 4-114, Dosquebradas, Risaralda</h4>
+                <input className='address'  type="text"  placeholder="Ingrese la direccion " />
                 <div className='Box-Button'>
-                  <Link className='Button' to="/editProfile">
-                    <ButtonEdit />
+                  <Link className='Buttoon' to="/viewProfile"  onClick={mostrarAlerta}>
+                    <ButtonConfirm/>
                   </Link>
                 </div>
               </div>
@@ -124,4 +141,4 @@ const ViewProfile = () => {
   );
 }
 
-export default ViewProfile;
+export default editProfile;

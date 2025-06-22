@@ -11,6 +11,8 @@ import ViewCompany from './pages/ViewCompany/ViewCompany.jsx'; /* Importamos el 
 import BusinesDiagnosis from './pages/BusinessDiagnosis/BusinessDiagnosis.jsx'; /* Importamos el componente BusinessDiagnosis */
 import DiagnosisResult from './pages/DiagnosticResult/DiagnosticResult.JSX';
 import ViewTraining from './pages/ViewTrainingProgram/ViewTrainingProgram.jsx';
+import EditProfile from './pages/EditProfile/EditProfile.jsx'; /* Importamos el componente ViewCompany */
+
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Route path="/businessdiagnosis" element={<BusinesDiagnosis/>} /> {/* Definimos la ruta para el componente BusinessDiagnosis */}
         <Route path="/DiagnosisResult" element={<DiagnosisResult/>} /> {/* Definimos la ruta para el componente BusinessDiagnosis */}
         <Route path="/ViewTraining" element={<ViewTraining/>} /> {/* Definimos la ruta para el componente BusinessDiagnosis */}
+        <Route path="/EditProfile" element={<EditProfile/>} /> {/* Definimos la ruta para el componente ViewCompany */}
+
       </Routes>
     </BrowserRouter>
     </>
