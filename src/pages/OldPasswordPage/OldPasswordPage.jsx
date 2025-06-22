@@ -30,8 +30,8 @@ export const OldPasswordPage = () => {
       <div className="old-password">
         <div className="frame">
           <a href=""> <FaAngleLeft /><Link to="/">Ir a inicio de Sesión</Link></a>
-          <h1>Olvido su contraseña?</h1>
-          <p>No se preocupe, se le enviará un código de verificación a su correo electrónico, escríbalo acá</p>
+          <h1>Olvidó su contraseña?</h1>
+          <p className='descripcion' >No se preocupe, se le enviará un código de verificación a su correo electrónico, escríbalo acá</p>
           <div className="input-box-email">
             <label htmlFor="">Email</label>
             <input type="email"/>

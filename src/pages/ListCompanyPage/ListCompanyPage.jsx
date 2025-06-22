@@ -77,8 +77,8 @@ const ListCompany = () => {
         <div className="list-company-content">
             <section className="list-company-section">
                 <NavLink to="/home" className="NavLink"><FaArrowLeftLong className='icon-arrow' />Volver al Inicio</NavLink>
-                <h2>Directorio de Empresas</h2>
-                <p>Explora y descubre empresas registradas</p>
+                <h2>Directorio de Usuarios</h2>
+                <p>Explora y descubre usuarios registrados</p>
                 
                 {/* Componente de Filtro integrado aquí */}
                 <FilterComponent

@@ -5,7 +5,7 @@
         grid-template-columns: repeat(2, 1fr);
         background-image: url(../../../assets/images/vector-blanco.png);
         background-size: cover;
-        height: 37rem;
+        height: 38.6rem;
         border-top: 2px solid;
     }
 
@@ -52,11 +52,16 @@
         top: -70%;
         left: 98%;
     }
+    
+    .again-code span{
+        color: var(--color-primary);
+        cursor: pointer;
+    }
 
     .BottonVerify {
         width: 90%;
         height: 2rem;
-        margin-top: 2rem;
+        margin-top: 1rem;
         border: none ;
         border-radius: 0.4rem;
         color: var(--neutral-4);
@@ -120,100 +125,3 @@
     }
 }
 
-@media (max-width: 1024px) {
-    .VerifyPage {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .VerifyPage .frame {
-        width: 80%;
-        margin: 5% auto;
-    }
-
-    .img-VerifyPage {
-        width: 100%;
-        height: 400px;
-        margin-top: 2rem;
-    }
-
-    .box-assest {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .VerifyPage .frame {
-        width: 90%;
-        margin: 5% auto;
-    }
-
-    .VerifyPage .frame h1 {
-        font-size: 1.5rem;
-    }
-
-    .VerifyPage .frame p {
-        font-size: 0.9rem;
-    }
-
-    .input-box-email input {
-        font-size: 1rem;
-    }
-
-    .BottonVerify {
-        width: 100%;
-        height: 2.5rem;
-    }
-
-    .box-assest {
-        grid-template-columns: repeat(2, 1fr);
-        justify-content: center;
-        gap: 1rem;
-    }
-
-    .box {
-        width: 5rem;
-        height: 2.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .box img {
-        width: 80%;
-    }
-}
-
-@media (max-width: 480px) {
-    .VerifyPage {
-        padding: 2rem;
-    }
-
-    .VerifyPage .frame {
-        width: 100%;
-        margin: 2% auto;
-    }
-
-    .img-VerifyPage {
-        height: 300px;
-    }
-
-    .box-assest {
-        grid-template-columns: repeat(1, 1fr);
-        justify-content: center;
-        gap: 0.5rem;
-    }
-
-    .box {
-        width: 100%;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .box img {
-        width: 50%;
-    }
-}

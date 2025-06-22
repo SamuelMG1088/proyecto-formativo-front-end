@@ -10,7 +10,7 @@ const AccestDirect = () => {
         <>
         <div id="frame-accest">
             <div className="accesses">
-                <p className='direct'>Accesos Directos</p>
+                <div className='direct'><hr/><p>Accesos Directos</p><hr/></div>
                     <div className="box-assest">
 
                         <div className="box">

@@ -2,35 +2,49 @@ import React, { useState } from 'react';
 import { FiFilter } from 'react-icons/fi';
 import { IoIosArrowForward } from "react-icons/io";
 import { IoRefreshOutline } from "react-icons/io5";
-import './css/filter.css'; // Asegúrate de tener un archivo CSS para los estilos
+import './css/filter.css';
 
 const Filter = ({
   onDocumentTypeChange,
   onStatusChange,
+  onRoleChange,
   onResetFilters,
   initialDocumentType = '',
-  initialStatus = ''
+  initialStatus = '',
+  initialRole = ''
 }) => {
   const [showTipoDocumento, setShowTipoDocumento] = useState(false);
   const [showEstado, setShowEstado] = useState(false);
+  const [showRol, setShowRol] = useState(false);
   const [selectedDocumento, setSelectedDocumento] = useState(initialDocumentType);
   const [selectedEstado, setSelectedEstado] = useState(initialStatus);
+  const [selectedRol, setSelectedRol] = useState(initialRole);
 
   const toggleTipoDocumento = () => {
     setShowTipoDocumento(!showTipoDocumento);
     setShowEstado(false);
+    setShowRol(false);
   };
 
   const toggleEstado = () => {
     setShowEstado(!showEstado);
     setShowTipoDocumento(false);
+    setShowRol(false);
+  };
+
+  const toggleRol = () => {
+    setShowRol(!showRol);
+    setShowTipoDocumento(false);
+    setShowEstado(false);
   };
 
   const resetFilters = () => {
     setSelectedDocumento('');
     setSelectedEstado('');
+    setSelectedRol('');
     setShowTipoDocumento(false);
     setShowEstado(false);
+    setShowRol(false);
     onResetFilters();
   };
 
@@ -48,6 +62,13 @@ const Filter = ({
     }
   };
 
+  const handleRoleSelect = (role) => {
+    setSelectedRol(role);
+    if (onRoleChange) {
+      onRoleChange(role);
+    }
+  };
+
   return (
     <div id='filter-component'>
       <div className="filter-container">
@@ -58,6 +79,10 @@ const Filter = ({
           </div>
           <div className="filter-item document-type" onClick={toggleTipoDocumento}>
             <span>Tipo de documento</span>
+            <IoIosArrowForward />
+          </div>
+          <div className="filter-item rol" onClick={toggleRol}>
+            <span>Rol</span>
             <IoIosArrowForward />
           </div>
           <div className="filter-item status" onClick={toggleEstado}>
@@ -95,6 +120,30 @@ const Filter = ({
               </button>
             </div>
             <button className="select-button" onClick={() => setShowTipoDocumento(false)}>
+              Seleccionar
+            </button>
+          </div>
+        )}
+
+        {/* Filtro de Rol */}
+        {showRol && (
+          <div className="filter-dropdown rol-dropdown">
+            <h3>Selecciona el rol</h3>
+            <div className="filter-options">
+              <button
+                className={`filter-option ${selectedRol === "Empresa" ? "selected" : ""}`}
+                onClick={() => handleRoleSelect("Empresa")}
+              >
+                Empresa
+              </button>
+              <button
+                className={`filter-option ${selectedRol === "Persona" ? "selected" : ""}`}
+                onClick={() => handleRoleSelect("Persona")}
+              >
+                Persona
+              </button>
+            </div>
+            <button className="select-button" onClick={() => setShowRol(false)}>
               Seleccionar
             </button>
           </div>

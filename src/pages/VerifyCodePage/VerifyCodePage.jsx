@@ -89,6 +89,8 @@ export const VerifyCodePage = () => {
                             ))}
                         </div>
 
+                        <p className="again-code">No recibiste el codigo? <span>Volver a enviar</span></p>
+
                         <Link to="/update">
                             <button className="BottonVerify" type="submit">VERIFICAR</button>
                         </Link>

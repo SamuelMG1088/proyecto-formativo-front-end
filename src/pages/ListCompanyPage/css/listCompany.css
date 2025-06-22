@@ -133,7 +133,7 @@
     }
   
     .empresa-table thead {
-      background-color: var(--neutral-);
+      background-color: var(--neutral-1);
     }
   
     .empresa-table th {
@@ -155,16 +155,16 @@
     }
   
     .status-badge {
-      padding: 5px 12px;
-      border-radius: 20px;
+      padding: 8px 19px;
+      border-radius: 4px;
       font-size: 12px;
-      font-weight: 500;
+      font-weight: 600;
       display: inline-block;
     }
   
     .status-badge.active {
-      background-color: var(--color-secundary-2);
-      color: var(--neutral-4);
+      background-color: var(--color-secundary2_4);
+      color: var(--color-secundary-2);
     }
   
     .edit-button {
