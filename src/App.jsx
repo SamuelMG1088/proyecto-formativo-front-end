@@ -13,6 +13,7 @@ import DiagnosisResult from './pages/DiagnosticResult/DiagnosticResult.JSX';
 import ViewTraining from './pages/ViewTrainingProgram/ViewTrainingProgram.jsx';
 import EditProfile from './pages/EditProfile/EditProfile.jsx'; /* Importamos el componente ViewCompany */
 import CreateCompanyPage from './pages/CreateCompanyPage/CreateCompanyPage.jsx'; /* Importamos el componente CreateCompanyPage */
+import CreateProgram from './pages/CreateProgramForm/CreateProgramForm.jsx'; /* Importamos el componente CreateProgram */
 
 
 function App() {
@@ -32,7 +33,9 @@ function App() {
         <Route path="/DiagnosisResult" element={<DiagnosisResult/>} /> {/* Definimos la ruta para el componente BusinessDiagnosis */}
         <Route path="/ViewTraining" element={<ViewTraining/>} /> {/* Definimos la ruta para el componente BusinessDiagnosis */}
         <Route path="/EditProfile" element={<EditProfile/>} /> {/* Definimos la ruta para el componente ViewCompany */}
-        <Route path="/CreateCompanyPage" element={<CreateCompanyPage/>} /> {/* Definimos la ruta para el componente ViewCompany */}
+        <Route path="/CreateCompanyPage" element={<CreateCompanyPage/>} /> {/* Definimos la ruta para el componente CreateCompany */}
+        <Route path="/CreateProgram" element={<CreateProgram/>} /> {/* Definimos la ruta para el componente CreateProgram */}
+
 
       </Routes>
     </BrowserRouter>

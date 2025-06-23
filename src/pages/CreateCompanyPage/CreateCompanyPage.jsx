@@ -58,7 +58,7 @@ const CreateCompanyPage = () => {
       confirmButtonText: 'OK'
    }).then((result) => {
       if (result.isConfirmed) {
-        navegar('/listcompany'); // Navega sin recargar
+        navegar('/listcompany'); 
       }
     });
   };
