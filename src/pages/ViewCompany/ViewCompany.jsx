@@ -61,7 +61,6 @@ const ViewCompany = () => {
           </div>
 
           <div className="box-imputs">
-
             <div className="box-imputs-left">
 
               <h3>Tipo de documento</h3>
@@ -77,20 +76,29 @@ const ViewCompany = () => {
               <h3>Numero Telefonico</h3>
               <input type="text" />
 
-              <h3>Estado: </h3>
 
             </div>
 
             <div className="box-imputs-right">
-              <h3></h3>
-              <input type="text" />
+
+              <h3>Numero de documento</h3>
+              <input type="number"/>
+
+              <h3>Apellido</h3>
+              <input type="text"/>
+
+              <h3>Correo Electronico</h3>
+              <input type="email"/>
+
             </div>
 
 
           </div>
-
-          <span>Direccion</span>
+          
+          <div className="input-addres">
+            <h3>Direccion</h3>
             <input type="text" name="" id="" />
+          </div>
 
         </section>
         
