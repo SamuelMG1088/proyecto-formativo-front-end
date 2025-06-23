@@ -93,10 +93,18 @@
     .icon-arrow {
         margin-right: 0.5rem;
     }
+    .icon-Create{
+        margin-right: 0.5rem;
+    }
 
     .NavLink {
         text-decoration: none;
-        /* color: var(--neutral-1); */
+        color: var(--color-primary);
+    }
+    .CreateUse {
+        text-decoration: none;
+        color: var(--color-primary);
+        margin-left: 50rem;
     }
     
     .list-company-section h2 {

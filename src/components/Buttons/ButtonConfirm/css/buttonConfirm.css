@@ -5,5 +5,5 @@
     color: var(--neutral-4);
     background-color: var(--color-primary);
     border: none;
-    margin-bottom: 2rem;
+    cursor: pointer;
 }

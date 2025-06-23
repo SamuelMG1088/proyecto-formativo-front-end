@@ -8,6 +8,7 @@ import banner3 from '../../assets/images/bannerHome3.png';
 import { IoNewspaperOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import './css/businessDiagnosis.css';
+import Swal from 'sweetalert2';
 
 const BusinessDiagnosis = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -20,6 +21,30 @@ const BusinessDiagnosis = () => {
 
     return () => clearInterval(interval);
   }, [images.length]);
+
+  const handleSweetAlert = () => {
+    let timerInterval;
+    Swal.fire({
+    title: "Validando informacion!",
+    html: "Estamos verificando y procesando tus datos... <br><b></b> segundos.",
+    timer: 1500,
+    timerProgressBar: true,
+    didOpen: () => {
+      Swal.showLoading();
+      const timer = Swal.getPopup().querySelector("b");
+      timerInterval = setInterval(() => {
+      timer.textContent = `${Swal.getTimerLeft()}`;
+      }, 100);
+    },
+    willClose: () => {
+      clearInterval(timerInterval);
+    }
+  }).then((result) => {
+    if (result.dismiss === Swal.DismissReason.timer) {
+      console.log("I was closed by the timer");
+    }
+  });
+  };
 
   return (
     <div id="BusinessDiagnosisPage">
@@ -78,7 +103,9 @@ const BusinessDiagnosis = () => {
 
                     <h2>Campo7</h2>
                     <input className ='Campo7'type="text" placeholder='Campo7' />
-                    <button className='Button-send'>Enviar Diagnostico</button>
+                    <Link to="/DiagnosisResult">
+                      <button className='Button-send'  onClick={handleSweetAlert}>Enviar Diagnostico</button>
+                    </Link>
               </div>
             </div>
           </section>

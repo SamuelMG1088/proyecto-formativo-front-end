@@ -11,6 +11,8 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa"
 import { Link } from 'react-router-dom';
 import './css/listCompany.css';
+import { IoIosCreate } from "react-icons/io";
+
 
 const ListCompany = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -77,6 +79,7 @@ const ListCompany = () => {
         <div className="list-company-content">
             <section className="list-company-section">
                 <NavLink to="/home" className="NavLink"><FaArrowLeftLong className='icon-arrow' />Volver al Inicio</NavLink>
+                <NavLink to="/CreateCompanyPage" className="CreateUse"><IoIosCreate className='icon-Create' />Crear Usuario</NavLink>
                 <h2>Directorio de Usuarios</h2>
                 <p>Explora y descubre usuarios registrados</p>
                 

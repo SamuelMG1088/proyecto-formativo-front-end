@@ -14,6 +14,7 @@ import ButtonEdit from '../../components/Buttons/ButtonEdit/ButtonEdit.jsx';
 import { Link } from 'react-router-dom';
 
 
+
 const ViewProfile = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const images = [BannerHome3, BannerHome4, BannerHome5];

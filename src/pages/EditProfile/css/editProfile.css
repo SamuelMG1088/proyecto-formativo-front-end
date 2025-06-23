@@ -228,10 +228,10 @@
         margin-left: 0.7rem;
     }
     .Box-Button{
-        width: 90%;
         border-radius: 1px solid;
         display: flex;
         justify-content: center;
+        cursor: pointer;
     }
     .Buttoon{
         width: 12rem;
