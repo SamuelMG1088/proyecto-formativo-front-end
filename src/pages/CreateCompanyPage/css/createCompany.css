@@ -104,6 +104,7 @@
     margin-bottom: 20px;
   }
 
+
   .step {
     width: 36px;
     height: 36px;
@@ -131,7 +132,7 @@
 
   .step-labels {
     display: flex;
-    padding: 0 20px;
+    padding: 0 25px;
     margin-bottom: 3rem;
   }
 
@@ -228,15 +229,15 @@
     transition: all 0.3s ease;
   }
   .step-line {
-  height: 2px;
-  width: 19%;
-  background-color: var(--neutral-1_2);
-  transition: background-color 0.3s;
+    height: 2px;
+    width: 19%;
+    background-color: var(--neutral-1_2);
+    transition: background-color 0.3s;
 }
 
-.step-line.active {
-  background-color: var(--color-primary) /* mismo color que los pasos activos */
-}
+  .step-line.active {
+    background-color: var(--color-primary) /* mismo color que los pasos activos */
+  }
 
 
   
