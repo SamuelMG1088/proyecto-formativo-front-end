@@ -14,6 +14,7 @@ import ViewTraining from './pages/ViewTrainingProgram/ViewTrainingProgram.jsx';
 import EditProfile from './pages/EditProfile/EditProfile.jsx'; /* Importamos el componente ViewCompany */
 import CreateCompanyPage from './pages/CreateCompanyPage/CreateCompanyPage.jsx'; /* Importamos el componente CreateCompanyPage */
 import CreateProgram from './pages/CreateProgramForm/CreateProgramForm.jsx'; /* Importamos el componente CreateProgram */
+import ListProgram from './pages/ListProgram/ListProgram.jsx';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path="/EditProfile" element={<EditProfile/>} /> {/* Definimos la ruta para el componente ViewCompany */}
         <Route path="/CreateCompanyPage" element={<CreateCompanyPage/>} /> {/* Definimos la ruta para el componente CreateCompany */}
         <Route path="/CreateProgram" element={<CreateProgram/>} /> {/* Definimos la ruta para el componente CreateProgram */}
+        <Route path="/ListProgram" element={<ListProgram/>} /> {/* Definimos la ruta para el componente ListProgram */}
 
 
       </Routes>

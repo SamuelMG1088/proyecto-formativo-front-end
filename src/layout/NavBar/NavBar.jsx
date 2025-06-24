@@ -15,8 +15,8 @@ const NavBar = () => {
                     <li className={location.pathname === '/listcompany' ? 'active' : '' || location.pathname === '/viewcompany' ? 'active' : ''}>
                         <NavLink to="/listcompany">Usuarios</NavLink>
                     </li>
-                    <li className={location.pathname === '/program' ? 'active' : '' || location.pathname === '/ViewTraining' ? 'active' : ''}>
-                        <NavLink to="/ViewTraining">Programa de Formación</NavLink>
+                    <li className={location.pathname === '/ListProgram' ? 'active' : '' || location.pathname === '/ViewTraining' ? 'active' : ''}>
+                        <NavLink to="/ListProgram">Programa de Formación</NavLink>
                     </li>
                     <li className={location.pathname === '/businessdiagnosis' ? 'active' : ''}>
                         <NavLink to="/businessdiagnosis">Diagnostico Empresarial</NavLink>
