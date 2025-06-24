@@ -127,124 +127,114 @@
     }
 
     /* Estilos para la columna izquierda */
-    .left-form-box {
-        width: 20%;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        /* border: 1px solid; */
-        padding: 1rem;
+        .program-container {
+    background-color: var(--neutral-4);
+    padding: 2rem;
+    margin-top: 2rem;
+    position: relative;
+    width: 70%;
+    left: 15%;
+    border: 1px solid;
+    margin-bottom: 2rem;
     }
 
-    .profile-picture-box{
-        border: 1px solid;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem;
-        margin-top: 5rem;
+    .program-header {
+    background-color: var(--color-primary);
+    color: var(--neutral-4);
+    text-align: center;
+    width: 80%;
+    margin-left: 4rem;
+    padding: 2rem;
     }
 
-    .profile-picture-box img{
-        width: 10rem;
+    .icon-Training {
+    background-color: white;
+    width: 9%;
+    height: 5%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: var(--color-primary);
     }
 
-    .description-profile {
-        border: 1px solid;
-        padding: 1rem;
+ 
+
+    .program-title {
+    margin-top: 2rem;
+    font-size: 1.7rem;
+    margin-left: 7rem;
     }
 
-
-
-
-
-    /* Estilos para la columna derecha */
-    
-    .right-form-box {
-        width: 70%;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        border: 1px solid;
-        padding: 2rem;
+    .info-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
     }
 
-
-    .title-form h2{
-        font-size: 1.5rem;
-        color: var(--color-primary);
-        height: 3rem;
-        /* margin-bottom: 0.rem; */
-        /* padding: 1rem; */
-    }
-    .title-form{
-        width: 100%;
-    }
-     .Box-inputs{      /*Puse esto para poder poner una caja al frente de la otra*/
-        display: flex;
-        justify-content: space-between;
+    .info-box {
+    background-color: #f5f5f5;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    width: 19%;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
-    .box-input-left{
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        padding: 0.5rem;
-        gap: 1rem;
-    }
-    
-    .Box-input-right{
-        width: 55%;
-        display: flex;
-        flex-direction: column;
-        gap: 0.99rem;
-        padding: 0.3rem;
+    .info-main {
+    color: var(--color-primary);
+    font-weight: bold;
     }
 
-    
-    .num-document,
-    .Name,
-    .Phone,
-    .lastname,
-    .email,
-    h4
-    
-    {
-        border: 1px solid var(--neutral-1_6);
-        width: 71%;
-        height: 2.5rem;
-        border-radius:0.4rem ;
-        align-items: center;
-        padding-top: 1rem;
-    }
-    
-    
-    
-    .Text-h2{
-        gap: 2rem;
-        margin-left: 0.8rem;
-        
-    }
-    
-    .address {
-        border-radius:0.4rem ;
-        width: 83%;
-        height: 2.5rem;
+    .info-label {
+    font-size: 0.85rem;
+    color: #666;
     }
 
-    .Box-Buttoon{
+    .requirements {
+    width: 70%;
+    margin-left: 5%;
+    margin: 0 auto rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    }
+
+    .requirement {
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    width: 120%;
+    padding: 1rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    .requirement h3 {
+    margin: 0 0 0.5rem 0;
+    }
+
+    .requirement p {
+    color: var(--neutral-1_6);
+    }
+    .Box-Button{
         width: 90%;
         border-radius: 1px solid;
         display: flex;
         justify-content: center;
     }
-    .Buttoon{
+    .Button{
         width: 12rem;
     }
-
-    h4 {
-        color: var(--neutral-1_6);  
-        padding-left: 0.5rem;
+    .Box-Button{
+        width: 90%;
         border-radius: 1px solid;
+        display: flex;
+        justify-content: center;
+        margin-left: 19%;
     }
+    .Button{
+      width: 15rem;
+    }
+
 }

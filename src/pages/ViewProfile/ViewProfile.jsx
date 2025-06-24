@@ -7,7 +7,7 @@ import BannerHome4 from '../../assets/images/BannerHome4.png';
 import BannerHome5 from '../../assets/images/BannerHome5.png';
 import FactorHumano5 from '../../assets/images/factorHumano5.png'
 import FactorHumano6 from '../../assets/icons/icon-profile.png'
-import { FaUserEdit } from "react-icons/fa";
+import { FaGraduationCap } from "react-icons/fa";
 import './css/viewProfile.css';
 import NavBar from '../../layout/NavBar/NavBar.jsx';
 import ButtonEdit from '../../components/Buttons/ButtonEdit/ButtonEdit.jsx';
@@ -68,56 +68,49 @@ const ViewProfile = () => {
             </section>
 
             <div className="section-form">
-
-              <div className="left-form-box">
-
-                <div className="profile-picture-box">
-                  <img src={FactorHumano6} alt="" />
-                  <h2>Stephania Duque</h2>
-                  <h3>Rol: <span>ADMIN</span></h3>
-                  <h3>Estado: <span>Activo</span></h3>
-                </div>
-
-
-
-              </div>
-
-              <div className="right-form-box">
-                <div className="title-form">
-                  <h2><FaUserEdit />Infomacion Personal</h2>
-                  <p>Detalles de contacto y ubicación del administrador</p> 
-                </div>
-
-                <form action="">
-                  <div className='Box-inputs'>
-                    <div className="box-input-left">
-                      <h2>Tipo de documento</h2>
-                        <h4 className='type-document'>T.I</h4>
-                        <h2>Nombre</h2>
-                        <h4 className='name' type="text" >Stephania</h4>
-
-                        <h2>Telefono</h2>
-                        <h4 className='phone' type="text" >3147539505</h4>
-
-                    </div>
-                    <div className="Box-input-right">
-                        <h2>Numero de documento de identidad</h2>
-                        <h4 className='Num-document' type="text">1085816708</h4>                                           
-                        <h2>Apellido</h2>
-                        <h4 className='lastname' type="text">Herrera</h4>
-                        <h2>Correo electronico</h2>
-                        <h4 className='email' type="text">niaduque78@gmail.com</h4>
-                    </div>
-                  </div>
-                </form>
-                <h2 className='Text-h2'>Direccion</h2>
-                <h4 className='address'  type="text">Dg. 27a #4-2 a 4-114, Dosquebradas, Risaralda</h4>
-                <div className='Box-Buttoon'>
-                  <Link className='Buttoon' to="/editProfile">
-                    <ButtonEdit />
-                  </Link>
-                </div>
-              </div>
+             <div className="program-container">
+                         <div className="program-header">
+                                 <FaGraduationCap className="icon-Training" />
+                             </div>
+                                 <h1 className="program-title">
+                                 Tecnólogo en Análisis y Desarrollo de Software
+                                 </h1>
+             
+                             <div className="info-boxes">
+                                 <div className="info-box">
+                                 <p className="info-main">Tecnólogo</p>
+                                 <p className="info-label">Nivel</p>
+                                 </div>
+                                 <div className="info-box">
+                                 <p className="info-main">Presencial</p>
+                                 <p className="info-label">Modalidad</p>
+                                 </div>
+                                 <div className="info-box">
+                                 <p className="info-main">Diurna</p>
+                                 <p className="info-label">Jornada</p>
+                                 </div>
+                             </div>
+             
+                             <div className="requirements">
+                                 <div className="requirement">
+                                 <h3>Nivel Académico</h3>
+                                 <p>Bachiller con diploma o acta de grado</p>
+                                 </div>
+                                 <div className="requirement">
+                                 <h3>Documentación</h3>
+                                 <p>Documento de identidad, certificado de estudios, foto tipo documento</p>
+                                 </div>
+                                 <div className="requirement">
+                                 <h3>Proceso de Selección</h3>
+                                 <p>Prueba de aptitud, entrevista y prueba psicotécnica</p>
+                                 </div>
+                                 <div className='Box-Button'>
+                                   <Link className='Button' to="/EditProfile">
+                                     <ButtonEdit />
+                                   </Link>
+                               </div>
+                         </div>
+                     </div>   
             </div>  
           </div>
       </div>

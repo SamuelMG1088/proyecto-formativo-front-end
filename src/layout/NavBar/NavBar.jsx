@@ -1,9 +1,20 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import '../../styles/variables.css'
 import './css/navBar.css';
+import Swal from 'sweetalert2';
 
 const NavBar = () => {
     const location = useLocation();
+
+    const AlertaLogout = () => {
+    Swal.fire({
+    position: "top-end",
+    icon: "success",
+    title: "Fue exitoso tu cerrado de sesion",
+    showConfirmButton: false,
+    timer: 1500
+    });
+};
     
     return (
         <div id="navbar">
@@ -25,11 +36,12 @@ const NavBar = () => {
                         <NavLink to="/viewprofile">Perfil</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/">Cerrar Sesión</NavLink>
+                        <NavLink to="/" onClick={AlertaLogout}>Cerrar Sesión</NavLink>
                     </li>
                 </ul>
             </nav>
         </div>
     )
 }
+
 export default NavBar;

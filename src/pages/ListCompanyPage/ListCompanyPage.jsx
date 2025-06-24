@@ -122,7 +122,7 @@ const ListCompany = () => {
                                 <span className="status-badge active">Activo</span>
                             </td>
                             <td>
-                                <Link to ='/viewcompany'>
+                                <Link to ='/viewCompany'>
                                 <button className="edit-button">
                                     <FaRegEdit />
                                 </button>
@@ -139,7 +139,7 @@ const ListCompany = () => {
                                 <span className="status-badge active">Activo</span>
                             </td>
                             <td>
-                                <Link to ='/viewcompany'>
+                                <Link to ='/viewCompany'>
                                 <button className="edit-button">
                                     <FaRegEdit />
                                 </button>
@@ -156,7 +156,7 @@ const ListCompany = () => {
                                 <span className="status-badge active">Activo</span>
                             </td>
                             <td>
-                                <Link to ='/viewcompany'>
+                                <Link to ='/viewCompany'>
                                 <button className="edit-button">
                                     <FaRegEdit />
                                 </button>
@@ -173,7 +173,7 @@ const ListCompany = () => {
                                 <span className="status-badge active">Activo</span>
                             </td>
                             <td>
-                                <Link to ='/viewcompany'>
+                                <Link to ='/viewCompany'>
                                 <button className="edit-button">
                                     <FaRegEdit />
                                 </button>
@@ -190,7 +190,7 @@ const ListCompany = () => {
                                 <span className="status-badge active">Activo</span>
                             </td>
                             <td>
-                                <Link to ='/viewcompany'>
+                                <Link to ='/viewCompany'>
                                 <button className="edit-button">
                                     <FaRegEdit />
                                 </button>
@@ -207,7 +207,7 @@ const ListCompany = () => {
                                 <span className="status-badge active">Activo</span>
                             </td>
                             <td>
-                            <Link to ='/viewcompany'>
+                            <Link to ='/viewCompany'>
                                 <button className="edit-button">
                                 <FaRegEdit />
                                 </button>
@@ -224,7 +224,7 @@ const ListCompany = () => {
                                 <span className="status-badge active">Activo</span>
                             </td>
                             <td>
-                                <Link to ='/viewcompany'>
+                                <Link to ='/viewCompany'>
                                 <button className="edit-button">
                                 <FaRegEdit />
                                 </button>
@@ -241,8 +241,8 @@ const ListCompany = () => {
                                 <span className="status-badge active">Activo</span>
                             </td>
                             <td>
-                                <Link to ='/viewcompany'>
-                                <button className="edit-button">
+                                <Link to ='/EditCompany'>
+                                  <button className="edit-button">
                                 <FaRegEdit />
                                 </button>
                             </Link>

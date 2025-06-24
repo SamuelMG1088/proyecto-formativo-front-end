@@ -1,102 +1,119 @@
+
 import React, { useState, useEffect } from 'react';
 import Gov from '../../layout/Gov/Gov.jsx';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
-import NavBar from '../../layout/NavBar/NavBar.jsx';
 import BannerHome3 from '../../assets/images/BannerHome3.png';
 import BannerHome4 from '../../assets/images/BannerHome4.png';
 import BannerHome5 from '../../assets/images/BannerHome5.png';
-import { FaGraduationCap } from "react-icons/fa";
+import FactorHumano5 from '../../assets/images/factorHumano5.png'
+import FactorHumano6 from '../../assets/icons/icon-profile.png'
+import { FaUserEdit } from "react-icons/fa";
 import './css/editTrainingProgram.css';
+import NavBar from '../../layout/NavBar/NavBar.jsx';
 import { Link } from 'react-router-dom';
 import ButtonConfirm from '../../components/Buttons/ButtonConfirm/ButtonConfirm.jsx';
+import Swal from 'sweetalert2';
 
 
-const ViewTraining = () => {
+const EditTraining = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const images = [BannerHome3, BannerHome4, BannerHome5];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    }, 3500); // Cambia cada 3.5 segundos
-
+    }, 3500);
     return () => clearInterval(interval);
   }, [images.length]);
 
+  const mostrarAlerta = () => {
+    Swal.fire({
+      title: '¡Datos actualizados!',
+      text: 'Tus datos han sido actualizados correctamente.',
+      icon: 'success',
+      confirmButtonText: 'Aceptar',
+      confirmButtonColor: '#00304d'
+    });
+  };
+
   return (
-    <div id="ViewtrainingPage">
-      <div className="PageViewtraining">
+    <div id="ViewProfile">
+      <div className="PageProfile">
         <Gov />
         <HeaderIcons />
         <NavBar />
-        
-        {/* Carrusel agregado aquí */}
-        <div className="training-carousel">
-          <div className="carousel-container">
-            {images.map((image, index) => (
-              <div 
-                key={index}
-                className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
-                style={{ backgroundImage: `url(${image})` }}
-              />
-            ))}
-            <div className="carousel-dots">
-              {images.map((_, index) => (
-                <span 
-                  key={index}
-                  className={`dot ${index === currentSlide ? 'active' : ''}`}
-                  onClick={() => setCurrentSlide(index)}
-                />
-              ))}
+
+          <div className="profile-content">
+            {/* Carrusel sobre img-header */}
+            <div className="profile-carousel">
+              <div className="carousel-container">
+                {images.map((image, index) => (
+                  <div 
+                    key={index}
+                    className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
+                    style={{ backgroundImage: `url(${image})` }}
+                  />
+                ))}
+                <div className="carousel-dots">
+                  {images.map((_, index) => (
+                    <span 
+                      key={index}
+                      className={`dot ${index === currentSlide ? 'active' : ''}`}
+                      onClick={() => setCurrentSlide(index)}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-          <div className="program-container">
-            <div className="program-header">
-                    <FaGraduationCap className="icon-Training" />
-                </div>
-                    <h1 className="program-title">
-                    Tecnólogo en Análisis y Desarrollo de Software
-                    </h1>
-
-                <div className="info-boxes">
-                    <div className="info-box">
-                    <input type="text" className="info-main"/>
-                    <p className="info-label">Nivel</p>
-                    </div>
-                    <div className="info-box">
-                    <input type="text" className="info-main"/>
-                    <p className="info-label">Modalidad</p>
-                    </div>
-                    <div className="info-box">
-                    <input type="text" className="info-main"/>
-                    <p className="info-label">Jornada</p>
-                    </div>
+                
+            <div className="section-form">
+              <div className="right-form-box">
+                <div className="title-form">
+                  <h2><FaUserEdit />Infomacion Personal</h2>
+                  <p>Detalles de contacto y ubicación del administrador</p> 
                 </div>
 
-                <div className="requirements">
-                    <div className="requirement">
-                    <h3>Nivel Académico</h3>
-                    <input type="text" placeholder='Ingrese el nivel academico' />
+                <form action="">
+                  <div className='Box-inputs'>
+                    <div className="box-input-left">
+                      <h2>Tipo de documento</h2>
+                        <select className='type-document'>
+                          <option value="select">Seleccione el tipo de documento</option>
+                          <option value="c.c">C.C</option>
+                          <option value="nit">NIT</option>
+                          <option value="c.e">C.E</option>
+                        </select>
+                        
+                        <h2>Nombre</h2>
+                        <input className='name' type="text"  placeholder="Ingrese su nombre" />
+
+                        <h2>Telefono</h2>
+                        <input className='phone' type="text"  placeholder="Ingrese su numero telefonico" />
+
                     </div>
-                    <div className="requirement">
-                    <h3>Documentación</h3>
-                    <input type="text" placeholder='Ingrese la documentacion' />
+                    <div className="box-input-right">
+                        <h2>Numero de documento de identidad</h2>
+                        <input className='Num-document' type="text"  placeholder="Ingrese el numero de documento" />                                           
+                        <h2>Apellido</h2>
+                        <input className='Lastname' type="text"  placeholder="Ingrese Su apellido" />
+                        <h2>Correo electronico</h2>
+                        <input className='Email' type="text"  placeholder="Ingrese Su Correo electronico" />
                     </div>
-                    <div className="requirement">
-                    <h3>Proceso de Selección</h3>
-                    <input type="text" placeholder='Ingrese el proceso ' />
-                    </div>
-                    <div className='Box-Button'>
-                      <Link className='Button' to="/ViewTraining">
-                        <ButtonConfirm />
-                      </Link>
                   </div>
-            </div>
-        </div>
+                </form>
+                <h2 className='Text-h2'>Direccion</h2>
+                <input className='address'  type="text"  placeholder="Ingrese la direccion " />
+                <div className='Box-Buttoon'>
+                  <Link className='Buttoon' to="/ListProgram"  onClick={mostrarAlerta}>
+                    <ButtonConfirm/>
+                  </Link>
+                </div>
+              </div>
+            </div>  
+          </div>
       </div>
     </div>
   );
 }
 
-export default ViewTraining;
+export default EditTraining;

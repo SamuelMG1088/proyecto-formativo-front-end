@@ -1,0 +1,183 @@
+#ViewCompanyPage {
+  .PageViewCompany {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../../../assets/images/vector-blanco.png);
+    background-size: cover;
+  }
+
+  /* Estilos del carrusel */
+  .company-carousel {
+    width: 100%;
+    height: 24.5rem;
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+    background-color: #f8f8f8; /* Fondo de respaldo */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+  }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 2;
+  }
+
+  .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .dot.active {
+    background-color: #ffffff;
+    transform: scale(1.2);
+  }
+
+  .dot:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Estilos del contenido */
+  .view-company-section {
+    height: auto;
+    width: 70%;
+    position: relative;
+    left: 15%;
+    border: 1px solid;
+    padding: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: var(--neutral-4);
+  }
+
+  .container-profile-company {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary);
+  }
+
+  .icon-company {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 2rem;
+    padding: 1rem;
+  }
+
+  .container-info-company {
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  .box-imputs {
+    display: flex;
+    margin-top: 1rem;
+  }
+
+  .box-imputs-left {
+    width: 50%;
+    padding: 1rem;
+  }
+
+  .box-imputs-left select {
+    width: 88%;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .box-imputs-left input {
+    width: 85%;
+    border-radius: 0.5rem;
+    border: 1px solid var(--neutral-1_3);
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+
+
+
+  .box-imputs-right {
+    width: 50%;
+    padding: 1rem;
+  }
+
+  .box-imputs-right input {
+    width: 85%;
+    border-radius: 0.5rem;
+    border: 1px solid var(--neutral-1_3);
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .input-addres{
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+  }
+
+  .input-addres input {
+    width: 92%;
+    border-radius: 0.5rem;
+    border: 1px solid var(--neutral-1_3);
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .Box-Button{
+        border-radius: 1px solid;
+        display: flex;
+        justify-content: center;
+        width: 65rem;
+    }
+
+   .Buttoon{
+        width: 12rem;
+    }
+
+}

@@ -6,13 +6,13 @@ import BannerHome3 from '../../assets/images/BannerHome3.png';
 import BannerHome4 from '../../assets/images/BannerHome4.png';
 import BannerHome5 from '../../assets/images/BannerHome5.png';
 import { LuGraduationCap } from "react-icons/lu";
-import './css/editProfile.css';
+import './css/EditCompany.css';
 import ButtonConfirm from '../../components/Buttons/ButtonConfirm/ButtonConfirm.jsx';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 
-const EditProfile = () => {
+const EditCompany = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const images = [BannerHome3, BannerHome4, BannerHome5];
 
@@ -113,7 +113,7 @@ const EditProfile = () => {
             <input type="text" name="" id="" />
           </div>
           <div className='Box-Button  '>
-            <Link className='Buttoon' to="/viewprofile" onClick={mostrarAlerta} >
+            <Link className='Buttoon' to="/listcompany" onClick={mostrarAlerta} >
                 <ButtonConfirm/>
             </Link>
           </div>
@@ -125,4 +125,4 @@ const EditProfile = () => {
   );
 }
 
-export default EditProfile;
+export default EditCompany;

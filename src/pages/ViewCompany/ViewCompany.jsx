@@ -5,8 +5,10 @@ import NavBar from '../../layout/NavBar/NavBar.jsx';
 import BannerHome3 from '../../assets/images/BannerHome3.png';
 import BannerHome4 from '../../assets/images/BannerHome4.png';
 import BannerHome5 from '../../assets/images/BannerHome5.png';
-import { LuGraduationCap } from "react-icons/lu";
+import { FaGraduationCap } from "react-icons/fa";
 import './css/viewCompany.css';
+import ButtonEdit from '../../components/Buttons/ButtonEdit/ButtonEdit.jsx';
+import { Link } from 'react-router-dom';
 
 
 const ViewCompany = () => {
@@ -22,14 +24,14 @@ const ViewCompany = () => {
   }, [images.length]);
 
   return (
-    <div id="ViewCompanyPage">
-      <div className="PageViewCompany">
+    <div id="ViewtrainingPage">
+      <div className="PageViewtraining">
         <Gov />
         <HeaderIcons />
         <NavBar />
         
         {/* Carrusel agregado aquí */}
-        <div className="company-carousel">
+        <div className="training-carousel">
           <div className="carousel-container">
             {images.map((image, index) => (
               <div 
@@ -49,60 +51,49 @@ const ViewCompany = () => {
             </div>
           </div>
         </div>
+          <div className="program-container">
+            <div className="program-header">
+                    <FaGraduationCap className="icon-Training" />
+                </div>
+                    <h1 className="program-title">
+                    Tecnólogo en Análisis y Desarrollo de Software
+                    </h1>
 
-        <section className="view-company-section">
-          <div className="container-profile-company">
-            <LuGraduationCap className='icon-company' />
-          </div>
-          <div className="container-info-company">
-            <h2>EcoVerde Ltda.</h2>
-            <span>Agricultura</span>
-            <p>Productos orgánicos y sustentables para un futuro mas verde.</p>
-          </div>
+                <div className="info-boxes">
+                    <div className="info-box">
+                    <p className="info-main">Tecnólogo</p>
+                    <p className="info-label">Nivel</p>
+                    </div>
+                    <div className="info-box">
+                    <p className="info-main">Presencial</p>
+                    <p className="info-label">Modalidad</p>
+                    </div>
+                    <div className="info-box">
+                    <p className="info-main">Diurna</p>
+                    <p className="info-label">Jornada</p>
+                    </div>
+                </div>
 
-          <div className="box-imputs">
-            <div className="box-imputs-left">
-
-              <h3>Tipo de documento</h3>
-              <select name="" id="">
-                <option value="">C.C</option>
-                <option value="">NIT</option>
-                <option value="">C.E</option>
-              </select>
-
-              <h3>Nombre</h3>
-              <input type="text" />
-
-              <h3>Numero Telefonico</h3>
-              <input type="text" />
-
-
+                <div className="requirements">
+                    <div className="requirement">
+                    <h3>Nivel Académico</h3>
+                    <p>Bachiller con diploma o acta de grado</p>
+                    </div>
+                    <div className="requirement">
+                    <h3>Documentación</h3>
+                    <p>Documento de identidad, certificado de estudios, foto tipo documento</p>
+                    </div>
+                    <div className="requirement">
+                    <h3>Proceso de Selección</h3>
+                    <p>Prueba de aptitud, entrevista y prueba psicotécnica</p>
+                    </div>
+                    <div className='Box-Button'>
+                      <Link className='Button' to="/EditCompany">
+                        <ButtonEdit />
+                      </Link>
+                  </div>
             </div>
-
-            <div className="box-imputs-right">
-
-              <h3>Numero de documento</h3>
-              <input type="number"/>
-
-              <h3>Apellido</h3>
-              <input type="text"/>
-
-              <h3>Correo Electronico</h3>
-              <input type="email"/>
-
-            </div>
-
-
-          </div>
-          
-          <div className="input-addres">
-            <h3>Direccion</h3>
-            <input type="text" name="" id="" />
-          </div>
-
-        </section>
-        
-
+        </div>
       </div>
     </div>
   );
