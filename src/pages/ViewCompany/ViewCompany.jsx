@@ -6,7 +6,7 @@ import BannerHome3 from '../../assets/images/BannerHome3.png';
 import BannerHome4 from '../../assets/images/BannerHome4.png';
 import BannerHome5 from '../../assets/images/BannerHome5.png';
 import { FaGraduationCap } from "react-icons/fa";
-import './css/viewCompany.css';
+import './css/ViewCompany.css';
 import ButtonEdit from '../../components/Buttons/ButtonEdit/ButtonEdit.jsx';
 import { Link } from 'react-router-dom';
 
@@ -56,7 +56,7 @@ const ViewCompany = () => {
                     <FaGraduationCap className="icon-Training" />
                 </div>
                     <h1 className="program-title">
-                    Tecnólogo en Análisis y Desarrollo de Software
+                    Stephania Herrera Duque
                     </h1>
 
                 <div className="info-boxes">

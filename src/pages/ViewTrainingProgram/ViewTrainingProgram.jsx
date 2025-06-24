@@ -6,12 +6,12 @@ import BannerHome3 from '../../assets/images/BannerHome3.png';
 import BannerHome4 from '../../assets/images/BannerHome4.png';
 import BannerHome5 from '../../assets/images/BannerHome5.png';
 import { FaGraduationCap } from "react-icons/fa";
-import './css/ViewTrainingProgram.css';
+import './css/viewTrainingProgram.css';
 import ButtonEdit from '../../components/Buttons/ButtonEdit/ButtonEdit.jsx';
 import { Link } from 'react-router-dom';
 
 
-const EditTraining = () => {
+const ViewCompany = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const images = [BannerHome3, BannerHome4, BannerHome5];
 
@@ -56,7 +56,7 @@ const EditTraining = () => {
                     <FaGraduationCap className="icon-Training" />
                 </div>
                     <h1 className="program-title">
-                    Tecnólogo en Análisis y Desarrollo de Software
+                    Stephania Herrera Duque
                     </h1>
 
                 <div className="info-boxes">
@@ -88,7 +88,7 @@ const EditTraining = () => {
                     <p>Prueba de aptitud, entrevista y prueba psicotécnica</p>
                     </div>
                     <div className='Box-Button'>
-                      <Link className='Button' to="/EditTraining">
+                      <Link className='Button' to="/EditCompany">
                         <ButtonEdit />
                       </Link>
                   </div>
@@ -99,4 +99,4 @@ const EditTraining = () => {
   );
 }
 
-export default EditTraining;
+export default ViewCompany;
