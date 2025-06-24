@@ -55,7 +55,8 @@ const CreateCompanyPage = () => {
       title: '¡Usuario creado!',
       text: 'La cuenta fue registrada correctamente.',
       icon: 'success',
-      confirmButtonText: 'OK'
+      confirmButtonText: 'OK',
+      confirmButtonColor: '#00304d'
    }).then((result) => {
       if (result.isConfirmed) {
         navegar('/listcompany'); 

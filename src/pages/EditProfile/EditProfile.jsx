@@ -128,8 +128,8 @@ const editProfile = () => {
                 </form>
                 <h2 className='Text-h2'>Direccion</h2>
                 <input className='address'  type="text"  placeholder="Ingrese la direccion " />
-                <div className='Box-Button'>
-                  <Link className='Button' to="/viewProfile"  onClick={mostrarAlerta}>
+                <div className='Box-Buttoon'>
+                  <Link className='Buttoon' to="/viewProfile"  onClick={mostrarAlerta}>
                     <ButtonConfirm/>
                   </Link>
                 </div>

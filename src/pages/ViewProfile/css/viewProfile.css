@@ -232,13 +232,13 @@
         height: 2.5rem;
     }
 
-    .Box-Button{
+    .Box-Buttoon{
         width: 90%;
         border-radius: 1px solid;
         display: flex;
         justify-content: center;
     }
-    .Button{
+    .Buttoon{
         width: 12rem;
     }
 

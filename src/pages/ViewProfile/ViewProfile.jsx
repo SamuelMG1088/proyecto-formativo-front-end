@@ -112,8 +112,8 @@ const ViewProfile = () => {
                 </form>
                 <h2 className='Text-h2'>Direccion</h2>
                 <h4 className='address'  type="text">Dg. 27a #4-2 a 4-114, Dosquebradas, Risaralda</h4>
-                <div className='Box-Button'>
-                  <Link className='Button' to="/editProfile">
+                <div className='Box-Buttoon'>
+                  <Link className='Buttoon' to="/editProfile">
                     <ButtonEdit />
                   </Link>
                 </div>

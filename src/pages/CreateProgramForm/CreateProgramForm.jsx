@@ -9,6 +9,7 @@ import NavBar from '../../layout/NavBar/NavBar.jsx';
 import BannerActualizar from '../../assets/images/BannerActualizar.png';
 import Swal from "sweetalert2";
 import './css/createProgramForm.css';
+import { useNavigate } from 'react-router-dom';
 
 const CreateProgram = () => {
     const [currentStep, setCurrentStep] = useState(1);
@@ -48,16 +49,19 @@ const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 1));
 
     return () => clearInterval(interval);
   }, [images.length]);
+
+  const navegar = useNavigate ();
   
   const Alerta = () => {   {/*Aca estaria el sweetAlert*/}
       Swal.fire({
         title: 'Programa de formacion creado!',
         text: 'El programa de formacion fue creado exitosamente.',
         icon: 'success',
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#00304d'
      }).then((result) => {
         if (result.isConfirmed) {
-          navegar('/listcompany'); 
+          navegar('/listProgram'); 
         }
       });
     };

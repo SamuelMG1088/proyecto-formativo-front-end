@@ -74,7 +74,7 @@ const ListProgram = () => {
         <div className="list-program-content">
             <section className="list-program-section">
                 <NavLink to="/home" className="NavLink"><FaArrowLeftLong className='icon-arrow' />Volver al Inicio</NavLink>
-                <NavLink to="/CreateProgramPage" className="CreateProgram"><IoIosCreate className='icon-Create' />Crear Programa</NavLink>
+                <NavLink to="/CreateProgram" className="CreateProgram"><IoIosCreate className='icon-Create' />Crear Programa</NavLink>
                 <h2>Directorio de Programas de Formación</h2>
                 <p>Explora y gestiona los programas de formación registrados</p>
                 

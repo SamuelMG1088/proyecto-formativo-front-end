@@ -6,12 +6,12 @@ import BannerHome3 from '../../assets/images/BannerHome3.png';
 import BannerHome4 from '../../assets/images/BannerHome4.png';
 import BannerHome5 from '../../assets/images/BannerHome5.png';
 import { FaGraduationCap } from "react-icons/fa";
-import './css/ViewTrainingProgram.css';
-import ButtonEdit from '../../components/Buttons/ButtonEdit/ButtonEdit.jsx';
+import './css/editTrainingProgram.css';
 import { Link } from 'react-router-dom';
+import ButtonConfirm from '../../components/Buttons/ButtonConfirm/ButtonConfirm.jsx';
 
 
-const EditTraining = () => {
+const ViewTraining = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const images = [BannerHome3, BannerHome4, BannerHome5];
 
@@ -61,15 +61,15 @@ const EditTraining = () => {
 
                 <div className="info-boxes">
                     <div className="info-box">
-                    <p className="info-main">Tecnólogo</p>
+                    <input type="text" className="info-main"/>
                     <p className="info-label">Nivel</p>
                     </div>
                     <div className="info-box">
-                    <p className="info-main">Presencial</p>
+                    <input type="text" className="info-main"/>
                     <p className="info-label">Modalidad</p>
                     </div>
                     <div className="info-box">
-                    <p className="info-main">Diurna</p>
+                    <input type="text" className="info-main"/>
                     <p className="info-label">Jornada</p>
                     </div>
                 </div>
@@ -77,19 +77,19 @@ const EditTraining = () => {
                 <div className="requirements">
                     <div className="requirement">
                     <h3>Nivel Académico</h3>
-                    <p>Bachiller con diploma o acta de grado</p>
+                    <input type="text" placeholder='Ingrese el nivel academico' />
                     </div>
                     <div className="requirement">
                     <h3>Documentación</h3>
-                    <p>Documento de identidad, certificado de estudios, foto tipo documento</p>
+                    <input type="text" placeholder='Ingrese la documentacion' />
                     </div>
                     <div className="requirement">
                     <h3>Proceso de Selección</h3>
-                    <p>Prueba de aptitud, entrevista y prueba psicotécnica</p>
+                    <input type="text" placeholder='Ingrese el proceso ' />
                     </div>
                     <div className='Box-Button'>
-                      <Link className='Button' to="/EditTraining">
-                        <ButtonEdit />
+                      <Link className='Button' to="/ViewTraining">
+                        <ButtonConfirm />
                       </Link>
                   </div>
             </div>
@@ -99,4 +99,4 @@ const EditTraining = () => {
   );
 }
 
-export default EditTraining;
+export default ViewTraining;
