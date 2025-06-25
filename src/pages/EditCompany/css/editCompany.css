@@ -82,102 +82,110 @@
     background-color: var(--neutral-4);
   }
 
-  .container-profile-company {
+   .profile-container {
+    background-color: var(--neutral-4);
+    padding: 2rem;
+    margin-top: 2rem;
+    position: relative;
+    width: 70%;
+    left: 15%;
+    margin-bottom: 2rem;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-header {
+    background-color: var(--color-primary);
+    color: var(--neutral-4);
+    text-align: center;
+    width: 80%;
+    margin-left: 4rem;
+    padding: 2rem;
+    }
+
+    .icon-Training {
+    background-color: white;
+    width: 9%;
+    height: 5%;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-primary);
-  }
+    margin: 0 auto 1rem;
+    color: var(--color-primary);
+    }
 
-  .icon-company {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #fff;
-    margin: 2rem;
-    padding: 1rem;
-  }
+    .profile-title {
+    margin-top: 2rem;
+    font-size: 1.7rem;
+    text-align: center;
+    }
 
-  .container-info-company {
-    gap: 0.5rem;
-    margin-top: 1.5rem;
+    .info-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    }
+
+    .info-box {
+    background-color: #f5f5f5;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    width: 19%;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .info-main {
+    color: var(--color-primary);
+    font-weight: bold;
+    }
+
+    .info-label {
+    font-size: 0.85rem;
+    color: #666;
+    }
+
+    .requirements {
+    width: 70%;
+    margin-left: 5%;
+    margin: 0 auto rem auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-  }
+    gap: 1rem;
+    }
 
-
-  .box-imputs {
-    display: flex;
-    margin-top: 1rem;
-  }
-
-  .box-imputs-left {
-    width: 50%;
+    .requirement {
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    width: 120%;
     padding: 1rem;
-  }
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
 
-  .box-imputs-left select {
-    width: 88%;
-    height: 2.5rem;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
+    .requirement h3 {
+    margin: 0 0 0.5rem 0;
+    }
 
-  .box-imputs-left input {
-    width: 85%;
-    border-radius: 0.5rem;
-    border: 1px solid var(--neutral-1_3);
-    padding: 0.5rem;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
-
-
-
-
-  .box-imputs-right {
-    width: 50%;
-    padding: 1rem;
-  }
-
-  .box-imputs-right input {
-    width: 85%;
-    border-radius: 0.5rem;
-    border: 1px solid var(--neutral-1_3);
-    padding: 0.5rem;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .input-addres{
-    border-radius: 0.5rem;
-    padding-left: 1rem;
-  }
-
-  .input-addres input {
-    width: 92%;
-    border-radius: 0.5rem;
-    border: 1px solid var(--neutral-1_3);
-    padding: 0.5rem;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
-  .Box-Button{
+    .requirement p {
+    color: var(--neutral-1_6);
+    }
+    .Box-Button{
+        width: 90%;
         border-radius: 1px solid;
         display: flex;
         justify-content: center;
-        width: 65rem;
     }
-
-   .Buttoon{
+    .Button{
         width: 12rem;
     }
-
+    .Box-Button{
+        width: 100%;
+        border-radius: 1px solid;
+        display: flex;
+        justify-content: center;
+    }
+    .Button{
+      width: 15rem;
+    }
 }

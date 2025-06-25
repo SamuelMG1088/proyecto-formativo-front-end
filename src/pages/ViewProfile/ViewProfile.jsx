@@ -6,9 +6,9 @@ import BannerHome3 from '../../assets/images/BannerHome3.png';
 import BannerHome4 from '../../assets/images/BannerHome4.png';
 import BannerHome5 from '../../assets/images/BannerHome5.png';
 import { FaGraduationCap } from "react-icons/fa";
-import './css/viewProfile.css';
 import ButtonEdit from '../../components/Buttons/ButtonEdit/ButtonEdit.jsx';
 import { Link } from 'react-router-dom';
+import './css/viewProfile.css';
 
 
 const ViewCompany = () => {
@@ -51,44 +51,48 @@ const ViewCompany = () => {
             </div>
           </div>
         </div>
-          <div className="program-container">
-            <div className="program-header">
+          <div className="profile-container">
+            <div className="profile-header">
                     <FaGraduationCap className="icon-Training" />
                 </div>
-                    <h1 className="program-title">
+                    <h1 className="profile-title">
                     Stephania Herrera Duque
                     </h1>
 
                 <div className="info-boxes">
                     <div className="info-box">
-                    <p className="info-main">Tecnólogo</p>
-                    <p className="info-label">Nivel</p>
+                    <p className="info-main">Estado</p>
+                    <p className="info-label">Activo</p>
                     </div>
                     <div className="info-box">
-                    <p className="info-main">Presencial</p>
-                    <p className="info-label">Modalidad</p>
+                    <p className="info-main">Rol</p>
+                    <p className="info-label">Admin</p>
                     </div>
-                    <div className="info-box">
+                    {/* <div className="info-box">
                     <p className="info-main">Diurna</p>
                     <p className="info-label">Jornada</p>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="requirements">
                     <div className="requirement">
-                    <h3>Nivel Académico</h3>
-                    <p>Bachiller con diploma o acta de grado</p>
+                    <h3>Tipo de documentode </h3>
+                    <p>Cedula</p>
                     </div>
                     <div className="requirement">
-                    <h3>Documentación</h3>
-                    <p>Documento de identidad, certificado de estudios, foto tipo documento</p>
+                    <h3>Numero Telefonico</h3>
+                    <p>323-5260410</p>
                     </div>
                     <div className="requirement">
-                    <h3>Proceso de Selección</h3>
-                    <p>Prueba de aptitud, entrevista y prueba psicotécnica</p>
+                    <h3>Correo Electronico</h3>
+                    <p>sthepaniherreraduque@gmail.com</p>
+                    </div>
+                    <div className="requirement">
+                    <h3>Direccion</h3>
+                    <p>Diagonal 25 Conjunto Residencial Cipress Casa 92</p>
                     </div>
                     <div className='Box-Button'>
-                      <Link className='Button' to="/EditCompany">
+                      <Link className='Button' to="/Editprofile">
                         <ButtonEdit />
                       </Link>
                   </div>

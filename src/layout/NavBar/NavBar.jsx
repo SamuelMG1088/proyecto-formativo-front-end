@@ -32,7 +32,7 @@ const NavBar = () => {
                     <li className={location.pathname === '/businessdiagnosis' ? 'active' : ''}>
                         <NavLink to="/businessdiagnosis">Diagnostico Empresarial</NavLink>
                     </li>
-                    <li className={location.pathname === '/viewprofile' ? 'active' : ''}>
+                    <li className={location.pathname === '/viewprofile' ? 'active' : '' || location.pathname === '/Editprofile' ? 'active' : ''}>
                         <NavLink to="/viewprofile">Perfil</NavLink>
                     </li>
                     <li>
