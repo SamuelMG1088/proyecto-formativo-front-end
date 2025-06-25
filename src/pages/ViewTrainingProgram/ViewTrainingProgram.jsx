@@ -88,7 +88,7 @@ const ViewCompany = () => {
                     <p>Prueba de aptitud, entrevista y prueba psicotécnica</p>
                     </div>
                     <div className='Box-Button'>
-                      <Link className='Button' to="/EditCompany">
+                      <Link className='Button' to="/EditTraining">
                         <ButtonEdit />
                       </Link>
                   </div>
