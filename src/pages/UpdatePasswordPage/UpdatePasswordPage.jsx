@@ -4,10 +4,11 @@ import '../../styles/variables.css';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
 import Gov from '../../layout/Gov/Gov.jsx';
 import { Link } from 'react-router-dom';
-import { BsEyeSlashFill } from "react-icons/bs";
 import factor1 from '../../assets/images/factorHumano1.jpg'; 
 import factor2 from '../../assets/images/factorHumano2.png'; 
 import factor3 from '../../assets/images/factorHumano3.png';
+import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
+
 
 export const UpdatePasswordPage = () => {
     // Estado para el carrusel
@@ -22,6 +23,13 @@ export const UpdatePasswordPage = () => {
         return () => clearInterval(interval);
     }, [images.length]);
 
+
+    {/* Esta es la logica del ojito que muestra la contraseña */}
+    const [showPassword, setShowPassword] = useState(false);
+    const MostarContraseña = () => {
+        setShowPassword(prev => !prev);
+    };
+
     return (
         <div id="UpdatePasswordPage">
             <Gov/>
@@ -32,13 +40,21 @@ export const UpdatePasswordPage = () => {
                     <p>Actualiza tu contraseña y esta vez pon una que recuerdes ;)</p>
                     <div className="input-box-email">
                         <label htmlFor="">Crear Contraseña</label>
-                        <input type="password"/>
-                        <BsEyeSlashFill className='icon'/>
+                        <input type={showPassword ? 'text' : 'password'} />
+                                    {showPassword ? (
+                                      <BsEyeFill className="icon" onClick={MostarContraseña} />
+                                    ) : (
+                                      <BsEyeSlashFill className="icon" onClick={MostarContraseña} />
+                                    )}
                     </div>
                     <div className="input-box-email">
                         <label htmlFor="">Actualizar contraseña</label>
-                        <input type="password"/>
-                        <BsEyeSlashFill className='icon'/>
+                        <input type={showPassword ? 'text' : 'password'} />
+                                    {showPassword ? (
+                                      <BsEyeFill className="icon" onClick={MostarContraseña} />
+                                    ) : (
+                                      <BsEyeSlashFill className="icon" onClick={MostarContraseña} />
+                                    )}
                     </div>
 
                     <Link to="/">

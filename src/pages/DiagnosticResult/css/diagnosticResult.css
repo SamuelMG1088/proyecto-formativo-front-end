@@ -124,6 +124,11 @@
         color: var(--neutral-1_2);
         margin-bottom: 1rem;
     }
+    .Export-pdf-excel{
+      position: relative;
+      top: 4rem;
+      left: 85%;
+    }
 
     /* Estilos para la tabla de empresas */
     .border {

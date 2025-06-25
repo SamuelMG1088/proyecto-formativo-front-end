@@ -12,6 +12,7 @@ import { FaRegEdit } from "react-icons/fa"
 import { Link } from 'react-router-dom';
 import './css/listCompany.css';
 import { IoIosCreate } from "react-icons/io";
+import ExportPdfExcel from '../../components/ExportPdfExcel/ExportPdfExcel.jsx';
 
 
 const ListCompany = () => {
@@ -82,6 +83,9 @@ const ListCompany = () => {
                 <NavLink to="/CreateCompanyPage" className="CreateUse"><IoIosCreate className='icon-Create' />Crear Usuario</NavLink>
                 <h2>Directorio de Usuarios</h2>
                 <p>Explora y descubre usuarios registrados</p>
+                <div className='Export'>
+                  <ExportPdfExcel/>
+                </div>
                 
                 {/* Componente de Filtro integrado aquí */}
                 <FilterComponent

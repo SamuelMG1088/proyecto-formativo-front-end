@@ -12,6 +12,7 @@ import { FaRegEdit } from "react-icons/fa"
 import { Link } from 'react-router-dom';
 import './css/listProgram.css';
 import { IoIosCreate } from "react-icons/io";
+import ExportPdfExcel from '../../components/ExportPdfExcel/ExportPdfExcel.jsx';
 
 const ListProgram = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -41,6 +42,8 @@ const ListProgram = () => {
     // Reset filtered data
   };
 
+
+    
   return (
     <div id="ListProgramPage">
       <div className="PageListProgram">
@@ -77,6 +80,9 @@ const ListProgram = () => {
                 <NavLink to="/CreateProgram" className="CreateProgram"><IoIosCreate className='icon-Create' />Crear Programa</NavLink>
                 <h2>Directorio de Programas de Formación</h2>
                 <p>Explora y gestiona los programas de formación registrados</p>
+                <div className='Exports'>
+                  <ExportPdfExcel/>
+                </div>
                 
                 {/* Filter component */}
                 <FilterComponent

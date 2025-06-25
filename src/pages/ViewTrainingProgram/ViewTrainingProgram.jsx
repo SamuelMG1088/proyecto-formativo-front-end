@@ -9,9 +9,10 @@ import { FaGraduationCap } from "react-icons/fa";
 import './css/viewTrainingProgram.css';
 import ButtonEdit from '../../components/Buttons/ButtonEdit/ButtonEdit.jsx';
 import { Link } from 'react-router-dom';
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { NavLink } from 'react-router-dom';
 
-
-const ViewCompany = () => {
+const ViewTraining = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const images = [BannerHome3, BannerHome4, BannerHome5];
 
@@ -52,6 +53,7 @@ const ViewCompany = () => {
           </div>
         </div>
           <div className="program-container">
+            <NavLink to="/ListProgram" className="NavLink"><FaArrowLeftLong className='icon-arrow' />Volver a atrás</NavLink>
             <div className="program-header">
                     <FaGraduationCap className="icon-Training" />
                 </div>
@@ -77,15 +79,15 @@ const ViewCompany = () => {
                 <div className="requirements">
                     <div className="requirement">
                     <h3>Nivel Académico</h3>
-                    <p>Bachiller con diploma o acta de grado</p>
+                    <p>Auxiliar</p>
                     </div>
                     <div className="requirement">
-                    <h3>Documentación</h3>
-                    <p>Documento de identidad, certificado de estudios, foto tipo documento</p>
+                    <h3>Nombre del Programa</h3>
+                    <p>Análisis y Desarrollo de Software</p>
                     </div>
                     <div className="requirement">
-                    <h3>Proceso de Selección</h3>
-                    <p>Prueba de aptitud, entrevista y prueba psicotécnica</p>
+                    <h3>Areá del programa</h3>
+                    <p>Tecnologías de la información</p>
                     </div>
                     <div className='Box-Button'>
                       <Link className='Button' to="/EditTraining">
@@ -99,4 +101,4 @@ const ViewCompany = () => {
   );
 }
 
-export default ViewCompany;
+export default ViewTraining;

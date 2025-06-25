@@ -88,20 +88,25 @@ const EditCompany = () => {
 
                 <div className="requirements">
                     <div className="requirement">
-                    <h3>Tipo de documentode </h3>
-                    <p>Cedula</p>
+                    <h3>Tipo de documento</h3>
+                    <select name="" >
+                      <option value=""></option>
+                      <option value="C.C">C.C</option>
+                      <option value="T.I">T.I</option>
+                      <option value="C.E">C.E</option>
+                    </select>
                     </div>
                     <div className="requirement">
-                    <h3>Numero Telefonico</h3>
-                    <p>323-5260410</p>
+                    <h3>Número Teléfonico</h3>
+                     <input type="number" placeholder='Ingrese su número teléfonico'/>
                     </div>
                     <div className="requirement">
-                    <h3>Correo Electronico</h3>
-                    <p>sthepaniherreraduque@gmail.com</p>
+                    <h3>Correo Electrónico</h3>
+                     <input type="email" placeholder='Ingrese su correo electrónico'/>
                     </div>
                     <div className="requirement">
-                    <h3>Direccion</h3>
-                    <p>Diagonal 25 Conjunto Residencial Cipress Casa 92</p>
+                    <h3>Dirección</h3>
+                     <input type="text" placeholder='Ingrese su dirección'/>
                     </div>
                     <div className='Box-Button'>
                   </div>

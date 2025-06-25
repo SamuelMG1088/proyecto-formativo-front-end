@@ -15,6 +15,7 @@ import FilterComponent from '../../components/Filter/Filter.jsx'; // Importa el 
 import diagnostic from '../../assets/images/BannerDiagnostico.png';
 import banner2 from '../../assets/images/bannerHome2.jpg'; 
 import banner3 from '../../assets/images/bannerHome3.png';
+import ExportPdfExcel from '../../components/ExportPdfExcel/ExportPdfExcel.jsx';
 
 const DiagnosticResult = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -81,6 +82,9 @@ const DiagnosticResult = () => {
                 <div className='content-result-section'>
                 <NavLink to="/home" className="NavLink"><FaArrowLeftLong className='icon-arrow' />Volver al Inicio</NavLink>
                     <div className="chart-header">
+                    <div className='Export-pdf-excel'>
+                      <ExportPdfExcel/>
+                    </div>
                     <FaChartBar className="chart-icon" />
                         <h2>Resultado del diagnóstico</h2>
                         <p>Este es el resultado de tu diagnóstico que realizaste</p>

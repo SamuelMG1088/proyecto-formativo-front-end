@@ -10,6 +10,10 @@ import { Link } from 'react-router-dom';
 import './css/loginPage.css';
 import '../../styles/variables.css';
 
+
+import { BsEyeFill } from "react-icons/bs";
+
+
 export const LoginPage = () => {
   // Estado para el carrusel
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -22,6 +26,13 @@ export const LoginPage = () => {
 
     return () => clearInterval(interval);
   }, [images.length]);
+
+    //Logica del Ojito de la contraseña
+ const [showPassword, setShowPassword] = useState(false);
+
+  const MostarContraseña = () => {
+    setShowPassword(prev => !prev);
+  };
 
   return (
     <div id="LoginPage">
@@ -37,9 +48,14 @@ export const LoginPage = () => {
           </div>
           <div className="input-box-email">
             <label htmlFor="">Contraseña</label>
-            <input type="password"/>
-            <BsEyeSlashFill className='icon'/>
-          </div>
+            <input type={showPassword ? 'text' : 'password'} />
+            {showPassword ? (
+              <BsEyeFill className="icon" onClick={MostarContraseña} />
+            ) : (
+              <BsEyeSlashFill className="icon" onClick={MostarContraseña} />
+            )}
+        </div>
+          
 
           <div className="remember-forgot">
             <label><input type="checkbox"/>Recordarme</label>

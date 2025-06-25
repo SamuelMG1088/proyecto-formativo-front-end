@@ -1,4 +1,4 @@
-#ViewtrainingPage {
+#ViewCompany {
   .PageViewtraining{
     width: 100%;
     display: flex;
@@ -76,8 +76,14 @@
     position: relative;
     width: 70%;
     left: 15%;
-    border: 1px solid;
     margin-bottom: 2rem;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .NavLink{
+      text-decoration: none;
+      color: var(--color-primary);
+      margin-top: 39rem;
     }
 
     .program-header {
@@ -106,7 +112,7 @@
     .program-title {
     margin-top: 2rem;
     font-size: 1.7rem;
-    margin-left: 7rem;
+    text-align: center;    
     }
 
     .info-boxes {
@@ -159,23 +165,11 @@
     .requirement p {
     color: var(--neutral-1_6);
     }
+
     .Box-Button{
-        width: 90%;
-        border-radius: 1px solid;
-        display: flex;
-        justify-content: center;
+     width: 100%;
+     display: flex;
+     justify-content: center;
     }
-    .Button{
-        width: 12rem;
-    }
-    .Box-Button{
-        width: 90%;
-        border-radius: 1px solid;
-        display: flex;
-        justify-content: center;
-        margin-left: 19%;
-    }
-    .Button{
-      width: 15rem;
-    }
+    
 }

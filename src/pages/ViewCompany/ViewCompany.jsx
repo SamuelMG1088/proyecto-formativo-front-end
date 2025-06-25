@@ -9,6 +9,8 @@ import { FaGraduationCap } from "react-icons/fa";
 import './css/ViewCompany.css';
 import ButtonEdit from '../../components/Buttons/ButtonEdit/ButtonEdit.jsx';
 import { Link } from 'react-router-dom';
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { NavLink } from 'react-router-dom';
 
 
 const ViewCompany = () => {
@@ -24,7 +26,7 @@ const ViewCompany = () => {
   }, [images.length]);
 
   return (
-    <div id="ViewtrainingPage">
+    <div id="ViewCompany">
       <div className="PageViewtraining">
         <Gov />
         <HeaderIcons />
@@ -52,7 +54,8 @@ const ViewCompany = () => {
           </div>
         </div>
           <div className="program-container">
-            <div className="program-header">
+              <NavLink to="/listcompany" className="NavLink"><FaArrowLeftLong className='icon-arrow' />Volver a atrás</NavLink>
+                <div className="program-header">
                     <FaGraduationCap className="icon-Training" />
                 </div>
                     <h1 className="program-title">
@@ -61,34 +64,38 @@ const ViewCompany = () => {
 
                 <div className="info-boxes">
                     <div className="info-box">
-                    <p className="info-main">Tecnólogo</p>
-                    <p className="info-label">Nivel</p>
+                    <p className="info-main">Activo</p>
+                    <p className="info-label">Estado</p>
                     </div>
                     <div className="info-box">
-                    <p className="info-main">Presencial</p>
-                    <p className="info-label">Modalidad</p>
+                    <p className="info-main">Empresa</p>
+                    <p className="info-label">Rol</p>
                     </div>
-                    <div className="info-box">
+                    {/* <div className="info-box">
                     <p className="info-main">Diurna</p>
                     <p className="info-label">Jornada</p>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="requirements">
                     <div className="requirement">
-                    <h3>Nivel Académico</h3>
-                    <p>Bachiller con diploma o acta de grado</p>
+                    <h3>Número telefónico. </h3>
+                    <p>314 7539505</p>
                     </div>
                     <div className="requirement">
-                    <h3>Documentación</h3>
-                    <p>Documento de identidad, certificado de estudios, foto tipo documento</p>
+                    <h3>Correo electrónico.</h3>
+                    <p>Niaduque78@gmail.com</p>
                     </div>
                     <div className="requirement">
-                    <h3>Proceso de Selección</h3>
-                    <p>Prueba de aptitud, entrevista y prueba psicotécnica</p>
+                    <h3>Razón social..</h3>
+                    <p>Comercializadora y Distribuciones Andina S.A.S.</p>
+                    </div>
+                    <div className="requirement">
+                    <h3>Actividad económica.</h3>
+                    <p>Comercio al por menor de productos alimenticios, bebidas y tabaco en establecimientos especializados.</p>
                     </div>
                     <div className='Box-Button'>
-                      <Link className='Button' to="/EditCompany">
+                      <Link to="/EditCompany">
                         <ButtonEdit />
                       </Link>
                   </div>
