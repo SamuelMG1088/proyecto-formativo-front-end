@@ -89,19 +89,24 @@ const EditProfile = () => {
                 <div className="requirements">
                     <div className="requirement">
                     <h3>Tipo de documentode </h3>
-                    <p>Cedula</p>
+                    <select name="" id="">
+                        <option value="CC">Cedula de Ciudadania</option>
+                        <option value="TI">NIT</option>
+                        <option value="CE">Cedula de Extranjeria</option>
+                        <option value="PA">Pasaporte</option>
+                    </select>
                     </div>
                     <div className="requirement">
                     <h3>Numero Telefonico</h3>
-                    <p>323-5260410</p>
+                    <input type="text" placeholder='Ingresa el Nuevo numero de telefono'/>
                     </div>
                     <div className="requirement">
                     <h3>Correo Electronico</h3>
-                    <p>sthepaniherreraduque@gmail.com</p>
+                    <input type="email" placeholder='Ingresa la nueva direccion de correo'/>
                     </div>
                     <div className="requirement">
                     <h3>Direccion</h3>
-                    <p>Diagonal 25 Conjunto Residencial Cipress Casa 92</p>
+                    <input type="text" placeholder='Ingresa la direccion actualizada'/>
                     </div>
                     <div className='Box-Button'>
                   </div>

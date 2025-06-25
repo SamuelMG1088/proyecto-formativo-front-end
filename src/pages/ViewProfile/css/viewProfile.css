@@ -1,4 +1,4 @@
-#ViewtrainingPage {
+#ViewProfile {
   .PageViewtraining{
     width: 100%;
     display: flex;
@@ -158,10 +158,10 @@
     color: var(--neutral-1_6);
     }
 
-    .Box-Button{
-        width: 100%;
-        display: flex;
-        justify-content: center;
+    .Box-Button {
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
 
 }

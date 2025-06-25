@@ -159,23 +159,10 @@
     .requirement p {
     color: var(--neutral-1_6);
     }
+
     .Box-Button{
-        width: 90%;
-        border-radius: 1px solid;
+        width: 100%;
         display: flex;
         justify-content: center;
-    }
-    .Button{
-        width: 12rem;
-    }
-    .Box-Button{
-        width: 90%;
-        border-radius: 1px solid;
-        display: flex;
-        justify-content: center;
-        margin-left: 19%;
-    }
-    .Button{
-      width: 15rem;
     }
 }

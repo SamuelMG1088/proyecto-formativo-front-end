@@ -24,7 +24,7 @@ const ViewCompany = () => {
   }, [images.length]);
 
   return (
-    <div id="ViewtrainingPage">
+    <div id="ViewProfile">
       <div className="PageViewtraining">
         <Gov />
         <HeaderIcons />
