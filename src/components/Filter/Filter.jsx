@@ -98,7 +98,7 @@ const Filter = ({
         {/* Filtro de Tipo de Documento */}
         {showTipoDocumento && (
           <div className="filter-dropdown document-type-dropdown">
-            <h3>Seleccione la razón social</h3>
+            <h3>Seleccione tipo de documento</h3>
             <div className="filter-options">
               <button
                 className={`filter-option ${selectedDocumento === "C.C" ? "selected" : ""}`}
