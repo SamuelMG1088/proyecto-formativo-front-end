@@ -111,7 +111,10 @@
 
     .NavLink {
         text-decoration: none;
-        /* color: var(--neutral-1); */
+        color: var(--color-primary);
+        position: relative;
+        top: 3rem;
+        left: 3rem;
     }
     
     .list-company-section h2 {

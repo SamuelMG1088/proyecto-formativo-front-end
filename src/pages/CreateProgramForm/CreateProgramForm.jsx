@@ -9,7 +9,7 @@ import NavBar from '../../layout/NavBar/NavBar.jsx';
 import BannerActualizar from '../../assets/images/BannerActualizar.png';
 import Swal from "sweetalert2";
 import './css/createProgramForm.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const CreateProgram = () => {
     const [currentStep, setCurrentStep] = useState(1);
@@ -156,9 +156,11 @@ const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 1));
 
 
               <div className="form-navigation">
-                <button type="button" className="secondary-button" disabled>
+                <Link to='/ListProgram'>
+                <button type="button" className="secondary-button" >
                   Anterior
                 </button>
+                </Link>
                 <button type="button" className="primary-button" onClick={nextStep}>
                   Siguiente
                 </button>
@@ -249,7 +251,7 @@ const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 1));
                   Anterior
                 </button>
                 <button type="button" className="primary-button" onClick={Alerta}>
-                  Confirmar y Crear Usuario
+                  Confirmar y Crear programa
                 </button>
               </div>
             </div>

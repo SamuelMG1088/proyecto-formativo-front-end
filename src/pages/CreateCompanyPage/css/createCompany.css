@@ -238,11 +238,4 @@
   .step-line.active {
     background-color: var(--color-primary) /* mismo color que los pasos activos */
   }
-
-
-  
-
-  .secondary-button:disabled {
-    cursor: not-allowed;
-  }
 }

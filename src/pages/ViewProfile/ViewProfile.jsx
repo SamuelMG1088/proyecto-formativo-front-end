@@ -76,19 +76,19 @@ const ViewCompany = () => {
 
                 <div className="requirements">
                     <div className="requirement">
-                    <h3>Tipo de documentode </h3>
+                    <h3>Tipo de documento </h3>
                     <p>Cedula</p>
                     </div>
                     <div className="requirement">
-                    <h3>Numero Telefonico</h3>
+                    <h3>Número telefónico</h3>
                     <p>323-5260410</p>
                     </div>
                     <div className="requirement">
-                    <h3>Correo Electronico</h3>
-                    <p>sthepaniherreraduque@gmail.com</p>
+                    <h3>Correo Electrónico</h3>
+                    <p>Niaduque78@gmail.com</p>
                     </div>
                     <div className="requirement">
-                    <h3>Direccion</h3>
+                    <h3>Dirección</h3>
                     <p>Diagonal 25 Conjunto Residencial Cipress Casa 92</p>
                     </div>
                     <div className='Box-Button'>

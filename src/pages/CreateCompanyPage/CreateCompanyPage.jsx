@@ -7,7 +7,7 @@ import NavBar from '../../layout/NavBar/NavBar';
 import BannerHome3 from '../../assets/images/BannerHome3.png';
 import BannerHome4 from '../../assets/images/BannerHome4.png';
 import BannerHome5 from '../../assets/images/BannerHome5.png';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CreateCompanyPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -173,9 +173,11 @@ const CreateCompanyPage = () => {
               </div>
 
               <div className="form-navigation">
-                <button type="button" className="secondary-button" disabled>
+                <Link to='/listcompany'>
+                <button type="button" className="secondary-button" >
                   Anterior
                 </button>
+                </Link>
                 <button type="button" className="primary-button" onClick={nextStep}>
                   Siguiente
                 </button>
@@ -277,7 +279,7 @@ const CreateCompanyPage = () => {
               <div className="form-navigation">
                 <button type="button" className="secondary-button" onClick={prevStep}>
                   Anterior
-                </button>
+                 </button>
                 <button type="button" className="primary-button" onClick={handleSubmit}>
                   Confirmar y Crear Usuario
                 </button>

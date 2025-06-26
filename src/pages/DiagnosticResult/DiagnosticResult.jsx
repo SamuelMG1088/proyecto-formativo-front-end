@@ -87,7 +87,7 @@ const DiagnosticResult = () => {
                     </div>
                     <FaChartBar className="chart-icon" />
                         <h2>Resultado del diagnóstico</h2>
-                        <p>Este es el resultado de tu diagnóstico que realizaste</p>
+                        <p>Este es el resultado del diagnóstico que realizó</p>
                         <DiagnosisResult/>
                     </div>
                 </div>

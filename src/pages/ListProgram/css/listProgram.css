@@ -104,7 +104,8 @@
     .CreateProgram {
         text-decoration: none;
         color: var(--color-primary);
-        margin-left: 71%;
+        position: relative;
+        left: 65%;
     }
     
     .list-program-section h2 {

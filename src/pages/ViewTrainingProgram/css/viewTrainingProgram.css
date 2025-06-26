@@ -83,7 +83,8 @@
     .NavLink{
       text-decoration: none;
       color: var(--color-primary);
-      margin-top: 39rem;
+      position: relative;
+      top: -1rem;
     }
 
 
@@ -108,12 +109,14 @@
     color: var(--color-primary);
     }
 
+    
+
  
 
     .program-title {
     margin-top: 2rem;
     font-size: 1.7rem;
-    margin-left: 7rem;
+    text-align: center;
     }
 
     .info-boxes {
@@ -167,7 +170,7 @@
     color: var(--neutral-1_6);
     }
     .Box-Button{
-     width: 100%;
+     width: 130%;
      display: flex;
      justify-content: center;
     }
