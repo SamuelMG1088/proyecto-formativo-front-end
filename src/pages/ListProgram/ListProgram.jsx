@@ -8,7 +8,7 @@ import BannerHome5 from '../../assets/images/BannerHome5.png';
 import FilterComponent from '../../components/Filter/Filter.jsx';
 import { NavLink } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { FaRegEdit } from "react-icons/fa"
+import { IoIosInformationCircle } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import './css/listProgram.css';
 import { IoIosCreate } from "react-icons/io";
@@ -80,10 +80,10 @@ const ListProgram = () => {
                 <NavLink to="/CreateProgram" className="CreateProgram"><IoIosCreate className='icon-Create' />Crear Programa</NavLink>
                 <h2>Directorio de Programas de Formación</h2>
                 <p>Explora y gestiona los programas de formación registrados</p>
+                
                 <div className='Exports'>
                   <ExportPdfExcel/>
                 </div>
-                
                 {/* Filter component */}
                 <FilterComponent
                   onDocumentTypeChange={handleProgramTypeChange}
@@ -119,7 +119,7 @@ const ListProgram = () => {
                             <td>
                                 <Link to ='/ViewTraining'>
                                 <button className="edit-button">
-                                    <FaRegEdit />
+                                    <IoIosInformationCircle />
                                 </button>
                                 </Link>
                             </td>
@@ -136,7 +136,7 @@ const ListProgram = () => {
                             <td>
                                 <Link to ='/ViewTraining'>
                                 <button className="edit-button">
-                                    <FaRegEdit />
+                                    <IoIosInformationCircle />
                                 </button>
                                 </Link>
                             </td>
@@ -153,7 +153,7 @@ const ListProgram = () => {
                             <td>
                                 <Link to ='/ViewTraining'>
                                 <button className="edit-button">
-                                    <FaRegEdit />
+                                    <IoIosInformationCircle />
                                 </button>
                                 </Link>
                             </td>
@@ -170,7 +170,7 @@ const ListProgram = () => {
                             <td>
                                 <Link to ='/ViewTraining'>
                                 <button className="edit-button">
-                                    <FaRegEdit />
+                                    <IoIosInformationCircle />
                                 </button>
                                 </Link>
                             </td>
@@ -187,7 +187,7 @@ const ListProgram = () => {
                             <td>
                                 <Link to ='/ViewTraining'>
                                 <button className="edit-button">
-                                    <FaRegEdit />
+                                    <IoIosInformationCircle />
                                 </button>
                                 </Link>
                             </td>
@@ -204,7 +204,7 @@ const ListProgram = () => {
                             <td>
                                 <Link to ='/ViewTraining'>
                                 <button className="edit-button">
-                                    <FaRegEdit />
+                                    <IoIosInformationCircle />
                                 </button>
                                 </Link>
                             </td>
@@ -221,7 +221,7 @@ const ListProgram = () => {
                             <td>
                                 <Link to ='/ViewTraining'>
                                 <button className="edit-button">
-                                    <FaRegEdit />
+                                    <IoIosInformationCircle />
                                 </button>
                                 </Link>
                             </td>

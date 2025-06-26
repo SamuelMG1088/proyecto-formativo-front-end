@@ -128,9 +128,7 @@
         margin-bottom: 1rem;
     }
     .Export-pdf-excel{
-      position: relative;
-      top: 4rem;
-      left: 85%;
+      margin-left: 80%;
     }
 
     /* Estilos para la tabla de empresas */

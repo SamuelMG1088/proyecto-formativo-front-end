@@ -90,9 +90,7 @@
         padding: 2rem;
     }
     .Export{
-        position: relative;
-        top: 4rem;
-        left: 85%;
+        margin-left: 80%;
     }
 
     .icon-arrow {
