@@ -8,7 +8,7 @@ import BannerHome5 from '../../assets/images/BannerHome5.png';
 import FilterComponent from '../../components/Filter/Filter.jsx'; // Importa el componente de filtro
 import { NavLink } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { FaRegEdit } from "react-icons/fa"
+import { IoIosInformationCircle } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import './css/listCompany.css';
 import { IoIosCreate } from "react-icons/io";
@@ -128,7 +128,7 @@ const ListCompany = () => {
                             <td>
                                 <Link to ='/viewCompany'>
                                 <button className="edit-button">
-                                    <FaRegEdit />
+                                    <IoIosInformationCircle />
                                 </button>
                                 </Link>
                             </td>
@@ -145,7 +145,7 @@ const ListCompany = () => {
                             <td>
                                 <Link to ='/viewCompany'>
                                 <button className="edit-button">
-                                    <FaRegEdit />
+                                    <IoIosInformationCircle />
                                 </button>
                                 </Link>
                             </td>
@@ -162,7 +162,7 @@ const ListCompany = () => {
                             <td>
                                 <Link to ='/viewCompany'>
                                 <button className="edit-button">
-                                    <FaRegEdit />
+                                    <IoIosInformationCircle />
                                 </button>
                                 </Link>
                             </td>
@@ -179,7 +179,7 @@ const ListCompany = () => {
                             <td>
                                 <Link to ='/viewCompany'>
                                 <button className="edit-button">
-                                    <FaRegEdit />
+                                    <IoIosInformationCircle />
                                 </button>
                                 </Link>
                             </td>
@@ -196,7 +196,7 @@ const ListCompany = () => {
                             <td>
                                 <Link to ='/viewCompany'>
                                 <button className="edit-button">
-                                    <FaRegEdit />
+                                    <IoIosInformationCircle />
                                 </button>
                                 </Link>
                             </td>
@@ -213,7 +213,7 @@ const ListCompany = () => {
                             <td>
                             <Link to ='/viewCompany'>
                                 <button className="edit-button">
-                                <FaRegEdit />
+                                <IoIosInformationCircle />
                                 </button>
                             </Link>
                             </td>
@@ -230,7 +230,7 @@ const ListCompany = () => {
                             <td>
                                 <Link to ='/viewCompany'>
                                 <button className="edit-button">
-                                <FaRegEdit />
+                                <IoIosInformationCircle />
                                 </button>
                             </Link>
                             </td>
@@ -247,7 +247,7 @@ const ListCompany = () => {
                             <td>
                                 <Link to ='/EditCompany'>
                                   <button className="edit-button">
-                                <FaRegEdit />
+                                <IoIosInformationCircle />
                                 </button>
                             </Link>
                             </td>
