@@ -2,7 +2,7 @@
    /* Estilos principales del carrusel */
     .home-carousel {
         width: 100%;
-        height: 24.5rem;
+        height: 32rem;
         position: relative;
         overflow: hidden;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -61,6 +61,7 @@
 
     /* Contenedor principal */
     .home-content {
+        margin-top: 1rem;
         display: flex;
         height: auto;
         justify-content: center;
@@ -72,9 +73,9 @@
     .home-sections {
         padding: 0.5rem 2rem 0rem 2rem; 
         background-color: var(--neutral-4);
-        /* border: 1px solid var(--neutral-1_2); */
         margin-top: 1rem;
-        height: 60rem;
+        margin-bottom: 1rem;
+        height: 65rem;
         width: 70%;
         box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
     }
@@ -171,7 +172,7 @@
 
     .btn-completar {
         position: relative;
-        top: -3.5rem;
+        top: -4rem;
         left: 75%;
         padding: 0.5rem 1rem;
         background-color: var(--color-secundary-2);
