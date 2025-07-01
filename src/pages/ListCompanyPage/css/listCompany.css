@@ -107,8 +107,8 @@
     .CreateUse {
         text-decoration: none;
         color: var(--color-primary);
-        position: relative;
-        left: 65%;
+        width: auto;
+        
     }
     
     .list-company-section h2 {
@@ -177,6 +177,17 @@
     .status-badge.active {
       background-color: var(--color-secundary2_4);
       color: var(--color-secundary-2);
+    }
+    .button-create{
+    border-radius: 6px; 
+    width:  8rem;
+    height: 2.5rem;
+    background-color: var(--color-primary);
+    border: none;
+    cursor: pointer;
+    color: var(--neutral-4);
+    position: relative;
+    left: 80%;
     }
   
     .edit-button {

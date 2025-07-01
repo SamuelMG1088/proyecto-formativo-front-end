@@ -80,7 +80,12 @@ const ListCompany = () => {
         <div className="list-company-content">
             <section className="list-company-section">
                 <NavLink to="/home" className="NavLink"><FaArrowLeftLong className='icon-arrow' />Volver al Inicio</NavLink>
-                <NavLink to="/CreateCompanyPage" className="CreateUse"><IoIosCreate className='icon-Create' />Crear Usuario</NavLink>
+                <NavLink to="/CreateCompanyPage" className="CreateUse">
+                <div>
+                  <button className='button-create'>Crear Usuario</button>
+                </div>
+                </NavLink>
+
                 <h2>Directorio de Usuarios</h2>
                 <p>Explora y descubre usuarios registrados</p>
                 <div className='Export'>

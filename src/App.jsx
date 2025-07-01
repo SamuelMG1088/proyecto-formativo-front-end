@@ -17,6 +17,7 @@ import CreateProgram from './pages/CreateProgramForm/CreateProgramForm.jsx'; /* 
 import ListProgram from './pages/ListProgram/ListProgram.jsx';
 import EditTraining from './pages/EditTrainingProgram/EditTrainingProgram.jsx';
 import ViewCompany from './pages/ViewCompany/ViewCompany.jsx'
+import 'normalize.css';
 
 
 function App() {

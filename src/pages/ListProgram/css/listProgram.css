@@ -104,10 +104,9 @@
         color: var(--color-primary);
     }
     .CreateProgram {
-        text-decoration: none;
-        color: var(--color-primary);
-        position: relative;
-        left: 65%;
+       text-decoration: none;
+       color: var(--color-primary);
+       width: auto;
     }
     
     .list-program-section h2 {
@@ -183,6 +182,17 @@
     .status-badge.inactive {
       background-color: var(--neutral-1_2);
       color: var(--neutral-1_6);
+    }
+    .Create-program{
+      border-radius: 6px; 
+      width:  10rem;
+      height: 2.5rem;
+      background-color: var(--color-primary);
+      border: none;
+      cursor: pointer;
+      color: var(--neutral-4);
+      position: relative;
+      left: 80%
     }
   
     .edit-button {
