@@ -1,10 +1,12 @@
 #ListProgramPage {
     .PageListProgram {
         width: 100%;
+        height: auto;
         display: flex;
         flex-direction: column;
         background-image: url(../../../assets/images/vector-blanco.png);
         background-size: cover;
+
     }
 
     /* Carrusel styles */

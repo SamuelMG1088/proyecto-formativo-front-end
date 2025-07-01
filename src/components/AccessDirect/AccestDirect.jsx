@@ -14,7 +14,7 @@ const AccestDirect = () => {
                     <div className="box-assest">
 
                         <div className="box">
-                            <a href="https://zajuna.sena.edu.co/" target="_blank" rel="noopener noreferrer">
+                            <a href="https://zajuna-sena-edu.co/ayuda-y-soporte/" target="_blank" rel="noopener noreferrer">
                                 <img className='sofiaplus' src={sofiaplus} alt=''/>
                             </a>
                         </div>
@@ -26,8 +26,9 @@ const AccestDirect = () => {
                         </div>
 
                         <div className="box">
-                            <a href="https://zajuna-sena-edu.co/ayuda-y-soporte/" target="_blank" rel="noopener noreferrer" >
+                            <a href="https://zajuna.sena.edu.co/" target="_blank" rel="noopener noreferrer" >
                                 <img  className='zajuna' src={zajuna} alt=""/>
+                                
                             </a>
                         </div>
                     </div> {/* -- Cajas de accesos -- */}
