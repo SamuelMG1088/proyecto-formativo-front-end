@@ -140,6 +140,7 @@ const businessDiagnosis = () => {
                   placeholder="Campo"
                 />
               </div>
+              
 
               <div className="form-group">
                 <label>Campo</label>

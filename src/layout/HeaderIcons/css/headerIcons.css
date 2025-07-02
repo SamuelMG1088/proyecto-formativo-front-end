@@ -4,14 +4,14 @@
         height: 5rem;
         display: flex;
         align-items: center;
-        justify-content: space-around;
-        gap: 87rem;
+        justify-content: space-between;
         
         
     }
     
     nav img {
         width: 10rem;
+        padding: 0 4%;
     }
 
     .img-sena{
