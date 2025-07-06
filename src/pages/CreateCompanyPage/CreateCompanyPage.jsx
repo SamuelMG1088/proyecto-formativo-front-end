@@ -22,7 +22,8 @@ const CreateCompanyPage = () => {
     email: '',
     status: 'active',
     address: '',
-    password: ''
+    password: '',
+    actividad_economica: ''  // nuevo campo
   });
 
   const images = [BannerHome3, BannerHome4, BannerHome5];
@@ -51,7 +52,7 @@ const CreateCompanyPage = () => {
   const handleSubmit = async () => {
     try {
       const payload = {
-        id: parseInt(userData.documentNumber), // requerido por el modelo
+        id: parseInt(userData.documentNumber),
         tipo_documento: userData.documentType === "C.C"
           ? "Cédula de ciudadanía"
           : userData.documentType === "NIT"
@@ -64,7 +65,7 @@ const CreateCompanyPage = () => {
         estado: userData.status === "active" ? "Activo" : "Inactivo",
         password: userData.password,
         direccion: userData.address,
-        actividad_economica: "Sector terciario"
+        actividad_economica: userData.actividad_economica // tomarlo del formulario
       };
 
       const response = await axios.post('http://localhost:3000/api/usuarios', payload);
@@ -201,6 +202,20 @@ const CreateCompanyPage = () => {
                 />
               </div>
 
+              <div className="form-group">
+                <label>Actividad Económica</label>
+                <select
+                  name="actividad_economica"
+                  value={userData.actividad_economica}
+                  onChange={handleInputChange}
+                >
+                  <option value="">Seleccione una actividad</option>
+                  <option value="Sector primario">Sector primario</option>
+                  <option value="Sector secundario">Sector secundario</option>
+                  <option value="Sector terciario">Sector terciario</option>
+                </select>
+              </div>
+
               <div className="form-navigation">
                 <Link to='/listcompany'>
                   <button type="button" className="secondary-button">Anterior</button>
@@ -285,7 +300,8 @@ const CreateCompanyPage = () => {
                   'Teléfono': userData.phone,
                   'Correo Electrónico': userData.email,
                   'Estado': userData.status === 'active' ? 'Activo' : 'Inactivo',
-                  'Dirección': userData.address
+                  'Dirección': userData.address,
+                  'Actividad Económica': userData.actividad_economica
                 }).map(([label, value]) => (
                   <div className="detail-row" key={label}>
                     <span className="detail-label">{label}:</span>

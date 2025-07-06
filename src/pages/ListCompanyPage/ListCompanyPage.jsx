@@ -18,18 +18,20 @@ import './css/listCompany.css';
 const ListCompany = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [users, setUsers] = useState([]);
+  const [documentFilter, setDocumentFilter] = useState('');
+  const [statusFilter, setStatusFilter] = useState('');
 
   const images = [BannerHome3, BannerHome4, BannerHome5];
 
   // Carrusel automático
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide(prev => (prev === images.length - 1 ? 0 : prev + 1));
+      setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
     }, 3500);
     return () => clearInterval(interval);
   }, [images.length]);
 
-  // Llamada a la API
+  // Obtener usuarios de la API
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -42,21 +44,57 @@ const ListCompany = () => {
           console.error("La propiedad 'usuario' no es un array:", data);
           setUsers([]);
         }
-
-        console.log('Usuarios desde la API:', data);
       } catch (error) {
         console.error('Error al obtener usuarios:', error);
         setUsers([]);
       }
     };
-
     fetchUsers();
   }, []);
 
-  // Copiar correo
-  const handleCopyEmail = (email) => {
-    navigator.clipboard.writeText(email);
-    alert(`Correo copiado: ${email}`);
+  // Filtrado
+  const filteredUsers = users.filter(user => {
+    const tipoDoc = user.tipo_documento?.toLowerCase() || '';
+    const estado = user.estado?.toLowerCase() || '';
+    const docFilter = documentFilter.toLowerCase();
+    const estFilter = statusFilter.toLowerCase();
+
+    // FILTRO DOCUMENTO
+    let matchesDoc = true;
+    if (docFilter) {
+      if (docFilter === 'c.c') {
+        matchesDoc = tipoDoc.includes('cédula de ciudadanía') || tipoDoc.includes('c.c');
+      } else if (docFilter === 'c.e') {
+        matchesDoc = tipoDoc.includes('cédula de extranjería') || tipoDoc.includes('c.e');
+      } else {
+        matchesDoc = tipoDoc.includes(docFilter);
+      }
+    }
+
+    // FILTRO ESTADO
+    let matchesEstado = true;
+    if (estFilter) {
+      if (estFilter === 'activo') {
+        matchesEstado = estado === 'activo';
+      } else if (estFilter === 'inactivo') {
+        matchesEstado = estado === 'inactivo';
+      } else {
+        matchesEstado = estado.includes(estFilter);
+      }
+    }
+
+    return matchesDoc && matchesEstado;
+  });
+
+  // Copiar datos
+  const handleCopy = (text) => {
+    navigator.clipboard.writeText(text);
+    alert(`Copiado: ${text}`);
+  };
+
+  const resetFilters = () => {
+    setDocumentFilter('');
+    setStatusFilter('');
   };
 
   return (
@@ -107,9 +145,9 @@ const ListCompany = () => {
             </div>
 
             <FilterComponent
-              onDocumentTypeChange={() => {}}
-              onStatusChange={() => {}}
-              onResetFilters={() => {}}
+              onDocumentTypeChange={(value) => setDocumentFilter(value)}
+              onStatusChange={(value) => setStatusFilter(value)}
+              onResetFilters={resetFilters}
             />
 
             {/* Tabla de usuarios */}
@@ -121,34 +159,57 @@ const ListCompany = () => {
                       <th>ID</th>
                       <th>Nombre completo</th>
                       <th>Correo</th>
+                      <th>Tipo de documento</th>
                       <th>Estado</th>
                       <th></th>
                     </tr>
                   </thead>
                   <tbody>
-                    {users.length === 0 ? (
+                    {filteredUsers.length === 0 ? (
                       <tr>
-                        <td colSpan="5">No hay usuarios registrados.</td>
+                        <td colSpan="6">No hay usuarios registrados.</td>
                       </tr>
                     ) : (
-                      users.map(user => (
+                      filteredUsers.map((user) => (
                         <tr key={user.id}>
                           <td>{user.id}</td>
                           <td>{user.nombre} {user.apellido}</td>
                           <td>
-                            {user.correo || 'Sin correo'}
-                            {user.correo && (
-                              <button
-                                className="copy-button"
-                                onClick={() => handleCopyEmail(user.correo)}
-                                title="Copiar correo"
-                              >
-                                📋
-                              </button>
+                            {user.email && user.email.trim() !== '' ? (
+                              <>
+                                {user.email}
+                                <button
+                                  className="copy-button"
+                                  onClick={() => handleCopy(user.email)}
+                                  title="Copiar correo"
+                                >
+                                  
+                                </button>
+                              </>
+                            ) : (
+                              'Sin correo'
                             )}
                           </td>
                           <td>
-                            <span className={`status-badge ${user.estado === 'Activo' ? 'active' : 'inactive'}`}>
+                            {user.tipo_documento && user.tipo_documento.trim() !== '' ? (
+                              <>
+                                {user.tipo_documento}
+                                <button
+                                  className="copy-button"
+                                  onClick={() => handleCopy(user.tipo_documento)}
+                                  title="Copiar tipo de documento"
+                                >
+                                  
+                                </button>
+                              </>
+                            ) : (
+                              'Sin tipo'
+                            )}
+                          </td>
+                          <td>
+                            <span
+                              className={`status-badge ${user.estado === 'Activo' ? 'active' : 'inactive'}`}
+                            >
                               {user.estado}
                             </span>
                           </td>

@@ -178,6 +178,10 @@
       background-color: var(--color-secundary2_4);
       color: var(--color-secundary-2);
     }
+    .status-badge.inactive {
+      background-color: var(--color-secundary1_5);
+      color: var(--neutral-1_4);
+    }
     .button-create{
     border-radius: 6px; 
     width:  8rem;

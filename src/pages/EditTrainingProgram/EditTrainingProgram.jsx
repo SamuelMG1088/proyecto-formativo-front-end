@@ -1,18 +1,35 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import axios from 'axios';
 import Gov from '../../layout/Gov/Gov.jsx';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
+import NavBar from '../../layout/NavBar/NavBar.jsx';
 import BannerHome3 from '../../assets/images/BannerHome3.png';
 import BannerHome4 from '../../assets/images/BannerHome4.png';
 import BannerHome5 from '../../assets/images/BannerHome5.png';
-import NavBar from '../../layout/NavBar/NavBar.jsx';
 import { FaGraduationCap } from "react-icons/fa";
-import { Link } from 'react-router-dom';
 import ButtonConfirm from '../../components/Buttons/ButtonConfirm/ButtonConfirm.jsx';
-import ButtonEdit from '../../components/Buttons/ButtonEdit/ButtonEdit.jsx';
-import Swal from 'sweetalert2';
 import './css/editTrainingProgram.css';
 
 const EditTraining = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const programData = location.state || {
+    nombre: "",
+    id: "",
+    version: "",
+    estado: "",
+    lectiva: "",
+    productiva: ""
+  };
+
+  const [version, setVersion] = useState(programData.version);
+  const [estado, setEstado] = useState(programData.estado);
+  const [lectiva, setLectiva] = useState(programData.lectiva);
+  const [productiva, setProductiva] = useState(programData.productiva);
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const images = [BannerHome3, BannerHome4, BannerHome5];
 
@@ -23,14 +40,48 @@ const EditTraining = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  const mostrarAlerta = () => {
-    Swal.fire({
-      title: '¡Datos actualizados!',
-      text: 'Tus datos han sido actualizados correctamente.',
-      icon: 'success',
-      confirmButtonText: 'Aceptar',
-      confirmButtonColor: '#00304d'
-    });
+  const actualizarPrograma = async () => {
+    if (!programData.id) {
+      Swal.fire({
+        title: 'Error',
+        text: 'ID de programa no válido',
+        icon: 'error',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#00304d',
+      });
+      return;
+    }
+
+    try {
+      await axios.put(`http://localhost:3000/api/programas/${programData.id}`, {
+        version: Number(version),
+        estado,
+        lectiva: lectiva.toString(),
+        productiva: productiva.toString()
+      });
+
+      Swal.fire({
+        title: '¡Datos actualizados!',
+        text: `El programa se actualizó correctamente.`,
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#00304d',
+      }).then(() => {
+        navigate('/ListProgram');
+      });
+
+    } catch (error) {
+      console.error("Error:", error);
+      console.error("Respuesta del servidor:", error.response?.data);
+
+      Swal.fire({
+        title: 'Error',
+        text: error.response?.data?.message || 'No se pudo actualizar el programa.',
+        icon: 'error',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#00304d',
+      });
+    }
   };
 
   return (
@@ -41,7 +92,7 @@ const EditTraining = () => {
         <NavBar />
 
         <div className="profile-content">
-          {/* Carrusel sobre img-header */}
+          {/* Carrusel */}
           <div className="profile-carousel">
             <div className="carousel-container">
               {images.map((image, index) => (
@@ -63,51 +114,59 @@ const EditTraining = () => {
             </div>
           </div>
 
+          {/* Contenedor del programa */}
           <div className="program-container">
             <div className="program-header">
               <FaGraduationCap className="icon-Training" />
             </div>
-            <h1 className="program-title">
-              Stephania Herrera Duque
-            </h1>
 
-            <div className="info-boxes">
-              <div className="info-box">
-                <p className="info-main">Tecnólogo</p>
-                <p className="info-label">Nivel</p>
-              </div>
-              <div className="info-box">
-                <p className="info-main">Presencial</p>
-                <p className="info-label">Modalidad</p>
-              </div>
-              <div className="info-box">
-                <p className="info-main">Diurna</p>
-                <p className="info-label">Jornada</p>
-              </div>
-            </div>
+            <h1 className="program-title">
+              {programData.nombre || "Nombre del Programa"}
+            </h1>
 
             <div className="requirements">
               <div className="requirement">
-                <h3>Nivel Académico</h3>
-                <select name="" id="">
-                  <option value="Bachiller">Auxiliar</option>
-                  <option value="Tecnólogo">Tecnólogo</option>
-                  <option value="Profesional">Tecnico</option>
-                  <option value="Profesional">Operario</option>
-                </select>
+                <h3>Versión</h3>
+                <input
+                  type="number"
+                  placeholder="Versión del programa"
+                  value={version}
+                  onChange={(e) => setVersion(e.target.value)}
+                />
               </div>
+
               <div className="requirement">
-                <h3>Nombre del Programa</h3>
-                <input type="text" placeholder='Nombre del programa de formacion'/>
+                <h3>Estado</h3>
+                <input
+                  type="text"
+                  placeholder="Estado del programa"
+                  value={estado}
+                  onChange={(e) => setEstado(e.target.value)}
+                />
               </div>
+
               <div className="requirement">
-                <h3>Area del Programa</h3>
-                <input type="text" placeholder='Area del programa'/>
+                <h3>Lectiva</h3>
+                <input
+                  type="text"  // cambio a text para no confundir al usuario
+                  placeholder="Mes lectiva"
+                  value={lectiva}
+                  onChange={(e) => setLectiva(e.target.value)}
+                />
               </div>
-              <div className="Box-Button">
-                <Link className="Button" to="/ViewTraining" onClick={mostrarAlerta}>
-                  <ButtonConfirm />
-                </Link>
+
+              <div className="requirement">
+                <h3>Productiva</h3>
+                <input
+                  type="text"  // cambio a text también
+                  placeholder="Mes productiva"
+                  value={productiva}
+                  onChange={(e) => setProductiva(e.target.value)}
+                />
+              </div>
+
+              <div className="Box-Button" onClick={actualizarPrograma}>
+                <ButtonConfirm />
               </div>
             </div>
           </div>
@@ -115,6 +174,6 @@ const EditTraining = () => {
       </div>
     </div>
   );
-}
+};
 
 export default EditTraining;

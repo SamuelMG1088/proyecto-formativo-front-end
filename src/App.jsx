@@ -32,17 +32,16 @@ function App() {
         <Route path="/home" element={<Home/>} /> {/* Definimos la ruta para el componente Home */}
         <Route path='viewprofile' element={<ViewProfile/>} /> {/* Definimos la ruta para el componente ViewProfile */}
         <Route path="/listcompany" element={<ListCompanyPage/>} /> {/* Ruta comodín para redirigir a LoginPage si no coincide ninguna otra ruta */}
-        <Route path="/EditCompany" element={<EditCompany/>} /> {/* Definimos la ruta para el componente ViewCompany */}
+        <Route path="/EditCompany/:id" element={<EditCompany/>} /> {/* Definimos la ruta para el componente ViewCompany */}
         <Route path="/businessdiagnosis" element={<BusinesDiagnosis/>} /> {/* Definimos la ruta para el componente BusinessDiagnosis */}
         <Route path="/DiagnosisResult" element={<DiagnosisResult/>} /> {/* Definimos la ruta para el componente BusinessDiagnosis */}
-        <Route path="/ViewTraining" element={<ViewTraining/>} /> {/* Definimos la ruta para el componente BusinessDiagnosis */}
+        <Route path="/ViewTraining/:id" element={<ViewTraining/>} /> {/* Definimos la ruta para el componente BusinessDiagnosis */}
         <Route path="/EditProfile" element={<EditProfile/>} /> {/* Definimos la ruta para el componente ViewCompany */}
         <Route path="/CreateCompanyPage" element={<CreateCompanyPage/>} /> {/* Definimos la ruta para el componente CreateCompany */}
         <Route path="/CreateProgram" element={<CreateProgram/>} /> {/* Definimos la ruta para el componente CreateProgram */}
         <Route path="/ListProgram" element={<ListProgram/>} /> {/* Definimos la ruta para el componente ListProgram */}
-        <Route path="/EditTraining" element={<EditTraining/>} /> {/* Definimos la ruta para el componente EditTraining */}
+        <Route path="/EditTraining/:id" element={<EditTraining/>} /> {/* Definimos la ruta para el componente EditTraining */}
         <Route path="/viewCompany/:id" element={<ViewCompany/>} /> {/* Definimos la ruta para el componente EditTraining */}
-        <Route path="/EditCompany" element={<EditCompany/>} /> {/* Definimos la ruta para el componente EditTraining */}
 
 
       </Routes>
