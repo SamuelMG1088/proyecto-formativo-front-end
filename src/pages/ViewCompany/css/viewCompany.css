@@ -172,5 +172,25 @@
      display: flex;
      justify-content: center;
     }
+
+    /*Prueba*/
+
+    .view-company-page {
+  padding: 2rem;
+}
+
+.back-link {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.user-details p {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
     
 }

@@ -1,50 +1,62 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink, Link } from 'react-router-dom';
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { IoIosInformationCircle } from "react-icons/io";
+import axios from 'axios';
+
 import Gov from '../../layout/Gov/Gov.jsx';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
 import NavBar from '../../layout/NavBar/NavBar.jsx';
 import BannerHome3 from '../../assets/images/BannerHome3.png';
 import BannerHome4 from '../../assets/images/BannerHome4.png';
 import BannerHome5 from '../../assets/images/BannerHome5.png';
-import FilterComponent from '../../components/Filter/Filter.jsx'; // Importa el componente de filtro
-import { NavLink } from 'react-router-dom';
-import { FaArrowLeftLong } from "react-icons/fa6";
-import { IoIosInformationCircle } from "react-icons/io";
-import { Link } from 'react-router-dom';
-import './css/listCompany.css';
-import { IoIosCreate } from "react-icons/io";
+import FilterComponent from '../../components/Filter/Filter.jsx';
 import ExportPdfExcel from '../../components/ExportPdfExcel/ExportPdfExcel.jsx';
 
+import './css/listCompany.css';
 
 const ListCompany = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [filteredData, setFilteredData] = useState([]); // Estado para los datos filtrados
+  const [users, setUsers] = useState([]);
+
   const images = [BannerHome3, BannerHome4, BannerHome5];
 
+  // Carrusel automático
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+      setCurrentSlide(prev => (prev === images.length - 1 ? 0 : prev + 1));
     }, 3500);
     return () => clearInterval(interval);
   }, [images.length]);
 
-  // Función para manejar cambios en el tipo de documento
-  const handleDocumentTypeChange = (type) => {
-    console.log('Filtrar por tipo de documento:', type);
-    // Aquí implementarías la lógica de filtrado real
-    // setFilteredData(data.filter(item => item.tipoDocumento === type));
-  };
+  // Llamada a la API
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/api/usuarios');
+        const data = response.data;
 
-  // Función para manejar cambios en el estado
-  const handleStatusChange = (status) => {
-    console.log('Filtrar por estado:', status);
-    // Aquí implementarías la lógica de filtrado real
-    // setFilteredData(data.filter(item => item.estado === status));
-  };
+        if (Array.isArray(data.usuario)) {
+          setUsers(data.usuario);
+        } else {
+          console.error("La propiedad 'usuario' no es un array:", data);
+          setUsers([]);
+        }
 
-  // Función para resetear los filtros
-  const handleResetFilters = () => {
-    console.log('Filtros reiniciados');
-    // setFilteredData(data); // Restaurar todos los datos
+        console.log('Usuarios desde la API:', data);
+      } catch (error) {
+        console.error('Error al obtener usuarios:', error);
+        setUsers([]);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
+  // Copiar correo
+  const handleCopyEmail = (email) => {
+    navigator.clipboard.writeText(email);
+    alert(`Correo copiado: ${email}`);
   };
 
   return (
@@ -53,12 +65,12 @@ const ListCompany = () => {
         <Gov />
         <HeaderIcons />
         <NavBar />
-        
+
         {/* Carrusel */}
         <div className="company-carousel">
           <div className="carousel-container">
             {images.map((image, index) => (
-              <div 
+              <div
                 key={index}
                 className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
                 style={{ backgroundImage: `url(${image})` }}
@@ -66,7 +78,7 @@ const ListCompany = () => {
             ))}
             <div className="carousel-dots">
               {images.map((_, index) => (
-                <span 
+                <span
                   key={index}
                   className={`dot ${index === currentSlide ? 'active' : ''}`}
                   onClick={() => setCurrentSlide(index)}
@@ -75,197 +87,90 @@ const ListCompany = () => {
             </div>
           </div>
         </div>
-        
-        {/* Contenido principal */} 
+
+        {/* Contenido principal */}
         <div className="list-company-content">
-            <section className="list-company-section">
-                <NavLink to="/home" className="NavLink"><FaArrowLeftLong className='icon-arrow' />Volver al Inicio</NavLink>
-                <NavLink to="/CreateCompanyPage" className="CreateUse">
-                <div>
-                  <button className='button-create'>Crear Usuario</button>
-                </div>
-                </NavLink>
+          <section className="list-company-section">
+            <NavLink to="/home" className="NavLink">
+              <FaArrowLeftLong className="icon-arrow" /> Volver al Inicio
+            </NavLink>
 
-                <h2>Directorio de Usuarios</h2>
-                <p>Explora y descubre usuarios registrados</p>
-                <div className='Export'>
-                  <ExportPdfExcel/>
-                </div>
-                
-                {/* Componente de Filtro integrado aquí */}
-                <FilterComponent
-                onDocumentTypeChange={handleDocumentTypeChange}
-                onStatusChange={handleStatusChange}
-                onResetFilters={handleResetFilters}
-                />
-                
-                {/* Aquí iría la lista de empresas filtradas */}
-                <div className="company-list">
-                {/* {filteredData.map(company => (
-                    <CompanyCard key={company.id} company={company} />
-                ))} */}
-                </div>
+            <NavLink to="/CreateCompanyPage" className="CreateUse">
+              <button className="button-create">Crear Usuario</button>
+            </NavLink>
 
-                <div className="empresa-table-container">
-                    <div className="border">
-                        <table className="empresa-table">
-                        <thead>
-                            <tr>
-                            <th>NUMERO DE DOCUMENTO</th>
-                            <th>NOMBRE</th>
-                            <th>CORREO</th>
-                            <th>ACTIVIDAD</th>
-                            <th>RAZÓN SOCIAL</th>
-                            <th>ESTADO</th>
-                            <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <td>00001</td>
-                            <td>Christine Brooks</td>
-                            <td>089 Kutch Green Apt. 448</td>
-                            <td>04 Sep 2019</td>
-                            <td>Electric</td>
-                            <td>
-                                <span className="status-badge active">Activo</span>
-                            </td>
-                            <td>
-                                <Link to ='/viewCompany'>
-                                <button className="edit-button">
-                                    <IoIosInformationCircle />
-                                </button>
-                                </Link>
-                            </td>
-                            </tr>
-                            <tr>
-                            <td>00001</td>
-                            <td>Christine Brooks</td>
-                            <td>089 Kutch Green Apt. 448</td>
-                            <td>04 Sep 2019</td>
-                            <td>Electric</td>
-                            <td>
-                                <span className="status-badge active">Activo</span>
-                            </td>
-                            <td>
-                                <Link to ='/viewCompany'>
-                                <button className="edit-button">
-                                    <IoIosInformationCircle />
-                                </button>
-                                </Link>
-                            </td>
-                            </tr>
-                            <tr>
-                            <td>00001</td>
-                            <td>Christine Brooks</td>
-                            <td>089 Kutch Green Apt. 448</td>
-                            <td>04 Sep 2019</td>
-                            <td>Electric</td>
-                            <td>
-                                <span className="status-badge active">Activo</span>
-                            </td>
-                            <td>
-                                <Link to ='/viewCompany'>
-                                <button className="edit-button">
-                                    <IoIosInformationCircle />
-                                </button>
-                                </Link>
-                            </td>
-                            </tr>
-                            <tr>
-                            <td>00001</td>
-                            <td>Christine Brooks</td>
-                            <td>089 Kutch Green Apt. 448</td>
-                            <td>04 Sep 2019</td>
-                            <td>Electric</td>
-                            <td>
-                                <span className="status-badge active">Activo</span>
-                            </td>
-                            <td>
-                                <Link to ='/viewCompany'>
-                                <button className="edit-button">
-                                    <IoIosInformationCircle />
-                                </button>
-                                </Link>
-                            </td>
-                            </tr>
-                            <tr>
-                            <td>00001</td>
-                            <td>Christine Brooks</td>
-                            <td>089 Kutch Green Apt. 448</td>
-                            <td>04 Sep 2019</td>
-                            <td>Electric</td>
-                            <td>
-                                <span className="status-badge active">Activo</span>
-                            </td>
-                            <td>
-                                <Link to ='/viewCompany'>
-                                <button className="edit-button">
-                                    <IoIosInformationCircle />
-                                </button>
-                                </Link>
-                            </td>
-                            </tr>
-                            <tr>
-                            <td>00002</td>
-                            <td>Rosie Pearson</td>
-                            <td>979 Immanuel Ferry Suite 526</td>
-                            <td>28 May 2019</td>
-                            <td>Book</td>
-                            <td>
-                                <span className="status-badge active">Activo</span>
-                            </td>
-                            <td>
-                            <Link to ='/viewCompany'>
-                                <button className="edit-button">
+            <h2>Directorio de Usuarios</h2>
+            <p>Explora y descubre usuarios registrados</p>
+
+            <div className="Export">
+              <ExportPdfExcel />
+            </div>
+
+            <FilterComponent
+              onDocumentTypeChange={() => {}}
+              onStatusChange={() => {}}
+              onResetFilters={() => {}}
+            />
+
+            {/* Tabla de usuarios */}
+            <div className="empresa-table-container">
+              <div className="border">
+                <table className="empresa-table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Nombre completo</th>
+                      <th>Correo</th>
+                      <th>Estado</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {users.length === 0 ? (
+                      <tr>
+                        <td colSpan="5">No hay usuarios registrados.</td>
+                      </tr>
+                    ) : (
+                      users.map(user => (
+                        <tr key={user.id}>
+                          <td>{user.id}</td>
+                          <td>{user.nombre} {user.apellido}</td>
+                          <td>
+                            {user.correo || 'Sin correo'}
+                            {user.correo && (
+                              <button
+                                className="copy-button"
+                                onClick={() => handleCopyEmail(user.correo)}
+                                title="Copiar correo"
+                              >
+                                📋
+                              </button>
+                            )}
+                          </td>
+                          <td>
+                            <span className={`status-badge ${user.estado === 'Activo' ? 'active' : 'inactive'}`}>
+                              {user.estado}
+                            </span>
+                          </td>
+                          <td>
+                            <Link to={`/viewCompany/${user.id}`}>
+                              <button className="edit-button">
                                 <IoIosInformationCircle />
-                                </button>
+                              </button>
                             </Link>
-                            </td>
-                            </tr>
-                            <tr>
-                            <td>00003</td>
-                            <td>Darrell Caldwell</td>
-                            <td>8587 Frida Ports</td>
-                            <td>23 Nov 2019</td>
-                            <td>Medicine</td>
-                            <td>
-                                <span className="status-badge active">Activo</span>
-                            </td>
-                            <td>
-                                <Link to ='/viewCompany'>
-                                <button className="edit-button">
-                                <IoIosInformationCircle />
-                                </button>
-                            </Link>
-                            </td>
-                            </tr>
-                            <tr>
-                            <td>00004</td>
-                            <td>Gilbert Johnston</td>
-                            <td>768 Destiny Lake Suite 600</td>
-                            <td>05 Feb 2019</td>
-                            <td>Mobile</td>
-                            <td>
-                                <span className="status-badge active">Activo</span>
-                            </td>
-                            <td>
-                                <Link to ='/EditCompany'>
-                                  <button className="edit-button">
-                                <IoIosInformationCircle />
-                                </button>
-                            </Link>
-                            </td>
-                            </tr>
-                        </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
+                          </td>
+                        </tr>
+                      ))
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default ListCompany;

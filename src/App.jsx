@@ -41,7 +41,7 @@ function App() {
         <Route path="/CreateProgram" element={<CreateProgram/>} /> {/* Definimos la ruta para el componente CreateProgram */}
         <Route path="/ListProgram" element={<ListProgram/>} /> {/* Definimos la ruta para el componente ListProgram */}
         <Route path="/EditTraining" element={<EditTraining/>} /> {/* Definimos la ruta para el componente EditTraining */}
-        <Route path="/viewCompany" element={<ViewCompany/>} /> {/* Definimos la ruta para el componente EditTraining */}
+        <Route path="/viewCompany/:id" element={<ViewCompany/>} /> {/* Definimos la ruta para el componente EditTraining */}
         <Route path="/EditCompany" element={<EditCompany/>} /> {/* Definimos la ruta para el componente EditTraining */}
 
 

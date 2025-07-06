@@ -8,6 +8,7 @@ import BannerHome3 from '../../assets/images/BannerHome3.png';
 import BannerHome4 from '../../assets/images/BannerHome4.png';
 import BannerHome5 from '../../assets/images/BannerHome5.png';
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const CreateCompanyPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -20,19 +21,19 @@ const CreateCompanyPage = () => {
     phone: '',
     email: '',
     status: 'active',
-    role: 'Empresa',
     address: '',
     password: ''
   });
 
   const images = [BannerHome3, BannerHome4, BannerHome5];
+  const navegar = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
     }, 3500);
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -47,21 +48,49 @@ const CreateCompanyPage = () => {
     if (currentStep > 1) setCurrentStep(currentStep - 1);
   };
 
-  const navegar = useNavigate();
-  
+  const handleSubmit = async () => {
+    try {
+      const payload = {
+        id: parseInt(userData.documentNumber), // requerido por el modelo
+        tipo_documento: userData.documentType === "C.C"
+          ? "Cédula de ciudadanía"
+          : userData.documentType === "NIT"
+          ? "NIT"
+          : "Cédula de extranjería",
+        nombre: userData.firstName,
+        apellido: userData.lastName,
+        telefono: userData.phone,
+        email: userData.email,
+        estado: userData.status === "active" ? "Activo" : "Inactivo",
+        password: userData.password,
+        direccion: userData.address,
+        actividad_economica: "Sector terciario"
+      };
 
-  const handleSubmit = () => {   {/*Aca estaria el sweetAlert*/ }
-    Swal.fire({
-      title: '¡Usuario creado!',
-      text: 'La cuenta fue registrada correctamente.',
-      icon: 'success',
-      confirmButtonText: 'OK',
-      confirmButtonColor: '#00304d'
-   }).then((result) => {
-      if (result.isConfirmed) {
-        navegar('/listcompany'); 
-      }
-    });
+      const response = await axios.post('http://localhost:3000/api/usuarios', payload);
+
+      Swal.fire({
+        title: '¡Usuario creado!',
+        text: response.data.message || 'La cuenta fue registrada correctamente.',
+        icon: 'success',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#00304d'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navegar('/listcompany');
+        }
+      });
+
+    } catch (error) {
+      console.error('Error al crear el usuario:', error.response?.data || error);
+      Swal.fire({
+        title: 'Error',
+        text: error.response?.data?.message || 'No se pudo registrar el usuario. Verifica los datos.',
+        icon: 'error',
+        confirmButtonText: 'Intentar de nuevo',
+        confirmButtonColor: '#d33'
+      });
+    }
   };
 
   return (
@@ -129,9 +158,9 @@ const CreateCompanyPage = () => {
               </div>
 
               <div className="form-group">
-                <label>Número de Documento</label>
+                <label>ID del Usuario</label>
                 <input
-                  type="text"
+                  type="number"
                   name="documentNumber"
                   value={userData.documentNumber}
                   onChange={handleInputChange}
@@ -174,9 +203,7 @@ const CreateCompanyPage = () => {
 
               <div className="form-navigation">
                 <Link to='/listcompany'>
-                <button type="button" className="secondary-button" >
-                  Anterior
-                </button>
+                  <button type="button" className="secondary-button">Anterior</button>
                 </Link>
                 <button type="button" className="primary-button" onClick={nextStep}>
                   Siguiente
@@ -207,14 +234,6 @@ const CreateCompanyPage = () => {
                 <select name="status" value={userData.status} onChange={handleInputChange}>
                   <option value="active">Activo</option>
                   <option value="inactive">Inactivo</option>
-                </select>
-              </div>
-
-              <div className="form-group">
-                <label>Rol del Usuario</label>
-                <select name="role" value={userData.role} onChange={handleInputChange}>
-                  <option value="Administrador">Administrador</option>
-                  <option value="Empresa">Empresa</option>
                 </select>
               </div>
 
@@ -260,13 +279,12 @@ const CreateCompanyPage = () => {
               <div className="confirmation-details">
                 {Object.entries({
                   'Tipo de Documento': userData.documentType,
-                  'Número de Documento': userData.documentNumber,
+                  'ID del Usuario': userData.documentNumber,
                   'Nombres': userData.firstName,
                   'Apellidos': userData.lastName,
                   'Teléfono': userData.phone,
                   'Correo Electrónico': userData.email,
                   'Estado': userData.status === 'active' ? 'Activo' : 'Inactivo',
-                  'Rol': userData.role,
                   'Dirección': userData.address
                 }).map(([label, value]) => (
                   <div className="detail-row" key={label}>
@@ -279,7 +297,7 @@ const CreateCompanyPage = () => {
               <div className="form-navigation">
                 <button type="button" className="secondary-button" onClick={prevStep}>
                   Anterior
-                 </button>
+                </button>
                 <button type="button" className="primary-button" onClick={handleSubmit}>
                   Confirmar y Crear Usuario
                 </button>
