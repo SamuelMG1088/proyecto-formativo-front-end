@@ -206,7 +206,7 @@
   }
 
   .primary-button {
-    background-color: var(--color-primary);
+    background-color: var(--color-secundary-2);
     color: white;
     border: none;
     padding: 12px 30px;
@@ -218,8 +218,8 @@
   }
 
   .secondary-button {
-    background-color: var(--color-secundary-1);
-    color: var(--neutral-1_6);
+    background-color: var(--color-primary);
+    color: var(--neutral-4);
     border: none;
     padding: 12px 30px;
     border-radius: 6px;
@@ -237,5 +237,9 @@
 
   .step-line.active {
     background-color: var(--color-primary) /* mismo color que los pasos activos */
+  }
+
+  span{
+    color: red;
   }
 }

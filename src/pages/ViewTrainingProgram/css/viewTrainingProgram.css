@@ -173,6 +173,7 @@
      width: 130%;
      display: flex;
      justify-content: center;
+     gap: 5rem;
     }
     
 

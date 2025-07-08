@@ -12,6 +12,7 @@ import { Link, useParams } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
+import ButtonSuspend from '../../components/Buttons/BurronSuspend/ButtonSuspend.jsx';
 
 const ViewTraining = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -144,6 +145,7 @@ const ViewTraining = () => {
                   >
                     <ButtonEdit />
                   </Link>
+                    <ButtonSuspend />
                 </div>
               </div>
             </>

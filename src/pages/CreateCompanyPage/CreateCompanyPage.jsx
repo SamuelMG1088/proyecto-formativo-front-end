@@ -48,6 +48,7 @@ const CreateCompanyPage = () => {
   const prevStep = () => {
     if (currentStep > 1) setCurrentStep(currentStep - 1);
   };
+  
 
   const handleSubmit = async () => {
     try {
@@ -150,7 +151,7 @@ const CreateCompanyPage = () => {
               <p className="step-description">Ingrese los datos personales del usuario</p>
 
               <div className="form-group">
-                <label>Tipo de Documento</label>
+                <label>Tipo de Documento <span>*</span></label>
                 <select name="documentType" value={userData.documentType} onChange={handleInputChange}>
                   <option value="C.C">Cédula de Ciudadanía</option>
                   <option value="NIT">NIT</option>
@@ -194,7 +195,7 @@ const CreateCompanyPage = () => {
               <div className="form-group">
                 <label>Teléfono</label>
                 <input
-                  type="tel"
+                  type="number"
                   name="phone"
                   value={userData.phone}
                   onChange={handleInputChange}
@@ -304,8 +305,8 @@ const CreateCompanyPage = () => {
                   'Actividad Económica': userData.actividad_economica
                 }).map(([label, value]) => (
                   <div className="detail-row" key={label}>
-                    <span className="detail-label">{label}:</span>
-                    <span className="detail-value">{value}</span>
+                    <p className="detail-label">{label}:</p>
+                    <p className="detail-value">{value}</p>
                   </div>
                 ))}
               </div>

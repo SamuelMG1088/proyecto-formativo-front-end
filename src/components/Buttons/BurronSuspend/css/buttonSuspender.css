@@ -1,0 +1,9 @@
+.Suspend { /* Se hace el llamado al ClassName para realizar los estilos - ClassName is called to make the styles */
+    border-radius: 6px; 
+    width:  8rem;
+    height: 2.5rem;
+    background-color: var(--color-primary);
+    border: none;
+    cursor: pointer;
+    color: var(--neutral-4);
+}
