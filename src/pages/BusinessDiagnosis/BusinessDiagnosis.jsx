@@ -4,9 +4,9 @@ import './css/businessDiagnosis.css';
 import Gov from "../../layout/Gov/Gov";
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons';
 import NavBar from '../../layout/NavBar/NavBar';
-import BannerHome3 from '../../assets/images/BannerHome3.png';
-import BannerHome4 from '../../assets/images/BannerHome4.png';
-import BannerHome5 from '../../assets/images/BannerHome5.png';
+import BannerHome3 from '../../assets/banners/BannerHome3.png';
+import BannerHome4 from '../../assets/banners/BannerHome4.png';
+import BannerHome5 from '../../assets/images/factorHumano5.png';
 import { Link, useNavigate } from "react-router-dom";
 
 const businessDiagnosis = () => {

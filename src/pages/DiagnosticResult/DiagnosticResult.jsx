@@ -10,16 +10,14 @@ import { FaRegEdit } from "react-icons/fa"
 import { NavLink } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import FilterComponent from '../../components/Filter/Filter.jsx'; // Importa el componente de filtro
-
-// Importa tus imágenes para el carrusel
-import diagnostic from '../../assets/images/BannerDiagnostico.png';
-import banner2 from '../../assets/images/bannerHome2.jpg'; 
-import banner3 from '../../assets/images/bannerHome3.png';
+import BannerHome3 from '../../assets/banners/BannerHome3.png';
+import BannerHome4 from '../../assets/banners/BannerHome4.png';
+import BannerHome5 from '../../assets/images/factorHumano5.png';
 import ExportPdfExcel from '../../components/ExportPdfExcel/ExportPdfExcel.jsx';
 
 const DiagnosticResult = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const images = [diagnostic, banner2, banner3];
+  const images = [BannerHome3, BannerHome4, BannerHome5];
 
   useEffect(() => {
     const interval = setInterval(() => {

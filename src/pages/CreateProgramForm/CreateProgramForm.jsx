@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Gov from '../../layout/Gov/Gov.jsx';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
-import BannerHome2 from '../../assets/images/BanneerHome2.png';
-import BannerHome3 from '../../assets/images/BannerHome3.png';
-import BannerHome4 from '../../assets/images/BannerHome4.png';
-import BannerHome5 from '../../assets/images/BannerHome5.png';
+import BannerHome3 from '../../assets/banners/BannerHome3.png';
+import BannerHome4 from '../../assets/banners/BannerHome4.png';
+import BannerHome5 from '../../assets/images/factorHumano5.png';
 import NavBar from '../../layout/NavBar/NavBar.jsx';
-import BannerActualizar from '../../assets/images/BannerActualizar.png';
 import Swal from "sweetalert2";
 import './css/createProgramForm.css';
 import { Link, useNavigate } from 'react-router-dom';
@@ -82,7 +80,7 @@ const CreateProgram = () => {
   };
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const images = [BannerActualizar, BannerHome2, BannerHome3, BannerHome4, BannerHome5];
+  const images = [BannerHome5, BannerHome3, BannerHome4];
 
   useEffect(() => {
     const interval = setInterval(() => {
