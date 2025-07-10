@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Gov from '../../layout/Gov/Gov.jsx';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
-import BannerHome9 from '../../assets/banners/BannerHome9.png'
 import BannerHome3 from '../../assets/banners/BannerHome3.png';
 import BannerHome7 from '../../assets/banners/BannerHome7.png';
+import BannerHome9 from '../../assets/banners/BannerHome9.png'
 import NavBar from '../../layout/NavBar/NavBar.jsx';
 import { IoIosCheckbox } from "react-icons/io";
 import factor1 from '../../assets/images/factorHumano1.jpg'

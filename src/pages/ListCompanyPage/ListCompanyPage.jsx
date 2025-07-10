@@ -3,13 +3,14 @@ import { NavLink, Link } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { IoIosInformationCircle } from "react-icons/io";
 import axios from 'axios';
-
 import Gov from '../../layout/Gov/Gov.jsx';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
 import NavBar from '../../layout/NavBar/NavBar.jsx';
-import BannerHome3 from '../../assets/banners/BannerHome3.png';
-import BannerHome4 from '../../assets/banners/BannerHome4.png';
-import BannerHome5 from '../../assets/images/factorHumano5.png';
+import BannerActualizar from '../../assets/banners/BannerActualizar.png'
+import BannerHome1 from '../../assets/banners/BannerHome1.png';
+import BannerUsers from '../../assets/banners/BannerUsers.png';
+import BannerHome6 from '../../assets/banners/BannerHome6.png';
+import BannerModulo from '../../assets/banners/BannerModulo.png'
 import FilterComponent from '../../components/Filter/Filter.jsx';
 import ExportPdfExcel from '../../components/ExportPdfExcel/ExportPdfExcel.jsx';
 
@@ -21,9 +22,9 @@ const ListCompany = () => {
   const [documentFilter, setDocumentFilter] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
 
-  const images = [BannerHome3, BannerHome4, BannerHome5];
+  const images = [BannerActualizar, BannerHome1, BannerUsers, BannerHome6, BannerModulo];
 
-  // Carrusel automático
+  // Car6usel automático
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));

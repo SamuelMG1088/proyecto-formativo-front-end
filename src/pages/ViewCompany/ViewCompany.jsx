@@ -3,9 +3,9 @@ import Swal from 'sweetalert2';
 import Gov from '../../layout/Gov/Gov.jsx';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
 import NavBar from '../../layout/NavBar/NavBar.jsx';
-import BannerHome3 from '../../assets/banners/BannerHome3.png';
-import BannerHome4 from '../../assets/banners/BannerHome4.png';
-import BannerHome5 from '../../assets/images/factorHumano5.png';
+import BannerHome1 from '../../assets/banners/BannerHome1.png';
+import BannerUsers from '../../assets/banners/BannerUsers.png';
+import BannerHome6 from '../../assets/banners/BannerHome6.png';
 import { FaGraduationCap } from "react-icons/fa";
 import './css/ViewCompany.css';
 import ButtonEdit from '../../components/Buttons/ButtonEdit/ButtonEdit.jsx';
@@ -21,7 +21,7 @@ const ViewCompany = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const images = [BannerHome3, BannerHome4, BannerHome5];
+  const images = [BannerHome1, BannerUsers, BannerHome6];
 
   useEffect(() => {
     const interval = setInterval(() => {

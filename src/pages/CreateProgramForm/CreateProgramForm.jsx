@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Gov from '../../layout/Gov/Gov.jsx';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
-import BannerHome3 from '../../assets/banners/BannerHome3.png';
 import BannerHome4 from '../../assets/banners/BannerHome4.png';
-import BannerHome5 from '../../assets/images/factorHumano5.png';
+import BannerHome6 from '../../assets/banners/BannerHome6.png';
+import BannerHome7 from '../../assets/banners/BannerHome7.png';
 import NavBar from '../../layout/NavBar/NavBar.jsx';
 import Swal from "sweetalert2";
 import './css/createProgramForm.css';
@@ -80,8 +80,8 @@ const CreateProgram = () => {
   };
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const images = [BannerHome5, BannerHome3, BannerHome4];
-
+  const images = [BannerHome4, BannerHome6, BannerHome7];
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));

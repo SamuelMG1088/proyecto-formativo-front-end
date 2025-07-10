@@ -4,9 +4,9 @@ import './css/createCompany.css';
 import Gov from "../../layout/Gov/Gov";
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons';
 import NavBar from '../../layout/NavBar/NavBar';
-import BannerHome3 from '../../assets/banners/BannerHome3.png';
-import BannerHome4 from '../../assets/banners/BannerHome4.png';
-import BannerHome5 from '../../assets/images/factorHumano5.png';
+import BannerHome1 from '../../assets/banners/BannerHome1.png';
+import BannerUsers from '../../assets/banners/BannerUsers.png';
+import BannerHome6 from '../../assets/banners/BannerHome6.png';
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -26,7 +26,7 @@ const CreateCompanyPage = () => {
     actividad_economica: ''  // nuevo campo
   });
 
-  const images = [BannerHome3, BannerHome4, BannerHome5];
+  const images = [BannerHome1, BannerUsers, BannerHome6];
   const navegar = useNavigate();
 
   useEffect(() => {

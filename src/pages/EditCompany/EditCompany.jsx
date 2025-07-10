@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Gov from '../../layout/Gov/Gov.jsx';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
 import NavBar from '../../layout/NavBar/NavBar.jsx';
-import BannerHome3 from '../../assets/banners/BannerHome3.png';
-import BannerHome4 from '../../assets/banners/BannerHome4.png';
-import BannerHome5 from '../../assets/images/factorHumano5.png';
+import BannerHome1 from '../../assets/banners/BannerHome1.png';
+import BannerUsers from '../../assets/banners/BannerUsers.png';
+import BannerHome6 from '../../assets/banners/BannerHome6.png';
 import { FaGraduationCap } from "react-icons/fa";
 import './css/EditCompany.css';
 import ButtonConfirm from '../../components/Buttons/ButtonConfirm/ButtonConfirm.jsx';
@@ -18,7 +18,7 @@ const EditCompany = () => {
 
   // Carrusel
   const [currentSlide, setCurrentSlide] = useState(0);
-  const images = [BannerHome3, BannerHome4, BannerHome5];
+  const images = [BannerHome1, BannerUsers, BannerHome6];
 
   // Estados del formulario
   const [nombre, setNombre] = useState('');

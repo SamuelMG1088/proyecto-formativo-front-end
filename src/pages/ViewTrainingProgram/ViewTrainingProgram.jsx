@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Gov from '../../layout/Gov/Gov.jsx';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
 import NavBar from '../../layout/NavBar/NavBar.jsx';
-import BannerHome3 from '../../assets/banners/BannerHome3.png';
 import BannerHome4 from '../../assets/banners/BannerHome4.png';
-import BannerHome5 from '../../assets/images/factorHumano5.png';
+import BannerHome6 from '../../assets/banners/BannerHome6.png';
+import BannerHome7 from '../../assets/banners/BannerHome7.png';
 import { FaGraduationCap } from "react-icons/fa";
 import './css/viewTrainingProgram.css';
 import ButtonEdit from '../../components/Buttons/ButtonEdit/ButtonEdit.jsx';
@@ -19,7 +19,7 @@ const ViewTraining = () => {
   const [program, setProgram] = useState(null);
   const { id } = useParams();
 
-  const images = [BannerHome3, BannerHome4, BannerHome5];
+  const images = [BannerHome4, BannerHome6, BannerHome7];
 
   useEffect(() => {
     const interval = setInterval(() => {
