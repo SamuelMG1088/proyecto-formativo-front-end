@@ -39,7 +39,7 @@ export const LoginPage = () => {
     setShowPassword((prev) => !prev);
   };
 
-  // Login
+  // Manejo del login
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -100,7 +100,7 @@ export const LoginPage = () => {
                 id="email"
                 type="email"
                 value={email}
-                placeholder="Ingrese su correo electronico"
+                placeholder="Ingrese su correo electrónico"
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
