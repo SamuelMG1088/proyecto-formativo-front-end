@@ -203,7 +203,7 @@ const CreateCompanyPage = () => {
                 />
               </div>
 
-              <div className="form-group">
+             <div className="form-group">
                 <label>Actividad Económica</label>
                 <select
                   name="actividad_economica"
@@ -211,11 +211,19 @@ const CreateCompanyPage = () => {
                   onChange={handleInputChange}
                 >
                   <option value="">Seleccione una actividad</option>
-                  <option value="Sector primario">Sector primario</option>
-                  <option value="Sector secundario">Sector secundario</option>
-                  <option value="Sector terciario">Sector terciario</option>
+                  <option value="Sector primario">
+                    Sector primario - Agricultura, ganadería, pesca, minería
+                  </option>
+                  <option value="Sector secundario">
+                    Sector secundario - Industria, manufactura, construcción
+                  </option>
+                  <option value="Sector terciario">
+                    Sector terciario - Servicios, comercio, turismo, salud, educación
+                  </option>
                 </select>
               </div>
+
+
 
               <div className="form-navigation">
                 <Link to='/listcompany'>

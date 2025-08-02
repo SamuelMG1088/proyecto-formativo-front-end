@@ -36,7 +36,7 @@ function App() {
         <Route path="/businessdiagnosis" element={<BusinesDiagnosis/>} /> {/* Definimos la ruta para el componente BusinessDiagnosis */}
         <Route path="/DiagnosisResult" element={<DiagnosisResult/>} /> {/* Definimos la ruta para el componente BusinessDiagnosis */}
         <Route path="/ViewTraining/:id" element={<ViewTraining/>} /> {/* Definimos la ruta para el componente BusinessDiagnosis */}
-        <Route path="/EditProfile" element={<EditProfile/>} /> {/* Definimos la ruta para el componente ViewCompany */}
+        <Route path="/EditProfile/:id" element={<EditProfile />} /> {/* Definimos la ruta para el componente ViewCompany */}
         <Route path="/CreateCompanyPage" element={<CreateCompanyPage/>} /> {/* Definimos la ruta para el componente CreateCompany */}
         <Route path="/CreateProgram" element={<CreateProgram/>} /> {/* Definimos la ruta para el componente CreateProgram */}
         <Route path="/ListProgram" element={<ListProgram/>} /> {/* Definimos la ruta para el componente ListProgram */}
