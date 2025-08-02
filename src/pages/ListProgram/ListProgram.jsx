@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Gov from '../../layout/Gov/Gov.jsx';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
 import NavBar from '../../layout/NavBar/NavBar.jsx';
-import BannerActualizar from '../../assets/banners/BannerActualizar.png'
-import BannerHome4 from '../../assets/banners/BannerHome4.png';
-import BannerHome6 from '../../assets/banners/BannerHome6.png';
-import BannerModulo from '../../assets/banners/BannerModulo.png'
+import BannerHome2 from '../../assets/banners/BannerHome2.png'
+import BannerHome8 from '../../assets/banners/BannerHome8.png'
+import BannerHome12 from '../../assets/banners/BannerHome12.png'
 import FilterComponent from '../../components/Filter/Filter.jsx';
 import { NavLink, Link } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
@@ -19,7 +18,7 @@ const ListProgram = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [programs, setPrograms] = useState([]);
 
-  const images = [BannerActualizar, BannerHome4, BannerHome6, BannerModulo];
+  const images = [BannerHome2, BannerHome8, BannerHome12];
 
   useEffect(() => {
     const interval = setInterval(() => {

@@ -4,12 +4,12 @@ import './css/businessDiagnosis.css';
 import Gov from "../../layout/Gov/Gov";
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons';
 import NavBar from '../../layout/NavBar/NavBar';
-import BannerHome3 from '../../assets/banners/BannerHome3.png';
+import BannerHome3 from '../../assets/banners/BannerHome5.png';
 import BannerHome4 from '../../assets/banners/BannerHome4.png';
-import BannerHome5 from '../../assets/images/factorHumano5.png';
+import BannerHome5 from '../../assets/banners/BannerHome14.png';
 import { Link, useNavigate } from "react-router-dom";
 
-const businessDiagnosis = () => {
+const BusinessDiagnosis = () => {
   // Estado para el slide actual del carrusel
   const [currentSlide, setCurrentSlide] = useState(0);
   // Estado para el paso actual del formulario (stepper)
@@ -53,25 +53,25 @@ const businessDiagnosis = () => {
   const handleSweetAlert = () => {
     let timerInterval;
     Swal.fire({
-    title: "Validando informacion!",
-    html: "Estamos verificando y procesando tus datos... <br><b></b> segundos.",
-    timer: 1500,
-    timerProgressBar: true,
-    didOpen: () => {
-      Swal.showLoading();
-      const timer = Swal.getPopup().querySelector("b");
-      timerInterval = setInterval(() => {
-      timer.textContent = `${Swal.getTimerLeft()}`;
-      }, 100);
-    },
-    willClose: () => {
-      clearInterval(timerInterval);
-    }
-  }).then((result) => {
-    if (result.dismiss === Swal.DismissReason.timer) {
-      console.log("I was closed by the timer");
-    }
-  });
+      title: "Validando informacion!",
+      html: "Estamos verificando y procesando tus datos... <br><b></b> segundos.",
+      timer: 1500,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+        const timer = Swal.getPopup().querySelector("b");
+        timerInterval = setInterval(() => {
+          timer.textContent = Swal.getTimerLeft();
+        }, 100);
+      },
+      willClose: () => {
+        clearInterval(timerInterval);
+      }
+    }).then((result) => {
+      if (result.dismiss === Swal.DismissReason.timer) {
+        console.log("I was closed by the timer");
+      }
+    });
   };
 
   return (
@@ -119,60 +119,88 @@ const businessDiagnosis = () => {
 
           {/* Etiquetas de los pasos */}
           <div className="step-labels">
-            <span className={currentStep === 1 ? 'active' : ''}> Campo</span>
-            <span className={currentStep === 2 ? 'active' : ''}> Campo</span>
+            <span className={currentStep === 1 ? 'active' : ''}> seccion 1</span>
+            <span className={currentStep === 2 ? 'active' : ''}> seccion 2</span>
           </div>
 
           {/* Paso 1: Primer grupo de campos del formulario */}
           {currentStep === 1 && (
             <div className="form-step">
-              <h2>Campo</h2>
-              <p className="step-description">Campo</p>
+              <h2>Diagnóstico Empresarial Para Asignacion de Aprendices SENA</h2>
+              <p className="step-description">Llena el diagnostico para saber que aprendices necesita</p>
 
               {/* Campos de entrada para el usuario */}
               <div className="form-group">
-                <label>Campo</label>
-                <input
-                  type="text"
-                  name="documentNumber"
-                  value={userData.Campo}
-                  onChange={handleInputChange}
-                  placeholder="Campo"
-                />
+                <label>1. ¿ Cual es el sector económico principal ?</label>
+                <select name="" id="">
+                  <option value="">Elijan una opcion</option>
+                  <option value="">Industrial</option>
+                  <option value="">Comercio</option>
+                  <option value="">Servicios</option>
+                  <option value="">Agropecuario</option>
+                  <option value="">Tecnologías de la informacion</option>
+                  <option value="">Otro</option>
+                </select>
+              </div>
+
+
+              <div className="form-group">
+                <label>2. ¿ Qué nivel educativo busca en los aprendices ?</label>
+                <select name="" id="">
+                  <option value="">Elijan una opcion</option>
+                  <option value="">Técnico</option>
+                  <option value="">Tecnólogo</option>
+                  <option value="">No tengo preferencia</option>
+                </select>
+              </div>
+
+              <div className="form-group">
+                <label>3. ¿ Le interesan temas como ciberseguridad o protección de datos ?</label>
+                <select name="" id="">
+                  <option value="">Elijan una opcion</option>
+                  <option value="">Sí</option>
+                  <option value="">No</option>
+                </select>
               </div>
               
-
               <div className="form-group">
-                <label>Campo</label>
-                <input
-                  type="text"
-                  name="firstName"
-                  value={userData.Campo}
-                  onChange={handleInputChange}
-                  placeholder="Campo"
-                />
+                <label>4. ¿ Usa materiales biodegradables o ecológicos ?</label>
+                <select name="" id="">
+                  <option value="">Elijan una opcion</option>
+                  <option value="">Sí</option>
+                  <option value="">No</option>
+                </select>
               </div>
 
               <div className="form-group">
-                <label>Campo</label>
-                <input
-                  type="text"
-                  name="lastName"
-                  value={userData.Campo}
-                  onChange={handleInputChange}
-                  placeholder="Campo"
-                />
+                <label>5. ¿ Utiliza software de diseño y patronaje (Audaces, Optitex, etc.) ?</label>
+                <select name="" id="">
+                  <option value="">Elijan una opcion</option>
+                  <option value="">Sí</option>
+                  <option value="">No</option>
+                </select>
               </div>
 
               <div className="form-group">
-                <label>Campo</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={userData.Campo}
-                  onChange={handleInputChange}
-                  placeholder="Campo"
-                />
+                <label>6. ¿ Qué insumos utiliza con mayor frecuencia ?</label>
+                <select name="" id="">
+                  <option value="">Elijan una opcion</option>
+                  <option value="">Algodón</option>
+                  <option value="">Lona</option>
+                  <option value="">Lycra</option>
+                  <option value="">Mezclilla</option>
+                  <option value="">Otros</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label>7. ¿ Utiliza fresadora o taladro de banco en sus procesos ?</label>
+                <select name="" id="">
+                  <option value="">Elijan una opcion</option>
+                  <option value="">Fresadora</option>
+                  <option value="">Taladro de banco</option>
+                  <option value="">Ambos</option>
+                  <option value="">Otros</option>
+                </select>
               </div>
 
               {/* Botón para avanzar al siguiente paso */}
@@ -192,47 +220,66 @@ const businessDiagnosis = () => {
 
               {/* Campos adicionales del formulario */}
               <div className="form-group">
-                <label>Campo</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={userData.Campo}
-                  onChange={handleInputChange}
-                  placeholder="Campo"
-                />
+                <label>8. ¿ Le interesa que los aprendices trabajen directamente en operación de maquinaria ?</label>
+                <select name="" id="">
+                  <option value="">Elijan una opcion</option>
+                  <option value="">Si</option>
+                  <option value="">No</option>
+                </select>
               </div>
 
+              <div className="form-group">
+                <label>9. ¿ Realiza mantenimiento a redes eléctricas ?</label>
+                <select name="" id="">
+                  <option value="">Elijan una opcion</option>
+                  <option value="">Sí, preventivo</option>
+                  <option value="">Sí, correctivo</option>
+                  <option value="">Ambos</option>
+                  <option value="">No</option>
+                </select>
+              </div>
   
               <div className="form-group">
-                <label>Campo</label>
-                <input
-                  type="text"
-                  name="address"
-                  value={userData.Campo}
-                  onChange={handleInputChange}
-                  placeholder="Campo"
-                />
+                <label>10. ¿ Cuenta con herramientas especializadas como multímetros, pinzas amperimétricas o medidores de aislamiento ?</label>
+                <select name="" id="">
+                  <option value="">Elijan una opcion</option>
+                  <option value="">Sí</option>
+                  <option value="">No</option>
+                </select>
               </div>
 
               <div className="form-group">
-                <label>Campo</label>
-                <input
-                  type="password"
-                  name="password"
-                  value={userData.Campo}
-                  onChange={handleInputChange}
-                  placeholder="Campo"
-                />
+                <label>11. ¿ Aplica normas de seguridad en el trabajo en altura ?</label>
+                <select name="" id="">
+                  <option value="">Elijan una opcion</option>
+                  <option value="">Siempre</option>
+                  <option value="">Algunas veces</option>
+                  <option value="">Nunca</option>
+                </select>
               </div>
+              
               <div className="form-group">
-                <label>Campo</label>
-                <input
-                  type="password"
-                  name="password"
-                  value={userData.Campo}
-                  onChange={handleInputChange}
-                  placeholder="Campo"
-                />
+                <label>12. ¿ Qué tipo de aprendiz desea recibir ?</label>
+                <select name="" id="">
+                  <option value="">Elijan una opcion</option>
+                  <option value="">Ayudante de obra</option>
+                  <option value="">Técnico en construcción</option>
+                  <option value="">Tecnólogo en obras civiles</option>
+                  <option value="">Otro</option>
+                </select>
+              </div>
+
+              <div className="form-group">
+                <label>13. ¿ Qué tipo de servicios informáticos ofrece o utiliza ?</label>
+                <select name="" id="">
+                  <option value="">Elijan una opcion</option>
+                  <option value="">Instalación de redes</option>
+                  <option value="">Mantenimiento de hardware</option>
+                  <option value="">Configuración de software</option>
+                  <option value="">Servicios en la nube</option>
+                  <option value="">Todos los anteriores</option>
+                  <option value="">Ninguno de los anteriores</option>
+                </select>
               </div>
 
               {/* Botón para enviar el diagnóstico, muestra alerta y navega a resultados */}
@@ -252,5 +299,4 @@ const businessDiagnosis = () => {
 };
 
 // Exporta el componente principal para su uso en otras partes de la app
-export default businessDiagnosis;
-
+export default BusinessDiagnosis;

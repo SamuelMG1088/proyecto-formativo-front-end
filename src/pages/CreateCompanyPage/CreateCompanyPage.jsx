@@ -4,9 +4,9 @@ import './css/createCompany.css';
 import Gov from "../../layout/Gov/Gov";
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons';
 import NavBar from '../../layout/NavBar/NavBar';
-import BannerHome1 from '../../assets/banners/BannerHome1.png';
-import BannerUsers from '../../assets/banners/BannerUsers.png';
 import BannerHome6 from '../../assets/banners/BannerHome6.png';
+import BannerHome11 from '../../assets/banners/BannerHome11.png';
+import BannerHome13 from '../../assets/banners/BannerHome13.png';
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -26,7 +26,7 @@ const CreateCompanyPage = () => {
     actividad_economica: ''  // nuevo campo
   });
 
-  const images = [BannerHome1, BannerUsers, BannerHome6];
+  const images = [BannerHome6, BannerHome11, BannerHome13];
   const navegar = useNavigate();
 
   useEffect(() => {
@@ -211,9 +211,15 @@ const CreateCompanyPage = () => {
                   onChange={handleInputChange}
                 >
                   <option value="">Seleccione una actividad</option>
-                  <option value="Sector primario">Sector primario</option>
-                  <option value="Sector secundario">Sector secundario</option>
-                  <option value="Sector terciario">Sector terciario</option>
+                  <option value="Sector primario">
+                    Sector primario - Agricultura, ganadería, pesca, minería
+                  </option>
+                  <option value="Sector secundario">
+                    Sector secundario - Industria, manufactura, construcción
+                  </option>
+                  <option value="Sector terciario">
+                    Sector terciario - Servicios, comercio, turismo, salud, educación
+                  </option>
                 </select>
               </div>
 

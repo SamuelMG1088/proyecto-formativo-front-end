@@ -8,8 +8,6 @@ import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
 import NavBar from '../../layout/NavBar/NavBar.jsx';
 import BannerActualizar from '../../assets/banners/BannerActualizar.png'
 import BannerHome1 from '../../assets/banners/BannerHome1.png';
-import BannerUsers from '../../assets/banners/BannerUsers.png';
-import BannerHome6 from '../../assets/banners/BannerHome6.png';
 import BannerModulo from '../../assets/banners/BannerModulo.png'
 import FilterComponent from '../../components/Filter/Filter.jsx';
 import ExportPdfExcel from '../../components/ExportPdfExcel/ExportPdfExcel.jsx';
@@ -22,7 +20,7 @@ const ListCompany = () => {
   const [documentFilter, setDocumentFilter] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
 
-  const images = [BannerActualizar, BannerHome1, BannerUsers, BannerHome6, BannerModulo];
+  const images = [BannerActualizar, BannerHome1, BannerModulo];
 
   // Car6usel automático
   useEffect(() => {

@@ -23,10 +23,10 @@ const NavBar = () => {
                     <li className={location.pathname === '/home' ? 'active' : ''}>
                         <NavLink to="/home">Home</NavLink>
                     </li>
-                    <li className={location.pathname === '/listcompany' ? 'active' : '' || location.pathname === '/viewcompany' ? 'active' : ''}>
+                    <li className={location.pathname === '/listcompany' ? 'active' : '' || location.pathname === '/viewcompany' ? 'active' : '' || location.pathname === '/CreateCompanyPage' ? 'active' : '' || location.pathname === '/viewCompany/14' ? 'active' : ''}>
                         <NavLink to="/listcompany">Usuarios</NavLink>
                     </li>
-                    <li className={location.pathname === '/ListProgram' ? 'active' : '' || location.pathname === '/ViewTraining' ? 'active' : ''}>
+                    <li className={location.pathname === '/ListProgram' ? 'active' : '' || location.pathname === '/ViewTraining/2896364' ? 'active' : '' || location.pathname === '/CreateProgram' ? 'active' : ''}>
                         <NavLink to="/ListProgram">Programa de Formación</NavLink>
                     </li>
                     <li className={location.pathname === '/businessdiagnosis' ? 'active' : ''}>

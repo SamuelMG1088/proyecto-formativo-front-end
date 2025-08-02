@@ -12,7 +12,7 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import FilterComponent from '../../components/Filter/Filter.jsx'; // Importa el componente de filtro
 import BannerHome3 from '../../assets/banners/BannerHome3.png';
 import BannerHome4 from '../../assets/banners/BannerHome4.png';
-import BannerHome5 from '../../assets/images/factorHumano5.png';
+import BannerHome5 from '../../assets/banners/BannerHome11.png';
 import ExportPdfExcel from '../../components/ExportPdfExcel/ExportPdfExcel.jsx';
 
 const DiagnosticResult = () => {
