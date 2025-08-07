@@ -59,7 +59,7 @@ export const LoginPage = () => {
       });
 
       if (response.status === 200 && response.data.token) {
-        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("authToken", response.data.token);
         navigate("/home");
       } else {
         Swal.fire({

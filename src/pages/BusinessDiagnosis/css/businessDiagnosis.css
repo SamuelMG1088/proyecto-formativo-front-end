@@ -228,15 +228,28 @@
 
   /* ===================== NAVEGACIÓN DEL FORMULARIO ===================== */
   /* Contenedor de los botones de navegación */
-  .form-navigation {
+  .navigation-form {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    gap: 62%;
+  }
+
+  .primary-button{
+    background-color: var(--color-secundary-2);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 84.5%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
 
   /* Botón primario */
-  .primary-button {
-    background-color: var(--color-primary);
+  .button-primary {
+    background-color: var(--color-secundary-2);
     color: white;
     border: none;
     padding: 12px 30px;
@@ -248,9 +261,9 @@
     }
 
   /* Botón secundario */
-  .secondary-button {
-    background-color: var(--color-secundary-1);
-    color: var(--neutral-1_6);
+  .button-secondary{
+    background-color: var(--color-primary);
+    color: var(--neutral-4);
     border: none;
     padding: 12px 30px;
     border-radius: 6px;
