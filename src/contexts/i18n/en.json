@@ -1,0 +1,103 @@
+{
+  "navbar": {
+    "home": "Home",
+    "users": "Users",
+    "training": "Training Program",
+    "diagnosis": "Business Diagnosis",
+    "profile": "Profile",
+    "logout": "Log Out"
+  },
+  "alerts": {
+    "logoutSuccess": "You have successfully logged out"
+  },
+  "home": {
+    "senaTitle": "SENA Colombia",
+    "senaDescription": "This video \"SENA is Colombia\" is an official production of the National Training Service (SENA), a Colombian public entity attached to the Ministry of Labor. The purpose of this video is to highlight the fundamental role of SENA in the social and economic development of the country, emphasizing its commitment to comprehensive professional training and the employability of Colombians.\n\nThe production features testimonials from apprentices, instructors, and entrepreneurs who have benefited from SENA programs, showing how the institution contributes to the personal and professional growth of millions of citizens. It also emphasizes SENA's presence throughout the national territory, its focus on technological innovation, and its role in promoting entrepreneurship",
+    "systemTitle": "Business Management System",
+    "systemSubtitle": "A tool to improve and manage your company's processes",
+    "feature1": {
+      "title": "Process Optimization",
+      "desc": "Helps improve the efficiency of internal processes."
+    },
+    "feature2": {
+      "title": "Performance Analysis",
+      "desc": "Provides metrics and reports to support decision-making."
+    },
+    "feature3": {
+      "title": "Regulatory Compliance",
+      "desc": "Ensures your company complies with national regulations."
+    },
+    "diagnosisTitle": "Business Diagnosis",
+    "diagnosisDesc": "Evaluate the current state of your company and discover opportunities for improvement.",
+    "diagnosisButton": "Complete Diagnosis"
+  },
+  
+  "listCompany": {
+    "backHome": "Back to Home",
+    "createUser": "Create User",
+    "title": "User Directory",
+    "subtitle": "Explore and discover registered users",
+    "noUsers": "No registered users.",
+    "noEmail": "No email",
+    "noDoc": "No document type",
+    "statusActive": "Active",
+    "statusInactive": "Inactive",
+    "fullName": "Full Name",
+    "email": "Email",
+    "document": "Document Type",
+    "status": "status"
+   },
+  
+  "createUser": {
+    "title": "Create Company",
+    "subtitle": "Fill in the information to register a new company",
+    "step1": "Basic Information",
+    "step1Description": "Enter the company's basic information",
+    "step2": "Contact Information",
+    "step2Description": "Enter contact details and credentials",
+    "step3": "Confirmation",
+    "step3Description": "Review and confirm the information before registering"
+  },
+
+  "form": {
+    "documentType": "Document type",
+    "cc": "Citizenship ID",
+    "ce": "Foreigner ID",
+    "userId": "Document number",
+    "enterDocumentNumber": "Enter document number",
+    "firstName": "First name",
+    "enterFirstName": "Enter first name",
+    "lastName": "Last name",
+    "enterLastName": "Enter last name",
+    "phone": "Phone",
+    "enterPhone": "Enter phone number",
+    "economicActivity": "Economic activity",
+    "selectActivity": "Select activity",
+    "sectorPrimary": "Primary sector",
+    "sectorSecondary": "Secondary sector",
+    "sectorTertiary": "Tertiary sector",
+    "email": "Email",
+    "enterEmail": "Enter email address",
+    "status": "Status",
+    "active": "Active",
+    "inactive": "Inactive",
+    "address": "Address",
+    "enterAddress": "Enter address",
+    "password": "Password",
+    "enterPassword": "Enter password"
+  },
+  "buttons": {
+    "previous": "Former",
+    "next": "Next",
+    "confirmCreateUser": "Confirm creation"
+  },
+  "alerts": {
+    "userCreated": "User created",
+    "accountRegistered": "The account has been successfully registered",
+    "error": "Error",
+    "userNotRegistered": "The user could not be registered",
+    "retry": "Retry"
+  }
+}
+
+

@@ -3,6 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { IoIosInformationCircle } from "react-icons/io";
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 import Gov from '../../layout/Gov/Gov.jsx';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
 import NavBar from '../../layout/NavBar/NavBar.jsx';
@@ -15,6 +16,7 @@ import ExportPdfExcel from '../../components/ExportPdfExcel/ExportPdfExcel.jsx';
 import './css/listCompany.css';
 
 const ListCompany = () => {
+  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [users, setUsers] = useState([]);
   const [documentFilter, setDocumentFilter] = useState('');
@@ -22,7 +24,6 @@ const ListCompany = () => {
 
   const images = [BannerActualizar, BannerHome1, BannerModulo];
 
-  // Car6usel automático
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
@@ -30,7 +31,6 @@ const ListCompany = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  // Obtener usuarios de la API
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -51,14 +51,12 @@ const ListCompany = () => {
     fetchUsers();
   }, []);
 
-  // Filtrado
   const filteredUsers = users.filter(user => {
     const tipoDoc = user.tipo_documento?.toLowerCase() || '';
     const estado = user.estado?.toLowerCase() || '';
     const docFilter = documentFilter.toLowerCase();
     const estFilter = statusFilter.toLowerCase();
 
-    // FILTRO DOCUMENTO
     let matchesDoc = true;
     if (docFilter) {
       if (docFilter === 'c.c') {
@@ -70,7 +68,6 @@ const ListCompany = () => {
       }
     }
 
-    // FILTRO ESTADO
     let matchesEstado = true;
     if (estFilter) {
       if (estFilter === 'activo') {
@@ -85,10 +82,9 @@ const ListCompany = () => {
     return matchesDoc && matchesEstado;
   });
 
-  // Copiar datos
   const handleCopy = (text) => {
     navigator.clipboard.writeText(text);
-    alert(`Copiado: ${text}`);
+    alert(`${t("listCompany.copied")}: ${text}`);
   };
 
   const resetFilters = () => {
@@ -129,15 +125,15 @@ const ListCompany = () => {
         <div className="list-company-content">
           <section className="list-company-section">
             <NavLink to="/home" className="NavLink">
-              <FaArrowLeftLong className="icon-arrow" /> Volver al Inicio
+              <FaArrowLeftLong className="icon-arrow" /> {t("listCompany.backHome")}
             </NavLink>
 
             <NavLink to="/CreateCompanyPage" className="CreateUse">
-              <button className="button-create">Crear Usuario</button>
+              <button className="button-create">{t("listCompany.createUser")}</button>
             </NavLink>
 
-            <h2>Directorio de Usuarios</h2>
-            <p>Explora y descubre usuarios registrados</p>
+            <h2>{t("listCompany.title")}</h2>
+            <p>{t("listCompany.subtitle")}</p>
 
             <div className="Export">
               <ExportPdfExcel />
@@ -149,24 +145,23 @@ const ListCompany = () => {
               onResetFilters={resetFilters}
             />
 
-            {/* Tabla de usuarios */}
             <div className="empresa-table-container">
               <div className="border">
                 <table className="empresa-table">
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Nombre completo</th>
-                      <th>Correo</th>
-                      <th>Tipo de documento</th>
-                      <th>Estado</th>
+                      <th>{t("listCompany.fullName")}</th>
+                      <th>{t("listCompany.email")}</th>
+                      <th>{t("listCompany.document")}</th>
+                      <th>{t("listCompany.status")}</th>
                       <th></th>
                     </tr>
                   </thead>
                   <tbody>
                     {filteredUsers.length === 0 ? (
                       <tr>
-                        <td colSpan="6">No hay usuarios registrados.</td>
+                        <td colSpan="6">{t("listCompany.noUsers")}</td>
                       </tr>
                     ) : (
                       filteredUsers.map((user) => (
@@ -180,13 +175,12 @@ const ListCompany = () => {
                                 <button
                                   className="copy-button"
                                   onClick={() => handleCopy(user.email)}
-                                  title="Copiar correo"
+                                  title={t("listCompany.copyEmail")}
                                 >
-                                  
                                 </button>
                               </>
                             ) : (
-                              'Sin correo'
+                              t("listCompany.noEmail")
                             )}
                           </td>
                           <td>
@@ -196,22 +190,26 @@ const ListCompany = () => {
                                 <button
                                   className="copy-button"
                                   onClick={() => handleCopy(user.tipo_documento)}
-                                  title="Copiar tipo de documento"
+                                  title={t("listCompany.copyDoc")}
                                 >
-                                  
                                 </button>
                               </>
                             ) : (
-                              'Sin tipo'
+                              t("listCompany.noDoc")
                             )}
                           </td>
                           <td>
                             <span
-                              className={`status-badge ${user.estado === 'Activo' ? 'active' : 'inactive'}`}
+                              className={`status-badge ${user.estado?.toLowerCase() === 'activo' ? 'active' : 'inactive'}`}
                             >
-                              {user.estado}
+                              {t(
+                                `listCompany.status${
+                                  user.estado?.toLowerCase() === 'activo' ? 'Active' : 'Inactive'
+                                }`
+                              )}
                             </span>
                           </td>
+
                           <td>
                             <Link to={`/viewCompany/${user.id}`}>
                               <button className="edit-button">

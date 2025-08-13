@@ -18,6 +18,7 @@ import ListProgram from './pages/ListProgram/ListProgram.jsx';
 import EditTraining from './pages/EditTrainingProgram/EditTrainingProgram.jsx';
 import ViewCompany from './pages/ViewCompany/ViewCompany.jsx'
 import 'normalize.css';
+import './config/i18n.jsx';
 
 
 function App() {

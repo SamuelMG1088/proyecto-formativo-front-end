@@ -1,0 +1,103 @@
+{
+  "navbar": {
+    "home": "Inicio",
+    "users": "Usuarios",
+    "training": "Programa de Formación",
+    "diagnosis": "Diagnóstico Empresarial",
+    "profile": "Perfil",
+    "logout": "Cerrar Sesión"
+  },
+  "alerts": {
+    "logoutSuccess": "Has cerrado sesión exitosamente"
+  },
+  "home": {
+    "senaTitle": "SENA Colombia",
+    "senaDescription": "Este video \"SENA es Colombia\" es una producción oficial del Servicio Nacional de Aprendizaje (SENA), una entidad pública colombiana adscrita al Ministerio del Trabajo. Este video tiene como objetivo destacar el papel fundamental del SENA en el desarrollo social y económico del país, resaltando su compromiso con la formación profesional integral y la empleabilidad de los colombianos.\n\nEn la producción se presentan testimonios de aprendices, instructores y empresarios que han sido beneficiados por los programas del SENA, mostrando cómo la institución contribuye al crecimiento personal y profesional de millones de ciudadanos. Además, se enfatiza la presencia del SENA en todo el territorio nacional, su enfoque en la innovación tecnológica y su papel en la promoción del emprendimiento.",
+    "systemTitle": "Sistema de Gestión Empresarial",
+    "systemSubtitle": "Una herramienta para mejorar y gestionar los procesos de tu empresa",
+    "feature1": {
+      "title": "Optimización de Procesos",
+      "desc": "Ayuda a mejorar la eficiencia de los procesos internos."
+    },
+    "feature2": {
+      "title": "Análisis de Rendimiento",
+      "desc": "Proporciona métricas e informes para apoyar la toma de decisiones."
+    },
+    "feature3": {
+      "title": "Cumplimiento Normativo",
+      "desc": "Garantiza que tu empresa cumpla con las normativas nacionales."
+    },
+    "diagnosisTitle": "Diagnóstico Empresarial",
+    "diagnosisDesc": "Evalúa el estado actual de tu empresa y descubre oportunidades de mejora.",
+    "diagnosisButton": "Realizar Diagnóstico"
+  },
+  
+  "listCompany": {
+    "backHome": "Volver al Inicio",
+    "createUser": "Crear Usuario",
+    "title": "Directorio de Usuarios",
+    "subtitle": "Explora y descubre usuarios registrados",
+    "noUsers": "No hay usuarios registrados.",
+    "noEmail": "Sin correo",
+    "noDoc": "Sin tipo",
+    "statusActive": "Activo",
+    "statusInactive": "Inactivo",
+    "fullName": "Nombre Completo",
+    "email": "Correo electronico",
+    "document": "Tipo de Documento",
+    "status": "Estado"
+  },
+    
+  "createUser": {
+      "title": "Crear Empresa",
+      "subtitle": "Complete los datos para registrar una nueva empresa",
+      "step1": "Información Básica",
+      "step1Description": "Ingrese la información básica de la empresa",
+      "step2": "Información de Contacto",
+      "step2Description": "Ingrese la información de contacto y credenciales",
+      "step3": "Confirmación",
+      "step3Description": "Revise y confirme la información antes de registrar"
+    },
+    "form": {
+      "documentType": "Tipo de documento",
+      "cc": "Cédula de ciudadanía",
+      "ce": "Cédula de extranjería",
+      "userId": "Número de documento",
+      "enterDocumentNumber": "Ingrese el número de documento",
+      "firstName": "Nombre",
+      "enterFirstName": "Ingrese el nombre",
+      "lastName": "Apellido",
+      "enterLastName": "Ingrese el apellido",
+      "phone": "Teléfono",
+      "enterPhone": "Ingrese el número de teléfono",
+      "economicActivity": "Actividad económica",
+      "selectActivity": "Seleccione la actividad",
+      "sectorPrimary": "Sector primario",
+      "sectorSecondary": "Sector secundario",
+      "sectorTertiary": "Sector terciario",
+      "email": "Correo electrónico",
+      "enterEmail": "Ingrese el correo electrónico",
+      "status": "Estado",
+      "active": "Activo",
+      "inactive": "Inactivo",
+      "address": "Dirección",
+      "enterAddress": "Ingrese la dirección",
+      "password": "Contraseña",
+      "enterPassword": "Ingrese la contraseña"
+    },
+    "buttons": {
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "confirmCreateUser": "Confirmar creación"
+    },
+    "alerts": {
+      "userCreated": "Usuario creado",
+      "accountRegistered": "La cuenta ha sido registrada exitosamente",
+      "error": "Error",
+      "userNotRegistered": "No se pudo registrar el usuario",
+      "retry": "Reintentar"
+    }
+}
+
+
+

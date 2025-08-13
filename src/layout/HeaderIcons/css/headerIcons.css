@@ -5,8 +5,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        
-        
     }
     
     nav img {
@@ -16,5 +14,33 @@
 
     .img-sena{
         width: 3rem;
+    }
+
+    .icons-left{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0 2%;
+    }
+    .language-button {
+        background: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+        color: var(--text-color);
+        font-weight: bold;
+        padding: 5px;
+        border-radius: 4px;
+        transition: all 0.3s;
+      }
+      
+      .language-button:hover {
+        background: rgba(0,0,0,0.1);
+      }
+      
+      .language-button span {
+        font-size: 0.9rem;
     }
 }
