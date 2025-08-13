@@ -86,18 +86,220 @@
     "password": "Password",
     "enterPassword": "Enter password"
   },
-  "buttons": {
-    "previous": "Former",
-    "next": "Next",
-    "confirmCreateUser": "Confirm creation"
-  },
   "alerts": {
     "userCreated": "User created",
     "accountRegistered": "The account has been successfully registered",
     "error": "Error",
     "userNotRegistered": "The user could not be registered",
     "retry": "Retry"
+  },
+  "filter": {
+    "filterBy": "Filter By",
+    "documentType": "Document Type",
+    "role": "Role",
+    "status": "Status",
+    "reset": "Reset Filters",
+    "selectDocumentType": "Select document type",
+    "selectRole": "Select role",
+    "selectStatus": "Company status",
+    "confirm": "Confirm",
+    "documents": {
+      "CC": "ID Card",
+      "NIT": "Tax ID",
+      "CE": "Foreign ID"
+    },
+    "roles": {
+      "empresa": "Company",
+      "persona": "Person"
+    },
+    "statuses": {
+      "activo": "Active",
+      "inactivo": "Inactive"
+    }
+  },
+  "buttons": {
+    "goBack": "Go back",
+    "cancel": "Cancel",
+    "yesSuspend": "Yes, suspend",
+    "suspend": "Suspend",
+    "edit": "Edit",
+    "next": "Next",
+    "previous": "Former",
+    "confirmCreateUser": "Confirm creation"
+ 
+  },
+  "labels": {
+    "status": "Status",
+    "company": "Company",
+    "role": "Role",
+    "phoneNumber": "Phone number",
+    "email": "Email",
+    "notRegistered": "Not registered",
+    "economicActivity": "Economic activity"
+  },
+  "loading": {
+    "profile": "Loading profile..."
+  },
+  "errors": {
+    "couldNotLoadProfile": "Could not load profile.",
+    "invalidServerData": "Invalid server data"
+    
+  },
+  "confirmation": {
+    "sureTitle": "Are you sure?",
+    "suspendUserText": "This user will be suspended."
+  },
+  "alerts": {
+    "suspendedTitle": "Suspended!",
+    "userSuspended": "The user has been suspended.",
+    "errorTitle": "Error",
+    "couldNotSuspendUser": "Could not suspend the user."
+},
+"labels": {
+    "unknownUser": "Unknown user",
+    "active": "Active",
+    "status": "Status",
+    "company": "Company",
+    "role": "Role",
+    "phoneNumber": "Phone number",
+    "email": "Email",
+    "address": "Address",
+    "economicActivity": "Economic activity"
+  },
+  "placeholders": {
+    "phoneNumber": "Enter your phone number",
+    "email": "Enter your email",
+    "address": "Enter your address"
+  },
+  "errors": {
+    "couldNotLoadUserInfo": "Could not load user information",
+    "couldNotUpdate": "Could not update the information"
+  },
+  "alerts": {
+    "errorTitle": "Error",
+    "dataUpdatedTitle": "Data updated!",
+    "dataUpdatedText": "The information was updated successfully.",
+    "userCreated": "User created",
+    "accountRegistered": "The account has been successfully registered",
+    "error": "Error",
+    "userNotRegistered": "The user could not be registered",
+    "retry": "Retry"
+  },
+  "diagnosis": {
+    "createBusinessDiagnosis": "Business Diagnosis Creation",
+    "completeFields": "Complete the fields to register the Business Diagnosis",
+    "section": "Section",
+    "section1Title": "Business Diagnosis for SENA Apprentice Assignment",
+    "section1Description": "Fill out the diagnosis to know what apprentices you need",
+    "section2Title": "Business Diagnosis - Section 2",
+    "completeRemainingInfo": "Complete the remaining information",
+    "economicSector": "What is the main economic sector?",
+    "industrial": "Industrial",
+    "commerce": "Commerce",
+    "services": "Services",
+    "agricultural": "Agricultural",
+    "it": "Information Technology",
+    "educationLevel": "What education level do you look for in apprentices?",
+    "technical": "Technical",
+    "technologist": "Technologist",
+    "noPreference": "I have no preference",
+    "cybersecurityInterest": "Are you interested in topics like cybersecurity or data protection?",
+    "biodegradableMaterials": "Do you use biodegradable or eco-friendly materials?",
+    "designSoftware": "Do you use design and pattern software (Audaces, Optitex, etc.)?",
+    "frequentSupplies": "What supplies do you use most frequently?",
+    "cotton": "Cotton",
+    "canvas": "Canvas",
+    "lycra": "Lycra",
+    "denim": "Denim",
+    "processTools": "Do you use milling machine or drill press in your processes?",
+    "millingMachine": "Milling machine",
+    "drillPress": "Drill press",
+    "machineryOperation": "Are you interested in apprentices working directly in machinery operation?",
+    "electricalMaintenance": "Do you perform electrical network maintenance?",
+    "preventive": "Yes, preventive",
+    "corrective": "Yes, corrective",
+    "specializedTools": "Do you have specialized tools like multimeters, clamp meters or insulation testers?",
+    "heightSafety": "Do you apply safety standards for working at heights?",
+    "apprenticeType": "What type of apprentice do you want to receive?",
+    "constructionHelper": "Construction helper",
+    "constructionTechnician": "Construction technician",
+    "civilWorksTechnologist": "Civil works technologist",
+    "itServices": "What type of IT services do you offer or use?",
+    "networkInstallation": "Network installation",
+    "hardwareMaintenance": "Hardware maintenance",
+    "softwareConfiguration": "Software configuration",
+    "cloudServices": "Cloud services",
+    "incompleteFields": "Incomplete fields",
+    "completeAllFields": "Please complete all fields before continuing.",
+    "sessionRequired": "Session required",
+    "loginRequired": "You must log in to submit the diagnosis.",
+    "processing": "Processing diagnosis...",
+    "analyzingResponses": "We are analyzing your responses and generating recommendations.",
+    "completed": "Diagnosis completed!",
+    "successfullyProcessed": "Your diagnosis has been successfully processed.",
+    "viewResults": "View results",
+    "serverError": "Server response error",
+    "processingError": "An error occurred while processing your diagnosis.",
+    "processingErrorTitle": "Error processing diagnosis",
+    "sessionExpired": "Your session has expired. Please log in again.",
+    "sessionExpiredTitle": "Session expired",
+    "submitDiagnosis": "Submit diagnosis"
+  },
+   "diagnosisResult": {
+    "cybersecurity": "Cybersecurity",
+    "ecoMaterials": "Eco-friendly materials",
+    "designSoftware": "Design software",
+    "machineryOperation": "Machinery operation",
+    "specializedTools": "Specialized tools",
+    "heightSafety": "Height safety",
+    "scorePercentage": "Score percentage",
+    "resultTitle": "Diagnosis results",
+    "resultDescription": "Below are your skills diagnosis results",
+    "noData": "No data available",
+    "loadingResults": "Loading results...",
+    "loadError": "Error loading results",
+    "noAuthToken": "No authentication token found",
+    "noDiagnosisId": "No diagnosis ID found",
+    "diagnosisFetchError": "Error fetching diagnosis",
+    "filterByDocType": "Filter by document type",
+    "filterByStatus": "Filter by status",
+    "filtersReset": "Filters reset",
+    "docNumber": "Doc Number",
+    "name": "Name",
+    "email": "Email",
+    "activity": "Activity",
+    "businessName": "Business name",
+    "status": "Status"
+  },
+  "general": {
+    "backToHome": "Back to home",
+    "active": "Active",
+    "always": "Always",
+    "sometimes": "Sometimes",
+    "chooseOption": "Choose an option",
+    "yes": "Yes",
+    "no": "No",
+    "both": "Both",
+    "none": "None",
+    "others": "Others",
+    "other": "Other",
+    "always": "Always",
+    "sometimes": "Sometimes",
+    "never": "Never",
+    "chooseOption": "Choose an option",
+    "understand": "Understand",
+    "goToLogin": "Go to Login",
+    "tryAgain": "Try again",
+    "next": "Next",
+    "previous": "Previous",
+    "sending": "Sending...",
+    "allAbove": "All of the above",
+    "noneAbove": "None of the above"
   }
 }
+
+  
+    
+
 
 

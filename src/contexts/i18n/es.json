@@ -96,8 +96,203 @@
       "error": "Error",
       "userNotRegistered": "No se pudo registrar el usuario",
       "retry": "Reintentar"
+    },
+    "filter": {
+    "filterBy": "Filtrar por",
+    "documentType": "Tipo de documento",
+    "role": "Rol",
+    "status": "Estado",
+    "reset": "Reiniciar filtros",
+    "selectDocumentType": "Seleccione tipo de documento",
+    "selectRole": "Selecciona el rol",
+    "selectStatus": "Estado de empresa",
+    "confirm": "Confirmar",
+    "documents": {
+      "CC": "C.C",
+      "NIT": "NIT",
+      "CE": "C.E"
+    },
+    "roles": {
+      "empresa": "Empresa",
+      "persona": "Persona"
+    },
+    "statuses": {
+      "activo": "Activo",
+      "inactivo": "Inactivo"
     }
+    },
+    "buttons": {
+    "goBack": "Volver atrás",
+    "cancel": "Cancelar",
+    "yesSuspend": "Sí, suspender",
+    "suspend": "suspender",
+    "edit": "Editar",
+    "confirm": "Confirmar"
+  },
+  "labels": {
+    "status": "Estado",
+    "company": "Empresa",
+    "role": "Rol",
+    "phoneNumber": "Número telefónico",
+    "email": "Correo electrónico",
+    "notRegistered": "No registrado"
     
+  },
+  "loading": {
+    "profile": "Cargando perfil..."
+  },
+  "errors": {
+    "couldNotLoadProfile": "No se pudo cargar el perfil.",
+    "invalidServerData": "Datos no válidos del servidor"
+  },
+  "confirmation": {
+    "sureTitle": "¿Estás seguro?",
+    "suspendUserText": "Este usuario será suspendido."
+  },
+  "alerts": {
+    "suspendedTitle": "¡Suspendido!",
+    "userSuspended": "El usuario ha sido suspendido.",
+    "errorTitle": "Error",
+    "couldNotSuspendUser": "No se pudo suspender el usuario."
+  },
+  "labels": {
+    "unknownUser": "Usuario desconocido",
+    "active": "Activo",
+    "status": "Estado",
+    "company": "Empresa",
+    "role": "Rol",
+    "phoneNumber": "Número telefónico",
+    "email": "Correo electrónico",
+    "address": "Dirección",
+    "economicActivity":"Actividad económica"
+  },
+  "placeholders": {
+    "phoneNumber": "Ingrese su número telefónico",
+    "email": "Ingrese su correo electrónico",
+    "address": "Ingrese su dirección"
+  },
+  "errors": {
+    "couldNotLoadUserInfo": "No se pudo cargar la información del usuario",
+    "couldNotUpdate": "No se pudo actualizar la información"
+  },
+  "alerts": {
+    "errorTitle": "Error",
+    "dataUpdatedTitle": "¡Datos actualizados!",
+    "dataUpdatedText": "La información se actualizó correctamente."
+  },
+  "general": {
+    "yes": "Sí",
+    "no": "No",
+    "both": "Ambos",
+    "none": "Ninguno",
+    "others": "Otros",
+    "other": "Otro",
+    "always": "Siempre",
+    "sometimes": "Algunas veces",
+    "never": "Nunca",
+    "chooseOption": "Elija una opción",
+    "understand": "Entendido",
+    "goToLogin": "Ir a Login",
+    "tryAgain": "Intentar nuevamente",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "sending": "Enviando...",
+    "allAbove": "Todos los anteriores",
+    "noneAbove": "Ninguno de los anteriores"
+  },
+  "diagnosis": {
+    "createBusinessDiagnosis": "Creación del diagnóstico empresarial",
+    "completeFields": "Complete los campos para registrar el diagnóstico Empresarial",
+    "section": "Sección",
+    "section1Title": "Diagnóstico Empresarial Para Asignación de Aprendices SENA",
+    "section1Description": "Llena el diagnóstico para saber qué aprendices necesita",
+    "section2Title": "Diagnóstico Empresarial - Sección 2",
+    "completeRemainingInfo": "Complete la información restante",
+    "economicSector": "¿Cuál es el sector económico principal?",
+    "industrial": "Industrial",
+    "commerce": "Comercio",
+    "services": "Servicios",
+    "agricultural": "Agropecuario",
+    "it": "Tecnologías de la información",
+    "educationLevel": "¿Qué nivel educativo busca en los aprendices?",
+    "technical": "Técnico",
+    "technologist": "Tecnólogo",
+    "noPreference": "No tengo preferencia",
+    "cybersecurityInterest": "¿Le interesan temas como ciberseguridad o protección de datos?",
+    "biodegradableMaterials": "¿Usa materiales biodegradables o ecológicos?",
+    "designSoftware": "¿Utiliza software de diseño y patronaje (Audaces, Optitex, etc.)?",
+    "frequentSupplies": "¿Qué insumos utiliza con mayor frecuencia?",
+    "cotton": "Algodón",
+    "canvas": "Lona",
+    "lycra": "Lycra",
+    "denim": "Mezclilla",
+    "processTools": "¿Utiliza fresadora o taladro de banco en sus procesos?",
+    "millingMachine": "Fresadora",
+    "drillPress": "Taladro de banco",
+    "machineryOperation": "¿Le interesa que los aprendices trabajen directamente en operación de maquinaria?",
+    "electricalMaintenance": "¿Realiza mantenimiento a redes eléctricas?",
+    "preventive": "Sí, preventivo",
+    "corrective": "Sí, correctivo",
+    "specializedTools": "¿Cuenta con herramientas especializadas como multímetros, pinzas amperimétricas o medidores de aislamiento?",
+    "heightSafety": "¿Aplica normas de seguridad en el trabajo en altura?",
+    "apprenticeType": "¿Qué tipo de aprendiz desea recibir?",
+    "constructionHelper": "Ayudante de obra",
+    "constructionTechnician": "Técnico en construcción",
+    "civilWorksTechnologist": "Tecnólogo en obras civiles",
+    "itServices": "¿Qué tipo de servicios informáticos ofrece o utiliza?",
+    "networkInstallation": "Instalación de redes",
+    "hardwareMaintenance": "Mantenimiento de hardware",
+    "softwareConfiguration": "Configuración de software",
+    "cloudServices": "Servicios en la nube",
+    "incompleteFields": "Campos incompletos",
+    "completeAllFields": "Por favor complete todos los campos antes de continuar.",
+    "sessionRequired": "Sesión requerida",
+    "loginRequired": "Debe iniciar sesión para enviar el diagnóstico.",
+    "processing": "Procesando diagnóstico...",
+    "analyzingResponses": "Estamos analizando sus respuestas y generando recomendaciones.",
+    "completed": "¡Diagnóstico completado!",
+    "successfullyProcessed": "Su diagnóstico ha sido procesado exitosamente.",
+    "viewResults": "Ver resultados",
+    "serverError": "Error en la respuesta del servidor",
+    "processingError": "Ocurrió un error al procesar su diagnóstico.",
+    "processingErrorTitle": "Error al procesar diagnóstico",
+    "sessionExpired": "Su sesión ha expirado. Por favor inicie sesión nuevamente.",
+    "sessionExpiredTitle": "Sesión expirada",
+    "submitDiagnosis": "Enviar diagnóstico"
+  },
+  "diagnosisResult": {
+      "cybersecurity": "Ciberseguridad",
+      "ecoMaterials": "Materiales ecológicos",
+      "designSoftware": "Software de diseño",
+      "machineryOperation": "Operación de maquinaria",
+      "specializedTools": "Herramientas especializadas",
+      "heightSafety": "Seguridad en alturas",
+      "scorePercentage": "Porcentaje de puntaje",
+      "resultTitle": "Resultados del diagnóstico",
+      "resultDescription": "A continuación se muestran los resultados de tu diagnóstico de competencias",
+      "noData": "No hay datos disponibles",
+      "loadingResults": "Cargando resultados...",
+      "loadError": "Error al cargar los resultados",
+      "noAuthToken": "No se encontró token de autenticación",
+      "noDiagnosisId": "No se encontró ID de diagnóstico",
+      "diagnosisFetchError": "Error al obtener el diagnóstico",
+      "filterByDocType": "Filtrar por tipo de documento",
+      "filterByStatus": "Filtrar por estado",
+      "filtersReset": "Filtros reiniciados",
+      "docNumber": "N° Documento",
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "activity": "Actividad",
+      "businessName": "Razón social",
+      "status": "Estado"
+    },
+    "general": {
+      "backToHome": "Volver al inicio",
+      "active": "Activo",
+      "always": "Siempre",
+      "sometimes": "A veces"
+    }
+  
 }
 
 

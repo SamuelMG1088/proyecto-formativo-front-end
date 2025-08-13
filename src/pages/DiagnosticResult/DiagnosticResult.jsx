@@ -15,8 +15,10 @@ import BannerHome4 from '../../assets/banners/BannerHome4.png';
 import BannerHome5 from '../../assets/banners/BannerHome11.png';
 import ExportPdfExcel from '../../components/ExportPdfExcel/ExportPdfExcel.jsx';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 const DiagnosticResult = () => {
+  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [diagnostico, setDiagnostico] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -26,14 +28,14 @@ const DiagnosticResult = () => {
 
   const calcularResultadosGrafica = (respuestas) => {
     return {
-      Ciberseguridad: respuestas.interes_ciberseguridad ? 100 : 0,
-      "Materiales Eco": respuestas.materiales_biodegradables ? 100 : 0,
-      "Software Diseño": respuestas.software_diseno ? 100 : 0,
-      "Operación Maquinaria": respuestas.operacion_maquinaria ? 100 : 0,
-      "Herramientas Especializadas": respuestas.herramientas_especializadas ? 100 : 0,
-      "Seguridad en Altura": 
-        respuestas.normas_seguridad_altura === "Siempre" ? 100 :
-        respuestas.normas_seguridad_altura === "Algunas veces" ? 50 : 0
+      [t('diagnosisResult.cybersecurity')]: respuestas.interes_ciberseguridad ? 100 : 0,
+      [t('diagnosisResult.ecoMaterials')]: respuestas.materiales_biodegradables ? 100 : 0,
+      [t('diagnosisResult.designSoftware')]: respuestas.software_diseno ? 100 : 0,
+      [t('diagnosisResult.machineryOperation')]: respuestas.operacion_maquinaria ? 100 : 0,
+      [t('diagnosisResult.specializedTools')]: respuestas.herramientas_especializadas ? 100 : 0,
+      [t('diagnosisResult.heightSafety')]: 
+        respuestas.normas_seguridad_altura === t('general.always') ? 100 :
+        respuestas.normas_seguridad_altura === t('general.sometimes') ? 50 : 0
     };
   };
 
@@ -53,15 +55,13 @@ const DiagnosticResult = () => {
           data: {
             labels: Object.keys(resultados),
             datasets: [{
-              label: 'Puntuación (%)',
+              label: t('diagnosisResult.scorePercentage'),
               data: Object.values(resultados),
               backgroundColor: [
                 '#39a900',
-                
               ],
               borderColor: [
                 '#39a900',
-                
               ],
               borderWidth: 1
             }]
@@ -86,7 +86,7 @@ const DiagnosticResult = () => {
         });
       }
     }
-  }, [diagnostico]);
+  }, [diagnostico, t]);
 
   useEffect(() => {
     const fetchDiagnostico = async () => {
@@ -95,13 +95,13 @@ const DiagnosticResult = () => {
         const token = localStorage.getItem('authToken') || localStorage.getItem('token');
         
         if (!token) {
-          throw new Error('No hay token de autenticación');
+          throw new Error(t('diagnosisResult.noAuthToken'));
         }
 
         let diagnosticoId = location.state?.diagnostico?.id || localStorage.getItem('lastDiagnosisId');
         
         if (!diagnosticoId) {
-          throw new Error('No se encontró ID de diagnóstico');
+          throw new Error(t('diagnosisResult.noDiagnosisId'));
         }
 
         const response = await axios.get(
@@ -116,10 +116,10 @@ const DiagnosticResult = () => {
         if (response.data.success) {
           setDiagnostico(response.data.data.diagnostico);
         } else {
-          throw new Error(response.data.message || 'Error al obtener diagnóstico');
+          throw new Error(response.data.message || t('diagnosisResult.diagnosisFetchError'));
         }
       } catch (error) {
-        console.error('Error al obtener diagnóstico:', error);
+        console.error(t('diagnosisResult.diagnosisFetchError'), error);
         setError(error.message);
       } finally {
         setLoading(false);
@@ -127,9 +127,8 @@ const DiagnosticResult = () => {
     };
 
     fetchDiagnostico();
-  }, [location.state]);
+  }, [location.state, t]);
 
-  // Carrusel de imágenes
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
@@ -139,22 +138,22 @@ const DiagnosticResult = () => {
   }, [images.length]);
 
   const handleDocumentTypeChange = (type) => {
-    console.log('Filtrar por tipo de documento:', type);
+    console.log(t('diagnosisResult.filterByDocType'), type);
   };
 
   const handleStatusChange = (status) => {
-    console.log('Filtrar por estado:', status);
+    console.log(t('diagnosisResult.filterByStatus'), status);
   };
 
   const handleResetFilters = () => {
-    console.log('Filtros reiniciados');
+    console.log(t('diagnosisResult.filtersReset'));
   };
 
   if (loading) {
     return (
       <div className="loading-container">
         <div className="spinner"></div>
-        <p>Cargando resultados del diagnóstico...</p>
+        <p>{t('diagnosisResult.loadingResults')}</p>
       </div>
     );
   }
@@ -162,10 +161,10 @@ const DiagnosticResult = () => {
   if (error) {
     return (
       <div className="error-container">
-        <h2>Error al cargar el diagnóstico</h2>
+        <h2>{t('diagnosisResult.loadError')}</h2>
         <p>{error}</p>
         <NavLink to="/home" className="NavLink">
-          <FaArrowLeftLong className='icon-arrow' /> Volver al Inicio
+          <FaArrowLeftLong className='icon-arrow' /> {t('general.backToHome')}
         </NavLink>
       </div>
     );
@@ -178,7 +177,6 @@ const DiagnosticResult = () => {
         <HeaderIcons />
         <NavBar />
 
-        {/* Carrusel */}
         <div className="diagnosis-carousel">
           <div className="carousel-container">
             {images.map((image, index) => (
@@ -203,7 +201,7 @@ const DiagnosticResult = () => {
         <section className='info-result-section'>
           <div className='content-result-section'>
             <NavLink to="/home" className="NavLink">
-              <FaArrowLeftLong className='icon-arrow' />Volver al Inicio
+              <FaArrowLeftLong className='icon-arrow' />{t('general.backToHome')}
             </NavLink>
             <div className="chart-header">
               <div className='Export-pdf-excel'>
@@ -212,8 +210,8 @@ const DiagnosticResult = () => {
 
               <div className='Sub-title'>
                 <FaChartBar className="chart-icon" />
-                <h2>Resultado del diagnóstico</h2>
-                <p>Este es el resultado del diagnóstico que realizó</p>
+                <h2>{t('diagnosisResult.resultTitle')}</h2>
+                <p>{t('diagnosisResult.resultDescription')}</p>
               </div>
               
               <div className="chart-container">
@@ -221,7 +219,7 @@ const DiagnosticResult = () => {
               </div>
               
               {!diagnostico && !loading && !error && (
-                <div className="no-data-message">No hay datos de diagnóstico disponibles</div>
+                <div className="no-data-message">{t('diagnosisResult.noData')}</div>
               )}
             </div>
           </div>
@@ -240,12 +238,12 @@ const DiagnosticResult = () => {
                 <table className="empresa-table">
                   <thead>
                     <tr>
-                      <th>NUMERO DE DOCUMENTO</th>
-                      <th>NOMBRE</th>
-                      <th>CORREO</th>
-                      <th>ACTIVIDAD</th>
-                      <th>RAZÓN SOCIAL</th>
-                      <th>ESTADO</th>
+                      <th>{t('diagnosisResult.docNumber')}</th>
+                      <th>{t('diagnosisResult.name')}</th>
+                      <th>{t('diagnosisResult.email')}</th>
+                      <th>{t('diagnosisResult.activity')}</th>
+                      <th>{t('diagnosisResult.businessName')}</th>
+                      <th>{t('diagnosisResult.status')}</th>
                       <th></th>
                     </tr>
                   </thead>
@@ -257,7 +255,7 @@ const DiagnosticResult = () => {
                       <td>04 Sep 2019</td>
                       <td>Electric</td>
                       <td>
-                        <span className="status-badge active">Activo</span>
+                        <span className="status-badge active">{t('general.active')}</span>
                       </td>
                       <td>
                         <Link to='/viewcompany'>

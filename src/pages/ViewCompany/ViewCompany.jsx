@@ -14,7 +14,11 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import axios from 'axios';
 import ButtonSuspend from '../../components/Buttons/BurronSuspend/ButtonSuspend.jsx';
 
+// Importar hook de traducción
+import { useTranslation } from 'react-i18next';
+
 const ViewCompany = () => {
+  const { t } = useTranslation();  // Hook para traducciones
   const [currentSlide, setCurrentSlide] = useState(0);
   const [usuario, setUsuario] = useState(null);
   const [error, setError] = useState(null);
@@ -38,24 +42,24 @@ const ViewCompany = () => {
         if (data.usuario) {
           setUsuario(data.usuario);
         } else {
-          throw new Error("Datos no válidos del servidor");
+          throw new Error(t("errors.invalidServerData"));
         }
       } catch (err) {
         console.error(err);
-        setError("No se pudo cargar el perfil.");
+        setError(t("errors.couldNotLoadProfile"));
       }
     };
     Viweusuario();
-  }, [id]);
+  }, [id, t]);
 
   const handleSuspenderUsuario = async (usuarioId) => {
     const result = await Swal.fire({
-      title: "¿Estás seguro?",
-      text: "Este usuario será suspendido.",
+      title: t("confirmation.sureTitle"),
+      text: t("confirmation.suspendUserText"),
       icon: "warning",
       showCancelButton: true,
-      confirmButtonText: "Sí, suspender",
-      cancelButtonText: "Cancelar",
+      confirmButtonText: t("buttons.yesSuspend"),
+      cancelButtonText: t("buttons.cancel"),
     });
 
     if (!result.isConfirmed) return;
@@ -69,13 +73,13 @@ const ViewCompany = () => {
         direccion: usuario.direccion
       });
 
-      Swal.fire("¡Suspendido!", "El usuario ha sido suspendido.", "success").then(() => {
+      Swal.fire(t("alerts.suspendedTitle"), t("alerts.userSuspended"), "success").then(() => {
         navigate('/listcompany');
       });
 
     } catch (error) {
       console.error(error);
-      Swal.fire("Error", "No se pudo suspender el usuario.", "error");
+      Swal.fire(t("alerts.errorTitle"), t("alerts.couldNotSuspendUser"), "error");
     }
   };
 
@@ -109,7 +113,7 @@ const ViewCompany = () => {
 
         <div className="program-container">
           <NavLink to="/listcompany" className="NavLink">
-            <FaArrowLeftLong className='icon-arrow' /> Volver atrás
+            <FaArrowLeftLong className='icon-arrow' /> {t("buttons.goBack")}
           </NavLink>
 
           <div className="program-header">
@@ -117,7 +121,7 @@ const ViewCompany = () => {
           </div>
 
           {!usuario ? (
-            error ? <p style={{ color: 'red' }}>{error}</p> : <p>Cargando perfil...</p>
+            error ? <p style={{ color: 'red' }}>{error}</p> : <p>{t("loading.profile")}</p>
           ) : (
             <>
               <h1 className="program-title">
@@ -126,26 +130,26 @@ const ViewCompany = () => {
               <div className="info-boxes">
                 <div className="info-box">
                   <p className="info-main">{usuario.estado}</p>
-                  <p className="info-label">Estado</p>
+                  <p className="info-label">{t("labels.status")}</p>
                 </div>
                 <div className="info-box">
-                  <p className="info-main">Empresa</p>
-                  <p className="info-label">Rol</p>
+                  <p className="info-main">{t("labels.company")}</p>
+                  <p className="info-label">{t("labels.role")}</p>
                 </div>
               </div>
 
               <div className="requirements">
                 <div className="requirement">
-                  <h3>Número telefónico</h3>
-                  <p>{usuario.telefono || "No registrado"}</p>
+                  <h3>{t("labels.phoneNumber")}</h3>
+                  <p>{usuario.telefono || t("labels.notRegistered")}</p>
                 </div>
                 <div className="requirement">
-                  <h3>Correo electrónico</h3>
-                  <p>{usuario.email || "No registrado"}</p>
+                  <h3>{t("labels.email")}</h3>
+                  <p>{usuario.email || t("labels.notRegistered")}</p>
                 </div>
                 <div className="requirement">
-                  <h3>Actividad económica</h3>
-                  <p>{usuario.actividad_economica || "No registrada"}</p>
+                  <h3>{t('labels.economicActivity')}</h3>
+                  <p>{usuario.actividad_economica || t("labels.notRegistered")}</p>
                 </div>
 
                 <div className='Box-Button'>
