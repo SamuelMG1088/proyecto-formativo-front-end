@@ -9,8 +9,10 @@ import Swal from "sweetalert2";
 import './css/createProgramForm.css';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 const CreateProgram = () => {
+  const { t } = useTranslation();
   const [currentStep, setCurrentStep] = useState(1);
   const [userData, setUserData] = useState({
     programcode: '',
@@ -57,8 +59,8 @@ const CreateProgram = () => {
       const response = await axios.post('http://localhost:3000/api/programas', payload);
 
       Swal.fire({
-        title: '¡Programa creado!',
-        text: response.data.message || 'El programa fue registrado correctamente.',
+        title: t('createProgram.success.title'),
+        text: response.data.message || t('createProgram.success.message'),
         icon: 'success',
         confirmButtonText: 'OK',
         confirmButtonColor: '#00304d'
@@ -70,10 +72,10 @@ const CreateProgram = () => {
     } catch (error) {
       console.error('Error al crear el programa:', error.response?.data || error);
       Swal.fire({
-        title: 'Error',
-        text: error.response?.data?.message || 'No se pudo registrar el programa. Verifica los datos.',
+        title: t('createProgram.error.title'),
+        text: error.response?.data?.message || t('createProgram.error.message'),
         icon: 'error',
-        confirmButtonText: 'Intentar de nuevo',
+        confirmButtonText: t('createProgram.error.button'),
         confirmButtonColor: '#d33'
       });
     }
@@ -118,8 +120,8 @@ const CreateProgram = () => {
         </div>
 
         <div className="create-company-form">
-          <h1>Registro de Programa de formación</h1>
-          <p className="form-subtitle">Completa el formulario para registrar el programa de formación</p>
+          <h1>{t('createProgram.form.title')}</h1>
+          <p className="form-subtitle">{t('createProgram.form.subtitle')}</p>
 
           <div className="step-indicator">
             <div className={`step ${currentStep >= 1 ? 'active' : ''}`}>1</div>
@@ -130,32 +132,66 @@ const CreateProgram = () => {
           </div>
 
           <div className="step-labels">
-            <span className={currentStep === 1 ? 'active' : ''}>Información Personal</span>
-            <span className={currentStep === 2 ? 'active' : ''}>Datos del Programa</span>
-            <span className={currentStep === 3 ? 'active' : ''}>Confirmación</span>
+            <span className={currentStep === 1 ? 'active' : ''}>{t('createProgram.steps.step1')}</span>
+            <span className={currentStep === 2 ? 'active' : ''}>{t('createProgram.steps.step2')}</span>
+            <span className={currentStep === 3 ? 'active' : ''}>{t('createProgram.steps.step3')}</span>
           </div>
 
           {currentStep === 1 && (
             <div className="form-step">
               <div className="form-group">
-                <label>Código del programa</label>
-                <input type="number" name="programcode" value={userData.programcode} onChange={handleInputChange} placeholder="Ingrese el código del programa" />
+                <label>{t('createProgram.fields.programCode')}</label>
+                <input 
+                  type="number" 
+                  name="programcode" 
+                  value={userData.programcode} 
+                  onChange={handleInputChange} 
+                  placeholder={t('createProgram.placeholders.programCode')} 
+                />
               </div>
               <div className="form-group">
-                <label>Versión</label>
-                <input type="text" name="programversion" value={userData.programversion} onChange={handleInputChange} placeholder="Ingrese la versión" />
+                <label>{t('createProgram.fields.version')}</label>
+                <input 
+                  type="text" 
+                  name="programversion" 
+                  value={userData.programversion} 
+                  onChange={handleInputChange} 
+                  placeholder={t('createProgram.placeholders.version')} 
+                />
               </div>
               <div className="form-group">
-                <label>Nombre del programa</label>
-                <input type="text" name="programname" value={userData.programname} onChange={handleInputChange} placeholder="Ingrese el nombre del programa" />
+                <label>{t('createProgram.fields.programName')}</label>
+                <input 
+                  type="text" 
+                  name="programname" 
+                  value={userData.programname} 
+                  onChange={handleInputChange} 
+                  placeholder={t('createProgram.placeholders.programName')} 
+                />
               </div>
               <div className="form-group">
-                <label>Duración</label>
-                <input type="text" name="programduration" value={userData.programduration} onChange={handleInputChange} placeholder="Ingrese la duración" />
+                <label>{t('createProgram.fields.duration')}</label>
+                <input 
+                  type="text" 
+                  name="programduration" 
+                  value={userData.programduration} 
+                  onChange={handleInputChange} 
+                  placeholder={t('createProgram.placeholders.duration')} 
+                />
               </div>
               <div className="form-navigation">
-                <Link to='/ListProgram'><button type="button" className="secondary-button">Anterior</button></Link>
-                <button type="button" className="primary-button" onClick={nextStep}>Siguiente</button>
+                <Link to='/ListProgram'>
+                  <button type="button" className="secondary-button">
+                    {t('createProgram.buttons.previous')}
+                  </button>
+                </Link>
+                <button 
+                  type="button" 
+                  className="primary-button" 
+                  onClick={nextStep}
+                >
+                  {t('createProgram.buttons.next')}
+                </button>
               </div>
             </div>
           )}
@@ -163,71 +199,121 @@ const CreateProgram = () => {
           {currentStep === 2 && (
             <div className="form-step">
               <div className="form-group">
-                <label>Nivel de formación</label>
-                <select name="traininglevel" value={userData.traininglevel} onChange={handleInputChange}>
-                  <option value="">Seleccione</option>
-                  <option value="Tecnico">Técnico</option>
-                  <option value="Tecnologo">Tecnólogo</option>
-                  <option value="Auxiliar">Auxiliar</option>
-                  <option value="Operario">Operario</option>
+                <label>{t('createProgram.fields.trainingLevel')}</label>
+                <select 
+                  name="traininglevel" 
+                  value={userData.traininglevel} 
+                  onChange={handleInputChange}
+                >
+                  <option value="">{t('createProgram.selectDefault')}</option>
+                  <option value="Tecnico">{t('createProgram.options.technical')}</option>
+                  <option value="Tecnologo">{t('createProgram.options.technologist')}</option>
+                  <option value="Auxiliar">{t('createProgram.options.auxiliary')}</option>
+                  <option value="Operario">{t('createProgram.options.operator')}</option>
                 </select>
               </div>
               <div className="form-group">
-                <label>Área vinculada</label>
-                <select name="programarea" value={userData.programarea} onChange={handleInputChange}>
-                  <option value="">Seleccione un área</option>
-                  <option value="Teleinformática">Teleinformática</option>
-                  <option value="Soldadura">Soldadura</option>
-                  <option value="Mecánica">Mecánica</option>
-                  <option value="Electricidad">Electricidad</option>
-                  <option value="Construcción">Construcción</option>
-                  <option value="Confecciones">Confecciones</option>
+                <label>{t('createProgram.fields.linkedArea')}</label>
+                <select 
+                  name="programarea" 
+                  value={userData.programarea} 
+                  onChange={handleInputChange}
+                >
+                  <option value="">{t('createProgram.selectArea')}</option>
+                  <option value="Teleinformática">{t('createProgram.options.teleinformatics')}</option>
+                  <option value="Soldadura">{t('createProgram.options.welding')}</option>
+                  <option value="Mecánica">{t('createProgram.options.mechanics')}</option>
+                  <option value="Electricidad">{t('createProgram.options.electricity')}</option>
+                  <option value="Construcción">{t('createProgram.options.construction')}</option>
+                  <option value="Confecciones">{t('createProgram.options.clothing')}</option>
                 </select>
               </div>
               <div className="form-group">
-                <label>Perfil ocupacional</label>
-                <input type="text" name="occupationalprofile" value={userData.occupationalprofile} onChange={handleInputChange} placeholder="Ingrese el perfil" />
+                <label>{t('createProgram.fields.occupationalProfile')}</label>
+                <input 
+                  type="text" 
+                  name="occupationalprofile" 
+                  value={userData.occupationalprofile} 
+                  onChange={handleInputChange} 
+                  placeholder={t('createProgram.placeholders.profile')} 
+                />
               </div>
               <div className="form-group">
-                <label>RAE</label>
-                <input type="text" name="RAE" value={userData.RAE} onChange={handleInputChange} placeholder="Ingrese la RAE" />
+                <label>{t('createProgram.fields.RAE')}</label>
+                <input 
+                  type="text" 
+                  name="RAE" 
+                  value={userData.RAE} 
+                  onChange={handleInputChange} 
+                  placeholder={t('createProgram.placeholders.RAE')} 
+                />
               </div>
               <div className="form-group">
-                <label>Duración lectiva</label>
-                <input type="text" name="lectiva" value={userData.lectiva} onChange={handleInputChange} placeholder="Ingrese duración lectiva" />
+                <label>{t('createProgram.fields.lectivaDuration')}</label>
+                <input 
+                  type="text" 
+                  name="lectiva" 
+                  value={userData.lectiva} 
+                  onChange={handleInputChange} 
+                  placeholder={t('createProgram.placeholders.lectiva')} 
+                />
               </div>
               <div className="form-group">
-                <label>Duración productiva</label>
-                <input type="text" name="productiva" value={userData.productiva} onChange={handleInputChange} placeholder="Ingrese duración productiva" />
+                <label>{t('createProgram.fields.productivaDuration')}</label>
+                <input 
+                  type="text" 
+                  name="productiva" 
+                  value={userData.productiva} 
+                  onChange={handleInputChange} 
+                  placeholder={t('createProgram.placeholders.productiva')} 
+                />
               </div>
               <div className="form-group">
-                <label>Competencia</label>
-                <input type="text" name="competencia" value={userData.competencia} onChange={handleInputChange} placeholder="Ingrese la competencia" />
+                <label>{t('createProgram.fields.competence')}</label>
+                <input 
+                  type="text" 
+                  name="competencia" 
+                  value={userData.competencia} 
+                  onChange={handleInputChange} 
+                  placeholder={t('createProgram.placeholders.competence')} 
+                />
               </div>
               <div className="form-navigation">
-                <button type="button" className="secondary-button" onClick={prevStep}>Anterior</button>
-                <button type="button" className="primary-button" onClick={nextStep}>Siguiente</button>
+                <button 
+                  type="button" 
+                  className="secondary-button" 
+                  onClick={prevStep}
+                >
+                  {t('createProgram.buttons.previous')}
+                </button>
+                <button 
+                  type="button" 
+                  className="primary-button" 
+                  onClick={nextStep}
+                >
+                  {t('createProgram.buttons.next')}
+                </button>
               </div>
             </div>
           )}
 
           {currentStep === 3 && (
             <div className="form-step">
-              <h2>Confirmación</h2>
-              <p className="step-description">Revise la información antes de enviar</p>
+              <h2>{t('createProgram.confirmation.title')}</h2>
+              <p className="step-description">{t('createProgram.confirmation.description')}</p>
               <div className="confirmation-details">
                 {Object.entries({
-                  'Código del programa': userData.programcode,
-                  'Versión': userData.programversion,
-                  'Nombre': userData.programname,
-                  'Duración': userData.programduration,
-                  'Nivel': userData.traininglevel,
-                  'Área': userData.programarea,
-                  'Perfil Ocupacional': userData.occupationalprofile,
-                  'RAE': userData.RAE,
-                  'Lectiva': userData.lectiva,
-                  'Productiva': userData.productiva,
-                  'Competencia': userData.competencia
+                  [t('createProgram.fields.programCode')]: userData.programcode,
+                  [t('createProgram.fields.version')]: userData.programversion,
+                  [t('createProgram.fields.programName')]: userData.programname,
+                  [t('createProgram.fields.duration')]: userData.programduration,
+                  [t('createProgram.fields.trainingLevel')]: userData.traininglevel,
+                  [t('createProgram.fields.linkedArea')]: userData.programarea,
+                  [t('createProgram.fields.occupationalProfile')]: userData.occupationalprofile,
+                  [t('createProgram.fields.RAE')]: userData.RAE,
+                  [t('createProgram.fields.lectivaDuration')]: userData.lectiva,
+                  [t('createProgram.fields.productivaDuration')]: userData.productiva,
+                  [t('createProgram.fields.competence')]: userData.competencia
                 }).map(([label, value]) => (
                   <div className="detail-row" key={label}>
                     <span className="detail-label">{label}:</span>
@@ -236,8 +322,20 @@ const CreateProgram = () => {
                 ))}
               </div>
               <div className="form-navigation">
-                <button type="button" className="secondary-button" onClick={prevStep}>Anterior</button>
-                <button type="button" className="primary-button" onClick={handleSubmit}>Confirmar y Crear programa</button>
+                <button 
+                  type="button" 
+                  className="secondary-button" 
+                  onClick={prevStep}
+                >
+                  {t('createProgram.buttons.previous')}
+                </button>
+                <button 
+                  type="button" 
+                  className="primary-button" 
+                  onClick={handleSubmit}
+                >
+                  {t('createProgram.buttons.confirm')}
+                </button>
               </div>
             </div>
           )}

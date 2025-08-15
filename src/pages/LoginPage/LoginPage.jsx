@@ -1,7 +1,8 @@
-// LoginPage.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext/AuthContext.jsx";
+import { useTranslation } from 'react-i18next';
 import Swal from "sweetalert2";
 
 import factor1 from "../../assets/images/factorHumano1.jpg";
@@ -18,11 +19,14 @@ import "./css/loginPage.css";
 import "../../styles/variables.css";
 
 export const LoginPage = () => {
+  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
+  const { login } = useAuth();
   const navigate = useNavigate();
   const images = [factor1, factor2, factor3];
 
@@ -34,54 +38,78 @@ export const LoginPage = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Mostrar u ocultar contraseña
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
 
-  // Manejo del login
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     if (!email || !password) {
       Swal.fire({
         icon: "warning",
-        title: "Campos incompletos",
-        text: "Por favor, completa todos los campos.",
+        title: t('loginPage.alerts.incompleteFields.title'),
+        text: t('loginPage.alerts.incompleteFields.text'),
       });
+      setLoading(false);
       return;
     }
 
     try {
       const response = await axios.post("http://localhost:3000/api/auth/login", {
-        email,
-        password,
+        email: email.trim(),
+        password: password.trim(),
       });
 
-      if (response.status === 200 && response.data.token) {
+      if (response?.status === 200 && response?.data?.token) {
         localStorage.setItem("authToken", response.data.token);
-        navigate("/home");
+        
+        if (response.data.user) {
+          login(response.data.user);
+          
+          Swal.fire({
+            icon: "success",
+            title: t('loginPage.alerts.welcome.title', { name: response.data.user.nombre || '' }),
+            text: t('loginPage.alerts.welcome.text'),
+            showConfirmButton: false,
+            timer: 1500,
+          }).then(() => {
+            navigate("/home");
+          });
+        }
       } else {
-        Swal.fire({
-          icon: "error",
-          title: "Credenciales incorrectas",
-          text: "Correo o contraseña inválidos.",
-        });
+        throw new Error("Unexpected server response");
       }
     } catch (error) {
-      const status = error.response?.status;
-      let message = "Error al conectar con el servidor.";
-
-      if (status === 401 || status === 404) {
-        message = "Correo o contraseña inválidos.";
-      }
-
-      Swal.fire({
-        icon: "error",
-        title: "Acceso denegado",
-        text: message,
-      });
+      console.error("Login error:", error);
+      handleLoginError(error);
+    } finally {
+      setLoading(false);
     }
+  };
+
+  const handleLoginError = (error) => {
+    const status = error.response?.status;
+    let messageKey;
+
+    if (status === 401 || status === 404) {
+      messageKey = 'loginPage.alerts.errors.invalidCredentials';
+    } else if (status === 403) {
+      messageKey = 'loginPage.alerts.errors.disabledAccount';
+    } else if (status === 500) {
+      messageKey = 'loginPage.alerts.errors.serverError';
+    } else if (error.message === "Network Error") {
+      messageKey = 'loginPage.alerts.errors.networkError';
+    } else {
+      messageKey = 'loginPage.alerts.errors.genericError';
+    }
+
+    Swal.fire({
+      icon: "error",
+      title: t('loginPage.alerts.denied.title'),
+      text: t('loginPage.alerts.denied.text', { message: t(messageKey) }),
+    });
   };
 
   return (
@@ -90,50 +118,68 @@ export const LoginPage = () => {
       <HeaderIcons />
       <div className="LoginPage">
         <div className="frame">
-          <h1>Iniciar Sesión</h1>
-          <p className="P_Accede">Accede a tu cuenta con tu email y contraseña</p>
+          <h1>{t('loginPage.title')}</h1>
+          <p className="P_Accede">{t('loginPage.subtitle')}</p>
 
           <form onSubmit={handleLogin}>
             <div className="input-box-email">
-              <label htmlFor="email">Correo electrónico</label>
+              <label htmlFor="email">{t('loginPage.emailLabel')}</label>
               <input
                 id="email"
                 type="email"
                 value={email}
-                placeholder="Ingrese su correo electrónico"
+                placeholder={t('loginPage.emailPlaceholder')}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                autoComplete="username"
               />
             </div>
 
             <div className="input-box-email">
-              <label htmlFor="password">Contraseña</label>
+              <label htmlFor="password">{t('loginPage.passwordLabel')}</label>
               <input
                 id="password"
                 type={showPassword ? "text" : "password"}
                 value={password}
-                placeholder="Ingrese su contraseña"
+                placeholder={t('loginPage.passwordPlaceholder')}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                autoComplete="current-password"
               />
               {showPassword ? (
-                <BsEyeFill className="icon" onClick={togglePasswordVisibility} />
+                <BsEyeFill 
+                  className="icon" 
+                  onClick={togglePasswordVisibility} 
+                  title={t('loginPage.passwordVisibility.hide')}
+                />
               ) : (
-                <BsEyeSlashFill className="icon" onClick={togglePasswordVisibility} />
+                <BsEyeSlashFill 
+                  className="icon" 
+                  onClick={togglePasswordVisibility} 
+                  title={t('loginPage.passwordVisibility.show')}
+                />
               )}
             </div>
 
             <div className="remember-forgot">
               <label>
-                <input type="checkbox" /> Recordarme
+                <input type="checkbox" /> {t('loginPage.rememberMe')}
               </label>
               <Link to="/old" className="OldMyPass">
-                Olvidé mi contraseña
+                {t('loginPage.forgotPassword')}
               </Link>
             </div>
 
-            <button className="Bottonlogin" type="submit">
-              LOGIN
+            <button 
+              className="Bottonlogin" 
+              type="submit"
+              disabled={loading}
+            >
+              {loading ? (
+                <span className="spinner"></span>
+              ) : (
+                t('loginPage.loginButton')
+              )}
             </button>
           </form>
 

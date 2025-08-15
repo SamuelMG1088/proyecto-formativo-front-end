@@ -91,7 +91,8 @@
     "accountRegistered": "The account has been successfully registered",
     "error": "Error",
     "userNotRegistered": "The user could not be registered",
-    "retry": "Retry"
+    "retry": "Retry",
+    "logoutSuccess": "You have successfully logged out"
   },
   "filter": {
     "filterBy": "Filter By",
@@ -154,6 +155,7 @@
     "userSuspended": "The user has been suspended.",
     "errorTitle": "Error",
     "couldNotSuspendUser": "Could not suspend the user."
+    
 },
 "labels": {
     "unknownUser": "Unknown user",
@@ -183,7 +185,8 @@
     "accountRegistered": "The account has been successfully registered",
     "error": "Error",
     "userNotRegistered": "The user could not be registered",
-    "retry": "Retry"
+    "retry": "Retry",
+    "logoutSuccess": "You have successfully logged out"
   },
   "diagnosis": {
     "createBusinessDiagnosis": "Business Diagnosis Creation",
@@ -295,8 +298,258 @@
     "sending": "Sending...",
     "allAbove": "All of the above",
     "noneAbove": "None of the above"
+  },
+  "listProgram": {
+    "backToHome": "Back to Home",
+    "createProgram": "Create Program",
+    "title": "Training Programs Directory",
+    "subtitle": "Explore and manage registered training programs",
+    "tableHeaders": {
+      "code": "CODE",
+      "name": "NAME",
+      "level": "LEVEL",
+      "duration": "DURATION (MONTHS)",
+      "modality": "MODALITY",
+      "status": "STATUS"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "noPrograms": "No registered programs"
+  },
+  
+  "createProgram": {
+    "success": {
+      "title": "Program created!",
+      "message": "The program was registered successfully."
+    },
+    "error": {
+      "title": "Error",
+      "message": "Could not register the program. Please check the data.",
+      "button": "Try again"
+    },
+    "form": {
+      "title": "Training Program Registration",
+      "subtitle": "Complete the form to register the training program"
+    },
+    "steps": {
+      "step1": "Basic Information",
+      "step2": "Program Data",
+      "step3": "Confirmation"
+    },
+    "fields": {
+      "programCode": "Program code",
+      "version": "Version",
+      "programName": "Program name",
+      "duration": "Duration",
+      "trainingLevel": "Training level",
+      "linkedArea": "Linked area",
+      "occupationalProfile": "Occupational profile",
+      "RAE": "RAE",
+      "lectivaDuration": "Lectiva duration",
+      "productivaDuration": "Productiva duration",
+      "competence": "Competence"
+    },
+    "placeholders": {
+      "programCode": "Enter program code",
+      "version": "Enter version",
+      "programName": "Enter program name",
+      "duration": "Enter duration",
+      "profile": "Enter profile",
+      "RAE": "Enter RAE",
+      "lectiva": "Enter lectiva duration",
+      "productiva": "Enter productiva duration",
+      "competence": "Enter competence"
+    },
+    "selectDefault": "Select",
+    "selectArea": "Select an area",
+    "options": {
+      "technical": "Technical",
+      "technologist": "Technologist",
+      "auxiliary": "Auxiliary",
+      "operator": "Operator",
+      "teleinformatics": "Teleinformatics",
+      "welding": "Welding",
+      "mechanics": "Mechanics",
+      "electricity": "Electricity",
+      "construction": "Construction",
+      "clothing": "Clothing"
+    },
+    "buttons": {
+      "previous": "Previous",
+      "next": "Next",
+      "confirm": "Confirm and Create program"
+    },
+    "confirmation": {
+      "title": "Confirmation",
+      "description": "Review the information before submitting"
+    }
+  },
+  "viewProfile": {
+    "title": "User Profile",
+    "status": "Status",
+    "documentType": "Document Type",
+    "phoneNumber": "Phone Number",
+    "address": "Address",
+    "editProfile": "Edit Profile",
+    "memberSince": "Member since",
+    "defaultValues": {
+      "name": "Name not available",
+      "status": "Status not available",
+      "documentType": "Not specified",
+      "phone": "Not provided",
+      "address": "Not provided",
+      "date": "Unknown date"
+    },
+    "statusTypes": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "pending": "Pending"
+    },
+    "documentTypes": {
+      "cc": "Citizenship Card",
+      "ti": "Identity Card",
+      "ce": "Foreigner ID"
+    }
+  },
+   "loginPage": {
+    "title": "Login",
+    "subtitle": "Access your account with your email and password",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Enter your email",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "loginButton": "LOGIN",
+    "loading": "Signing in...",
+    "alerts": {
+      "incompleteFields": {
+        "title": "Incomplete fields",
+        "text": "Please complete all fields."
+      },
+      "welcome": {
+        "title": "Welcome {{name}}",
+        "text": "You have successfully logged in."
+      },
+      "errors": {
+        "invalidCredentials": "Invalid email or password.",
+        "disabledAccount": "Account disabled. Contact administrator.",
+        "serverError": "Server error. Please try again later.",
+        "networkError": "Network error. Check your connection.",
+        "genericError": "Login error. Please try again."
+      },
+      "denied": {
+        "title": "Access denied",
+        "text": "{{message}}"
+      }
+    },
+    "passwordVisibility": {
+      "show": "Show password",
+      "hide": "Hide password"
+    }
+  },
+  "oldPasswordPage": {
+    "title": "Forgot your password?",
+    "description": "Don't worry, we'll send a verification code to your email. Please enter it here:",
+    "emailLabel": "Email",
+    "emailPlaceholder": "example@email.com",
+    "sendButton": "SEND",
+    "sendingButton": "SENDING...",
+    "backLink": "Back to Login",
+    "alerts": {
+      "emptyEmail": {
+        "title": "Error",
+        "text": "Please enter an email address."
+      },
+      "invalidEmail": {
+        "title": "Error",
+        "text": "The email format is not valid."
+      },
+      "codeSent": {
+        "title": "Code sent",
+        "text": "Your code is: <strong>{{code}}</strong>"
+      },
+      "success": {
+        "title": "Success",
+        "text": "A verification code has been sent to your email."
+      },
+      "error": {
+        "title": "Error",
+        "text": "Could not send the code. Please verify the email address."
+      },
+      "apiError": {
+        "title": "Error",
+        "text": "{{message}}"
+      }
+    }
+},"updatePasswordPage": {
+    "title": "Update Password",
+    "subtitle": "Update your password and this time choose one you'll remember ;)",
+    "newPasswordLabel": "Create Password",
+    "confirmPasswordLabel": "Confirm Password",
+    "updateButton": "UPDATE PASSWORD",
+    "passwordVisibility": {
+      "show": "Show password",
+      "hide": "Hide password"
+    },
+    "alerts": {
+      "missingInfo": {
+        "title": "Error",
+        "text": "No information found to update password."
+      },
+      "emptyFields": {
+        "title": "Error",
+        "text": "Please fill in both fields."
+      },
+      "passwordMismatch": {
+        "title": "Error",
+        "text": "Passwords do not match."
+      },
+      "passwordLength": {
+        "title": "Error",
+        "text": "Password must be at least 6 characters long."
+      },
+      "success": {
+        "title": "Success",
+        "text": "Your password has been updated."
+      },
+      "apiError": {
+        "title": "Error",
+        "text": "{{message}}"
+      }
+    }
+  },
+    "verifyCodePage": {
+    "title": "Verify Code",
+    "subtitle": "Enter the code we sent to your email",
+    "backLink": "Back to Login",
+    "resendText": "Didn't receive the code?",
+    "resendLink": "Resend",
+    "verifyButton": "VERIFY",
+    "alerts": {
+      "incompleteCode": {
+        "title": "Incomplete Code",
+        "text": "Please enter all 6 digits."
+      },
+      "verified": {
+        "title": "Code Verified",
+        "text": "Redirecting to password change..."
+      },
+      "error": {
+        "title": "Error",
+        "text": "The code is incorrect or has expired."
+      },
+      "apiError": {
+        "title": "Error",
+        "text": "{{message}}"
+      }
+    }
   }
+
 }
+
 
   
     

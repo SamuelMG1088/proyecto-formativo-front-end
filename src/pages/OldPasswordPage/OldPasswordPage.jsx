@@ -11,8 +11,10 @@ import factor2 from '../../assets/images/factorHumano2.png';
 import factor3 from '../../assets/images/factorHumano3.png';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useTranslation } from 'react-i18next';
 
 export const OldPasswordPage = () => {
+  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
@@ -30,12 +32,20 @@ export const OldPasswordPage = () => {
 
   const handleSendCode = async () => {
     if (!email) {
-      Swal.fire('Error', 'Por favor, escriba un correo electrónico.', 'warning');
+      Swal.fire(
+        t('oldPasswordPage.alerts.emptyEmail.title'),
+        t('oldPasswordPage.alerts.emptyEmail.text'),
+        'warning'
+      );
       return;
     }
 
     if (!isValidEmail(email)) {
-      Swal.fire('Error', 'El formato del correo no es válido.', 'warning');
+      Swal.fire(
+        t('oldPasswordPage.alerts.invalidEmail.title'),
+        t('oldPasswordPage.alerts.invalidEmail.text'),
+        'warning'
+      );
       return;
     }
 
@@ -43,27 +53,32 @@ export const OldPasswordPage = () => {
 
     try {
       const response = await axios.post('http://localhost:3000/api/password-reset/forgot-password', { email });
-
-
       const { code } = response.data;
 
       if (code) {
         Swal.fire({
-          title: 'Código enviado',
-          html: `Tu código es: <strong>${code}</strong>`,
+          title: t('oldPasswordPage.alerts.codeSent.title'),
+          html: t('oldPasswordPage.alerts.codeSent.text', { code }),
           icon: 'info',
         }).then(() => {
           navigate('/verify', { state: { email } });
         });
       } else {
-        Swal.fire('Éxito', 'Se ha enviado un código de verificación a tu correo.', 'success').then(() => {
+        Swal.fire(
+          t('oldPasswordPage.alerts.success.title'),
+          t('oldPasswordPage.alerts.success.text'),
+          'success'
+        ).then(() => {
           navigate('/verify', { state: { email } });
         });
       }
-
     } catch (error) {
-      const msg = error?.response?.data?.message || 'No se pudo enviar el código. Verifique el correo ingresado.';
-      Swal.fire('Error', msg, 'error');
+      const msg = error?.response?.data?.message || t('oldPasswordPage.alerts.error.text');
+      Swal.fire(
+        t('oldPasswordPage.alerts.apiError.title'),
+        t('oldPasswordPage.alerts.apiError.text', { message: msg }),
+        'error'
+      );
     } finally {
       setLoading(false);
     }
@@ -76,28 +91,33 @@ export const OldPasswordPage = () => {
       <div className="old-password">
         <div className="frame">
           <Link to="/" className="link-back">
-            <FaAngleLeft /> Ir a inicio de Sesión
+            <FaAngleLeft /> {t('oldPasswordPage.backLink')}
           </Link>
 
-          <h1>¿Olvidó su contraseña?</h1>
+          <h1>{t('oldPasswordPage.title')}</h1>
           <p className='descripcion'>
-            No se preocupe, se le enviará un código de verificación a su correo electrónico. Escríbalo aquí:
+            {t('oldPasswordPage.description')}
           </p>
 
           <div className="input-box-email">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">{t('oldPasswordPage.emailLabel')}</label>
             <input
               type="email"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="ejemplo@correo.com"
+              placeholder={t('oldPasswordPage.emailPlaceholder')}
               disabled={loading}
             />
           </div>
 
-          <button className="BottonOld" type="button" onClick={handleSendCode} disabled={loading}>
-            {loading ? 'ENVIANDO...' : 'ENVIAR'}
+          <button 
+            className="BottonOld" 
+            type="button" 
+            onClick={handleSendCode} 
+            disabled={loading}
+          >
+            {loading ? t('oldPasswordPage.sendingButton') : t('oldPasswordPage.sendButton')}
           </button>
 
           <AccestDirect />

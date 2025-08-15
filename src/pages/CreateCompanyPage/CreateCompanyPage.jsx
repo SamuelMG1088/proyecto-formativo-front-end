@@ -9,10 +9,10 @@ import BannerHome11 from '../../assets/banners/BannerHome11.png';
 import BannerHome13 from '../../assets/banners/BannerHome13.png';
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useTranslation } from "react-i18next"; // 🔹 Import traducciones
+import { useTranslation } from "react-i18next";
 
 const CreateCompanyPage = () => {
-  const { t } = useTranslation(); // 🔹 Inicializar hook
+  const { t } = useTranslation();
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentStep, setCurrentStep] = useState(1);
@@ -26,7 +26,7 @@ const CreateCompanyPage = () => {
     status: 'active',
     address: '',
     password: '',
-    actividad_economica: ''
+    actividad_economica: 'Sector primario' // 🔹 Valor inicial válido
   });
 
   const images = [BannerHome6, BannerHome11, BannerHome13];
@@ -53,6 +53,18 @@ const CreateCompanyPage = () => {
   };
 
   const handleSubmit = async () => {
+    // 🔹 Validación extra para actividad económica
+    const validValues = ["Sector primario", "Sector secundario", "Sector terciario"];
+    if (!validValues.includes(userData.actividad_economica)) {
+      Swal.fire({
+        title: t('alerts.error'),
+        text: t('alerts.invalidEconomicActivity'),
+        icon: 'error',
+        confirmButtonColor: '#d33'
+      });
+      return;
+    }
+
     try {
       const payload = {
         id: parseInt(userData.documentNumber),
@@ -211,7 +223,6 @@ const CreateCompanyPage = () => {
                   value={userData.actividad_economica}
                   onChange={handleInputChange}
                 >
-                  <option value="">{t('form.selectActivity')}</option>
                   <option value="Sector primario">{t('form.sectorPrimary')}</option>
                   <option value="Sector secundario">{t('form.sectorSecondary')}</option>
                   <option value="Sector terciario">{t('form.sectorTertiary')}</option>

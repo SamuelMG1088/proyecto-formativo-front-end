@@ -7,9 +7,6 @@
     "profile": "Perfil",
     "logout": "Cerrar Sesión"
   },
-  "alerts": {
-    "logoutSuccess": "Has cerrado sesión exitosamente"
-  },
   "home": {
     "senaTitle": "SENA Colombia",
     "senaDescription": "Este video \"SENA es Colombia\" es una producción oficial del Servicio Nacional de Aprendizaje (SENA), una entidad pública colombiana adscrita al Ministerio del Trabajo. Este video tiene como objetivo destacar el papel fundamental del SENA en el desarrollo social y económico del país, resaltando su compromiso con la formación profesional integral y la empleabilidad de los colombianos.\n\nEn la producción se presentan testimonios de aprendices, instructores y empresarios que han sido beneficiados por los programas del SENA, mostrando cómo la institución contribuye al crecimiento personal y profesional de millones de ciudadanos. Además, se enfatiza la presencia del SENA en todo el territorio nacional, su enfoque en la innovación tecnológica y su papel en la promoción del emprendimiento.",
@@ -178,7 +175,8 @@
   "alerts": {
     "errorTitle": "Error",
     "dataUpdatedTitle": "¡Datos actualizados!",
-    "dataUpdatedText": "La información se actualizó correctamente."
+    "dataUpdatedText": "La información se actualizó correctamente.",
+    "logoutSuccess": "Has cerrado sesión exitosamente"
   },
   "general": {
     "yes": "Sí",
@@ -291,8 +289,255 @@
       "active": "Activo",
       "always": "Siempre",
       "sometimes": "A veces"
+    },
+    "listProgram": {
+    "backToHome": "Volver al Inicio",
+    "createProgram": "Crear Programa",
+    "title": "Directorio de Programas de Formación",
+    "subtitle": "Explora y gestiona los programas de formación registrados",
+    "tableHeaders": {
+      "code": "CÓDIGO",
+      "name": "NOMBRE",
+      "level": "NIVEL",
+      "duration": "DURACIÓN (MESES)",
+      "modality": "MODALIDAD",
+      "status": "ESTADO"
+    },
+    "status": {
+      "active": "Activo",
+      "inactive": "Inactivo"
+    },
+    "noPrograms": "No hay programas registrados"
+  },
+  "createProgram": {
+    "success": {
+      "title": "¡Programa creado!",
+      "message": "El programa fue registrado correctamente."
+    },
+    "error": {
+      "title": "Error",
+      "message": "No se pudo registrar el programa. Verifica los datos.",
+      "button": "Intentar de nuevo"
+    },
+    "form": {
+      "title": "Registro de Programa de formación",
+      "subtitle": "Completa el formulario para registrar el programa de formación"
+    },
+    "steps": {
+      "step1": "Información Personal",
+      "step2": "Datos del Programa",
+      "step3": "Confirmación"
+    },
+    "fields": {
+      "programCode": "Código del programa",
+      "version": "Versión",
+      "programName": "Nombre del programa",
+      "duration": "Duración",
+      "trainingLevel": "Nivel de formación",
+      "linkedArea": "Área vinculada",
+      "occupationalProfile": "Perfil ocupacional",
+      "RAE": "RAE",
+      "lectivaDuration": "Duración lectiva",
+      "productivaDuration": "Duración productiva",
+      "competence": "Competencia"
+    },
+    "placeholders": {
+      "programCode": "Ingrese el código del programa",
+      "version": "Ingrese la versión",
+      "programName": "Ingrese el nombre del programa",
+      "duration": "Ingrese la duración",
+      "profile": "Ingrese el perfil",
+      "RAE": "Ingrese la RAE",
+      "lectiva": "Ingrese duración lectiva",
+      "productiva": "Ingrese duración productiva",
+      "competence": "Ingrese la competencia"
+    },
+    "selectDefault": "Seleccione",
+    "selectArea": "Seleccione un área",
+    "options": {
+      "technical": "Técnico",
+      "technologist": "Tecnólogo",
+      "auxiliary": "Auxiliar",
+      "operator": "Operario",
+      "teleinformatics": "Teleinformática",
+      "welding": "Soldadura",
+      "mechanics": "Mecánica",
+      "electricity": "Electricidad",
+      "construction": "Construcción",
+      "clothing": "Confecciones"
+    },
+    "buttons": {
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "confirm": "Confirmar y Crear programa"
+    },
+    "confirmation": {
+      "title": "Confirmación",
+      "description": "Revise la información antes de enviar"
     }
-  
+  },
+  "viewProfile": {
+    "title": "Perfil de Usuario",
+    "status": "Estado",
+    "documentType": "Tipo de Documento",
+    "phoneNumber": "Número Telefónico",
+    "address": "Dirección",
+    "editProfile": "Editar Perfil",
+    "memberSince": "Miembro desde",
+    "defaultValues": {
+      "name": "Nombre no disponible",
+      "status": "Estado no disponible",
+      "documentType": "No especificado",
+      "phone": "No proporcionado",
+      "address": "No proporcionada",
+      "date": "Fecha desconocida"
+    },
+    "statusTypes": {
+      "active": "Activo",
+      "inactive": "Inactivo",
+      "pending": "Pendiente"
+    },
+    "documentTypes": {
+      "cc": "Cédula de Ciudadanía",
+      "ti": "Tarjeta de Identidad",
+      "ce": "Cédula de Extranjería"
+    }
+  },
+  "loginPage": {
+    "title": "Iniciar Sesión",
+    "subtitle": "Accede a tu cuenta con tu email y contraseña",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "Ingrese su correo electrónico",
+    "passwordLabel": "Contraseña",
+    "passwordPlaceholder": "Ingrese su contraseña",
+    "rememberMe": "Recordarme",
+    "forgotPassword": "Olvidé mi contraseña",
+    "loginButton": "INGRESAR",
+    "loading": "Iniciando sesión...",
+    "alerts": {
+      "incompleteFields": {
+        "title": "Campos incompletos",
+        "text": "Por favor, completa todos los campos."
+      },
+      "welcome": {
+        "title": "Bienvenid@ {{name}}",
+        "text": "Has iniciado sesión correctamente."
+      },
+      "errors": {
+        "invalidCredentials": "Correo o contraseña inválidos.",
+        "disabledAccount": "Cuenta desactivada. Contacta al administrador.",
+        "serverError": "Error interno del servidor. Intenta más tarde.",
+        "networkError": "Error de conexión. Verifica tu internet.",
+        "genericError": "Error al iniciar sesión. Intenta nuevamente."
+      },
+      "denied": {
+        "title": "Acceso denegado",
+        "text": "{{message}}"
+      }
+    },
+    "passwordVisibility": {
+      "show": "Mostrar contraseña",
+      "hide": "Ocultar contraseña"
+    }
+  },
+  "oldPasswordPage": {
+    "title": "¿Olvidó su contraseña?",
+    "description": "No se preocupe, se le enviará un código de verificación a su correo electrónico. Escríbalo aquí:",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "ejemplo@correo.com",
+    "sendButton": "ENVIAR",
+    "sendingButton": "ENVIANDO...",
+    "backLink": "Volver a Inicio de Sesión",
+    "alerts": {
+      "emptyEmail": {
+        "title": "Error",
+        "text": "Por favor, escriba un correo electrónico."
+      },
+      "invalidEmail": {
+        "title": "Error",
+        "text": "El formato del correo no es válido."
+      },
+      "codeSent": {
+        "title": "Código enviado",
+        "text": "Tu código es: <strong>{{code}}</strong>"
+      },
+      "success": {
+        "title": "Éxito",
+        "text": "Se ha enviado un código de verificación a tu correo."
+      },
+      "error": {
+        "title": "Error",
+        "text": "No se pudo enviar el código. Verifique el correo ingresado."
+      },
+      "apiError": {
+        "title": "Error",
+        "text": "{{message}}"
+      }
+    }
+  },
+  "updatePasswordPage": {
+    "title": "Actualizar Contraseña",
+    "subtitle": "Actualiza tu contraseña y esta vez pon una que recuerdes ;)",
+    "newPasswordLabel": "Crear Contraseña",
+    "confirmPasswordLabel": "Confirmar Contraseña",
+    "updateButton": "ACTUALIZAR CONTRASEÑA",
+    "passwordVisibility": {
+      "show": "Mostrar contraseña",
+      "hide": "Ocultar contraseña"
+    },
+    "alerts": {
+      "missingInfo": {
+        "title": "Error",
+        "text": "No se encontró información para actualizar la contraseña."
+      },
+      "emptyFields": {
+        "title": "Error",
+        "text": "Por favor completa ambos campos."
+      },
+      "passwordMismatch": {
+        "title": "Error",
+        "text": "Las contraseñas no coinciden."
+      },
+      "passwordLength": {
+        "title": "Error",
+        "text": "La contraseña debe tener al menos 6 caracteres."
+      },
+      "success": {
+        "title": "Éxito",
+        "text": "Tu contraseña ha sido actualizada."
+      },
+      "apiError": {
+        "title": "Error",
+        "text": "{{message}}"
+      }
+    }
+  },
+  "verifyCodePage": {
+    "title": "Verificar Código",
+    "subtitle": "Ingresa el código que enviamos a tu email",
+    "backLink": "Ir a inicio de Sesión",
+    "resendText": "¿No recibiste el código?",
+    "resendLink": "Volver a enviar",
+    "verifyButton": "VERIFICAR",
+    "alerts": {
+      "incompleteCode": {
+        "title": "Código incompleto",
+        "text": "Por favor ingresa los 6 dígitos."
+      },
+      "verified": {
+        "title": "Código verificado",
+        "text": "Redirigiendo a cambio de contraseña..."
+      },
+      "error": {
+        "title": "Error",
+        "text": "El código es incorrecto o ha expirado."
+      },
+      "apiError": {
+        "title": "Error",
+        "text": "{{message}}"
+      }
+    }
+  }
 }
 
 

@@ -1,4 +1,4 @@
-#ViewProfile {
+#viewProfile {
   .PageViewtraining{
     width: 100%;
     display: flex;
@@ -160,8 +160,7 @@
 
     .Box-Button {
       width: 100%;
-      display: flex;
-      justify-content: center;
+      margin-left: 56%;
     }
 
 }

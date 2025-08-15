@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useTranslation } from 'react-i18next';
 
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
 import Gov from '../../layout/Gov/Gov.jsx';
@@ -15,6 +16,7 @@ import factor2 from '../../assets/images/factorHumano2.png';
 import factor3 from '../../assets/images/factorHumano3.png';
 
 export const VerifyCodePage = () => {
+    const { t } = useTranslation();
     const [code, setCode] = useState(['', '', '', '', '', '']);
     const inputsRef = useRef([]);
     const navigate = useNavigate();
@@ -72,7 +74,11 @@ export const VerifyCodePage = () => {
     const handleVerify = async () => {
         const fullCode = code.join('');
         if (fullCode.length < 6) {
-            Swal.fire('Código incompleto', 'Por favor ingresa los 6 dígitos.', 'warning');
+            Swal.fire(
+                t('verifyCodePage.alerts.incompleteCode.title'),
+                t('verifyCodePage.alerts.incompleteCode.text'),
+                'warning'
+            );
             return;
         }
 
@@ -82,12 +88,20 @@ export const VerifyCodePage = () => {
                 code: fullCode
             });
 
-            Swal.fire('Código verificado', 'Redirigiendo a cambio de contraseña...', 'success').then(() => {
+            Swal.fire(
+                t('verifyCodePage.alerts.verified.title'),
+                t('verifyCodePage.alerts.verified.text'),
+                'success'
+            ).then(() => {
                 navigate('/update', { state: { email, code: fullCode } });
             });
         } catch (error) {
-            const msg = error?.response?.data?.message || 'El código es incorrecto o ha expirado.';
-            Swal.fire('Error', msg, 'error');
+            const msg = error?.response?.data?.message || t('verifyCodePage.alerts.error.text');
+            Swal.fire(
+                t('verifyCodePage.alerts.apiError.title'),
+                t('verifyCodePage.alerts.apiError.text', { message: msg }),
+                'error'
+            );
         }
     };
 
@@ -100,11 +114,11 @@ export const VerifyCodePage = () => {
                 <div className="frame">
                     <Link to="/" className="back-link">
                         <FaAngleLeft style={{ marginRight: '8px' }} />
-                        Ir a inicio de Sesión
+                        {t('verifyCodePage.backLink')}
                     </Link>
 
-                    <h1>Verificar Código</h1>
-                    <p>Ingresa el código que enviamos a tu email</p>
+                    <h1>{t('verifyCodePage.title')}</h1>
+                    <p>{t('verifyCodePage.subtitle')}</p>
 
                     <div className="input-box-email">
                         {code.map((value, index) => (
@@ -123,11 +137,11 @@ export const VerifyCodePage = () => {
                     </div>
 
                     <p className="again-code">
-                        ¿No recibiste el código? <span style={{ cursor: 'pointer' }}>Volver a enviar</span>
+                        {t('verifyCodePage.resendText')} <span style={{ cursor: 'pointer' }}>{t('verifyCodePage.resendLink')}</span>
                     </p>
 
                     <button className="BottonVerify" onClick={handleVerify}>
-                        VERIFICAR
+                        {t('verifyCodePage.verifyButton')}
                     </button>
                 </div>
 

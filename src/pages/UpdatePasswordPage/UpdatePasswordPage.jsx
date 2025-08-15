@@ -10,8 +10,10 @@ import factor3 from '../../assets/images/factorHumano3.png';
 import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 export const UpdatePasswordPage = () => {
+    const { t } = useTranslation();
     const [currentSlide, setCurrentSlide] = useState(0);
     const images = [factor1, factor2, factor3];
 
@@ -27,10 +29,13 @@ export const UpdatePasswordPage = () => {
     useEffect(() => {
         // Redirigir si no se proporcionan email o código
         if (!email || !code) {
-            Swal.fire('Error', 'No se encontró información para actualizar la contraseña.', 'error')
-                .then(() => navigate('/'));
+            Swal.fire(
+                t('updatePasswordPage.alerts.missingInfo.title'),
+                t('updatePasswordPage.alerts.missingInfo.text'),
+                'error'
+            ).then(() => navigate('/'));
         }
-    }, [email, code, navigate]);
+    }, [email, code, navigate, t]);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -45,17 +50,29 @@ export const UpdatePasswordPage = () => {
 
     const handleUpdatePassword = async () => {
         if (!password || !confirmPassword) {
-            Swal.fire('Error', 'Por favor completa ambos campos.', 'warning');
+            Swal.fire(
+                t('updatePasswordPage.alerts.emptyFields.title'),
+                t('updatePasswordPage.alerts.emptyFields.text'),
+                'warning'
+            );
             return;
         }
 
         if (password !== confirmPassword) {
-            Swal.fire('Error', 'Las contraseñas no coinciden.', 'error');
+            Swal.fire(
+                t('updatePasswordPage.alerts.passwordMismatch.title'),
+                t('updatePasswordPage.alerts.passwordMismatch.text'),
+                'error'
+            );
             return;
         }
 
         if (password.length < 6) {
-            Swal.fire('Error', 'La contraseña debe tener al menos 6 caracteres.', 'error');
+            Swal.fire(
+                t('updatePasswordPage.alerts.passwordLength.title'),
+                t('updatePasswordPage.alerts.passwordLength.text'),
+                'error'
+            );
             return;
         }
 
@@ -67,12 +84,20 @@ export const UpdatePasswordPage = () => {
                 confirmPassword
             });
 
-            Swal.fire('Éxito', 'Tu contraseña ha sido actualizada.', 'success').then(() => {
+            Swal.fire(
+                t('updatePasswordPage.alerts.success.title'),
+                t('updatePasswordPage.alerts.success.text'),
+                'success'
+            ).then(() => {
                 navigate('/');
             });
         } catch (error) {
-            const msg = error?.response?.data?.message || 'Error al actualizar la contraseña.';
-            Swal.fire('Error', msg, 'error');
+            const msg = error?.response?.data?.message || t('updatePasswordPage.alerts.apiError.text');
+            Swal.fire(
+                t('updatePasswordPage.alerts.apiError.title'),
+                t('updatePasswordPage.alerts.apiError.text', { message: msg }),
+                'error'
+            );
         }
     };
 
@@ -82,39 +107,55 @@ export const UpdatePasswordPage = () => {
             <HeaderIcons />
             <div className="UpdatePage">
                 <div className="frame">
-                    <h1>Actualizar Contraseña</h1>
-                    <p>Actualiza tu contraseña y esta vez pon una que recuerdes ;)</p>
+                    <h1>{t('updatePasswordPage.title')}</h1>
+                    <p>{t('updatePasswordPage.subtitle')}</p>
 
                     <div className="input-box-email">
-                        <label>Crear Contraseña</label>
+                        <label>{t('updatePasswordPage.newPasswordLabel')}</label>
                         <input
                             type={showPassword ? 'text' : 'password'}
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
                         {showPassword ? (
-                            <BsEyeFill className="icon" onClick={togglePasswordVisibility} />
+                            <BsEyeFill 
+                                className="icon" 
+                                onClick={togglePasswordVisibility} 
+                                title={t('updatePasswordPage.passwordVisibility.hide')}
+                            />
                         ) : (
-                            <BsEyeSlashFill className="icon" onClick={togglePasswordVisibility} />
+                            <BsEyeSlashFill 
+                                className="icon" 
+                                onClick={togglePasswordVisibility} 
+                                title={t('updatePasswordPage.passwordVisibility.show')}
+                            />
                         )}
                     </div>
 
                     <div className="input-box-email">
-                        <label>Confirmar Contraseña</label>
+                        <label>{t('updatePasswordPage.confirmPasswordLabel')}</label>
                         <input
                             type={showPassword ? 'text' : 'password'}
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                         />
                         {showPassword ? (
-                            <BsEyeFill className="icon" onClick={togglePasswordVisibility} />
+                            <BsEyeFill 
+                                className="icon" 
+                                onClick={togglePasswordVisibility} 
+                                title={t('updatePasswordPage.passwordVisibility.hide')}
+                            />
                         ) : (
-                            <BsEyeSlashFill className="icon" onClick={togglePasswordVisibility} />
+                            <BsEyeSlashFill 
+                                className="icon" 
+                                onClick={togglePasswordVisibility} 
+                                title={t('updatePasswordPage.passwordVisibility.show')}
+                            />
                         )}
                     </div>
 
                     <button className="BottonUpdate" type="button" onClick={handleUpdatePassword}>
-                        ACTUALIZAR CONTRASEÑA
+                        {t('updatePasswordPage.updateButton')}
                     </button>
                 </div>
 

@@ -13,8 +13,10 @@ import './css/listProgram.css';
 import { IoIosCreate } from "react-icons/io";
 import ExportPdfExcel from '../../components/ExportPdfExcel/ExportPdfExcel.jsx';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 const ListProgram = () => {
+  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [programs, setPrograms] = useState([]);
 
@@ -84,15 +86,15 @@ const ListProgram = () => {
         <div className="list-program-content">
           <section className="list-program-section">
             <NavLink to="/home" className="NavLink">
-              <FaArrowLeftLong className='icon-arrow' /> Volver al Inicio
+              <FaArrowLeftLong className='icon-arrow' /> {t('listProgram.backToHome')}
             </NavLink>
             <NavLink to="/CreateProgram" className="CreateProgram">
               <div>
-                <button className='Create-program'>Crear Programa</button>
+                <button className='Create-program'>{t('listProgram.createProgram')}</button>
               </div>
             </NavLink>
-            <h2>Directorio de Programas de Formación</h2>
-            <p>Explora y gestiona los programas de formación registrados</p>
+            <h2>{t('listProgram.title')}</h2>
+            <p>{t('listProgram.subtitle')}</p>
 
             <div className='Exports'>
               <ExportPdfExcel />
@@ -110,12 +112,12 @@ const ListProgram = () => {
                 <table className="program-table">
                   <thead>
                     <tr>
-                      <th>CÓDIGO</th>
-                      <th>NOMBRE</th>
-                      <th>NIVEL</th>
-                      <th>DURACIÓN (MESES)</th>
-                      <th>MODALIDAD</th>
-                      <th>ESTADO</th>
+                      <th>{t('listProgram.tableHeaders.code')}</th>
+                      <th>{t('listProgram.tableHeaders.name')}</th>
+                      <th>{t('listProgram.tableHeaders.level')}</th>
+                      <th>{t('listProgram.tableHeaders.duration')}</th>
+                      <th>{t('listProgram.tableHeaders.modality')}</th>
+                      <th>{t('listProgram.tableHeaders.status')}</th>
                       <th></th>
                     </tr>
                   </thead>
@@ -129,7 +131,7 @@ const ListProgram = () => {
                         <td>{program.area_vinculada}</td>
                         <td>
                           <span className={`status-badge ${program.estado === 'Activo' ? 'active' : 'inactive'}`}>
-                            {program.estado}
+                            {program.estado === 'Activo' ? t('listProgram.status.active') : t('listProgram.status.inactive')}
                           </span>
                         </td>
                         <td>
@@ -143,7 +145,7 @@ const ListProgram = () => {
                     ))}
                     {programs.length === 0 && (
                       <tr>
-                        <td colSpan="7">No hay programas registrados</td>
+                        <td colSpan="7">{t('listProgram.noPrograms')}</td>
                       </tr>
                     )}
                   </tbody>
