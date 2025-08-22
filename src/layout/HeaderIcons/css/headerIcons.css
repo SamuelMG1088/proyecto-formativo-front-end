@@ -43,4 +43,24 @@
       .language-button span {
         font-size: 0.9rem;
     }
+
+    body {
+        background-color: var(--color-bg);
+        color: var(--color-text);
+      }
+      
+      button {
+        background-color: var(--color-button-bg);
+        color: var(--color-button-text);
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      button:hover {
+        opacity: 0.8;
+      }
+      
 }
