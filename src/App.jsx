@@ -1,4 +1,3 @@
-// src/App.jsx
 import './App.css'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext/AuthContext.jsx';
@@ -22,24 +21,18 @@ import ViewCompany from './pages/ViewCompany/ViewCompany.jsx';
 import 'normalize.css';
 import './config/i18n.jsx';
 
-// next-themes + React
+
 import { ThemeProvider, useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { IoMoon } from "react-icons/io5";
-import { GoSun } from "react-icons/go";
 
-/* ---------------------------
-   Sincronizar clase en <body>
-   --------------------------- */
+
 function ThemeSync() {
   const { theme, resolvedTheme } = useTheme();
 
   useEffect(() => {
-    // resolvedTheme es el tema efectivo cuando theme === 'system'
     const current = theme === "system" ? resolvedTheme : theme;
     if (!current) return;
 
-    // Aplicar clase al <body> (tu CSS usa .dark)
     if (current === "dark") {
       document.body.classList.add("dark");
     } else {
@@ -50,18 +43,23 @@ function ThemeSync() {
   return null;
 }
 
-/* ---------------------------
-   Botón toggle (global)
-   --------------------------- */
 function ThemeToggleButton() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // evitar problemas de hidratación / render server -> client
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 
- 
+  return (
+    <button
+      className="toggle-theme-btn"
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      aria-label="Cambiar tema"
+    >
+      {/* Botón vacío, solo para dar click */}
+    </button>
+  );
+}
 
 // Componente para proteger rutas
 const ProtectedRoute = ({ children }) => {
@@ -73,13 +71,11 @@ const ProtectedRoute = ({ children }) => {
 function App() {
   return (
     <AuthProvider>
-      {/* Provider de next-themes */}
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        {/* Sincronizamos la clase al body para que tu CSS basado en `.dark` funcione */}
         <ThemeSync />
 
         <BrowserRouter>
-          {/* Botón global fijo (puedes moverlo al NavBar si prefieres) */}
+          {/* Botón global fijo */}
           <div style={{ position: "fixed", top: 18, right: 18, zIndex: 9999 }}>
             <ThemeToggleButton />
           </div>
@@ -113,7 +109,6 @@ function App() {
       </ThemeProvider>
     </AuthProvider>
   );
-}
 }
 
 export default App;
