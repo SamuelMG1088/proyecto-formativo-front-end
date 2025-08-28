@@ -162,10 +162,11 @@
   .form-group label {
     display: block;
     margin-bottom: 8px;
-    color: var(--neutral-1_4);
+    color: var(--neutral-3);
     font-weight: 500;
     font-size: 15px;
   }
+  
 
   .form-group input,
   select {
@@ -179,8 +180,6 @@
 
   .form-group input:focus {
     outline: none;
-    border-color: var(--color-secundary-1);
-    box-shadow: 0 0 0 2px rgba(226, 232, 46, 0.2);
   }
 
   .form-group input::placeholder {
