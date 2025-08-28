@@ -177,7 +177,7 @@
   .form-group label {
     display: block;
     margin-bottom: 8px;
-    color: var(--neutral-1_4);
+    color: var(--neutral-3);
     font-weight: 500;
     font-size: 15px;
   }
@@ -354,11 +354,4 @@
     color: #ffffff;
   }
 
-  /* Excepciones para elementos que deben mantener colores específicos */
-  .create-diagnosis-form h1,
-  .form-step h2,
-  .step-labels span.active,
-  .step.active {
-    /* Estos mantienen sus colores específicos definidos arriba */
-  }
 }

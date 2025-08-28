@@ -61,16 +61,7 @@ function ThemeToggleButton() {
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 
-  return (
-    <button
-      className="toggle-theme-btn"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      aria-label={`Cambiar a modo ${theme === "dark" ? "claro" : "oscuro"}`}
-    >
-      {theme === "dark" ? <GoSun size={20} /> : <IoMoon size={20} />}
-    </button>
-  );
-}
+ 
 
 // Componente para proteger rutas
 const ProtectedRoute = ({ children }) => {
@@ -122,6 +113,7 @@ function App() {
       </ThemeProvider>
     </AuthProvider>
   );
+}
 }
 
 export default App;
