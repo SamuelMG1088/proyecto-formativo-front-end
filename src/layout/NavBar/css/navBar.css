@@ -1,7 +1,8 @@
-#navbar{
+#navbar {
     .navbar {
-        background-color: var(--neutral-4);
+        background-color: var(--color-background);
         padding: 1rem;
+        transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .navbar ul {
@@ -16,18 +17,19 @@
     }
 
     .navbar ul li:hover {
-        border-bottom: 3px solid #30a900;
+        border-bottom: 3px solid var(--color-accent);
     }
 
     .navbar ul li a {
         text-decoration: none;
-        color: black;
+        color: var(--color-text);
         font-weight: 500;
         font-size: large;        
+        transition: color 0.3s ease;
     }
 
     /* Estilo para el elemento activo */
     .navbar ul li.active {
-        border-bottom: 3px solid #30a900;
+        border-bottom: 3px solid var(--color-accent);
     }
 }

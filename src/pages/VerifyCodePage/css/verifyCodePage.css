@@ -3,7 +3,7 @@
     .VerifyPage {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        background-image: url(../../../assets/images/vector-blanco.png);
+        background-image: url(../assets/images/Vector-Negroo.png);
         background-size: cover;
         height: 51.99rem;
         border-top: 2px solid;

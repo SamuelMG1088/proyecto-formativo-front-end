@@ -1,190 +1,194 @@
 #ListCompanyPage {
-    .PageListCompany {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        background-image: url(../../../assets/images/vector-blanco.png);
-        background-size: cover;
-    }
+  .PageListCompany {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../assets/images/Vector-Negroo.png);
+    background-size: cover;
+  }
 
-    /* Estilos del carrusel */
-    .company-carousel {
-        width: 100%;
-        height: 32rem;
-        position: relative;
-        overflow: hidden;
-        z-index: 2;
-    }
+  /* Estilos del carrusel */
+  .company-carousel {
+    width: 100%;
+    height: 32rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+  }
 
-    .carousel-container {
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
 
-    .carousel-slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-    }
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
 
-    .carousel-slide.active {
-        opacity: 1;
-    }
+  .carousel-slide.active {
+    opacity: 1;
+  }
 
-    .carousel-dots {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 10px;
-        z-index: 2;
-    }
+  .carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 2;
+  }
 
-    .dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background-color: rgba(255, 255, 255, 0.5);
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
 
-    .dot.active {
-        background-color: #ffffff;
-        transform: scale(1.2);
-    }
+  .dot.active {
+    background-color: #ffffff;
+    transform: scale(1.2);
+  }
 
-    .dot:hover {
-        background-color: rgba(255, 255, 255, 0.8);
-    }
+  .dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
 
-    /* Estilos del img-header */
-    .img-header {
-        width: 100%;
-        position: relative;
-        top: -18.8rem;
-        height: 13rem;
-        display: flex;
-        justify-content: center;
-        background-image: url(../../../assets/images/ondasGris.jpg);
-        z-index: 1;
-    }
+  /* Estilos del img-header */
+  .img-header {
+    width: 100%;
+    position: relative;
+    top: -18.8rem;
+    height: 13rem;
+    display: flex;
+    justify-content: center;
+    background-image: url(../../../assets/images/ondasGris.jpg);
+    z-index: 1;
+  }
 
-    .list-company-section {
-        width: 70%;
-        height: auto;
-        position: relative;
-        top: 2rem;
-        left: 15%;
-        background-color: var(--neutral-4);
-        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-        padding: 2rem;
-    }
-    .Export{
-        margin-left: 80%;
-    }
+  .list-company-section {
+    width: 70%;
+    height: auto;
+    position: relative;
+    top: 2rem;
+    left: 15%;
+    background-color: var(--neutral-4);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    color: var(--text-color); /* ✅ Texto cambia con el tema */
+  }
 
-    .icon-arrow {
-        margin-right: 0.5rem;
-    }
-    .icon-Create{
-        margin-right: 0.5rem;
-    }
+  .Export {
+    margin-left: 80%;
+  }
 
-    .NavLink {
-        text-decoration: none;
-        color: var(--color-primary);
-    }
-    .CreateUse {
-        text-decoration: none;
-        color: var(--color-primary);
-        width: auto;
-        
-    }
-    
-    .list-company-section h2 {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-        margin-top: 1.2rem;
-    }
+  .icon-arrow {
+    margin-right: 0.5rem;
+  }
+  .icon-Create {
+    margin-right: 0.5rem;
+  }
 
-    .list-company-section p {
-        color: var(--neutral-1_2);
-        margin-bottom: 1rem;
-    }
+  .NavLink {
+    text-decoration: none;
+    color: var(--text-color); /* ✅ Texto cambia */
+  }
 
-    /* Estilos para la tabla de empresas */
-    .border {
-        border: 1px solid var(--neutral-1_2);
-        border-radius: 6px;
-    }
-  
-    .empresa-table-container {
-        margin: 2rem auto;
-        width: 100%;
-        overflow-x: auto; /*Para cuando el contenido de la tabla se desborda*/
-    }
-  
-    .empresa-table {
-      border: 1px solid var(--neutral-1_2); 
-      width: 100%;
-      border-collapse: collapse;
-      background-color: var(--neutral-4);
-      border-radius: 8px;
-      overflow: hidden;
-      /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); */
-    }
-  
-    .empresa-table thead {
-      background-color: var(--neutral-1);
-    }
-  
-    .empresa-table th {
-      padding: 12px 15px;
-      text-align: left;
-      font-weight: 600;
-      color: var(--neutral-1_6);
-      border-bottom: 1px solid var(--neutral-1_2);
-    }
-  
-    .empresa-table td {
-      padding: 12px 15px;
-      border-bottom: 2px solid #f6f6f6;
-      color: var(--neutral-1_5);
-    }
-  
-    .empresa-table tbody tr:hover {
-      background-color: var(--neutral-2);
-    }
-  
-    .status-badge {
-      padding: 8px 19px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 600;
-      display: inline-block;
-    }
-  
-    .status-badge.active {
-      background-color: var(--color-secundary2_4);
-      color: var(--color-secundary-2);
-    }
-    .status-badge.inactive {
-      background-color: var(--color-secundary1_5);
-      color: var(--neutral-1_4);
-    }
-    .button-create{
-    border-radius: 6px; 
-    width:  8rem;
+  .CreateUse {
+    text-decoration: none;
+    color: var(--text-color); /* ✅ Texto cambia */
+    width: auto;
+  }
+
+  .list-company-section h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1.2rem;
+    color: var(--text-color); /* ✅ Texto cambia */
+  }
+
+  .list-company-section p {
+    color: var(--text-color); /* ✅ Texto cambia */
+    margin-bottom: 1rem;
+  }
+
+  /* Estilos para la tabla de empresas */
+  .border {
+    border: 1px solid var(--neutral-1_2);
+    border-radius: 6px;
+  }
+
+  .empresa-table-container {
+    margin: 2rem auto;
+    width: 100%;
+    overflow-x: auto; /*Para cuando el contenido de la tabla se desborda*/
+  }
+
+  .empresa-table {
+    border: 1px solid var(--neutral-1_2);
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--neutral-4);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .empresa-table thead {
+    background-color: var(--neutral-1);
+  }
+
+  .empresa-table th {
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-color); 
+    border-bottom: 1px solid var(--neutral-1_2);
+  }
+
+  .empresa-table td {
+    padding: 12px 15px;
+    border-bottom: 2px solid #f6f6f6;
+    color: var(--text-color); 
+  }
+
+  .empresa-table tbody tr:hover {
+    background-color: var(--neutral-2);
+  }
+
+  .status-badge {
+    padding: 8px 19px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+  }
+
+  .status-badge.active {
+    background-color: var(--color-secundary2_4);
+    color: var(--color-secundary-2);
+  }
+
+  .status-badge.inactive {
+    background-color: var(--color-secundary1_5);
+    color: var(--neutral-1_4);
+  }
+
+  .button-create {
+    border-radius: 6px;
+    width: 8rem;
     height: 2.5rem;
     background-color: var(--color-primary);
     border: none;
@@ -192,33 +196,31 @@
     color: var(--neutral-4);
     position: relative;
     left: 80%;
-    }
-  
-    .edit-button {
-      background: none;
-      border: none;
-      color: var(--neutral-1_6);
-      cursor: pointer;
-      font-size: 16px;
-    }
-  
-    .edit-button:hover {
-      color: var(--color-primary);
-    }
+  }
 
-    /*Prueba*/
-    .copy-button {
-  margin-left: 8px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  color: #007bff;
-}
+  .edit-button {
+    background: none;
+    border: none;
+    color: var(--text-color); 
+    cursor: pointer;
+    font-size: 16px;
+  }
 
-.copy-button:hover {
-  color: #0056b3;
-}
+  .edit-button:hover {
+    color: var(--color-primary);
+  }
 
-    
+  /* Botón de copia */
+  .copy-button {
+    margin-left: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--text-color); 
+  }
+
+  .copy-button:hover {
+    color: #0056b3;
+  }
 }

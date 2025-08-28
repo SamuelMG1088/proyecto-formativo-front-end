@@ -1,9 +1,11 @@
+/* === ESTILOS GLOBALES === */
 * {
   font-family: var(--font-family);
 }
 
+/* === VARIABLES PRINCIPALES (MODO CLARO) === */
 :root {
-  /* Primary*/
+  /* Primary */
   --color-primary: #00304d;
   --color-primary2: #334e68;
   --color-primary3: #5a6e84;
@@ -11,7 +13,7 @@
   --color-primary5: #aab4c0;
   --color-primary6: #d4d9df;
   
-  /*Secundary*/
+  /* Secondary */
   --color-secundary-1: #F4D03F;
   --color-secundary1_2: #ffcc48;
   --color-secundary1_3: #ffd670;
@@ -25,7 +27,7 @@
   --color-secundary2_4: #c4e3b2;
   --color-secundary2_5: #e2f1d8;
   
-  /*Neutral*/
+  /* Neutral */
   --neutral-1: #F5F6FA;
   --neutral-1_2: #aeaeae;
   --neutral-1_3: #888888;
@@ -37,13 +39,17 @@
   --neutral-3: #142435;
   --neutral-4: #FFFFFF;
 
+  /* Generales */
   --color-border: #e0e0e0;
   --font-family: Arial, sans-serif;
   --sidebar-width: 250px;
   --header-height: 60px;
+
+  /* Imagen de fondo (modo claro por defecto) */
+  --bg-image: url("../assets/images/vector-blanco.png");
 }
 
-/* === DARK MODE === */
+/* === MODO OSCURO === */
 .dark {
   --color-primary: #1e293b;   /* azul gris oscuro */
   --color-primary2: #334155;
@@ -68,10 +74,24 @@
 
   --color-border: #374151;
 
+  /* Imagen de fondo (modo oscuro) */
+  --bg-image: url("../assets/images/Vector-Negroo.png");
+  
+
   background-color: var(--neutral-2);
   color: var(--neutral-3);
 }
 
+/* === APLICAR EL FONDO SEGÚN EL TEMA === */
+body {
+  background: var(--neutral-2) no-repeat center center fixed;
+  background-size: cover;
+  background-image: var(--bg-image);
+  color: var(--neutral-3);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* === BOTÓN DE CAMBIO DE TEMA === */
 .toggle-theme-btn {
   background-color: var(--color-button-bg);
   color: var(--color-button-text);
@@ -86,4 +106,40 @@
 
 .toggle-theme-btn:hover {
   opacity: 0.8;
+}
+/* Transición suave para cambios de tema */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Estilos para modo oscuro */
+.dark {
+  background-color: #1a202c;
+  color: #e2e8f0;
+}
+
+/* Estilos para modo claro */
+:root {
+  background-color: #ffffff;
+  color: #2d3748;
+}
+
+/* Estilos para el botón de alternar tema */
+.toggle-theme-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-theme-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark .toggle-theme-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }

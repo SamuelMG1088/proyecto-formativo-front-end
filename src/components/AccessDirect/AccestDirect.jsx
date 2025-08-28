@@ -3,14 +3,18 @@ import '../../styles/variables.css'
 import sofiaplus from '../../assets/icons/icon-sofiaplus.png'
 import sgva from '../../assets/icons/icon-sgva.png'
 import zajuna from '../../assets/icons/icon-zajuna.png'
+import { useTranslation } from 'react-i18next';
+
 
 
 const AccestDirect = () => {
+    const { t } = useTranslation();
     return (
         <>
         <div id="frame-accest">
             <div className="accesses">
-                <div className='direct'><hr/><p>Accesos Directos</p><hr/></div>
+                <div className='direct'><hr/><p>{t('AccestDirect.directAccest')}</p><hr/></div>
+                
                     <div className="box-assest">
 
                         <div className="box">

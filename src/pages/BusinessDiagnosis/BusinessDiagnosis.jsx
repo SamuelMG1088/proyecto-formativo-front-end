@@ -246,7 +246,7 @@ const BusinessDiagnosis = () => {
         </div>
 
         <div className="create-diagnosis-form">
-          <h1>{t('diagnosis.createBusinessDiagnosis')}</h1>
+          <h1 className="h1-diagnosis">{t('diagnosis.createBusinessDiagnosis')}</h1>
           <p className="form-subtitle">{t('diagnosis.completeFields')}</p>
           
           <div className="step-indicator">

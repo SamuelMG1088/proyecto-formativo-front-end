@@ -4,9 +4,8 @@
         height: auto;
         display: flex;
         flex-direction: column;
-        background-image: url(../../../assets/images/vector-blanco.png);
+        background-image: var(--bg-image);
         background-size: cover;
-
     }
 
     /* Carrusel styles */
@@ -113,15 +112,17 @@
         font-size: 2rem;
         margin-bottom: 0.5rem;
         margin-top: 1.2rem;
+        color: var(--text-color);
     }
 
     .list-program-section p {
-        color: var(--neutral-1_2);
+        color: var(--text-color);
         margin-bottom: 1rem;
     }
-   .Exports{
+
+    .Exports{
       margin-left: 80%;
-   }
+    }
 
     /* Program table styles */
     .border {
@@ -152,14 +153,14 @@
       padding: 12px 15px;
       text-align: left;
       font-weight: 600;
-      color: var(--neutral-1_6);
+      color: var(--text-color);
       border-bottom: 1px solid var(--neutral-1_2);
     }
   
     .program-table td {
       padding: 12px 15px;
-      border-bottom: 2px solid #f6f6f6;
-      color: var(--neutral-1_5);
+      border-bottom: 2px solid var(--neutral-2);
+      color: var(--text-color);
     }
   
     .program-table tbody tr:hover {
@@ -181,8 +182,9 @@
 
     .status-badge.inactive {
       background-color: var(--neutral-1_2);
-      color: var(--neutral-1_6);
+      color: var(--text-color);
     }
+
     .Create-program{
       border-radius: 6px; 
       width:  10rem;
@@ -195,15 +197,16 @@
       left: 80%
     }
   
-    .edit-button {
+    .copy-button {
+      margin-left: 8px;
       background: none;
       border: none;
-      color: var(--neutral-1_6);
       cursor: pointer;
-      font-size: 16px;
+      font-size: 1rem;
+      color: var(--text-color); 
     }
-  
-    .edit-button:hover {
-      color: var(--color-primary);
+
+    .copy-button:hover {
+      color: #0056b3;
     }
 }

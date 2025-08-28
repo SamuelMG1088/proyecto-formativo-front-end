@@ -1,4 +1,4 @@
-#Homepage{
+#Homepage {
    /* Estilos principales del carrusel */
     .home-carousel {
         width: 100%;
@@ -65,9 +65,10 @@
         display: flex;
         height: auto;
         justify-content: center;
-        background-image: url(../../../assets/images/vector-blanco.png);
+        background-image: url(../assets/images/Vector-Negroo.png);
         background-size: cover;
     }
+    
 
     /* Secciones de la página de inicio */
     .home-sections {
@@ -234,5 +235,46 @@
     .home-carousel {
         height: 250px;
     }
+    }
+}
+
+
+/* 🌙 ESTILOS EXTRA PARA MODO OSCURO */
+.dark #Homepage {
+    /* fondo de la sección principal */
+    .home-content {
+        background-image: url(../assets/images/Vector-Blanco.png);
+    }
+
+    /* diagnostico con ondas blancas */
+    .content-diagnosis {
+        background-image: url(../../../assets/images/ondasBlancas.jpg);
+        border: 1px solid #ffffff;
+    }
+
+    /* textos principales en blanco */
+    .title-seccion-sena h1,
+    .info-sisgeec h2,
+    .info-sisgeec h4,
+    .content-diagnosis h3,
+    .content-diagnosis p {
+        color: #ffffff;
+    }
+
+    /* íconos en blanco */
+    .icon-map,
+    .icon-checkbox {
+        color: #ffffff;
+    }
+
+    /* secciones principales con fondo oscuro */
+    .home-sections {
+        background-color: #000000;
+    }
+
+    /* botón invertido */
+    .btn-completar {
+        background-color: #ffffff;
+        color: #000000;
     }
 }

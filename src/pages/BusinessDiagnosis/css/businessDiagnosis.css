@@ -1,16 +1,15 @@
 /* Contenedor principal de la página de diagnóstico de negocio */
 #businessDiagnosis {
   /* Sección principal de la página */
-  .PageCreateCompany{
+  .PageCreateCompany {
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-image: url(../../../assets/images/vector-blanco.png);
+    background-image: url(../assets/images/Vector-Negroo.png);
     background-size: cover;
   }
-  
+
   /* ===================== CARRUSEL ===================== */
-  /* Estilos completos del carrusel */
   .create-diagnosis-carousel {
     width: 100%;
     height: 32rem;
@@ -21,14 +20,12 @@
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
   }
 
-  /* Contenedor de las diapositivas del carrusel */
   .carousel-container {
     position: relative;
     width: 100%;
     height: 100%;
   }
 
-  /* Cada diapositiva del carrusel */
   .carousel-slide {
     position: absolute;
     top: 0;
@@ -42,12 +39,10 @@
     transition: opacity 1s ease-in-out;
   }
 
-  /* Diapositiva activa del carrusel */
   .carousel-slide.active {
     opacity: 1;
   }
 
-  /* Contenedor de los puntos indicadores del carrusel */
   .carousel-dots {
     position: absolute;
     bottom: 20px;
@@ -58,7 +53,6 @@
     z-index: 2;
   }
 
-  /* Estilo de cada punto del carrusel */
   .dot {
     width: 12px;
     height: 12px;
@@ -68,19 +62,16 @@
     transition: all 0.3s ease;
   }
 
-  /* Punto activo del carrusel */
   .dot.active {
     background-color: #ffffff;
     transform: scale(1.2);
   }
 
-  /* Hover sobre los puntos del carrusel */
   .dot:hover {
     background-color: rgba(255, 255, 255, 0.8);
   }
 
   /* ===================== FORMULARIO ===================== */
-  /* Contenedor principal del formulario de diagnóstico */
   .create-diagnosis-form {
     max-width: 800px;
     width: 90%;
@@ -91,15 +82,15 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   }
 
-  /* Título del formulario */
   .create-diagnosis-form h1 {
     color: var(--color-primary);
     font-size: 28px;
     margin-bottom: 10px;
     text-align: center;
   }
+  
+  
 
-  /* Subtítulo del formulario */
   .form-subtitle {
     color: var(--neutral-1_3);
     text-align: center;
@@ -108,7 +99,6 @@
   }
 
   /* ===================== INDICADOR DE PASOS ===================== */
-  /* Contenedor del indicador de pasos */
   .step-indicator {
     display: flex;
     align-items: center;
@@ -116,7 +106,6 @@
     margin-bottom: 20px;
   }
 
-  /* Cada círculo de paso */
   .step {
     width: 36px;
     height: 36px;
@@ -130,13 +119,11 @@
     transition: all 0.3s ease;
   }
 
-  /* Paso activo */
   .step.active {
     background-color: var(--color-primary);
     color: var(--neutral-4);
   }
 
-  /* Línea entre pasos */
   .step-line {
     width: 80px;
     height: 2px;
@@ -144,7 +131,6 @@
     margin: 0 10px;
   }
 
-  /* Contenedor de etiquetas de los pasos */
   .step-labels {
     display: flex;
     padding: 0 2px;
@@ -154,7 +140,6 @@
     gap: 9.5rem;
   }
 
-  /* Etiquetas de los pasos */
   .step-labels span {
     color: var(--neutral-1_3);
     font-size: 14px;
@@ -162,26 +147,22 @@
     transition: all 0.3s ease;
   }
 
-  /* Etiqueta activa */
   .step-labels span.active {
     color: var(--color-primary);
     font-weight: 600;
   }
 
   /* ===================== PASOS DEL FORMULARIO ===================== */
-  /* Contenedor de cada paso del formulario */
   .form-step {
     padding: 0 10px;
   }
 
-  /* Título de cada paso */
   .form-step h2 {
     color: var(--color-primary);
     font-size: 22px;
     margin-bottom: 10px;
   }
 
-  /* Descripción de cada paso */
   .step-description {
     color: var(--neutral-1_3);
     margin-bottom: 30px;
@@ -189,12 +170,10 @@
   }
 
   /* ===================== CAMPOS DEL FORMULARIO ===================== */
-  /* Grupo de campos del formulario */
   .form-group {
     margin-bottom: 20px;
   }
 
-  /* Etiqueta de cada campo */
   .form-group label {
     display: block;
     margin-bottom: 8px;
@@ -203,7 +182,6 @@
     font-size: 15px;
   }
 
-  /* Campos de entrada y selectores */
   .form-group input,
   select {
     width: 100%;
@@ -214,27 +192,24 @@
     transition: border 0.3s ease;
   }
 
-  /* Efecto focus en los campos de entrada */
   .form-group input:focus {
     outline: none;
     border-color: var(--color-secundary-1);
     box-shadow: 0 0 0 2px rgba(226, 232, 46, 0.2);
   }
 
-  /* Placeholder de los campos de entrada */
   .form-group input::placeholder {
     color: var(--neutral-1_2);
   }
 
   /* ===================== NAVEGACIÓN DEL FORMULARIO ===================== */
-  /* Contenedor de los botones de navegación */
   .navigation-form {
     display: flex;
     justify-content: center;
     gap: 62%;
   }
 
-  .primary-button{
+  .primary-button {
     background-color: var(--color-secundary-2);
     color: white;
     border: none;
@@ -247,7 +222,6 @@
     transition: background-color 0.3s ease;
   }
 
-  /* Botón primario */
   .button-primary {
     background-color: var(--color-secundary-2);
     color: white;
@@ -258,10 +232,9 @@
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    }
+  }
 
-  /* Botón secundario */
-  .button-secondary{
+  .button-secondary {
     background-color: var(--color-primary);
     color: var(--neutral-4);
     border: none;
@@ -273,16 +246,119 @@
     transition: all 0.3s ease;
   }
 
-  /* Línea entre pasos (duplicada para compatibilidad) */
   .step-line {
     height: 2px;
     width: 19%;
     background-color: var(--neutral-1_2);
     transition: background-color 0.3s;
+  }
+
+  .step-line.active {
+    background-color: var(--color-primary);
+  }
 }
 
-  /* Línea activa entre pasos */
+/* ===================== 🌙 MODO OSCURO ===================== */
+#businessDiagnosis.dark {
+  /* Color base para todo el texto */
+  color: #ffffff;
+  
+  .PageCreateCompany {
+    background-image: url(../assets/images/Vector-Blancoo.png);
+    color: #ffffff;
+  }
+
+  .create-diagnosis-carousel {
+    background-color: #1e1e1e;
+    box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.05);
+  }
+
+  .create-diagnosis-form {
+    background-color: #2a2a2a;
+    color: #ffffff;
+  }
+
+  /* Títulos principales */
+  .create-diagnosis-form h1,
+  .form-step h2 {
+    color: #fdd835;
+  }
+
+  /* Todo el texto general en blanco */
+  .form-subtitle,
+  .step-description,
+  .form-group label,
+  .step-labels span {
+    color: #ffffff !important;
+  }
+
+  /* Texto activo mantiene el color primario */
+  .step-labels span.active {
+    color: #fdd835 !important;
+  }
+
+  /* Campos de formulario */
+  .form-group input,
+  select {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #ffffff;
+  }
+
+  .form-group input::placeholder {
+    color: #cccccc;
+  }
+
+  /* Pasos del indicador */
+  .step {
+    background-color: #555;
+    color: #ffffff;
+  }
+
+  .step.active {
+    background-color: #fdd835;
+    color: #222;
+  }
+
+  .step-line {
+    background-color: #666;
+  }
+
   .step-line.active {
-    background-color: var(--color-primary) /* mismo color que los pasos activos */
+    background-color: #fdd835;
+  }
+
+  /* Botones */
+  .button-primary,
+  .primary-button {
+    background-color: #fdd835;
+    color: #222;
+  }
+
+  .button-secondary {
+    background-color: #444;
+    color: #ffffff;
+  }
+
+  /* Dots del carrusel */
+  .dot {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .dot.active {
+    background-color: #fdd835;
+  }
+
+  /* Asegurar que cualquier párrafo, span, div o texto general sea blanco */
+  p, span, div, li, td, th, a {
+    color: #ffffff;
+  }
+
+  /* Excepciones para elementos que deben mantener colores específicos */
+  .create-diagnosis-form h1,
+  .form-step h2,
+  .step-labels span.active,
+  .step.active {
+    /* Estos mantienen sus colores específicos definidos arriba */
   }
 }

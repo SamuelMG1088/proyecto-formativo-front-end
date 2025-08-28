@@ -546,6 +546,10 @@
         "text": "{{message}}"
       }
     }
+  },
+  "AccestDirect": {
+    "directAccest":"Direct Access"
+
   }
 
 }

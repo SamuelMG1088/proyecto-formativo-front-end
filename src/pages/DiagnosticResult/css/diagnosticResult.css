@@ -1,22 +1,21 @@
-#DiagnosisResult{
-
+#DiagnosisResult {
   .PageresultDiagnosis {
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-image: url(../../../assets/images/vector-blanco.png);
+    background-image: url(../assets/images/Vector-Negroo.png);
     background-size: cover;
   }
 
-  /* Estilos del carrusel */
+  /* === Carrusel === */
   .diagnosis-carousel {
     width: 100%;
     height: 32rem;
     position: relative;
     overflow: hidden;
     z-index: 1;
-    margin-bottom: -40px; /* Solapa con el img-header */
-    background-color: #f5f5f5; /* Fondo de respaldo */
+    margin-bottom: -40px;
+    background-color: #f5f5f5;
   }
 
   .carousel-container {
@@ -69,14 +68,19 @@
   .dot:hover {
     background-color: rgba(255, 255, 255, 0.9);
   }
+
+  /* === Gráficas === */
   .chart-container {
-  background: white;
-  border-radius: 8px;
-  padding: 2rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: var(--neutral-4);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 
-  .chart-icon{
+  .chart-icon {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -84,305 +88,197 @@
     background-color: var(--color-primary);
     margin-left: 8rem;
     padding: 1rem;
+  }
 
-    }
-    
-    .Sub-title{
-      margin-left: 39%;
-    }
-    .Sub-title h2{
-      margin-left: 1rem;
-    }
+  /* === Títulos y subtítulos === */
+  .Sub-title {
+    margin-left: 39%;
+  }
 
-    /* Estilos para el contenedor de la gráfica */
-.chart-container {
-  width: 100%;
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+  .Sub-title h2 {
+    margin-left: 1rem;
+    color: var(--color-primary);
+  }
 
-/* Estilos para el mensaje de carga */
-.loading-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
+  /* === Loading === */
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
 
-.spinner {
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #3498db;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
-  margin-bottom: 1rem;
-}
+  .spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+  }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
-/* Estilos para el mensaje de error */
-.error-container {
-  text-align: center;
-  padding: 2rem;
-  color: #e74c3c;
-}
+  /* === Errores y mensajes === */
+  .error-container {
+    padding: 40px;
+    text-align: center;
+    background: #ffebee;
+    border-radius: 8px;
+    margin: 20px;
+  }
 
-.error-container h2 {
-  margin-bottom: 1rem;
-}
+  .error-container h2 {
+    margin-bottom: 1rem;
+    color: #c62828;
+  }
 
-/* Estilos para el mensaje sin datos */
-.no-data-message {
-  text-align: center;
-  padding: 2rem;
-  color: #7f8c8d;
-  font-style: italic;
-}
+  .no-data-message {
+    padding: 20px;
+    background: #fff3e0;
+    border-radius: 4px;
+    text-align: center;
+    color: #e65100;
+    margin-top: 20px;
+    font-style: italic;
+  }
 
-  .content-result-section{
+  /* === Contenedor principal === */
+  .content-result-section {
     margin-top: 10rem;
     background-color: var(--neutral-4);
     margin-left: 5rem;
     width: 90%;
     height: 40%;
-    padding: none;
   }
+
+  /* === Lista de empresas === */
   .list-company-section {
-        width: 86.5%;
-        height: auto;
-        position: relative;
-        top: 2rem;
-        left: 5%;
-        background-color: var(--neutral-4);
-        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-        padding: 2rem;
-    }
+    width: 86.5%;
+    height: auto;
+    position: relative;
+    top: 2rem;
+    left: 5%;
+    background-color: var(--neutral-4);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+  }
 
-    .icon-arrow {
-        margin-right: 0.5rem;
-    }
+  .icon-arrow {
+    margin-right: 0.5rem;
+  }
 
-    .NavLink {
-        text-decoration: none;
-        color: var(--color-primary);
-        position: relative;
-        top: 3rem;
-        left: 3rem;
-    }
-    
-    .list-company-section h2 {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-        margin-top: 1.2rem;
-    }
+  .NavLink {
+    text-decoration: none;
+    color: var(--color-primary);
+    position: relative;
+    top: 3rem;
+    left: 3rem;
+  }
 
-    .list-company-section p {
-        color: var(--neutral-1_2);
-        margin-bottom: 1rem;
-    }
-    .Export-pdf-excel{
-      margin-left: 80%;
-    }
-    .border {
-        border: 1px solid var(--neutral-1_2);
-        border-radius: 6px;
-    }
-  
-    .empresa-table-container {
-        margin: 2rem auto;
-        width: 100%;
-        overflow-x: auto; 
-    }
+  .list-company-section h2 {
+    font-size: 2rem;
+    margin: 1.2rem 0 0.5rem 0;
+  }
+
+  .list-company-section p {
+    color: var(--neutral-1_2);
+    margin-bottom: 1rem;
+  }
+
+  .Export-pdf-excel {
+    margin-left: 80%;
+  }
+
+  .border {
+    border: 1px solid var(--neutral-1_2);
+    border-radius: 6px;
+  }
+
+  /* === Tabla === */
   .empresa-table-container {
-        margin: 2rem auto;
-        width: 100%;
-        overflow-x: auto;
-    }
-  
-    .empresa-table {
-      border: 1px solid var(--neutral-1_2); 
-      width: 100%;
-      border-collapse: collapse;
-      background-color: var(--neutral-4);
-      border-radius: 8px;
-      overflow: hidden;
-      
-    }
-  
-    .empresa-table thead {
-      background-color: var(--neutral-);
-    }
-  
-    .empresa-table th {
-      padding: 1rem 1rem;
-      text-align: left;
-      font-weight: 600;
-      color: var(--neutral-1_6);
-      border-bottom: 1px solid var(--neutral-1_2);
-    }
-  
-    .empresa-table td {
-      padding: 1rem ;
-      border-bottom: 2px solid #f6f6f6;
-      color: var(--neutral-1_5);
-    }
-  
-    .empresa-table tbody tr:hover {
-      background-color: var(--neutral-2);
-    }
-  
-    .status-badge {
-      padding: 5% 12%;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 500;
-      display: inline-block;
-    }
-  
-    .status-badge.active {
-      background-color: var(--color-secundary-2);
-      color: var(--neutral-4);
-    }
-  
-    .edit-button {
-      background: none;
-      border: none;
-      color: var(--neutral-1_6);
-      cursor: pointer;
-      font-size: 16px;
-    }
-  
-    .edit-button:hover {
-      color: var(--color-primary);
-    }
-  .loading-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
+    margin: 2rem auto;
+    width: 100%;
+    overflow-x: auto;
+  }
 
-.spinner {
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #3498db;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
-  margin-bottom: 20px;
-}
+  .empresa-table {
+    border: 1px solid var(--neutral-1_2);
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--neutral-4);
+    border-radius: 8px;
+    overflow: hidden;
+  }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+  .empresa-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--neutral-1_6);
+    border-bottom: 1px solid var(--neutral-1_2);
+  }
 
-.error-container {
-  padding: 40px;
-  text-align: center;
-  background: #ffebee;
-  border-radius: 8px;
-  margin: 20px;
-}
+  .empresa-table td {
+    padding: 1rem;
+    border-bottom: 2px solid #f6f6f6;
+    color: var(--neutral-1_5);
+  }
 
-.error-container h2 {
-  color: #c62828;
-}
+  .empresa-table tbody tr:hover {
+    background-color: var(--neutral-2);
+  }
 
-.no-data-message {
-  padding: 20px;
-  background: #fff3e0;
-  border-radius: 4px;
-  text-align: center;
-  color: #e65100;
-  margin-top: 20px;
-}
+  .status-badge {
+    padding: 5% 12%;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    display: inline-block;
+  }
 
- .loading-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
+  .status-badge.active {
+    background-color: var(--color-secundary-2);
+    color: var(--neutral-4);
+  }
 
-.spinner {
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #3498db;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
-  margin-bottom: 20px;
-}
+  .edit-button {
+    background: none;
+    border: none;
+    color: var(--neutral-1_6);
+    cursor: pointer;
+    font-size: 16px;
+  }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+  .edit-button:hover {
+    color: var(--color-primary);
+  }
 
-.error-container {
-  padding: 40px;
-  text-align: center;
-  background: #ffebee;
-  border-radius: 8px;
-  margin: 20px;
-}
+  /* ===================== */
+  /* === MODO OSCURO === */
+  /* ===================== */
+  .dark .Sub-title h2,
+  .dark .Sub-title p,
+  .dark .empresa-table th,
+  .dark .empresa-table td,
+  .dark .no-data-message,
+  .dark .error-container h2,
+  .dark .error-container p,
+  .dark .loading-container p,
+  .dark .NavLink,
+  .dark .edit-button {
+    color: #ffffff !important;
+  }
 
-.error-container h2 {
-  color: #c62828;
-}
-
-.no-data-message {
-  padding: 20px;
-  background: #fff3e0;
-  border-radius: 4px;
-  text-align: center;
-  color: #e65100;
-  margin-top: 20px;
-}
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.error-container {
-  padding: 40px;
-  text-align: center;
-  background: #ffebee;
-  border-radius: 8px;
-  margin: 20px;
-}
-
-.error-container h2 {
-  color: #c62828;
-}
-
-.no-data-message {
-  padding: 20px;
-  background: #fff3e0;
-  border-radius: 4px;
-  text-align: center;
-  color: #e65100;
-  margin-top: 20px;
-}
-  
-
-
-
-
-
-
-
-
+  .dark .chart-container,
+  .dark .list-company-section,
+  .dark .empresa-table,
+  .dark .content-result-section {
+    background-color: var(--neutral-2);
+  }
 }
