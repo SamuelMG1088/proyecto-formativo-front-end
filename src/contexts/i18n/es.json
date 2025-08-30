@@ -124,6 +124,9 @@
     "yesSuspend": "Sí, suspender",
     "suspend": "suspender",
     "edit": "Editar",
+    "confirm": "Confirmar",
+    "previous": "Anterior",
+    "next": "Siguiente",
     "confirm": "Confirmar"
   },
   "labels": {
@@ -177,26 +180,6 @@
     "dataUpdatedTitle": "¡Datos actualizados!",
     "dataUpdatedText": "La información se actualizó correctamente.",
     "logoutSuccess": "Has cerrado sesión exitosamente"
-  },
-  "general": {
-    "yes": "Sí",
-    "no": "No",
-    "both": "Ambos",
-    "none": "Ninguno",
-    "others": "Otros",
-    "other": "Otro",
-    "always": "Siempre",
-    "sometimes": "Algunas veces",
-    "never": "Nunca",
-    "chooseOption": "Elija una opción",
-    "understand": "Entendido",
-    "goToLogin": "Ir a Login",
-    "tryAgain": "Intentar nuevamente",
-    "next": "Siguiente",
-    "previous": "Anterior",
-    "sending": "Enviando...",
-    "allAbove": "Todos los anteriores",
-    "noneAbove": "Ninguno de los anteriores"
   },
   "diagnosis": {
     "createBusinessDiagnosis": "Creación del diagnóstico empresarial",
@@ -288,7 +271,25 @@
       "backToHome": "Volver al inicio",
       "active": "Activo",
       "always": "Siempre",
-      "sometimes": "A veces"
+      "sometimes": "A veces",
+      "yes": "Sí",
+      "no": "No",
+      "both": "Ambos",
+      "none": "Ninguno",
+      "others": "Otros",
+      "other": "Otro",
+      "always": "Siempre",
+      "sometimes": "Algunas veces",
+      "never": "Nunca",
+      "chooseOption": "Elija una opción",
+      "understand": "Entendido",
+      "goToLogin": "Ir a Login",
+      "tryAgain": "Intentar nuevamente",
+      "next": "Siguiente",
+      "previous": "Anterior",
+      "sending": "Enviando...",
+      "allAbove": "Todos los anteriores",
+      "noneAbove": "Ninguno de los anteriores"
     },
     "listProgram": {
     "backToHome": "Volver al Inicio",

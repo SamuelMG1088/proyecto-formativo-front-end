@@ -68,7 +68,7 @@ const EditProfile = () => {
                     <FaGraduationCap className="icon-Training" />
                 </div>
                     <h1 className="profile-title">
-                    Stephania Herrera Duque
+                    Jhonatan samuel
                     </h1>
 
                 <div className="info-boxes">
@@ -76,10 +76,7 @@ const EditProfile = () => {
                     <p className="info-main">Estado</p>
                     <p className="info-label">Activo</p>
                     </div>
-                    <div className="info-box">
-                    <p className="info-main">Rol</p>
-                    <p className="info-label">Admin</p>
-                    </div>
+      
                     {/* <div className="info-box">
                     <p className="info-main">Diurna</p>
                     <p className="info-label">Jornada</p>
