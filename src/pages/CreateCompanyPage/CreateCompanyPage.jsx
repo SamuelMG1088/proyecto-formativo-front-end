@@ -112,7 +112,7 @@ const CreateCompanyPage = () => {
         password: userData.password,
         direccion: userData.address,
         actividad_economica: userData.actividad_economica,
-        rol_usuario: roleNormalized, ñ
+        rol_usuario: roleNormalized, 
       };
 
       console.log("Payload enviado:", payload);
