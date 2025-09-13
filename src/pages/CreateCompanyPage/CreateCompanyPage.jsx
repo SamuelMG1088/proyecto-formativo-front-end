@@ -120,7 +120,6 @@ const CreateCompanyPage = () => {
 
       const response = await axios.post("http://localhost:3000/api/usuarios", payload);
 
-      // Si backend no guarda rol en BD, puedes mantenerlo en frontend:
       const usuarioRecibido = response.data.usuario || {};
       const usuarioConRol = { ...usuarioRecibido, rol: roleNormalized, rol_usuario: roleNormalized };
 
