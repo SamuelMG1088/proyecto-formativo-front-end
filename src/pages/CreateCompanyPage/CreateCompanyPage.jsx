@@ -30,7 +30,6 @@ const CreateCompanyPage = () => {
     address: "",
     password: "",
     actividad_economica: "Sector primario",
-    // puedes usar este campo en el UI; lo normalizo al backend antes de enviar
     rol: "Empresa",
   });
 
@@ -92,11 +91,11 @@ const CreateCompanyPage = () => {
     }
 
     try {
-      // Normalizamos rol (mayúsculas correctas que el backend suele esperar)
+      // Normalizamos rol
       const roleNormalized =
         (userData.rol || "").toString().toLowerCase() === "admin" ? "Admin" : "Empresa";
 
-      // Enviamos ambos campos por compatibilidad (rol y rol_usuario)
+      // Payload corregido
       const payload = {
         id: parseInt(userData.documentNumber, 10),
         tipo_documento:
@@ -113,7 +112,7 @@ const CreateCompanyPage = () => {
         password: userData.password,
         direccion: userData.address,
         actividad_economica: userData.actividad_economica,
-        rol: roleNormalized,
+        rol_usuario: roleNormalized, ñ
       };
 
       console.log("Payload enviado:", payload);
@@ -121,7 +120,7 @@ const CreateCompanyPage = () => {
       const response = await axios.post("http://localhost:3000/api/usuarios", payload);
 
       const usuarioRecibido = response.data.usuario || {};
-      const usuarioConRol = { ...usuarioRecibido, rol: roleNormalized, rol_usuario: roleNormalized };
+      const usuarioConRol = { ...usuarioRecibido, rol_usuario: roleNormalized };
 
       console.log("Usuario creado (frontend):", usuarioConRol);
 
