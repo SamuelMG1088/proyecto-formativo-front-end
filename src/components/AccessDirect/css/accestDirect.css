@@ -47,9 +47,9 @@
 
 /* 🔹 Modo oscuro */
 body.dark #frame-accest .direct {
-    color: #ffffff; /* Texto en blanco para modo oscuro */
+    color: #ffffff; 
 }
 
 body.dark #frame-accest .box {
-    border-color: #ffffff; /* Opcional: borde blanco en modo oscuro */
+    border-color: #ffffff; 
 }

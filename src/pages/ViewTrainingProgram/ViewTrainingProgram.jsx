@@ -13,10 +13,10 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import ButtonSuspend from '../../components/Buttons/BurronSuspend/ButtonSuspend.jsx';
-import { useAuth } from "../../contexts/AuthContext/AuthContext.jsx"; // 🔹 importar useAuth
+import { useAuth } from "../../contexts/AuthContext/AuthContext.jsx"; 
 
 const ViewTraining = () => {
-  const { user } = useAuth(); // 🔹 obtener usuario
+  const { user } = useAuth(); 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [program, setProgram] = useState(null);
   const { id } = useParams();
@@ -133,7 +133,6 @@ const ViewTraining = () => {
                   <p>{program.productiva}</p>
                 </div>
 
-                {/* 🔹 Ocultar botones para rol Empresa */}
                 {user?.rol_usuario !== "Empresa" && (
                   <div className="Box-Button">
                     <Link
