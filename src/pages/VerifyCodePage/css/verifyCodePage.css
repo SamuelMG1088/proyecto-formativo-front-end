@@ -1,4 +1,4 @@
-#VerifyCodePage{
+#VerifyCodePage {
     /* Pagina - Page */
     .VerifyPage {
         display: grid;
@@ -14,7 +14,7 @@
         margin: 7% 0% 0% 20%;
     }
 
-    .VerifyPage .frame a{
+    .VerifyPage .frame a {
         text-decoration: none;
         color: var(--neutral-1_5);
     }
@@ -53,7 +53,7 @@
         left: 98%;
     }
     
-    .again-code span{
+    .again-code span {
         color: var(--color-primary);
         cursor: pointer;
     }
@@ -125,3 +125,22 @@
     }
 }
 
+/* 🌙 Modo oscuro: letras blancas, inputs, botón y "Volver a enviar" */
+body.dark #VerifyCodePage .VerifyPage .frame h1,
+body.dark #VerifyCodePage .VerifyPage .frame a,
+body.dark #VerifyCodePage .VerifyPage .frame p,
+body.dark #VerifyCodePage .VerifyPage .frame input,
+body.dark #VerifyCodePage .BottonVerify,
+body.dark #VerifyCodePage .again-code span {
+    color: #ffffff !important; /* Texto en blanco */
+}
+
+body.dark #VerifyCodePage .VerifyPage .frame input {
+    background-color: #333333; /* Fondo oscuro de inputs */
+    border: 1px solid #ffffff; /* Borde blanco */
+    color: #ffffff; /* Texto del input en blanco */
+}
+
+body.dark #VerifyCodePage .VerifyPage .frame .input-box-email label {
+    background-color: #333333; /* Fondo del label en oscuro */
+}

@@ -147,9 +147,7 @@
   }
 }
 
-/* =====================
-   ADAPTACIÓN A MODO OSCURO
-   ===================== */
+/* 🌙 Modo oscuro: todo el texto en blanco, inputs y botón login */
 .dark #LoginPage .LoginPage {
   background-image: var(--bg-image);
 }
@@ -157,24 +155,21 @@
 .dark #LoginPage .frame h1,
 .dark #LoginPage .frame .P_Accede,
 .dark #LoginPage .remember-forgot,
-.dark #LoginPage .remember-forgot .OldMyPass {
-  color: var(--neutral-3);
+.dark #LoginPage .remember-forgot .OldMyPass,
+.dark #LoginPage .input-box-email label,
+.dark #LoginPage .input-box-email input {
+  color: #ffffff !important; /* Texto en blanco */
 }
 
 .dark #LoginPage .frame .input-box-email input {
-  background-color: var(--neutral-1_6);
-  border: 1px solid var(--color-border);
-  color: var(--neutral-3);
-}
-
-.dark #LoginPage .input-box-email label {
-  background-color: var(--neutral-2);
-  color: var(--neutral-3);
+  background-color: #333333; /* Fondo oscuro de inputs */
+  border: 1px solid #ffffff; /* Borde blanco */
+  color: #ffffff; /* Texto del input */
 }
 
 .dark #LoginPage .Bottonlogin {
   background-color: var(--color-primary);
-  color: var(--neutral-3);
+  color: #ffffff; /* Texto del botón en blanco */
 }
 
 .dark #LoginPage .img-LoginPage {
