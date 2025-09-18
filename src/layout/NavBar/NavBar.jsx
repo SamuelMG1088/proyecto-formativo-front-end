@@ -1,60 +1,73 @@
-import { NavLink, useLocation } from 'react-router-dom';
-import '../../styles/variables.css';
-import './css/navBar.css';
-import Swal from 'sweetalert2';
-import { useTranslation } from 'react-i18next';
+// src/layout/NavBar/NavBar.jsx
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import "../../styles/variables.css";
+import "./css/navBar.css";
+import Swal from "sweetalert2";
+import { useTranslation } from "react-i18next";
+import { useAuth } from "../../contexts/AuthContext/AuthContext.jsx";
+import modulesConfig from "../../components/modulconfi/modulconfi.jsx";
 
 const NavBar = () => {
-    const location = useLocation();
-    const { t, i18n } = useTranslation();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { t } = useTranslation();
+  const { user, logout } = useAuth();
 
-    const changeLanguage = (lang) => {
-        i18n.changeLanguage(lang);
-        localStorage.setItem("lang", lang); // recuerda idioma
-    };
+  const AlertaLogout = () => {
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: t("alerts.logoutSuccess"),
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    logout();
+    navigate("/");
+  };
 
-    const AlertaLogout = () => {
-        Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: t("alerts.logoutSuccess"),
-            showConfirmButton: false,
-            timer: 1500
-        });
-    };
+  // 🔹 Obtener módulos según rol
+  const roleModules = user?.rol_usuario
+    ? modulesConfig[user.rol_usuario] || []
+    : [];
 
-    return (
-        <div id="navbar">
-            <nav className="navbar">
-                <ul className="navbar-menu">
-                    <li className={location.pathname === '/home' ? 'active' : ''}>
-                        <NavLink to="/home">{t("navbar.home")}</NavLink>
-                    </li>
-                    <li className={location.pathname === '/listcompany' ? 'active' : '' ||
-                        location.pathname === '/viewcompany' ? 'active' : '' ||
-                        location.pathname === '/CreateCompanyPage' ? 'active' : '' ||
-                        location.pathname === '/viewCompany/14' ? 'active' : ''}>
-                        <NavLink to="/listcompany">{t("navbar.users")}</NavLink>
-                    </li>
-                    <li className={location.pathname === '/ListProgram' ? 'active' : '' ||
-                        location.pathname === '/ViewTraining/2896364' ? 'active' : '' ||
-                        location.pathname === '/CreateProgram' ? 'active' : ''}>
-                        <NavLink to="/ListProgram">{t("navbar.training")}</NavLink>
-                    </li>
-                    <li className={location.pathname === '/businessdiagnosis' ? 'active' : ''}>
-                        <NavLink to="/businessdiagnosis">{t("navbar.diagnosis")}</NavLink>
-                    </li>
-                    <li className={location.pathname === '/viewprofile' ? 'active' : '' ||
-                        location.pathname === '/Editprofile' ? 'active' : ''}>
-                        <NavLink to="/viewprofile">{t("navbar.profile")}</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/" onClick={AlertaLogout}>{t("navbar.logout")}</NavLink>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    );
-}
+  // 🔹 Reemplazar parámetros dinámicos en los links
+  const parseLink = (link) => {
+    if (!link) return "#";
+    if (link.includes(":id") && user?.id) {
+      return link.replace(":id", user.id);
+    }
+    return link;
+  };
+
+  // 🔹 Función para determinar si el link está activo incluso con parámetros
+  const isActive = (link) => {
+    const parsed = parseLink(link);
+    return location.pathname === parsed;
+  };
+
+  return (
+    <div id="navbar">
+      <nav className="navbar">
+        <ul className="navbar-menu">
+          {roleModules.map((module) => (
+            <li key={module.id} className={isActive(module.link) ? "active" : ""}>
+              <NavLink to={parseLink(module.link)}>
+                {t(module.title)}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+
+        <ul className="navbar-logout">
+          <li>
+            <NavLink to="/" onClick={AlertaLogout}>
+              {t("navbar.logout")}
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  );
+};
 
 export default NavBar;

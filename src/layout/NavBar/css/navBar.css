@@ -1,25 +1,36 @@
 #navbar {
-    .navbar {
-        background-color: var(--color-background);
-        padding: 1rem;
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
+        .navbar {
+            background-color: var(--color-background);
+            padding: 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: flex;
+            justify-content: space-between;
 
-    .navbar ul {
+        }
+        .navbar-menu{
+            display: flex;
+            align-items: center;
+            width: 80%;
+        } 
+        
+        
+        
+        .navbar ul {
         display: flex;
         justify-content: space-between;
         list-style-type: none;
     }
-
+    
     .navbar ul li {
         padding: 0.5rem 1rem;
         cursor: pointer;
+        margin-left: 7rem;
     }
-
+    
     .navbar ul li:hover {
         border-bottom: 3px solid var(--color-accent);
     }
-
+    
     .navbar ul li a {
         text-decoration: none;
         color: var(--color-text);
@@ -30,6 +41,6 @@
 
     /* Estilo para el elemento activo */
     .navbar ul li.active {
-        border-bottom: 3px solid var(--color-accent);
+        border-bottom: 3px solid var(--color-accent);    
     }
 }

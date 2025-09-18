@@ -169,8 +169,9 @@
     }
 
     .Box-Button{
-        width: 100%;
+        width: 93%;
         display: flex;
         justify-content: center;
+        padding: 1.5rem;
     }
 }

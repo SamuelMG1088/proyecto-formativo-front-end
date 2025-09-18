@@ -1,8 +1,9 @@
+// src/pages/LoginPage/LoginPage.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext/AuthContext.jsx";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import Swal from "sweetalert2";
 
 import factor1 from "../../assets/images/factorHumano1.jpg";
@@ -49,8 +50,8 @@ export const LoginPage = () => {
     if (!email || !password) {
       Swal.fire({
         icon: "warning",
-        title: t('loginPage.alerts.incompleteFields.title'),
-        text: t('loginPage.alerts.incompleteFields.text'),
+        title: t("loginPage.alerts.incompleteFields.title"),
+        text: t("loginPage.alerts.incompleteFields.text"),
       });
       setLoading(false);
       return;
@@ -63,15 +64,22 @@ export const LoginPage = () => {
       });
 
       if (response?.status === 200 && response?.data?.token) {
+        // 🔑 Guardamos token
         localStorage.setItem("authToken", response.data.token);
-        
+
         if (response.data.user) {
-          login(response.data.user);
-          
+          // 🔑 Guardamos usuario en el contexto con su rol
+          login({
+            ...response.data.user,
+            rol_usuario: response.data.user.rol_usuario,
+          });
+
           Swal.fire({
             icon: "success",
-            title: t('loginPage.alerts.welcome.title', { name: response.data.user.nombre || '' }),
-            text: t('loginPage.alerts.welcome.text'),
+            title: t("loginPage.alerts.welcome.title", {
+              name: response.data.user.nombre || "",
+            }),
+            text: t("loginPage.alerts.welcome.text"),
             showConfirmButton: false,
             timer: 1500,
           }).then(() => {
@@ -94,21 +102,21 @@ export const LoginPage = () => {
     let messageKey;
 
     if (status === 401 || status === 404) {
-      messageKey = 'loginPage.alerts.errors.invalidCredentials';
+      messageKey = "loginPage.alerts.errors.invalidCredentials";
     } else if (status === 403) {
-      messageKey = 'loginPage.alerts.errors.disabledAccount';
+      messageKey = "loginPage.alerts.errors.disabledAccount";
     } else if (status === 500) {
-      messageKey = 'loginPage.alerts.errors.serverError';
+      messageKey = "loginPage.alerts.errors.serverError";
     } else if (error.message === "Network Error") {
-      messageKey = 'loginPage.alerts.errors.networkError';
+      messageKey = "loginPage.alerts.errors.networkError";
     } else {
-      messageKey = 'loginPage.alerts.errors.genericError';
+      messageKey = "loginPage.alerts.errors.genericError";
     }
 
     Swal.fire({
       icon: "error",
-      title: t('loginPage.alerts.denied.title'),
-      text: t('loginPage.alerts.denied.text', { message: t(messageKey) }),
+      title: t("loginPage.alerts.denied.title"),
+      text: t("loginPage.alerts.denied.text", { message: t(messageKey) }),
     });
   };
 
@@ -118,17 +126,17 @@ export const LoginPage = () => {
       <HeaderIcons />
       <div className="LoginPage">
         <div className="frame">
-          <h1>{t('loginPage.title')}</h1>
-          <p className="P_Accede">{t('loginPage.subtitle')}</p>
+          <h1>{t("loginPage.title")}</h1>
+          <p className="P_Accede">{t("loginPage.subtitle")}</p>
 
           <form onSubmit={handleLogin}>
             <div className="input-box-email">
-              <label htmlFor="email">{t('loginPage.emailLabel')}</label>
+              <label htmlFor="email">{t("loginPage.emailLabel")}</label>
               <input
                 id="email"
                 type="email"
                 value={email}
-                placeholder={t('loginPage.emailPlaceholder')}
+                placeholder={t("loginPage.emailPlaceholder")}
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 autoComplete="username"
@@ -136,50 +144,42 @@ export const LoginPage = () => {
             </div>
 
             <div className="input-box-email">
-              <label htmlFor="password">{t('loginPage.passwordLabel')}</label>
+              <label htmlFor="password">{t("loginPage.passwordLabel")}</label>
               <input
                 id="password"
                 type={showPassword ? "text" : "password"}
                 value={password}
-                placeholder={t('loginPage.passwordPlaceholder')}
+                placeholder={t("loginPage.passwordPlaceholder")}
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 autoComplete="current-password"
               />
               {showPassword ? (
-                <BsEyeFill 
-                  className="icon" 
-                  onClick={togglePasswordVisibility} 
-                  title={t('loginPage.passwordVisibility.hide')}
+                <BsEyeFill
+                  className="icon"
+                  onClick={togglePasswordVisibility}
+                  title={t("loginPage.passwordVisibility.hide")}
                 />
               ) : (
-                <BsEyeSlashFill 
-                  className="icon" 
-                  onClick={togglePasswordVisibility} 
-                  title={t('loginPage.passwordVisibility.show')}
+                <BsEyeSlashFill
+                  className="icon"
+                  onClick={togglePasswordVisibility}
+                  title={t("loginPage.passwordVisibility.show")}
                 />
               )}
             </div>
 
             <div className="remember-forgot">
               <label>
-                <input type="checkbox" /> {t('loginPage.rememberMe')}
+                <input type="checkbox" /> {t("loginPage.rememberMe")}
               </label>
               <Link to="/old" className="OldMyPass">
-                {t('loginPage.forgotPassword')}
+                {t("loginPage.forgotPassword")}
               </Link>
             </div>
 
-            <button 
-              className="Bottonlogin" 
-              type="submit"
-              disabled={loading}
-            >
-              {loading ? (
-                <span className="spinner"></span>
-              ) : (
-                t('loginPage.loginButton')
-              )}
+            <button className="Bottonlogin" type="submit" disabled={loading}>
+              {loading ? <span className="spinner"></span> : t("loginPage.loginButton")}
             </button>
           </form>
 

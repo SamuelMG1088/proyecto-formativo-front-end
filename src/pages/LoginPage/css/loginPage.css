@@ -2,8 +2,8 @@
   .LoginPage {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    background-image: url(../assets/images/Vector-Negroo.png);
-    border-top: 2px solid;
+    background-image: var(--bg-image);
+    border-top: 2px solid var(--color-border);
     background-size: cover;
     height: 51.5rem;
   }
@@ -37,6 +37,8 @@
     padding-left: 1rem;
     border-radius: 0.4rem;
     border: 1px solid var(--neutral-1_5);
+    background-color: var(--neutral-4);
+    color: var(--neutral-3);
   }
 
   .input-box-email label {
@@ -44,6 +46,7 @@
     left: 2%;
     top: 25%;
     background-color: var(--neutral-4);
+    color: var(--neutral-3);
     margin: 0px 2px 0px 2px;
     padding: 0px 5px;
   }
@@ -144,108 +147,44 @@
   }
 }
 
-@media (max-width: 1024px) {
-  .LoginPage {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .LoginPage .frame {
-    width: 80%;
-    margin: 5% auto;
-  }
-
-  .img-LoginPage {
-    width: 100%;
-    height: 400px;
-    margin-top: 2rem;
-  }
-
-  .box-assest {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
+/* =====================
+   ADAPTACIÓN A MODO OSCURO
+   ===================== */
+.dark #LoginPage .LoginPage {
+  background-image: var(--bg-image);
 }
 
-@media (max-width: 768px) {
-  .LoginPage .frame {
-    width: 90%;
-    margin: 5% auto;
-  }
-
-  .LoginPage .frame h1 {
-    font-size: 1.5rem;
-  }
-
-  .LoginPage .frame .P_Accede {
-    font-size: 0.9rem;
-  }
-
-  .input-box-email input {
-    font-size: 1rem;
-  }
-
-  .icon {
-    display: none;
-  }
-
-  .Bottonlogin {
-    width: 100%;
-    height: 2.5rem;
-  }
-
-  .box-assest {
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  .box {
-    width: 5rem;
-    height: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .box img {
-    width: 80%;
-  }
+.dark #LoginPage .frame h1,
+.dark #LoginPage .frame .P_Accede,
+.dark #LoginPage .remember-forgot,
+.dark #LoginPage .remember-forgot .OldMyPass {
+  color: var(--neutral-3);
 }
 
-@media (max-width: 480px) {
-  .LoginPage {
-    padding: 2rem;
-  }
+.dark #LoginPage .frame .input-box-email input {
+  background-color: var(--neutral-1_6);
+  border: 1px solid var(--color-border);
+  color: var(--neutral-3);
+}
 
-  .LoginPage .frame {
-    width: 100%;
-    margin: 2% auto;
-  }
+.dark #LoginPage .input-box-email label {
+  background-color: var(--neutral-2);
+  color: var(--neutral-3);
+}
 
-  .icon {
-    display: none;
-  }
+.dark #LoginPage .Bottonlogin {
+  background-color: var(--color-primary);
+  color: var(--neutral-3);
+}
 
-  .img-LoginPage {
-    height: 300px;
-  }
+.dark #LoginPage .img-LoginPage {
+  background-color: var(--neutral-1);
+}
 
-  .box-assest {
-    grid-template-columns: repeat(1, 1fr);
-    justify-content: center;
-    gap: 0.5rem;
-  }
+.dark #LoginPage .dot {
+  background-color: rgba(255, 255, 255, 0.5);
+}
 
-  .box {
-    width: 100%;
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .box img {
-    width: 50%;
-  }
+.dark #LoginPage .dot.active {
+  background-color: var(--neutral-3);
 }

@@ -1,10 +1,10 @@
 {
-  "navbar": {
+   "navbar": {
     "home": "Inicio",
-    "users": "Usuarios",
-    "training": "Programa de Formación",
-    "diagnosis": "Diagnóstico Empresarial",
+    "diagnosis": "Diagnóstico empresarial",
     "profile": "Perfil",
+    "users": "Usuarios",
+    "training": "Programas de formacion",
     "logout": "Cerrar Sesión"
   },
   "home": {
@@ -378,21 +378,26 @@
     }
   },
   "viewProfile": {
-    "title": "Perfil de Usuario",
+    "loading": "Cargando perfil...",
+    "notAuthenticated": "No has iniciado sesión.",
+    "goToLogin": "Ir al inicio de sesión",
     "status": "Estado",
-    "documentType": "Tipo de Documento",
-    "phoneNumber": "Número Telefónico",
+    "documentType": "Tipo de documento",
+    "documentNumber": "Número de documento",
+    "email": "Correo electrónico",
+    "phoneNumber": "Teléfono",
     "address": "Dirección",
-    "editProfile": "Editar Perfil",
-    "memberSince": "Miembro desde",
+    "editProfile": "Editar perfil",
     "defaultValues": {
       "name": "Nombre no disponible",
       "status": "Estado no disponible",
-      "documentType": "No especificado",
-      "phone": "No proporcionado",
-      "address": "No proporcionada",
-      "date": "Fecha desconocida"
-    },
+      "documentType": "Tipo de documento no disponible",
+      "documentNumber": "Número no disponible",
+      "phone": "Teléfono no disponible",
+      "address": "Dirección no disponible",
+      "email": "Correo no disponible"
+    
+  },
     "statusTypes": {
       "active": "Activo",
       "inactive": "Inactivo",

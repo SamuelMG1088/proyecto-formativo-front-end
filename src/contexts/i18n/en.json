@@ -1,14 +1,12 @@
 {
-  "navbar": {
+   "navbar": {
     "home": "Home",
     "users": "Users",
-    "training": "Training Program",
-    "diagnosis": "Business Diagnosis",
+    "training": "Training program",
+    "diagnosis": "Business diagnosis",
     "profile": "Profile",
-    "logout": "Log Out"
-  },
-  "alerts": {
-    "logoutSuccess": "You have successfully logged out"
+    "logout": "Logout"
+    
   },
   "home": {
     "senaTitle": "SENA Colombia",
@@ -387,20 +385,24 @@
     }
   },
   "viewProfile": {
-    "title": "User Profile",
+    "loading": "Loading profile...",
+    "notAuthenticated": "You are not logged in.",
+    "goToLogin": "Go to login",
     "status": "Status",
-    "documentType": "Document Type",
-    "phoneNumber": "Phone Number",
+    "documentType": "Document type",
+    "documentNumber": "Document number",
+    "email": "Email",
+    "phoneNumber": "Phone number",
     "address": "Address",
-    "editProfile": "Edit Profile",
-    "memberSince": "Member since",
+    "editProfile": "Edit profile",
     "defaultValues": {
       "name": "Name not available",
       "status": "Status not available",
-      "documentType": "Not specified",
-      "phone": "Not provided",
-      "address": "Not provided",
-      "date": "Unknown date"
+      "documentType": "Document type not available",
+      "documentNumber": "Number not available",
+      "phone": "Phone not available",
+      "address": "Address not available",
+      "email": "Email not available"
     },
     "statusTypes": {
       "active": "Active",
