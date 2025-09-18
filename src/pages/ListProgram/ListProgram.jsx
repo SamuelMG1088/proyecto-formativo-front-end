@@ -13,11 +13,11 @@ import './css/listProgram.css';
 import ExportPdfExcel from '../../components/ExportPdfExcel/ExportPdfExcel.jsx';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
-import { useAuth } from "../../contexts/AuthContext/AuthContext.jsx"; // 🔹 importar useAuth
+import { useAuth } from "../../contexts/AuthContext/AuthContext.jsx";
 
 const ListProgram = () => {
   const { t } = useTranslation();
-  const { user } = useAuth(); // 🔹 obtener usuario
+  const { user } = useAuth();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [programs, setPrograms] = useState([]);
 
@@ -34,7 +34,7 @@ const ListProgram = () => {
     const fetchPrograms = async () => {
       try {
         const res = await axios.get('http://localhost:3000/api/programas');
-        setPrograms(res.data.programa);  // ajustado a la respuesta del backend
+        setPrograms(res.data.programa);
       } catch (err) {
         console.error('Error al cargar programas:', err);
       }
@@ -90,7 +90,7 @@ const ListProgram = () => {
               <FaArrowLeftLong className='icon-arrow' /> {t('listProgram.backToHome')}
             </NavLink>
 
-            {/* 🔹 Mostrar botón Crear Programa solo si NO es Empresa */}
+            {/* Mostrar botón Crear Programa solo si NO es Empresa */}
             {user?.rol_usuario !== "Empresa" && (
               <NavLink to="/CreateProgram" className="CreateProgram">
                 <div>
@@ -102,8 +102,14 @@ const ListProgram = () => {
             <h2>{t('listProgram.title')}</h2>
             <p>{t('listProgram.subtitle')}</p>
 
+            {/* 🔹 Exportar PDF / Excel */}
             <div className='Exports'>
-              <ExportPdfExcel />
+              <ExportPdfExcel 
+                data={programs}
+                fileName="Programas"
+                columns={["id", "nombre", "nivel", "duracion", "area_vinculada", "estado"]}
+                excludeColumns={[]} 
+              />
             </div>
 
             <FilterComponent
@@ -112,7 +118,7 @@ const ListProgram = () => {
               onResetFilters={handleResetFilters}
             />
 
-            {/* Program list table */}
+            {/* Tabla de programas */}
             <div className="program-table-container">
               <div className="border">
                 <table className="program-table">

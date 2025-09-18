@@ -135,8 +135,14 @@ const ListCompany = () => {
             <h2>{t("listCompany.title")}</h2>
             <p>{t("listCompany.subtitle")}</p>
 
+            {/* 🔹 Exportar PDF / Excel */}
             <div className="Export">
-              <ExportPdfExcel />
+              <ExportPdfExcel
+                data={filteredUsers}
+                fileName="Usuarios"
+                columns={["id", "nombre", "apellido", "email", "tipo_documento", "estado"]}
+                excludeColumns={[]} 
+              />
             </div>
 
             <FilterComponent

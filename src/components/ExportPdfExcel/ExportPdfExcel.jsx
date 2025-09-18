@@ -6,7 +6,7 @@ import '../../styles/variables.css';
 import { RiFileExcel2Fill } from "react-icons/ri";
 import { MdPictureAsPdf } from "react-icons/md";
 import jsPDF from "jspdf";
-import "jspdf-autotable";
+import autoTable from "jspdf-autotable"; // ✅ Import correcto
 import * as XLSX from "xlsx";
 
 const ExportPdfExcel = ({ 
@@ -19,23 +19,39 @@ const ExportPdfExcel = ({
     if (!rawData || rawData.length === 0) return [];
 
     const sampleItem = rawData[0];
-    const allColumns = columns || Object.keys(sampleItem);
-    const filteredColumns = allColumns.filter(col => !excludeColumns.includes(col));
 
+    // 🔹 Preparar columnas
+    let keys = [];
+    let headersMap = {};
+
+    if (columns && typeof columns === "object" && !Array.isArray(columns)) {
+      keys = Object.keys(columns);
+      headersMap = columns;
+    } else {
+      keys = columns || Object.keys(sampleItem);
+      keys = keys.filter(col => !excludeColumns.includes(col));
+      headersMap = keys.reduce((acc, col) => {
+        acc[col] = col;
+        return acc;
+      }, {});
+    }
+
+    // 🔹 Procesar datos
     return rawData.map(item => {
       const processedItem = {};
-      filteredColumns.forEach(col => {
+      keys.forEach(col => {
         let value = item[col];
         if (value === null || value === undefined) value = '';
         if (typeof value === 'object') {
           value = JSON.stringify(value);
         }
-        processedItem[col] = value;
+        processedItem[headersMap[col]] = value;
       });
       return processedItem;
     });
   };
 
+  // 📄 Exportar a PDF
   const exportToPDF = () => {
     try {
       const processedData = processData(data);
@@ -48,13 +64,16 @@ const ExportPdfExcel = ({
         orientation: Object.keys(processedData[0]).length > 5 ? 'landscape' : 'portrait'
       });
 
+      doc.text("Reporte de Datos", 14, 10);
+
       const headers = [Object.keys(processedData[0])];
       const tableData = processedData.map(item => Object.values(item));
 
-      doc.autoTable({
+      // ✅ Ahora usamos autoTable correctamente
+      autoTable(doc, {
         head: headers,
         body: tableData,
-        margin: { top: 10 },
+        margin: { top: 20 },
         styles: {
           fontSize: 8,
           cellPadding: 2,
@@ -76,6 +95,7 @@ const ExportPdfExcel = ({
     }
   };
 
+  // 📊 Exportar a Excel
   const exportToExcel = () => {
     try {
       const processedData = processData(data);
