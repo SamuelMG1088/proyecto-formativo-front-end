@@ -13,8 +13,10 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import ButtonSuspend from '../../components/Buttons/BurronSuspend/ButtonSuspend.jsx';
+import { useAuth } from "../../contexts/AuthContext/AuthContext.jsx"; // 🔹 importar useAuth
 
 const ViewTraining = () => {
+  const { user } = useAuth(); // 🔹 obtener usuario
   const [currentSlide, setCurrentSlide] = useState(0);
   const [program, setProgram] = useState(null);
   const { id } = useParams();
@@ -130,23 +132,27 @@ const ViewTraining = () => {
                   <h3>Productiva</h3>
                   <p>{program.productiva}</p>
                 </div>
-                <div className="Box-Button">
-                  <Link
-                    className="Button"
-                    to={`/EditTraining/${program.id}`}
-                    state={{
-                      id: program.id,
-                      nombre: program.nombre,
-                      version: program.version,
-                      estado: program.estado,
-                      lectiva: program.lectiva,
-                      productiva: program.productiva
-                    }}
-                  >
-                    <ButtonEdit />
-                  </Link>
+
+                {/* 🔹 Ocultar botones para rol Empresa */}
+                {user?.rol_usuario !== "Empresa" && (
+                  <div className="Box-Button">
+                    <Link
+                      className="Button"
+                      to={`/EditTraining/${program.id}`}
+                      state={{
+                        id: program.id,
+                        nombre: program.nombre,
+                        version: program.version,
+                        estado: program.estado,
+                        lectiva: program.lectiva,
+                        productiva: program.productiva
+                      }}
+                    >
+                      <ButtonEdit />
+                    </Link>
                     <ButtonSuspend />
-                </div>
+                  </div>
+                )}
               </div>
             </>
           ) : (

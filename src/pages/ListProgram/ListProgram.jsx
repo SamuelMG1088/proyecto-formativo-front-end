@@ -2,21 +2,22 @@ import React, { useState, useEffect } from 'react';
 import Gov from '../../layout/Gov/Gov.jsx';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
 import NavBar from '../../layout/NavBar/NavBar.jsx';
-import BannerHome2 from '../../assets/banners/BannerHome2.png'
-import BannerHome8 from '../../assets/banners/BannerHome8.png'
-import BannerHome12 from '../../assets/banners/BannerHome12.png'
+import BannerHome2 from '../../assets/banners/BannerHome2.png';
+import BannerHome8 from '../../assets/banners/BannerHome8.png';
+import BannerHome12 from '../../assets/banners/BannerHome12.png';
 import FilterComponent from '../../components/Filter/Filter.jsx';
 import { NavLink, Link } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { IoIosInformationCircle } from "react-icons/io";
 import './css/listProgram.css';
-import { IoIosCreate } from "react-icons/io";
 import ExportPdfExcel from '../../components/ExportPdfExcel/ExportPdfExcel.jsx';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from "../../contexts/AuthContext/AuthContext.jsx"; // 🔹 importar useAuth
 
 const ListProgram = () => {
   const { t } = useTranslation();
+  const { user } = useAuth(); // 🔹 obtener usuario
   const [currentSlide, setCurrentSlide] = useState(0);
   const [programs, setPrograms] = useState([]);
 
@@ -88,11 +89,16 @@ const ListProgram = () => {
             <NavLink to="/home" className="NavLink">
               <FaArrowLeftLong className='icon-arrow' /> {t('listProgram.backToHome')}
             </NavLink>
-            <NavLink to="/CreateProgram" className="CreateProgram">
-              <div>
-                <button className='Create-program'>{t('listProgram.createProgram')}</button>
-              </div>
-            </NavLink>
+
+            {/* 🔹 Mostrar botón Crear Programa solo si NO es Empresa */}
+            {user?.rol_usuario !== "Empresa" && (
+              <NavLink to="/CreateProgram" className="CreateProgram">
+                <div>
+                  <button className='Create-program'>{t('listProgram.createProgram')}</button>
+                </div>
+              </NavLink>
+            )}
+
             <h2>{t('listProgram.title')}</h2>
             <p>{t('listProgram.subtitle')}</p>
 
