@@ -125,7 +125,6 @@
     }
 }
 
-/* 🌙 Modo oscuro: letras blancas, inputs, botón y "Volver a enviar" */
 body.dark #VerifyCodePage .VerifyPage .frame h1,
 body.dark #VerifyCodePage .VerifyPage .frame a,
 body.dark #VerifyCodePage .VerifyPage .frame p,

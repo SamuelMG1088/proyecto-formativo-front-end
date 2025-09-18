@@ -147,7 +147,6 @@
   }
 }
 
-/* 🌙 Modo oscuro: todo el texto en blanco, inputs y botón login */
 .dark #LoginPage .LoginPage {
   background-image: var(--bg-image);
 }
