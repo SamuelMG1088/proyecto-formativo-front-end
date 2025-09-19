@@ -63,7 +63,7 @@ const CreateProgram = () => {
         text: response.data.message || t('createProgram.success.message'),
         icon: 'success',
         confirmButtonText: 'OK',
-        confirmButtonColor: '#00304d'
+        confirmButtonColor: '#39a900'
       }).then((result) => {
         if (result.isConfirmed) {
           navegar('/listProgram');
