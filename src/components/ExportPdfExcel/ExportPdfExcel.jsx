@@ -6,22 +6,21 @@ import '../../styles/variables.css';
 import { RiFileExcel2Fill } from "react-icons/ri";
 import { MdPictureAsPdf } from "react-icons/md";
 import jsPDF from "jspdf";
-import autoTable from "jspdf-autotable"; // ✅ Import correcto
+import autoTable from "jspdf-autotable";
 import * as XLSX from "xlsx";
+import html2canvas from "html2canvas"; // ✅ Para capturar la gráfica
 
 const ExportPdfExcel = ({ 
   data, 
   fileName = "exported-data", 
   columns, 
   excludeColumns = [],
-  chartId // ✅ Nuevo: id del canvas del gráfico
+  chartId // ✅ ID del contenedor de la gráfica
 }) => {
   const processData = (rawData) => {
     if (!rawData || rawData.length === 0) return [];
 
     const sampleItem = rawData[0];
-
-    // 🔹 Preparar columnas
     let keys = [];
     let headersMap = {};
 
@@ -37,7 +36,6 @@ const ExportPdfExcel = ({
       }, {});
     }
 
-    // 🔹 Procesar datos
     return rawData.map(item => {
       const processedItem = {};
       keys.forEach(col => {
@@ -53,15 +51,9 @@ const ExportPdfExcel = ({
   };
 
   // 📄 Exportar a PDF (tabla + gráfico)
-  const exportToPDF = () => {
+  const exportToPDF = async () => {
     try {
       const processedData = processData(data);
-
-      if ((!processedData || processedData.length === 0) && !chartId) {
-        console.warn("No hay datos ni gráfico para exportar a PDF");
-        return;
-      }
-
       const doc = new jsPDF({
         orientation: processedData.length > 0 && Object.keys(processedData[0]).length > 5 ? 'landscape' : 'portrait'
       });
@@ -70,10 +62,11 @@ const ExportPdfExcel = ({
 
       // ✅ Insertar gráfico si existe
       if (chartId) {
-        const chartCanvas = document.getElementById(chartId);
-        if (chartCanvas) {
-          const chartImage = chartCanvas.toDataURL("image/png", 1.0);
-          doc.addImage(chartImage, "PNG", 14, 20, 180, 90); // (x, y, ancho, alto)
+        const chartElement = document.getElementById(chartId);
+        if (chartElement) {
+          const canvas = await html2canvas(chartElement, { scale: 2 });
+          const chartImage = canvas.toDataURL("image/png", 1.0);
+          doc.addImage(chartImage, "PNG", 14, 20, 180, 90); // Ajusta posición/tamaño
         }
       }
 

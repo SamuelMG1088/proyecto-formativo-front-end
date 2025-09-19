@@ -43,6 +43,7 @@
     "fullName": "Full Name",
     "email": "Email",
     "document": "Document Type",
+    "role": "Role",
     "status": "status"
    },
   
@@ -58,6 +59,10 @@
   },
 
   "form": {
+    "rol": "Role",
+      "selectRol": "Select a role",
+      "empresa": "Company",
+      "admin": "Administrator",
     "documentType": "Document type",
     "cc": "Citizenship ID",
     "ce": "Foreigner ID",
@@ -230,6 +235,8 @@
     "hardwareMaintenance": "Hardware maintenance",
     "softwareConfiguration": "Software configuration",
     "cloudServices": "Cloud services",
+    "allAbove": "All of the above",
+    "noneAbove": "None of the above",
     "incompleteFields": "Incomplete fields",
     "completeAllFields": "Please complete all fields before continuing.",
     "sessionRequired": "Session required",

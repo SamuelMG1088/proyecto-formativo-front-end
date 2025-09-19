@@ -23,6 +23,7 @@ const Filter = ({
   const [selectedEstado, setSelectedEstado] = useState(initialStatus);
   const [selectedRol, setSelectedRol] = useState(initialRole);
 
+  // 🔹 Toggle
   const toggleTipoDocumento = () => {
     setShowTipoDocumento(!showTipoDocumento);
     setShowEstado(false);
@@ -41,6 +42,7 @@ const Filter = ({
     setShowEstado(false);
   };
 
+  // 🔹 Reset
   const resetFilters = () => {
     setSelectedDocumento('');
     setSelectedEstado('');
@@ -51,25 +53,23 @@ const Filter = ({
     onResetFilters();
   };
 
+  // 🔹 Handlers
   const handleTipoDocumento = (type) => {
     setSelectedDocumento(type);
-    if (onDocumentTypeChange) {
-      onDocumentTypeChange(type);
-    }
+    if (onDocumentTypeChange) onDocumentTypeChange(type);
+    setShowTipoDocumento(false);
   };
 
   const handleStatusSelect = (status) => {
     setSelectedEstado(status);
-    if (onStatusChange) {
-      onStatusChange(status);
-    }
+    if (onStatusChange) onStatusChange(status);
+    setShowEstado(false);
   };
 
   const handleRoleSelect = (role) => {
     setSelectedRol(role);
-    if (onRoleChange) {
-      onRoleChange(role);
-    }
+    if (onRoleChange) onRoleChange(role);
+    setShowRol(false); // 🔹 Cierra el dropdown al seleccionar
   };
 
   return (
@@ -122,9 +122,6 @@ const Filter = ({
                 {t('filter.documents.CE')}
               </button>
             </div>
-            <button className="select-button" onClick={() => setShowTipoDocumento(false)}>
-              {t('filter.confirm')}
-            </button>
           </div>
         )}
 
@@ -140,15 +137,12 @@ const Filter = ({
                 {t('filter.roles.empresa')}
               </button>
               <button
-                className={`filter-option ${selectedRol === "Persona" ? "selected" : ""}`}
-                onClick={() => handleRoleSelect("Persona")}
+                className={`filter-option ${selectedRol === "Admin" ? "selected" : ""}`}
+                onClick={() => handleRoleSelect("Admin")}
               >
-                {t('filter.roles.persona')}
+                {t('filter.roles.admin')}
               </button>
             </div>
-            <button className="select-button" onClick={() => setShowRol(false)}>
-              {t('filter.confirm')}
-            </button>
           </div>
         )}
 
@@ -170,9 +164,6 @@ const Filter = ({
                 {t('filter.statuses.inactivo')}
               </button>
             </div>
-            <button className="select-button" onClick={() => setShowEstado(false)}>
-              {t('filter.confirm')}
-            </button>
           </div>
         )}
       </div>

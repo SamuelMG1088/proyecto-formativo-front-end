@@ -187,11 +187,11 @@ const DiagnosticResult = () => {
             </NavLink>
             <div className="chart-header">
               
-              {/* 🔹 Exportar diagnóstico */}
+              {/* 🔹 Exportar diagnóstico con gráfico */}
               <div className='Export-pdf-excel'>
                 {diagnostico && (
                   <ExportPdfExcel
-                    data={[diagnostico]}   // ✅ En array para exportación
+                    data={[diagnostico]}
                     fileName="diagnostico"
                     columns={{
                       id: "ID",
@@ -201,6 +201,7 @@ const DiagnosticResult = () => {
                       empresa: "Empresa",
                       estado: "Estado"
                     }}
+                    chartId="diagnosticoChart"  // ✅ Exporta gráfico al PDF
                   />
                 )}
               </div>
@@ -234,7 +235,7 @@ const DiagnosticResult = () => {
               <div className="border">
                 
                 {/* 🔹 Exportar tabla de empresas */}
-                <div className='Export-pdf-excel'>
+                {/* <div className='Export-pdf-excel'>
                   <ExportPdfExcel
                     data={empresas}
                     fileName="empresas"
@@ -247,7 +248,7 @@ const DiagnosticResult = () => {
                       estado: "Estado"
                     }}
                   />
-                </div>
+                </div> */}
 
                 <table className="empresa-table">
                   <thead>

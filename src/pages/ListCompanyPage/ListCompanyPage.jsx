@@ -21,6 +21,7 @@ const ListCompany = () => {
   const [users, setUsers] = useState([]);
   const [documentFilter, setDocumentFilter] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
+  const [roleFilter, setRoleFilter] = useState('');
 
   const images = [BannerActualizar, BannerHome1, BannerModulo];
 
@@ -54,8 +55,11 @@ const ListCompany = () => {
   const filteredUsers = users.filter(user => {
     const tipoDoc = user.tipo_documento?.toLowerCase() || '';
     const estado = user.estado?.toLowerCase() || '';
+    const rol = user.rol_usuario?.toLowerCase() || '';
+
     const docFilter = documentFilter.toLowerCase();
     const estFilter = statusFilter.toLowerCase();
+    const rolFilter = roleFilter.toLowerCase();
 
     let matchesDoc = true;
     if (docFilter) {
@@ -79,7 +83,12 @@ const ListCompany = () => {
       }
     }
 
-    return matchesDoc && matchesEstado;
+    let matchesRol = true;
+    if (rolFilter) {
+      matchesRol = rol === rolFilter;
+    }
+
+    return matchesDoc && matchesEstado && matchesRol;
   });
 
   const handleCopy = (text) => {
@@ -90,6 +99,7 @@ const ListCompany = () => {
   const resetFilters = () => {
     setDocumentFilter('');
     setStatusFilter('');
+    setRoleFilter('');
   };
 
   return (
@@ -135,12 +145,12 @@ const ListCompany = () => {
             <h2>{t("listCompany.title")}</h2>
             <p>{t("listCompany.subtitle")}</p>
 
-            {/* 🔹 Exportar PDF / Excel */}
+           
             <div className="Export">
               <ExportPdfExcel
                 data={filteredUsers}
                 fileName="Usuarios"
-                columns={["id", "nombre", "apellido", "email", "tipo_documento", "estado"]}
+                columns={["id", "nombre", "apellido", "email", "tipo_documento", "estado", "rol_usuario"]}
                 excludeColumns={[]} 
               />
             </div>
@@ -148,6 +158,7 @@ const ListCompany = () => {
             <FilterComponent
               onDocumentTypeChange={(value) => setDocumentFilter(value)}
               onStatusChange={(value) => setStatusFilter(value)}
+              onRoleChange={(value) => setRoleFilter(value)}  
               onResetFilters={resetFilters}
             />
 
@@ -160,6 +171,7 @@ const ListCompany = () => {
                       <th>{t("listCompany.fullName")}</th>
                       <th>{t("listCompany.email")}</th>
                       <th>{t("listCompany.document")}</th>
+                      <th>{t("listCompany.role")}</th> 
                       <th>{t("listCompany.status")}</th>
                       <th></th>
                     </tr>
@@ -167,7 +179,7 @@ const ListCompany = () => {
                   <tbody>
                     {filteredUsers.length === 0 ? (
                       <tr>
-                        <td colSpan="6">{t("listCompany.noUsers")}</td>
+                        <td colSpan="7">{t("listCompany.noUsers")}</td>
                       </tr>
                     ) : (
                       filteredUsers.map((user) => (
@@ -204,6 +216,7 @@ const ListCompany = () => {
                               t("listCompany.noDoc")
                             )}
                           </td>
+                          <td>{user.rol_usuario}</td> 
                           <td>
                             <span
                               className={`status-badge ${user.estado?.toLowerCase() === 'activo' ? 'active' : 'inactive'}`}

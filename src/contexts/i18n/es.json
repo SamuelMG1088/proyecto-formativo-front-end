@@ -42,6 +42,7 @@
     "fullName": "Nombre Completo",
     "email": "Correo electronico",
     "document": "Tipo de Documento",
+    "role": "Rol",
     "status": "Estado"
   },
     
@@ -56,6 +57,10 @@
       "step3Description": "Revise y confirme la información antes de registrar"
     },
     "form": {
+      "rol": "Rol",
+      "selectRol": "Seleccione un rol",
+      "empresa": "Empresa",
+      "admin": "Administrador",
       "documentType": "Tipo de documento",
       "cc": "Cédula de ciudadanía",
       "ce": "Cédula de extranjería",
@@ -80,7 +85,8 @@
       "address": "Dirección",
       "enterAddress": "Ingrese la dirección",
       "password": "Contraseña",
-      "enterPassword": "Ingrese la contraseña"
+      "enterPassword": "Ingrese la contraseña",
+      "requiredField": "Este campo es obligatorio"
     },
     "buttons": {
       "previous": "Anterior",
@@ -110,9 +116,9 @@
       "CE": "C.E"
     },
     "roles": {
-      "empresa": "Empresa",
-      "persona": "Persona"
-    },
+      "admin": "Administrador",
+      "empresa": "Empresa"
+  },
     "statuses": {
       "activo": "Activo",
       "inactivo": "Inactivo"
@@ -225,6 +231,8 @@
     "hardwareMaintenance": "Mantenimiento de hardware",
     "softwareConfiguration": "Configuración de software",
     "cloudServices": "Servicios en la nube",
+    "allAbove": "Todos los anteriores",
+    "noneAbove": "Ninguno de los anteriores",
     "incompleteFields": "Campos incompletos",
     "completeAllFields": "Por favor complete todos los campos antes de continuar.",
     "sessionRequired": "Sesión requerida",
@@ -322,7 +330,8 @@
     },
     "form": {
       "title": "Registro de Programa de formación",
-      "subtitle": "Completa el formulario para registrar el programa de formación"
+      "subtitle": "Completa el formulario para registrar el programa de formación",
+      "empresa": "Empresa"
     },
     "steps": {
       "step1": "Información Personal",
