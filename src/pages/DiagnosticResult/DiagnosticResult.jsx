@@ -1,13 +1,14 @@
+// DiagnosticResult.jsx
+
 import React, { useState, useEffect } from 'react';
 import { Chart } from 'chart.js/auto';
 import Gov from '../../layout/Gov/Gov.jsx';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
 import NavBar from '../../layout/NavBar/NavBar.jsx';
 import './css/diagnosticResult.css';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, NavLink } from 'react-router-dom';
 import { FaChartBar } from 'react-icons/fa';
 import { FaRegEdit } from "react-icons/fa";
-import { NavLink } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import FilterComponent from '../../components/Filter/Filter.jsx';
 import BannerHome3 from '../../assets/banners/BannerHome3.png';
@@ -46,9 +47,7 @@ const DiagnosticResult = () => {
       const ctx = document.getElementById('diagnosticoChart');
       if (ctx) {
         const chartInstance = Chart.getChart(ctx);
-        if (chartInstance) {
-          chartInstance.destroy();
-        }
+        if (chartInstance) chartInstance.destroy();
         
         new Chart(ctx, {
           type: 'bar',
@@ -57,12 +56,8 @@ const DiagnosticResult = () => {
             datasets: [{
               label: t('diagnosisResult.scorePercentage'),
               data: Object.values(resultados),
-              backgroundColor: [
-                '#39a900',
-              ],
-              borderColor: [
-                '#39a900',
-              ],
+              backgroundColor: ['#39a900'],
+              borderColor: ['#39a900'],
               borderWidth: 1
             }]
           },
@@ -72,16 +67,10 @@ const DiagnosticResult = () => {
               y: {
                 beginAtZero: true,
                 max: 100,
-                ticks: {
-                  stepSize: 25
-                }
+                ticks: { stepSize: 25 }
               }
             },
-            plugins: {
-              legend: {
-                display: false
-              }
-            }
+            plugins: { legend: { display: false } }
           }
         });
       }
@@ -93,24 +82,14 @@ const DiagnosticResult = () => {
       try {
         setLoading(true);
         const token = localStorage.getItem('authToken') || localStorage.getItem('token');
-        
-        if (!token) {
-          throw new Error(t('diagnosisResult.noAuthToken'));
-        }
+        if (!token) throw new Error(t('diagnosisResult.noAuthToken'));
 
         let diagnosticoId = location.state?.diagnostico?.id || localStorage.getItem('lastDiagnosisId');
-        
-        if (!diagnosticoId) {
-          throw new Error(t('diagnosisResult.noDiagnosisId'));
-        }
+        if (!diagnosticoId) throw new Error(t('diagnosisResult.noDiagnosisId'));
 
         const response = await axios.get(
           `http://localhost:3000/api/diagnosticos/${diagnosticoId}`,
-          {
-            headers: {
-              'Authorization': `Bearer ${token.replace('Bearer ', '')}`
-            }
-          }
+          { headers: { 'Authorization': `Bearer ${token.replace('Bearer ', '')}` } }
         );
 
         if (response.data.success) {
@@ -133,21 +112,24 @@ const DiagnosticResult = () => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
     }, 3500);
-
     return () => clearInterval(interval);
   }, [images.length]);
 
-  const handleDocumentTypeChange = (type) => {
-    console.log(t('diagnosisResult.filterByDocType'), type);
-  };
+  const handleDocumentTypeChange = (type) => console.log(t('diagnosisResult.filterByDocType'), type);
+  const handleStatusChange = (status) => console.log(t('diagnosisResult.filterByStatus'), status);
+  const handleResetFilters = () => console.log(t('diagnosisResult.filtersReset'));
 
-  const handleStatusChange = (status) => {
-    console.log(t('diagnosisResult.filterByStatus'), status);
-  };
-
-  const handleResetFilters = () => {
-    console.log(t('diagnosisResult.filtersReset'));
-  };
+  // 🔹 Datos de ejemplo para la tabla de empresas
+  const empresas = [
+    {
+      documento: "00001",
+      nombre: "Christine Brooks",
+      correo: "089 Kutch Green Apt. 448",
+      fecha: "04 Sep 2019",
+      actividad: "Electric",
+      estado: t('general.active')
+    }
+  ];
 
   if (loading) {
     return (
@@ -204,8 +186,23 @@ const DiagnosticResult = () => {
               <FaArrowLeftLong className='icon-arrow' />{t('general.backToHome')}
             </NavLink>
             <div className="chart-header">
+              
+              {/* 🔹 Exportar diagnóstico */}
               <div className='Export-pdf-excel'>
-                {diagnostico && <ExportPdfExcel data={diagnostico} />}
+                {diagnostico && (
+                  <ExportPdfExcel
+                    data={[diagnostico]}   // ✅ En array para exportación
+                    fileName="diagnostico"
+                    columns={{
+                      id: "ID",
+                      nombre: "Nombre",
+                      correo: "Correo",
+                      actividad: "Actividad",
+                      empresa: "Empresa",
+                      estado: "Estado"
+                    }}
+                  />
+                )}
               </div>
 
               <div className='Sub-title'>
@@ -235,6 +232,23 @@ const DiagnosticResult = () => {
             
             <div className="empresa-table-container">
               <div className="border">
+                
+                {/* 🔹 Exportar tabla de empresas */}
+                <div className='Export-pdf-excel'>
+                  <ExportPdfExcel
+                    data={empresas}
+                    fileName="empresas"
+                    columns={{
+                      documento: "N° Documento",
+                      nombre: "Nombre",
+                      correo: "Correo",
+                      fecha: "Fecha",
+                      actividad: "Actividad",
+                      estado: "Estado"
+                    }}
+                  />
+                </div>
+
                 <table className="empresa-table">
                   <thead>
                     <tr>

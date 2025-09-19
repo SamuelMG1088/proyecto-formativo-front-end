@@ -13,7 +13,8 @@ const ExportPdfExcel = ({
   data, 
   fileName = "exported-data", 
   columns, 
-  excludeColumns = []
+  excludeColumns = [],
+  chartId // ✅ Nuevo: id del canvas del gráfico
 }) => {
   const processData = (rawData) => {
     if (!rawData || rawData.length === 0) return [];
@@ -51,43 +52,55 @@ const ExportPdfExcel = ({
     });
   };
 
-  // 📄 Exportar a PDF
+  // 📄 Exportar a PDF (tabla + gráfico)
   const exportToPDF = () => {
     try {
       const processedData = processData(data);
-      if (!processedData || processedData.length === 0) {
-        console.warn("No hay datos para exportar a PDF");
+
+      if ((!processedData || processedData.length === 0) && !chartId) {
+        console.warn("No hay datos ni gráfico para exportar a PDF");
         return;
       }
 
       const doc = new jsPDF({
-        orientation: Object.keys(processedData[0]).length > 5 ? 'landscape' : 'portrait'
+        orientation: processedData.length > 0 && Object.keys(processedData[0]).length > 5 ? 'landscape' : 'portrait'
       });
 
       doc.text("Reporte de Datos", 14, 10);
 
-      const headers = [Object.keys(processedData[0])];
-      const tableData = processedData.map(item => Object.values(item));
-
-      // ✅ Ahora usamos autoTable correctamente
-      autoTable(doc, {
-        head: headers,
-        body: tableData,
-        margin: { top: 20 },
-        styles: {
-          fontSize: 8,
-          cellPadding: 2,
-          overflow: 'linebreak'
-        },
-        headStyles: {
-          fillColor: [22, 160, 133],
-          textColor: [255, 255, 255],
-          fontStyle: 'bold'
-        },
-        alternateRowStyles: {
-          fillColor: [245, 245, 245]
+      // ✅ Insertar gráfico si existe
+      if (chartId) {
+        const chartCanvas = document.getElementById(chartId);
+        if (chartCanvas) {
+          const chartImage = chartCanvas.toDataURL("image/png", 1.0);
+          doc.addImage(chartImage, "PNG", 14, 20, 180, 90); // (x, y, ancho, alto)
         }
-      });
+      }
+
+      // ✅ Insertar tabla debajo del gráfico
+      if (processedData.length > 0) {
+        const headers = [Object.keys(processedData[0])];
+        const tableData = processedData.map(item => Object.values(item));
+
+        autoTable(doc, {
+          head: headers,
+          body: tableData,
+          margin: { top: chartId ? 120 : 20 }, // Si hay gráfico, empuja la tabla
+          styles: {
+            fontSize: 8,
+            cellPadding: 2,
+            overflow: 'linebreak'
+          },
+          headStyles: {
+            fillColor: [22, 160, 133],
+            textColor: [255, 255, 255],
+            fontStyle: 'bold'
+          },
+          alternateRowStyles: {
+            fillColor: [245, 245, 245]
+          }
+        });
+      }
 
       doc.save(`${fileName}.pdf`);
     } catch (error) {
