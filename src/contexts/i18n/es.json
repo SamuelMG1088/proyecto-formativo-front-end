@@ -4,8 +4,8 @@
     "diagnosis": "Diagnóstico empresarial",
     "profile": "Perfil",
     "users": "Usuarios",
-    "training": "Programas de formacion",
-    "logout": "Cerrar Sesión"
+    "training": "Programas de formación",
+    "logout": "Cerrar sesión"
   },
   "home": {
     "senaTitle": "SENA Colombia",
@@ -191,7 +191,7 @@
     "createBusinessDiagnosis": "Creación del diagnóstico empresarial",
     "completeFields": "Complete los campos para registrar el diagnóstico Empresarial",
     "section": "Sección",
-    "section1Title": "Diagnóstico Empresarial Para Asignación de Aprendices SENA",
+    "section1Title": "Diagnóstico empresarial para asignación de aprendices SENA",
     "section1Description": "Llena el diagnóstico para saber qué aprendices necesita",
     "section2Title": "Diagnóstico Empresarial - Sección 2",
     "completeRemainingInfo": "Complete la información restante",

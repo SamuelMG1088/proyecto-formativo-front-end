@@ -8,14 +8,14 @@ import { MdPictureAsPdf } from "react-icons/md";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import * as XLSX from "xlsx";
-import html2canvas from "html2canvas"; // ✅ Para capturar la gráfica
+import html2canvas from "html2canvas"; 
 
 const ExportPdfExcel = ({ 
   data, 
   fileName = "exported-data", 
   columns, 
   excludeColumns = [],
-  chartId // ✅ ID del contenedor de la gráfica
+  chartId 
 }) => {
   const processData = (rawData) => {
     if (!rawData || rawData.length === 0) return [];
@@ -50,7 +50,7 @@ const ExportPdfExcel = ({
     });
   };
 
-  // 📄 Exportar a PDF (tabla + gráfico)
+  //  Exportar a PDF (tabla + gráfico)
   const exportToPDF = async () => {
     try {
       const processedData = processData(data);
@@ -60,7 +60,7 @@ const ExportPdfExcel = ({
 
       doc.text("Reporte de Datos", 14, 10);
 
-      // ✅ Insertar gráfico si existe
+      // Insertar gráfico si existe
       if (chartId) {
         const chartElement = document.getElementById(chartId);
         if (chartElement) {
@@ -70,7 +70,7 @@ const ExportPdfExcel = ({
         }
       }
 
-      // ✅ Insertar tabla debajo del gráfico
+      
       if (processedData.length > 0) {
         const headers = [Object.keys(processedData[0])];
         const tableData = processedData.map(item => Object.values(item));
@@ -101,7 +101,7 @@ const ExportPdfExcel = ({
     }
   };
 
-  // 📊 Exportar a Excel
+  // Exportar a Excel
   const exportToExcel = () => {
     try {
       const processedData = processData(data);
