@@ -48,7 +48,7 @@ const EditTraining = () => {
         text: 'ID de programa no válido',
         icon: 'error',
         confirmButtonText: 'Aceptar',
-        confirmButtonColor: '#00304d',
+        confirmButtonColor: '#39a900',
       });
       return;
     }
@@ -66,7 +66,7 @@ const EditTraining = () => {
         text: `El programa se actualizó correctamente.`,
         icon: 'success',
         confirmButtonText: 'Aceptar',
-        confirmButtonColor: '#00304d',
+        confirmButtonColor: '#39a900',
       }).then(() => {
         navigate('/ListProgram');
       });

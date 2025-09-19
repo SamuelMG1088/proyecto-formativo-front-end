@@ -44,7 +44,7 @@ const EditCompany = () => {
           icon: 'error',
           title: t('alerts.errorTitle'),
           text: t('errors.couldNotLoadUserInfo'),
-          confirmButtonColor: '#00304d'
+          confirmButtonColor: '#39a900'
         });
       }
     };
@@ -72,7 +72,7 @@ const EditCompany = () => {
         title: t('alerts.dataUpdatedTitle'),
         text: t('alerts.dataUpdatedText'),
         icon: 'success',
-        confirmButtonColor: '#00304d'
+        confirmButtonColor: '#39a900'
       }).then(() => {
         navigate('/listcompany');
       });
@@ -82,7 +82,7 @@ const EditCompany = () => {
         icon: 'error',
         title: t('alerts.errorTitle'),
         text: t('errors.couldNotUpdate'),
-        confirmButtonColor: '#00304d'
+        confirmButtonColor: '#39a900'
       });
     }
   };
