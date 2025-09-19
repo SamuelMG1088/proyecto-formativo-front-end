@@ -102,7 +102,7 @@ function App() {
               <Route path="/EditProfile" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
               <Route path="/CreateCompanyPage" element={<ProtectedRoute><CreateCompanyPage /></ProtectedRoute>} />
               <Route path="/CreateProgram" element={<ProtectedRoute><CreateProgram /></ProtectedRoute>} />
-              <Route path="/ListProgram" element={<ListProgram />} />
+              <Route path="/ListProgram" element={<ProtectedRoute><ListProgram /></ProtectedRoute>} />
               <Route path="/EditTraining/:id" element={<ProtectedRoute><EditTraining /></ProtectedRoute>} />
               <Route path="/viewCompany/:id" element={<ProtectedRoute><ViewCompany /></ProtectedRoute>} />
 
