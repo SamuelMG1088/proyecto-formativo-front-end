@@ -111,12 +111,12 @@ const ListProgram = () => {
                 excludeColumns={[]} 
               />
             </div>
-
+{/* 
             <FilterComponent
               onDocumentTypeChange={handleProgramTypeChange}
               onStatusChange={handleStatusChange}
               onResetFilters={handleResetFilters}
-            />
+            /> */}
 
             {/* Tabla de programas */}
             <div className="program-table-container">
