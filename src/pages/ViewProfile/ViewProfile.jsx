@@ -178,7 +178,7 @@ const ViewProfile = () => {
             <div className="requirement">
               <h3>{t("viewProfile.documentType")}</h3>
               <p className={`${isDark ? "backend-dark" : ""}`}>
-                {tipoDocumento}: {numeroDocumento}
+                {tipoDocumento}
               </p>
             </div>
 
