@@ -82,7 +82,7 @@
     
     .NavLink{
       text-decoration: none;
-      color: var(--color-primary);
+      color: var(--text-color); 
       position: relative;
       top: -1rem;
     }
@@ -127,7 +127,7 @@
     }
 
     .info-box {
-    background-color: #f5f5f5;
+    background-color: var(--neutral-2);
     padding: 1rem 2rem;
     border-radius: 8px;
     width: 19%;
@@ -136,13 +136,13 @@
     }
 
     .info-main {
-    color: var(--color-primary);
+    color: var(--text-color);
     font-weight: bold;
-    }
-
-    .info-label {
+  }
+  
+  .info-label {
     font-size: 0.85rem;
-    color: #666;
+    color: var(--text-color);
     }
 
     .requirements {
@@ -167,8 +167,9 @@
     }
 
     .requirement p {
-    color: var(--neutral-1_6);
+    color: var(--text-color);
     }
+    
     .Box-Button{
      width: 130%;
      display: flex;

@@ -1,6 +1,6 @@
 import './css/gov.css'
 import '../../styles/variables.css'
-import logogov from '../../assets/logos/logo-gov.png'
+import logogov from '../../assets/logos/gov-logo.png'
 
 
 const Gov = () => {

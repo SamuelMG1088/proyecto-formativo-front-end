@@ -116,22 +116,23 @@
     }
 
     .info-box {
-    background-color: #f5f5f5;
+    background-color: var(--neutral-2);
     padding: 1rem 2rem;
     border-radius: 8px;
     width: 19%;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    
     }
 
     .info-main {
-    color: var(--color-primary);
-    font-weight: bold;
-    }
-
+        color: var(--text-color);
+        font-weight: bold;
+  }
+  
     .info-label {
-    font-size: 0.85rem;
-    color: #666;
+        font-size: 0.85rem;
+        color: var(--text-color);
     }
 
     .requirements {

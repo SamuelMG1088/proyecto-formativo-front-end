@@ -73,11 +73,10 @@
         width: 100%;
         position: relative;
         top: -18.8rem;
-        height: 13rem;
+        height: 100%;
         display: flex;
         justify-content: center;
         background-image: url(../../../assets/images/ondasGris.jpg);
-        z-index: 1;
     }
 
     .list-program-section {
@@ -100,12 +99,19 @@
 
     .NavLink {
         text-decoration: none;
-        color: var(--color-primary);
+         color: var(--text-color); 
     }
     .CreateProgram {
-       text-decoration: none;
-       color: var(--color-primary);
-       width: auto;
+        border-radius: 6px;
+        width: 8rem;
+        height: 2.7rem;
+        background-color: var(--color-primary);
+        border: none;
+        cursor: pointer;
+        color: var(--neutral-5);
+        position: relative;
+        left: 6%;
+       
     }
     
     .list-program-section h2 {
@@ -192,7 +198,7 @@
       background-color: var(--color-primary);
       border: none;
       cursor: pointer;
-      color: var(--neutral-4);
+      color: white;
       position: relative;
       left: 80%
     }

@@ -10,10 +10,12 @@ import { NavLink, Link } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { IoIosInformationCircle } from "react-icons/io";
 import './css/listProgram.css';
+import '../../styles/variables.css';
 import ExportPdfExcel from '../../components/ExportPdfExcel/ExportPdfExcel.jsx';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from "../../contexts/AuthContext/AuthContext.jsx";
+
 
 const ListProgram = () => {
   const { t } = useTranslation();

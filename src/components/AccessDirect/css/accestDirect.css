@@ -7,7 +7,7 @@
 
     /* Caja de Acceso directos */
     .box {
-        width: 7.5rem;
+        width: 11.5rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -19,31 +19,15 @@
 
     .direct {
         display: flex;
-        align-items: center;
-        color: #671C34;
-        font-size: 0.7rem;
         margin: 2rem 2rem;
-        text-align: center;
+    }
+    }
+    .manuales{
+        font-size: var(--font-family);
+        text-decoration: none;
+        color: var(--color-primary);
     }
 
-    hr {
-        width: 30%;
-        margin: 0 auto;
-    }
-
-    /* Img de accesos directos */
-    .box .sofiaplus {
-        width: 2rem;
-    }
-
-    .box .sgva {
-        width: 4rem;
-    }
-
-    .box .zajuna {
-        width: 5rem;
-    }
-}
 
 /* 🔹 Modo oscuro */
 body.dark #frame-accest .direct {
@@ -52,4 +36,7 @@ body.dark #frame-accest .direct {
 
 body.dark #frame-accest .box {
     border-color: #ffffff; 
+}
+body.dark #frame-accest .manuales{
+    color: #ffffff;
 }

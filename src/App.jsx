@@ -27,6 +27,9 @@ import CreateProgram from './pages/CreateProgramForm/CreateProgramForm.jsx';
 import ListProgram from './pages/ListProgram/ListProgram.jsx';
 import EditTraining from './pages/EditTrainingProgram/EditTrainingProgram.jsx';
 import ViewCompany from './pages/ViewCompany/ViewCompany.jsx';
+import ManualUser from './pages/ManualUser/ManualUser.jsx';
+import ManualOperaciones from './pages/ManualOperaciones/ManualOperaciones.jsx';
+import Manualinstalacion from './pages/ManualInstalacion/ManualInstalacion.jsx';
 
 
 function ThemeSync() {
@@ -105,6 +108,9 @@ function App() {
               <Route path="/ListProgram" element={<ProtectedRoute><ListProgram /></ProtectedRoute>} />
               <Route path="/EditTraining/:id" element={<ProtectedRoute><EditTraining /></ProtectedRoute>} />
               <Route path="/viewCompany/:id" element={<ProtectedRoute><ViewCompany /></ProtectedRoute>} />
+              <Route path="/ManualUser" element={<ManualUser /> } />
+              <Route path="/ManualOperaciones" element={<ManualOperaciones /> } />
+              <Route path="/Manualinstalacion" element={<Manualinstalacion /> } />
 
               {/* Ruta por defecto */}
               <Route path="*" element={<Navigate to="/" replace />} />

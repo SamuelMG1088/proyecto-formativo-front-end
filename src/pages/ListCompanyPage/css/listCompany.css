@@ -88,7 +88,7 @@
     background-color: var(--neutral-4);
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 2rem;
-    color: var(--text-color); /* ✅ Texto cambia con el tema */
+    color: var(--text-color); 
   }
 
   .Export {
@@ -104,12 +104,12 @@
 
   .NavLink {
     text-decoration: none;
-    color: var(--text-color); /* ✅ Texto cambia */
+    color: var(--text-color);
   }
 
   .CreateUse {
     text-decoration: none;
-    color: var(--text-color); /* ✅ Texto cambia */
+    color: white; 
     width: auto;
   }
 
@@ -117,11 +117,11 @@
     font-size: 2rem;
     margin-bottom: 0.5rem;
     margin-top: 1.2rem;
-    color: var(--text-color); /* ✅ Texto cambia */
+    color: var(--text-color);
   }
 
   .list-company-section p {
-    color: var(--text-color); /* ✅ Texto cambia */
+    color: var(--text-color); 
     margin-bottom: 1rem;
   }
 
@@ -193,7 +193,7 @@
     background-color: var(--color-primary);
     border: none;
     cursor: pointer;
-    color: var(--neutral-4);
+    color: var(--neutral-5);
     position: relative;
     left: 80%;
   }
@@ -223,4 +223,5 @@
   .copy-button:hover {
     color: #0056b3;
   }
+  
 }

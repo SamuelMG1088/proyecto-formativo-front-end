@@ -13,7 +13,6 @@ const HeaderLogin = () => {
   // Estado del tema
   const [theme, setTheme] = useState("light");
 
-  // ✅ Aplica o quita la clase .dark al <html>
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");

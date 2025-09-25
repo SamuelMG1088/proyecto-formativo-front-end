@@ -69,7 +69,6 @@ const ExportPdfExcel = ({
           doc.addImage(chartImage, "PNG", 14, 20, 180, 90); // Ajusta posición/tamaño
         }
       }
-
       
       if (processedData.length > 0) {
         const headers = [Object.keys(processedData[0])];

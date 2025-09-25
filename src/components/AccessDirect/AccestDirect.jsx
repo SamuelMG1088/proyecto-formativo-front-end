@@ -4,6 +4,7 @@ import sofiaplus from '../../assets/icons/icon-sofiaplus.png'
 import sgva from '../../assets/icons/icon-sgva.png'
 import zajuna from '../../assets/icons/icon-zajuna.png'
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 
 
@@ -13,27 +14,26 @@ const AccestDirect = () => {
         <>
         <div id="frame-accest">
             <div className="accesses">
-                <div className='direct'><hr/><p>{t('AccestDirect.directAccest')}</p><hr/></div>
+                <div className='direct'></div>
                 
                     <div className="box-assest">
 
                         <div className="box">
-                            <a href="https://oferta.senasofiaplus.edu.co/sofia-oferta/" target="_blank" rel="noopener noreferrer">
-                                <img className='sofiaplus' src={sofiaplus} alt=''/>
-                            </a>
+                            <Link to="/ManualUser" className='manuales'> 
+                                <p>manual de usuario</p>
+                            </Link>
                         </div>
 
                         <div className="box">
-                            <a href="https://caprendizaje.sena.edu.co/sgva/SGVA_Diseno/pag/login.aspx" target="_blank" rel="noopener noreferrer" >
-                                <img className='sgva' src={sgva} alt="" />
-                            </a>
+                            <Link to="/ManualOperaciones" className='manuales'> 
+                                <p>manual de operaciones</p>
+                            </Link>
                         </div>
 
                         <div className="box">
-                            <a href="https://zajuna.sena.edu.co/" target="_blank" rel="noopener noreferrer" >
-                                <img  className='zajuna' src={zajuna} alt=""/>
-                                
-                            </a>
+                            <Link to="/Manualinstalacion" className='manuales'> 
+                                <p>manual de instalacion</p>
+                            </Link>
                         </div>
                     </div> {/* -- Cajas de accesos -- */}
             </div>
