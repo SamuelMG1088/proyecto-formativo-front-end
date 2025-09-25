@@ -20,19 +20,19 @@ const AccestDirect = () => {
 
                         <div className="box">
                             <Link to="/ManualUser" className='manuales'> 
-                                <p>manual de usuario</p>
+                                <p>Manual de Usuario</p>
                             </Link>
                         </div>
 
                         <div className="box">
                             <Link to="/ManualOperaciones" className='manuales'> 
-                                <p>manual de operaciones</p>
+                                <p>Manual de Operaciones</p>
                             </Link>
                         </div>
 
                         <div className="box">
                             <Link to="/Manualinstalacion" className='manuales'> 
-                                <p>manual de instalacion</p>
+                                <p>Manual de Instalacion</p>
                             </Link>
                         </div>
                     </div> {/* -- Cajas de accesos -- */}

@@ -240,5 +240,116 @@
   span{
     color: red;
   }
+  /* Estilos para validaciones */
+  .error {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+  }
+
+  .error-message {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+    font-weight: 500;
+  }
+
+  /* Estilos para requisitos de contraseña */
+  .password-requirements {
+    margin-top: 10px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+  }
+
+  .requirements-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--neutral-1_4);
+    margin-bottom: 8px;
+  }
+
+  .requirements-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .requirements-list li {
+    font-size: 12px;
+    color: #6c757d;
+    margin-bottom: 4px;
+    position: relative;
+    padding-left: 20px;
+    transition: color 0.3s ease;
+  }
+
+  .requirements-list li:before {
+    content: "✗";
+    position: absolute;
+    left: 0;
+    color: #dc3545;
+    font-weight: bold;
+  }
+
+  .requirements-list li.valid {
+    color: #28a745;
+  }
+
+  .requirements-list li.valid:before {
+    content: "✓";
+    color: #28a745;
+  }
+
+  /* Estilos para botones deshabilitados */
+  .primary-button:disabled,
+  .secondary-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #6c757d;
+  }
+
+  .primary-button:disabled:hover,
+  .secondary-button:disabled:hover {
+    background-color: #6c757d;
+  }
+
+  /* Mejoras visuales para campos con errores */
+  .form-group input.error,
+  .form-group select.error {
+    animation: shake 0.5s ease-in-out;
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+
+  /* Estilos para campos válidos */
+  .form-group input:valid:not(:placeholder-shown),
+  .form-group select:valid {
+    border-color: #28a745;
+  }
+
+  /* Indicador de progreso de contraseña */
+  .password-strength {
+    margin-top: 5px;
+    height: 4px;
+    background-color: #e9ecef;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .password-strength-bar {
+    height: 100%;
+    transition: width 0.3s ease, background-color 0.3s ease;
+    border-radius: 2px;
+  }
+
+  .password-strength-weak { background-color: #dc3545; }
+  .password-strength-medium { background-color: #ffc107; }
+  .password-strength-strong { background-color: #28a745; }
   
 }

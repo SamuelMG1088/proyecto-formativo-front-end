@@ -28,6 +28,14 @@ const EditCompany = () => {
   const [password, setPassword] = useState('');
   const [direccion, setDireccion] = useState('');
 
+  // Estados para validaciones
+  const [errors, setErrors] = useState({
+    telefono: '',
+    email: '',
+    direccion: ''
+  });
+  const [isValid, setIsValid] = useState(false);
+
   useEffect(() => {
     const fetchUsuario = async () => {
       try {
@@ -59,7 +67,123 @@ const EditCompany = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
+  // Funciones de validación
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone) => {
+    const phoneRegex = /^[\+]?[0-9\s\-\(\)]{7,15}$/;
+    return phoneRegex.test(phone);
+  };
+
+  const validateAddress = (address) => {
+    return address.trim().length >= 5;
+  };
+
+  const validateField = (field, value) => {
+    let error = '';
+    
+    switch (field) {
+      case 'email':
+        if (!value.trim()) {
+          error = t('validation.emailRequired');
+        } else if (!validateEmail(value)) {
+          error = t('validation.emailInvalid');
+        }
+        break;
+      case 'telefono':
+        if (!value.trim()) {
+          error = t('validation.phoneRequired');
+        } else if (!validatePhone(value)) {
+          error = t('validation.phoneInvalid');
+        }
+        break;
+      case 'direccion':
+        if (!value.trim()) {
+          error = t('validation.addressRequired');
+        } else if (!validateAddress(value)) {
+          error = t('validation.addressTooShort');
+        }
+        break;
+      default:
+        break;
+    }
+    
+    return error;
+  };
+
+  const handleFieldChange = (field, value) => {
+    // Actualizar el valor del campo
+    switch (field) {
+      case 'telefono':
+        setTelefono(value);
+        break;
+      case 'email':
+        setEmail(value);
+        break;
+      case 'direccion':
+        setDireccion(value);
+        break;
+      default:
+        break;
+    }
+
+    // Validar el campo
+    const error = validateField(field, value);
+    setErrors(prev => ({
+      ...prev,
+      [field]: error
+    }));
+
+    // Verificar si todos los campos son válidos
+    const allErrors = {
+      ...errors,
+      [field]: error
+    };
+    const hasErrors = Object.values(allErrors).some(error => error !== '');
+    setIsValid(!hasErrors && email.trim() !== '' && telefono.trim() !== '' && direccion.trim() !== '');
+  };
+
   const guardarCambios = async () => {
+    // Validar todos los campos antes de enviar
+    const emailError = validateField('email', email);
+    const phoneError = validateField('telefono', telefono);
+    const addressError = validateField('direccion', direccion);
+
+    const newErrors = {
+      email: emailError,
+      telefono: phoneError,
+      direccion: addressError
+    };
+
+    setErrors(newErrors);
+
+    // Verificar si hay errores
+    const hasErrors = Object.values(newErrors).some(error => error !== '');
+    
+    if (hasErrors) {
+      Swal.fire({
+        icon: 'warning',
+        title: t('validation.formErrorsTitle'),
+        text: t('validation.formErrorsText'),
+        confirmButtonColor: '#39a900'
+      });
+      return;
+    }
+
+    // Verificar que todos los campos requeridos estén llenos
+    if (!email.trim() || !telefono.trim() || !direccion.trim()) {
+      Swal.fire({
+        icon: 'warning',
+        title: t('validation.requiredFieldsTitle'),
+        text: t('validation.requiredFieldsText'),
+        confirmButtonColor: '#39a900'
+      });
+      return;
+    }
+
     try {
       await axios.put(`http://localhost:3000/api/usuarios/${id}`, {
         telefono,
@@ -138,27 +262,33 @@ const EditCompany = () => {
               <input
                 type="text"
                 value={telefono}
-                onChange={(e) => setTelefono(e.target.value)}
+                onChange={(e) => handleFieldChange('telefono', e.target.value)}
                 placeholder={t('placeholders.phoneNumber')}
+                className={errors.telefono ? 'error-input' : ''}
               />
+              {errors.telefono && <span className="error-message">{errors.telefono}</span>}
             </div>
             <div className="requirement">
               <h3>{t('labels.email')}</h3>
               <input
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => handleFieldChange('email', e.target.value)}
                 placeholder={t('placeholders.email')}
+                className={errors.email ? 'error-input' : ''}
               />
+              {errors.email && <span className="error-message">{errors.email}</span>}
             </div>
             <div className="requirement">
               <h3>{t('labels.address')}</h3>
               <input
                 type="text"
                 value={direccion}
-                onChange={(e) => setDireccion(e.target.value)}
+                onChange={(e) => handleFieldChange('direccion', e.target.value)}
                 placeholder={t('placeholders.address')}
+                className={errors.direccion ? 'error-input' : ''}
               />
+              {errors.direccion && <span className="error-message">{errors.direccion}</span>}
             </div>
 
             <div className="Box-Button" onClick={guardarCambios}>
