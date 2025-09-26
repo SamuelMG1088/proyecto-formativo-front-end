@@ -27,7 +27,7 @@ const ManualUser = () => {
   }, [images.length]);
 
   return (
-    <div id="Homepages">
+    <div id="Homepage">
       <div className="home">
           <Gov />
           <HeaderIcons />

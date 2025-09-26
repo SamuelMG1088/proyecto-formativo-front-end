@@ -3,23 +3,23 @@
     .box-assest {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+        gap: 5%;
     }
 
     /* Caja de Acceso directos */
     .box {
-        width: 11.5rem;
+        width: 105%;
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 2.8rem;
+        height: 90%;
         border: 1px solid var(--color-primary);
-        margin: 0.5rem;
         border-radius: 0.2rem;
     }
 
     .direct {
         display: flex;
-        margin: 2rem 2rem;
+        margin: 5% 5%;
     }
     }
     .manuales{
