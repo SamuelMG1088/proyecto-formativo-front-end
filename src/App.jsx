@@ -27,9 +27,9 @@ import CreateProgram from './pages/CreateProgramForm/CreateProgramForm.jsx';
 import ListProgram from './pages/ListProgram/ListProgram.jsx';
 import EditTraining from './pages/EditTrainingProgram/EditTrainingProgram.jsx';
 import ViewCompany from './pages/ViewCompany/ViewCompany.jsx';
-import ManualUser from './pages/ManualUser/ManualUser.jsx';
-import ManualOperaciones from './pages/ManualOperaciones/ManualOperaciones.jsx';
-import Manualinstalacion from './pages/ManualInstalacion/ManualInstalacion.jsx';
+import ManualUser from './pages/Manuales/ManualUser.jsx';
+import ManualOperaciones from './pages/Manuales/ManualOperaciones.jsx';
+import Manualinstalacion from './pages/Manuales/ManualInstalacion.jsx';
 
 
 function ThemeSync() {

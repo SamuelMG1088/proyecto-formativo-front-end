@@ -8,9 +8,10 @@ import { IoIosCheckbox } from "react-icons/io";
 import factor1 from '../../assets/images/factorHumano1.jpg'
 import { GiColombia } from "react-icons/gi";
 import { Link } from 'react-router-dom';
-import './css/Manualuser.css';
+import '../Manuales/Manuales.css';
 import { useTranslation } from 'react-i18next';
 import { FaArrowLeftLong } from "react-icons/fa6";
+import miImagen from "../../assets/images/prueba.jpg"
 
 const ManualUser = () => {
   const { t } = useTranslation();
@@ -26,7 +27,7 @@ const ManualUser = () => {
   }, [images.length]);
 
   return (
-    <div id="Homepage">
+    <div id="Homepages">
       <div className="home">
           <Gov />
           <HeaderIcons />
@@ -59,16 +60,23 @@ const ManualUser = () => {
             {/* SENA Colombia */}
             <section className="sena-colombia">
               <Link to="/" className='link_sena'>
-                 <h3><FaArrowLeftLong /> Salir al login</h3>
+                 <h> Volver al login</h>
               </Link>
-              <div className="title-seccion-sena">
-                <h1>Manual de usuarios</h1>
-              </div>
-              <div className="sena-content-section">
-                <p>Prueba de manual de usuario</p>
-              </div>
+              <Link to="/ManualUser" className='link_senaa'>
+                 <h> Manual de usuario</h>
+              </Link>
+              <Link to="/Manualinstalacion" className='link_sena'>
+                 <h> Manual de instalacion</h>
+              </Link>
             </section>
+            <div className='sena-content-section'>
+               <img src={miImagen} alt="Acceso denegado"  className='Prueba-imagen'/><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus ab doloribus saepe quisquam ipsum ratione quos officiis. Ducimus similique reprehenderit id maiores temporibus quo expedita asperiores officiis cum quae.</p>
+            </div>
 
+
+            <div className='sena-content-section1'>
+              <p className='prueba-p'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus ab doloribus saepe quisquam ipsum ratione quos officiis. Ducimus similique reprehenderit id maiores temporibus quo expedita asperiores officiis cum quae.</p><img src={miImagen} alt="Acceso denegado"  className='Prueba-imagen1'/>
+            </div>
           </div>
         </div>
       </div>

@@ -91,7 +91,7 @@
         display: flex;
         align-items: center;
         margin-bottom: 1rem;
-        gap: 1rem;
+        gap: 1rem;  
     }
 
     .title-seccion-sena h1 {
