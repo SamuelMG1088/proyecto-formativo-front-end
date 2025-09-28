@@ -1,32 +1,42 @@
 #frame-accest {
-    /* Accesos directos */
-    .box-assest {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 5%;
-    }
-
-    /* Caja de Acceso directos */
-    .box {
+    .box-assest{
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
         width: 105%;
+        margin-top: 3rem;
+    }
+    
+    
+    
+    .box{
+        width: 120%;
+        border: 1px solid;
+        text-decoration: none;
+        
+    }
+}
+
+    .manuales{
+        text-decoration: none;
+    }
+    
+    .manuales p{
         display: flex;
-        align-items: center;
         justify-content: center;
-        height: 90%;
-        border: 1px solid var(--color-primary);
-        border-radius: 0.2rem;
     }
 
-    .direct {
-        display: flex;
-        margin: 5% 5%;
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .box-assest {
+        width: 100%; 
+        gap: 1rem;
     }
+
+    .box {
+        flex: 1 1 100%;   /* ocupa todo el ancho en pantallas pequeñas */
     }
-    .manuales{
-        font-size: var(--font-family);
-        text-decoration: none;
-        color: var(--color-primary);
-    }
+}
 
 
 /* 🔹 Modo oscuro */

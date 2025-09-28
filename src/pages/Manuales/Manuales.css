@@ -103,14 +103,14 @@
         display: flex;
         text-decoration: none;  
         border-bottom: 3px solid var(--color-secundary-2);      
-        color: #000000;
+        color: var(--text-color);
     }
     .link_senaa{
         display: flex;
         text-decoration: none;
         border-radius: 5px; 
         padding: 5px;
-        color: #000000;
+        color: var(--text-color);
     }
 
     .link_senaa:hover{
@@ -149,14 +149,19 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
+        padding: 3rem;
     }
 
     .sena-content-section p {
         text-align: start;
     }
 
+    .prueba1{
+        margin-top: 5rem;
+    }
+
     .prueba-p{
-        padding: 2rem;
+        padding: 3rem;
     }
 
     .sena-content-section span {

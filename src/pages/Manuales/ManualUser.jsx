@@ -9,9 +9,10 @@ import factor1 from '../../assets/images/factorHumano1.jpg'
 import { GiColombia } from "react-icons/gi";
 import { Link } from 'react-router-dom';
 import '../Manuales/Manuales.css';
+import '../../styles/variables.css'
 import { useTranslation } from 'react-i18next';
 import { FaArrowLeftLong } from "react-icons/fa6";
-import miImagen from "../../assets/images/prueba.jpg"
+import Imagenmanual1 from "../../assets/Manuales/Usuario/Imagen-manual1.jpg"
 
 const ManualUser = () => {
   const { t } = useTranslation();
@@ -27,7 +28,7 @@ const ManualUser = () => {
   }, [images.length]);
 
   return (
-    <div id="Homepage">
+    <div id="Homepages">
       <div className="home">
           <Gov />
           <HeaderIcons />
@@ -70,12 +71,44 @@ const ManualUser = () => {
               </Link>
             </section>
             <div className='sena-content-section'>
-               <img src={miImagen} alt="Acceso denegado"  className='Prueba-imagen'/><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus ab doloribus saepe quisquam ipsum ratione quos officiis. Ducimus similique reprehenderit id maiores temporibus quo expedita asperiores officiis cum quae.</p>
+               <img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen'/><p className='prueba1'>Se carga el navegador preferido y que cuente con internet disponible. En esta demostración utilizaremos Google Chrome. Colocamos el puntero del ratón (mouse) sobre el icono Google Chrome y presionamos dos veces seguidas el botón izquierdo del ratón. Una vez que se encuentre en el entorno del navegador, digitamos la dirección de la página web correspondiente a la aplicación SISGEEC (PENDIENTE) en la casilla de URL.</p>
             </div>
 
 
             <div className='sena-content-section1'>
-              <p className='prueba-p'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus ab doloribus saepe quisquam ipsum ratione quos officiis. Ducimus similique reprehenderit id maiores temporibus quo expedita asperiores officiis cum quae.</p><img src={miImagen} alt="Acceso denegado"  className='Prueba-imagen1'/>
+              <p className='prueba-p'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus ab doloribus saepe quisquam ipsum ratione quos officiis. Ducimus similique reprehenderit id maiores temporibus quo expedita asperiores officiis cum quae.</p><img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen1'/>
+            </div>
+            <div className='sena-content-section'>
+               <img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen'/><p className='prueba1'>Se carga el navegador preferido y que cuente con internet disponible. En esta demostración utilizaremos Google Chrome. Colocamos el puntero del ratón (mouse) sobre el icono Google Chrome y presionamos dos veces seguidas el botón izquierdo del ratón. Una vez que se encuentre en el entorno del navegador, digitamos la dirección de la página web correspondiente a la aplicación SISGEEC (PENDIENTE) en la casilla de URL.</p>
+            </div>
+
+
+            <div className='sena-content-section1'>
+              <p className='prueba-p'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus ab doloribus saepe quisquam ipsum ratione quos officiis. Ducimus similique reprehenderit id maiores temporibus quo expedita asperiores officiis cum quae.</p><img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen1'/>
+            </div>
+            <div className='sena-content-section'>
+               <img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen'/><p className='prueba1'>Se carga el navegador preferido y que cuente con internet disponible. En esta demostración utilizaremos Google Chrome. Colocamos el puntero del ratón (mouse) sobre el icono Google Chrome y presionamos dos veces seguidas el botón izquierdo del ratón. Una vez que se encuentre en el entorno del navegador, digitamos la dirección de la página web correspondiente a la aplicación SISGEEC (PENDIENTE) en la casilla de URL.</p>
+            </div>
+
+
+            <div className='sena-content-section1'>
+              <p className='prueba-p'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus ab doloribus saepe quisquam ipsum ratione quos officiis. Ducimus similique reprehenderit id maiores temporibus quo expedita asperiores officiis cum quae.</p><img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen1'/>
+            </div>
+            <div className='sena-content-section'>
+               <img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen'/><p className='prueba1'>Se carga el navegador preferido y que cuente con internet disponible. En esta demostración utilizaremos Google Chrome. Colocamos el puntero del ratón (mouse) sobre el icono Google Chrome y presionamos dos veces seguidas el botón izquierdo del ratón. Una vez que se encuentre en el entorno del navegador, digitamos la dirección de la página web correspondiente a la aplicación SISGEEC (PENDIENTE) en la casilla de URL.</p>
+            </div>
+
+
+            <div className='sena-content-section1'>
+              <p className='prueba-p'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus ab doloribus saepe quisquam ipsum ratione quos officiis. Ducimus similique reprehenderit id maiores temporibus quo expedita asperiores officiis cum quae.</p><img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen1'/>
+            </div>
+            <div className='sena-content-section'>
+               <img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen'/><p className='prueba1'>Se carga el navegador preferido y que cuente con internet disponible. En esta demostración utilizaremos Google Chrome. Colocamos el puntero del ratón (mouse) sobre el icono Google Chrome y presionamos dos veces seguidas el botón izquierdo del ratón. Una vez que se encuentre en el entorno del navegador, digitamos la dirección de la página web correspondiente a la aplicación SISGEEC (PENDIENTE) en la casilla de URL.</p>
+            </div>
+
+
+            <div className='sena-content-section1'>
+              <p className='prueba-p'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus ab doloribus saepe quisquam ipsum ratione quos officiis. Ducimus similique reprehenderit id maiores temporibus quo expedita asperiores officiis cum quae.</p><img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen1'/>
             </div>
           </div>
         </div>
