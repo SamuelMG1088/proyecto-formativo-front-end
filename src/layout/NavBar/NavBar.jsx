@@ -54,15 +54,15 @@ const NavBar = () => {
               <NavLink to={parseLink(module.link)}>
                 {t(module.title)}
               </NavLink>
+            <NavLink to="/" onClick={AlertaLogout}>
+              {t("navbar.logout")}
+            </NavLink>
             </li>
           ))}
         </ul>
 
         <ul className="navbar-logout">
           <li>
-            <NavLink to="/" onClick={AlertaLogout}>
-              {t("navbar.logout")}
-            </NavLink>
           </li>
         </ul>
       </nav>
