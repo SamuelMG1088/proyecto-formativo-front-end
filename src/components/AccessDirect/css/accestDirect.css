@@ -24,7 +24,9 @@
     .manuales p{
         display: flex;
         justify-content: center;
-    }
+        color: var(--color-primary);
+        text-align: center;
+    }    
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
