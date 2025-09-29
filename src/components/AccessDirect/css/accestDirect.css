@@ -19,14 +19,12 @@
 
     .manuales{
         text-decoration: none;
-    }
-    
-    .manuales p{
+        color: var(--text-color);
         display: flex;
         justify-content: center;
-        color: var(--text-color);
         text-align: center;
-    }    
+    }
+    
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
