@@ -11,6 +11,8 @@ import BannerHome5 from "../../assets/banners/BannerHome5.png";
 import ButtonConfirm from "../../components/Buttons/ButtonConfirm/ButtonConfirm.jsx";
 import Swal from "sweetalert2";
 import { useAuth } from "../../contexts/AuthContext/AuthContext.jsx"; // ✅ importar contexto
+import { validateEmail, validatePhone, validateAddress, validateDocument } from "../../utils/validation.js";
+import "../../styles/validation.css";
 import "./css/editProfile.css";
 
 const EditProfile = () => {
@@ -26,6 +28,20 @@ const EditProfile = () => {
     direccion: user?.direccion || "",
   });
 
+  // Estados para validaciones
+  const [errors, setErrors] = useState({
+    telefono: "",
+    email: "",
+    direccion: "",
+  });
+  const [touched, setTouched] = useState({
+    telefono: false,
+    email: false,
+    direccion: false,
+  });
+  const [isValid, setIsValid] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const images = [BannerHome3, BannerHome4, BannerHome5];
 
   // 🎞 Carrusel automático
@@ -38,30 +54,148 @@ const EditProfile = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
+  // Función para validar un campo específico
+  const validateField = (fieldName, value) => {
+    let error = "";
+    
+    switch (fieldName) {
+      case "telefono":
+        const phoneValidation = validatePhone(value);
+        if (!phoneValidation.isValid) {
+          error = phoneValidation.error;
+        }
+        break;
+      case "email":
+        const emailValidation = validateEmail(value);
+        if (!emailValidation.isValid) {
+          error = emailValidation.error;
+        }
+        break;
+      case "direccion":
+        const addressValidation = validateAddress(value);
+        if (!addressValidation.isValid) {
+          error = addressValidation.error;
+        }
+        break;
+      default:
+        break;
+    }
+    
+    return error;
+  };
+
   // Manejar cambios en los inputs
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    
+    // Validar en tiempo real si el campo ha sido tocado
+    if (touched[name]) {
+      const error = validateField(name, value);
+      setErrors(prev => ({ ...prev, [name]: error }));
+    }
+  };
+
+  // Manejar cuando un campo pierde el foco
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    setTouched(prev => ({ ...prev, [name]: true }));
+    const error = validateField(name, value);
+    setErrors(prev => ({ ...prev, [name]: error }));
+  };
+
+  // Validar todo el formulario
+  const validateForm = () => {
+    const newErrors = {};
+    let isValid = true;
+
+    // Validar teléfono
+    const phoneError = validateField("telefono", formData.telefono);
+    if (phoneError) {
+      newErrors.telefono = phoneError;
+      isValid = false;
+    }
+
+    // Validar email
+    const emailError = validateField("email", formData.email);
+    if (emailError) {
+      newErrors.email = emailError;
+      isValid = false;
+    }
+
+    // Validar dirección
+    const addressError = validateField("direccion", formData.direccion);
+    if (addressError) {
+      newErrors.direccion = addressError;
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    setTouched({
+      telefono: true,
+      email: true,
+      direccion: true,
+    });
+
+    return isValid;
   };
 
   // Guardar cambios
-  const handleSave = () => {
-    updateUser(formData); // ✅ actualiza en contexto y 
-    // localStorage
+  const handleSave = async () => {
+    // Prevenir múltiples envíos
+    if (isSubmitting) return;
+    
+    setIsSubmitting(true);
 
-    const isDarkMode = document.body.classList.contains("dark");
+    // Validar formulario antes de guardar
+    if (!validateForm()) {
+      setIsSubmitting(false);
+      const isDarkMode = document.body.classList.contains("dark");
+      
+      Swal.fire({
+        title: "Error de validación",
+        text: "Por favor corrige los errores antes de continuar",
+        icon: "error",
+        confirmButtonText: "Aceptar",
+        confirmButtonColor: "#d33",
+        background: isDarkMode ? "#1e1e1e" : "#fff",
+        color: isDarkMode ? "#fff" : "#000",
+      });
+      return;
+    }
 
-    Swal.fire({
-      title: "¡Datos actualizados!",
-      text: "Tus datos han sido actualizados correctamente.",
-      icon: "success",
-      confirmButtonText: "Aceptar",
-      confirmButtonColor:"#39a900",
-      background: isDarkMode ? "#1e1e1e" : "#fff",
-      color: isDarkMode ? "#fff" : "#000",
-    }).then(() => {
-      navigate("/viewprofile"); // ✅ redirige al perfil SIN perder sesión
-    });
+    try {
+      updateUser(formData); // ✅ actualiza en contexto y localStorage
+
+      const isDarkMode = document.body.classList.contains("dark");
+
+      Swal.fire({
+        title: "¡Datos actualizados!",
+        text: "Tus datos han sido actualizados correctamente.",
+        icon: "success",
+        confirmButtonText: "Aceptar",
+        confirmButtonColor: "#39a900",
+        background: isDarkMode ? "#1e1e1e" : "#fff",
+        color: isDarkMode ? "#fff" : "#000",
+      }).then(() => {
+        navigate("/viewprofile"); // ✅ redirige al perfil SIN perder sesión
+      });
+    } catch (error) {
+      console.error("Error al actualizar perfil:", error);
+      const isDarkMode = document.body.classList.contains("dark");
+      
+      Swal.fire({
+        title: "Error",
+        text: "No se pudieron actualizar los datos. Inténtalo de nuevo.",
+        icon: "error",
+        confirmButtonText: "Aceptar",
+        confirmButtonColor: "#d33",
+        background: isDarkMode ? "#1e1e1e" : "#fff",
+        color: isDarkMode ? "#fff" : "#000",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -131,8 +265,23 @@ const EditProfile = () => {
                 name="telefono"
                 value={formData.telefono}
                 onChange={handleChange}
+                onBlur={handleBlur}
                 placeholder="Ingresa el nuevo número de teléfono"
+                className={touched.telefono && errors.telefono ? "error-input" : ""}
+                disabled={isSubmitting}
+                aria-invalid={touched.telefono && errors.telefono ? "true" : "false"}
+                aria-describedby={touched.telefono && errors.telefono ? "telefono-error" : "telefono-help"}
               />
+              {touched.telefono && errors.telefono && (
+                <span id="telefono-error" className="error-message" role="alert">
+                  {errors.telefono}
+                </span>
+              )}
+              {!touched.telefono && (
+                <small id="telefono-help" className="help-text">
+                  Ingresa un número de teléfono válido (7-15 dígitos)
+                </small>
+              )}
             </div>
 
             <div className="requirement">
@@ -142,8 +291,23 @@ const EditProfile = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
+                onBlur={handleBlur}
                 placeholder="Ingresa la nueva dirección de correo"
+                className={touched.email && errors.email ? "error-input" : ""}
+                disabled={isSubmitting}
+                aria-invalid={touched.email && errors.email ? "true" : "false"}
+                aria-describedby={touched.email && errors.email ? "email-error" : "email-help"}
               />
+              {touched.email && errors.email && (
+                <span id="email-error" className="error-message" role="alert">
+                  {errors.email}
+                </span>
+              )}
+              {!touched.email && (
+                <small id="email-help" className="help-text">
+                  Ingresa una dirección de correo válida
+                </small>
+              )}
             </div>
 
             <div className="requirement">
@@ -153,15 +317,31 @@ const EditProfile = () => {
                 name="direccion"
                 value={formData.direccion}
                 onChange={handleChange}
+                onBlur={handleBlur}
                 placeholder="Ingresa la dirección actualizada"
+                className={touched.direccion && errors.direccion ? "error-input" : ""}
+                disabled={isSubmitting}
+                aria-invalid={touched.direccion && errors.direccion ? "true" : "false"}
+                aria-describedby={touched.direccion && errors.direccion ? "direccion-error" : "direccion-help"}
               />
+              {touched.direccion && errors.direccion && (
+                <span id="direccion-error" className="error-message" role="alert">
+                  {errors.direccion}
+                </span>
+              )}
+              {!touched.direccion && (
+                <small id="direccion-help" className="help-text">
+                  Incluye calle, carrera, números y referencias (10-200 caracteres)
+                </small>
+              )}
             </div>
           </div>
 
           {/* Botón Guardar */}
           <div className="Box-Button">
-            <div className="Button" onClick={handleSave}>
-              <ButtonConfirm />
+            <div className="Button" onClick={isSubmitting ? null : handleSave}>
+              <ButtonConfirm disabled={isSubmitting} />
+              {isSubmitting && <span className="loading-text">Guardando...</span>}
             </div>
           </div>
         </div>

@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
+import { validateEmail, validatePhone, validateAddress, validatePassword, validateName, validateDocument } from "../../utils/validation.js";
+import "../../styles/validation.css";
 
 import "./css/createCompany.css";
 import Gov from "../../layout/Gov/Gov";
@@ -37,6 +39,80 @@ const CreateCompanyPage = () => {
   const [touched, setTouched] = useState({});
   const images = [BannerHome6, BannerHome11, BannerHome13];
 
+  // Funciones de validación de documentos
+  const validateCedula = (cedula) => {
+    if (cedula.length < 6 || cedula.length > 10) return false;
+    
+    // Algoritmo de validación de cédula colombiana
+    const digits = cedula.split('').map(Number);
+    let sum = 0;
+    let checkDigit = digits[digits.length - 1];
+    
+    for (let i = 0; i < digits.length - 1; i++) {
+      let digit = digits[i];
+      if (i % 2 === 0) {
+        digit *= 2;
+        if (digit > 9) digit -= 9;
+      }
+      sum += digit;
+    }
+    
+    const calculatedCheck = (10 - (sum % 10)) % 10;
+    return calculatedCheck === checkDigit;
+  };
+
+  const validateNIT = (nit) => {
+    if (nit.length < 9 || nit.length > 15) return false;
+    
+    // Algoritmo de validación de NIT colombiano
+    const digits = nit.split('').map(Number);
+    const checkDigit = digits[digits.length - 1];
+    const multipliers = [71, 67, 59, 53, 47, 43, 41, 37, 29, 23, 19, 17, 13, 7, 3];
+    
+    let sum = 0;
+    for (let i = 0; i < digits.length - 1; i++) {
+      sum += digits[i] * multipliers[i];
+    }
+    
+    const remainder = sum % 11;
+    const calculatedCheck = remainder < 2 ? remainder : 11 - remainder;
+    return calculatedCheck === checkDigit;
+  };
+
+  // Función para validar formato de teléfono colombiano
+  const validatePhoneFormat = (phone) => {
+    // Patrones válidos para Colombia
+    const patterns = [
+      /^3[0-9]{9}$/, // Celular (300-399)
+      /^6[0-9]{9}$/, // Celular (600-699)
+      /^[1-9][0-9]{6,9}$/, // Fijo
+    ];
+    
+    return patterns.some(pattern => pattern.test(phone));
+  };
+
+  // Función para validar dominio de email
+  const validateEmailDomain = (email) => {
+    const validDomains = [
+      'gmail.com', 'hotmail.com', 'yahoo.com', 'outlook.com', 'live.com',
+      'empresa.com', 'empresa.co', 'empresa.org', 'empresa.net',
+      'gmail.co', 'hotmail.co', 'yahoo.co', 'outlook.co'
+    ];
+    
+    const domain = email.split('@')[1];
+    return validDomains.includes(domain?.toLowerCase());
+  };
+
+  // Función para validar dirección
+  const validateAddress = (address) => {
+    // Debe contener al menos una palabra con números (calle, carrera, etc.)
+    const hasStreet = /\b(calle|carrera|avenida|av|diagonal|diag|transversal|trans|manzana|mz|barrio|br|sector|set|urbanizacion|urb|conjunto|cjto|edificio|edif|torre|torr|apartamento|apto|oficina|of|local|loc|piso|planta|pl)\b/i.test(address);
+    const hasNumbers = /\d/.test(address);
+    const hasValidChars = /^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s#\-.,]+$/.test(address);
+    
+    return hasStreet && hasNumbers && hasValidChars;
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
@@ -60,12 +136,16 @@ const CreateCompanyPage = () => {
           if (docType === 'C.C') {
             if (value.length < 6 || value.length > 10) {
               newErrors.documentNumber = t("form.ccLength");
+            } else if (!validateCedula(value)) {
+              newErrors.documentNumber = t("form.invalidCedula");
             } else {
               delete newErrors.documentNumber;
             }
           } else if (docType === 'NIT') {
             if (value.length < 9 || value.length > 15) {
               newErrors.documentNumber = t("form.nitLength");
+            } else if (!validateNIT(value)) {
+              newErrors.documentNumber = t("form.invalidNIT");
             } else {
               delete newErrors.documentNumber;
             }
@@ -90,6 +170,12 @@ const CreateCompanyPage = () => {
           newErrors.firstName = t("form.nameMaxLength");
         } else if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(value)) {
           newErrors.firstName = t("form.onlyLetters");
+        } else if (value.trim().split(/\s+/).length > 3) {
+          newErrors.firstName = t("form.nameTooManyWords");
+        } else if (/(.)\1{2,}/.test(value)) {
+          newErrors.firstName = t("form.nameNoRepeated");
+        } else if (value.trim().length !== value.length) {
+          newErrors.firstName = t("form.nameNoSpaces");
         } else {
           delete newErrors.firstName;
         }
@@ -104,6 +190,12 @@ const CreateCompanyPage = () => {
           newErrors.lastName = t("form.nameMaxLength");
         } else if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(value)) {
           newErrors.lastName = t("form.onlyLetters");
+        } else if (value.trim().split(/\s+/).length > 3) {
+          newErrors.lastName = t("form.nameTooManyWords");
+        } else if (/(.)\1{2,}/.test(value)) {
+          newErrors.lastName = t("form.nameNoRepeated");
+        } else if (value.trim().length !== value.length) {
+          newErrors.lastName = t("form.nameNoSpaces");
         } else {
           delete newErrors.lastName;
         }
@@ -118,8 +210,12 @@ const CreateCompanyPage = () => {
           newErrors.phone = t("form.phoneMinLength");
         } else if (value.length > 15) {
           newErrors.phone = t("form.phoneMaxLength");
-        } else if (!/^[3][0-9]{9}$/.test(value) && !/^[6][0-9]{9}$/.test(value) && !/^[1-9][0-9]{6,9}$/.test(value)) {
+        } else if (!validatePhoneFormat(value)) {
           newErrors.phone = t("form.phoneFormat");
+        } else if (value.startsWith('0')) {
+          newErrors.phone = t("form.phoneNoZeroStart");
+        } else if (/(\d)\1{4,}/.test(value)) {
+          newErrors.phone = t("form.phoneNoRepeated");
         } else {
           delete newErrors.phone;
         }
@@ -134,6 +230,12 @@ const CreateCompanyPage = () => {
           newErrors.email = t("form.emailMaxLength");
         } else if (value.includes('..') || value.startsWith('.') || value.endsWith('.')) {
           newErrors.email = t("form.invalidEmailFormat");
+        } else if (!validateEmailDomain(value)) {
+          newErrors.email = t("form.invalidEmailDomain");
+        } else if (value.includes('+') && !value.includes('+@')) {
+          newErrors.email = t("form.invalidEmailPlus");
+        } else if (/(.)\1{3,}/.test(value.split('@')[0])) {
+          newErrors.email = t("form.emailNoRepeated");
         } else {
           delete newErrors.email;
         }
@@ -146,6 +248,12 @@ const CreateCompanyPage = () => {
           newErrors.address = t("form.addressMinLength");
         } else if (value.length > 200) {
           newErrors.address = t("form.addressMaxLength");
+        } else if (!validateAddress(value)) {
+          newErrors.address = t("form.invalidAddressFormat");
+        } else if (/(.)\1{4,}/.test(value)) {
+          newErrors.address = t("form.addressNoRepeated");
+        } else if (!/^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s#\-.,]+$/.test(value)) {
+          newErrors.address = t("form.addressInvalidChars");
         } else {
           delete newErrors.address;
         }
@@ -172,9 +280,15 @@ const CreateCompanyPage = () => {
                    value.toLowerCase().includes(userData.lastName.toLowerCase()) ||
                    value.toLowerCase().includes(userData.email.split('@')[0])) {
           newErrors.password = t("form.passwordPersonalInfo");
+        } else if (value.includes('123') || value.includes('abc') || value.includes('qwe')) {
+          newErrors.password = t("form.passwordSequential");
+        } else if (/(.)\1{3,}/.test(value)) {
+          newErrors.password = t("form.passwordNoRepeatedChars");
+        } else if (value.length < 12 && !/(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])/.test(value)) {
+          newErrors.password = t("form.passwordWeak");
         } else {
           // Verificar contraseñas comunes
-          const commonPasswords = ['password', '123456', '123456789', 'qwerty', 'abc123', 'password123', 'admin', 'letmein'];
+          const commonPasswords = ['password', '123456', '123456789', 'qwerty', 'abc123', 'password123', 'admin', 'letmein', 'welcome', 'login', 'master', 'hello'];
           if (commonPasswords.includes(value.toLowerCase())) {
             newErrors.password = t("form.passwordCommon");
           } else {
@@ -233,15 +347,34 @@ const CreateCompanyPage = () => {
     if (name === 'firstName' || name === 'lastName') {
       // Solo letras y espacios, eliminar caracteres especiales
       processedValue = value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '');
+      // Limitar a 3 palabras máximo
+      const words = processedValue.trim().split(/\s+/);
+      if (words.length > 3) {
+        processedValue = words.slice(0, 3).join(' ');
+      }
     } else if (name === 'documentNumber' || name === 'phone') {
       // Solo números
       processedValue = value.replace(/\D/g, '');
+      // Limitar longitud según el tipo
+      if (name === 'documentNumber') {
+        const maxLength = userData.documentType === 'NIT' ? 15 : 10;
+        processedValue = processedValue.slice(0, maxLength);
+      } else if (name === 'phone') {
+        processedValue = processedValue.slice(0, 15);
+      }
     } else if (name === 'email') {
       // Convertir a minúsculas y eliminar espacios
       processedValue = value.toLowerCase().trim();
+      // Eliminar caracteres no válidos
+      processedValue = processedValue.replace(/[^a-zA-Z0-9._%+-@]/g, '');
     } else if (name === 'address') {
       // Permitir letras, números, espacios y algunos caracteres especiales
       processedValue = value.replace(/[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s#\-.,]/g, '');
+      // Limitar longitud
+      processedValue = processedValue.slice(0, 200);
+    } else if (name === 'password') {
+      // No procesar la contraseña para mantener caracteres especiales
+      processedValue = value;
     }
     
     setUserData((prev) => ({ ...prev, [name]: processedValue }));
@@ -295,6 +428,13 @@ const CreateCompanyPage = () => {
           isValid = false;
         }
       });
+
+      // Validaciones adicionales del paso 1
+      if (userData.firstName && userData.lastName && 
+          userData.firstName.toLowerCase() === userData.lastName.toLowerCase()) {
+        setErrors(prev => ({ ...prev, lastName: t("form.nameSameAsFirst") }));
+        isValid = false;
+      }
     }
     
     if (step === 2) {
@@ -302,6 +442,25 @@ const CreateCompanyPage = () => {
       const fieldsToValidate = ['email', 'status', 'address', 'password'];
       
       fieldsToValidate.forEach(field => {
+        const fieldValid = validateField(field, userData[field]);
+        if (!fieldValid) {
+          isValid = false;
+        }
+      });
+
+      // Validaciones adicionales del paso 2
+      if (userData.email && userData.password && 
+          userData.password.toLowerCase().includes(userData.email.split('@')[0].toLowerCase())) {
+        setErrors(prev => ({ ...prev, password: t("form.passwordContainsEmail") }));
+        isValid = false;
+      }
+    }
+
+    if (step === 3) {
+      // Validación final completa
+      const allFields = ['rol', 'documentType', 'documentNumber', 'firstName', 'lastName', 'phone', 'actividad_economica', 'email', 'status', 'address', 'password'];
+      
+      allFields.forEach(field => {
         const fieldValid = validateField(field, userData[field]);
         if (!fieldValid) {
           isValid = false;
@@ -345,13 +504,38 @@ const CreateCompanyPage = () => {
   };
 
   const handleSubmit = async () => {
-    if (!validateStep(3)) return;
+    // Validación completa antes del envío
+    if (!validateStep(3)) {
+      Swal.fire({
+        title: t("alerts.error"),
+        text: t("alerts.validationErrors"),
+        icon: "error",
+        confirmButtonColor: "#d33",
+      });
+      return;
+    }
 
+    // Validaciones adicionales específicas
     const validValues = ["Sector primario", "Sector secundario", "Sector terciario"];
     if (!validValues.includes(userData.actividad_economica)) {
       Swal.fire({
         title: t("alerts.error"),
         text: t("alerts.invalidEconomicActivity"),
+        icon: "error",
+        confirmButtonColor: "#d33",
+      });
+      return;
+    }
+
+    // Verificar que no haya espacios en blanco al inicio o final
+    const hasLeadingTrailingSpaces = Object.values(userData).some(value => 
+      typeof value === 'string' && (value !== value.trim())
+    );
+    
+    if (hasLeadingTrailingSpaces) {
+      Swal.fire({
+        title: t("alerts.error"),
+        text: t("alerts.noLeadingTrailingSpaces"),
         icon: "error",
         confirmButtonColor: "#d33",
       });
@@ -490,13 +674,15 @@ const CreateCompanyPage = () => {
                   onChange={handleInputChange}
                   onBlur={handleInputBlur}
                   className={errors.rol ? "error" : ""}
+                  aria-describedby={errors.rol ? "rol-error" : "rol-help"}
+                  aria-invalid={!!errors.rol}
                   required
                 >
                   <option value="">{t("form.selectRol")}</option>
                   <option value="Admin">{t("form.admin")}</option>
                   <option value="Empresa">{t("form.empresa")}</option>
                 </select>
-                {errors.rol && <span className="error-message">{errors.rol}</span>}
+                {errors.rol && <span id="rol-error" className="error-message" role="alert">{errors.rol}</span>}
               </div>
 
               <div className="form-group">
@@ -507,12 +693,14 @@ const CreateCompanyPage = () => {
                   onChange={handleInputChange}
                   onBlur={handleInputBlur}
                   className={errors.documentType ? "error" : ""}
+                  aria-describedby={errors.documentType ? "documentType-error" : "documentType-help"}
+                  aria-invalid={!!errors.documentType}
                 >
                   <option value="C.C">{t("form.cc")}</option>
                   <option value="NIT">NIT</option>
                   <option value="C.E">{t("form.ce")}</option>
                 </select>
-                {errors.documentType && <span className="error-message">{errors.documentType}</span>}
+                {errors.documentType && <span id="documentType-error" className="error-message" role="alert">{errors.documentType}</span>}
               </div>
 
               <div className="form-group">
@@ -526,8 +714,11 @@ const CreateCompanyPage = () => {
                   placeholder={t("form.enterDocumentNumber")}
                   className={errors.documentNumber ? "error" : ""}
                   maxLength="15"
+                  aria-describedby={errors.documentNumber ? "documentNumber-error" : "documentNumber-help"}
+                  aria-invalid={!!errors.documentNumber}
+                  autoComplete="off"
                 />
-                {errors.documentNumber && <span className="error-message">{errors.documentNumber}</span>}
+                {errors.documentNumber && <span id="documentNumber-error" className="error-message" role="alert">{errors.documentNumber}</span>}
               </div>
 
               <div className="form-group">
@@ -541,8 +732,11 @@ const CreateCompanyPage = () => {
                   placeholder={t("form.enterFirstName")}
                   className={errors.firstName ? "error" : ""}
                   maxLength="50"
+                  aria-describedby={errors.firstName ? "firstName-error" : "firstName-help"}
+                  aria-invalid={!!errors.firstName}
+                  autoComplete="given-name"
                 />
-                {errors.firstName && <span className="error-message">{errors.firstName}</span>}
+                {errors.firstName && <span id="firstName-error" className="error-message" role="alert">{errors.firstName}</span>}
               </div>
 
               <div className="form-group">
@@ -556,14 +750,17 @@ const CreateCompanyPage = () => {
                   placeholder={t("form.enterLastName")}
                   className={errors.lastName ? "error" : ""}
                   maxLength="50"
+                  aria-describedby={errors.lastName ? "lastName-error" : "lastName-help"}
+                  aria-invalid={!!errors.lastName}
+                  autoComplete="family-name"
                 />
-                {errors.lastName && <span className="error-message">{errors.lastName}</span>}
+                {errors.lastName && <span id="lastName-error" className="error-message" role="alert">{errors.lastName}</span>}
               </div>
 
               <div className="form-group">
                 <label>{t("form.phone")} <span>*</span></label>
                 <input
-                  type="text"
+                  type="tel"
                   name="phone"
                   value={userData.phone}
                   onChange={handleInputChange}
@@ -571,8 +768,11 @@ const CreateCompanyPage = () => {
                   placeholder={t("form.enterPhone")}
                   className={errors.phone ? "error" : ""}
                   maxLength="15"
+                  aria-describedby={errors.phone ? "phone-error" : "phone-help"}
+                  aria-invalid={!!errors.phone}
+                  autoComplete="tel"
                 />
-                {errors.phone && <span className="error-message">{errors.phone}</span>}
+                {errors.phone && <span id="phone-error" className="error-message" role="alert">{errors.phone}</span>}
               </div>
 
               <div className="form-group">
@@ -583,12 +783,14 @@ const CreateCompanyPage = () => {
                   onChange={handleInputChange}
                   onBlur={handleInputBlur}
                   className={errors.actividad_economica ? "error" : ""}
+                  aria-describedby={errors.actividad_economica ? "actividad_economica-error" : "actividad_economica-help"}
+                  aria-invalid={!!errors.actividad_economica}
                 >
                   <option value="Sector primario">{t("form.sectorPrimary")}</option>
                   <option value="Sector secundario">{t("form.sectorSecondary")}</option>
                   <option value="Sector terciario">{t("form.sectorTertiary")}</option>
                 </select>
-                {errors.actividad_economica && <span className="error-message">{errors.actividad_economica}</span>}
+                {errors.actividad_economica && <span id="actividad_economica-error" className="error-message" role="alert">{errors.actividad_economica}</span>}
               </div>
 
               <div className="form-navigation">
@@ -626,8 +828,11 @@ const CreateCompanyPage = () => {
                   placeholder={t("form.enterEmail")}
                   className={errors.email ? "error" : ""}
                   maxLength="100"
+                  aria-describedby={errors.email ? "email-error" : "email-help"}
+                  aria-invalid={!!errors.email}
+                  autoComplete="email"
                 />
-                {errors.email && <span className="error-message">{errors.email}</span>}
+                {errors.email && <span id="email-error" className="error-message" role="alert">{errors.email}</span>}
               </div>
 
               <div className="form-group">
@@ -638,11 +843,13 @@ const CreateCompanyPage = () => {
                   onChange={handleInputChange}
                   onBlur={handleInputBlur}
                   className={errors.status ? "error" : ""}
+                  aria-describedby={errors.status ? "status-error" : "status-help"}
+                  aria-invalid={!!errors.status}
                 >
                   <option value="active">{t("form.active")}</option>
                   <option value="inactive">{t("form.inactive")}</option>
                 </select>
-                {errors.status && <span className="error-message">{errors.status}</span>}
+                {errors.status && <span id="status-error" className="error-message" role="alert">{errors.status}</span>}
               </div>
 
               <div className="form-group">
@@ -656,8 +863,11 @@ const CreateCompanyPage = () => {
                   placeholder={t("form.enterAddress")}
                   className={errors.address ? "error" : ""}
                   maxLength="200"
+                  aria-describedby={errors.address ? "address-error" : "address-help"}
+                  aria-invalid={!!errors.address}
+                  autoComplete="street-address"
                 />
-                {errors.address && <span className="error-message">{errors.address}</span>}
+                {errors.address && <span id="address-error" className="error-message" role="alert">{errors.address}</span>}
               </div>
 
               <div className="form-group">
@@ -671,8 +881,11 @@ const CreateCompanyPage = () => {
                   placeholder={t("form.enterPassword")}
                   className={errors.password ? "error" : ""}
                   maxLength="50"
+                  aria-describedby={errors.password ? "password-error" : "password-help"}
+                  aria-invalid={!!errors.password}
+                  autoComplete="new-password"
                 />
-                {errors.password && <span className="error-message">{errors.password}</span>}
+                {errors.password && <span id="password-error" className="error-message" role="alert">{errors.password}</span>}
                 
                 {/* Indicador de fortaleza de contraseña */}
                 {userData.password && (

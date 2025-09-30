@@ -1,0 +1,340 @@
+/* Validation styles for forms */
+
+/* Error input styling */
+.error-input {
+  border: 2px solid #e74c3c !important;
+  background-color: #fdf2f2 !important;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1) !important;
+}
+
+.error-input:focus {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2) !important;
+}
+
+/* Success input styling */
+.success-input {
+  border: 2px solid #27ae60 !important;
+  background-color: #f2fdf5 !important;
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1) !important;
+}
+
+.success-input:focus {
+  border-color: #27ae60 !important;
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2) !important;
+}
+
+/* Error message styling */
+.error-message {
+  display: block;
+  color: #e74c3c;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+  animation: slideDown 0.2s ease-out;
+}
+
+/* Success message styling */
+.success-message {
+  display: block;
+  color: #27ae60;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+  animation: slideDown 0.2s ease-out;
+}
+
+/* Help text styling */
+.help-text {
+  display: block;
+  color: #6c757d;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+}
+
+/* Form group with error */
+.form-group.error {
+  margin-bottom: 1rem;
+}
+
+.form-group.error label {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+/* Password strength indicator */
+.password-strength {
+  width: 100%;
+  height: 4px;
+  background-color: #e9ecef;
+  border-radius: 2px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.password-strength-bar {
+  height: 100%;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.password-strength-weak {
+  background-color: #e74c3c;
+  width: 25%;
+}
+
+.password-strength-medium {
+  background-color: #f39c12;
+  width: 50%;
+}
+
+.password-strength-strong {
+  background-color: #27ae60;
+  width: 100%;
+}
+
+/* Password requirements */
+.password-requirements {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  background-color: #f8f9fa;
+  border-radius: 0.375rem;
+  border: 1px solid #e9ecef;
+}
+
+.requirements-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #495057;
+  margin: 0 0 0.5rem 0;
+}
+
+.requirements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.requirements-list li {
+  font-size: 0.75rem;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+  padding-left: 1.25rem;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.requirements-list li::before {
+  content: "✗";
+  position: absolute;
+  left: 0;
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.requirements-list li.valid {
+  color: #27ae60;
+}
+
+.requirements-list li.valid::before {
+  content: "✓";
+  color: #27ae60;
+}
+
+/* Field validation states */
+.field-container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.field-container.has-error .form-control {
+  border-color: #e74c3c;
+  background-color: #fdf2f2;
+}
+
+.field-container.has-success .form-control {
+  border-color: #27ae60;
+  background-color: #f2fdf5;
+}
+
+/* Validation icon */
+.validation-icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.validation-icon.error {
+  color: #e74c3c;
+}
+
+.validation-icon.success {
+  color: #27ae60;
+}
+
+/* Form validation summary */
+.validation-summary {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.validation-summary h4 {
+  color: #721c24;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.validation-summary ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #721c24;
+}
+
+.validation-summary li {
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Loading state for validation */
+.field-loading {
+  position: relative;
+}
+
+.field-loading::after {
+  content: "";
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #e9ecef;
+  border-top: 2px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: translateY(-50%) rotate(0deg); }
+  100% { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* Dark mode support */
+.dark .error-input {
+  border-color: #e74c3c !important;
+  background-color: #2d1b1b !important;
+  color: #fff !important;
+}
+
+.dark .success-input {
+  border-color: #27ae60 !important;
+  background-color: #1b2d1b !important;
+  color: #fff !important;
+}
+
+.dark .error-message {
+  color: #ff6b6b;
+}
+
+.dark .success-message {
+  color: #51cf66;
+}
+
+.dark .help-text {
+  color: #adb5bd;
+}
+
+.dark .password-requirements {
+  background-color: #2d3748;
+  border-color: #4a5568;
+}
+
+.dark .requirements-title {
+  color: #e2e8f0;
+}
+
+.dark .requirements-list li {
+  color: #a0aec0;
+}
+
+.dark .validation-summary {
+  background-color: #2d1b1b;
+  border-color: #e74c3c;
+}
+
+.dark .validation-summary h4 {
+  color: #ff6b6b;
+}
+
+.dark .validation-summary ul {
+  color: #ff6b6b;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .error-message,
+  .success-message,
+  .help-text {
+    font-size: 0.75rem;
+  }
+  
+  .password-requirements {
+    padding: 0.5rem;
+  }
+  
+  .requirements-list li {
+    font-size: 0.7rem;
+  }
+}
+
+/* Accessibility improvements */
+.error-message[role="alert"] {
+  font-weight: 600;
+}
+
+.form-control[aria-invalid="true"] {
+  border-color: #e74c3c;
+}
+
+.form-control[aria-invalid="false"] {
+  border-color: #27ae60;
+}
+
+/* Focus management for screen readers */
+.form-control:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.form-control.error:focus {
+  outline-color: #e74c3c;
+}
+
+.form-control.success:focus {
+  outline-color: #27ae60;
+}

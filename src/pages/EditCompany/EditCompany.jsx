@@ -12,6 +12,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
+import { validateEmail, validatePhone, validateAddress, validatePassword } from '../../utils/validation.js';
+import '../../styles/validation.css';
 
 const EditCompany = () => {
   const { t } = useTranslation();
@@ -32,9 +34,17 @@ const EditCompany = () => {
   const [errors, setErrors] = useState({
     telefono: '',
     email: '',
-    direccion: ''
+    direccion: '',
+    password: ''
   });
   const [isValid, setIsValid] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [touched, setTouched] = useState({
+    telefono: false,
+    email: false,
+    direccion: false,
+    password: false
+  });
 
   useEffect(() => {
     const fetchUsuario = async () => {
@@ -69,19 +79,26 @@ const EditCompany = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  // Funciones de validación
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+  // Funciones de validación usando utilidades centralizadas
+  const validateEmailField = (email) => {
+    const validation = validateEmail(email);
+    return { isValid: validation.isValid, error: validation.error };
   };
 
-  const validatePhone = (phone) => {
-    const phoneRegex = /^[\+]?[0-9\s\-\(\)]{7,15}$/;
-    return phoneRegex.test(phone);
+  const validatePhoneField = (phone) => {
+    const validation = validatePhone(phone);
+    return { isValid: validation.isValid, error: validation.error };
   };
 
-  const validateAddress = (address) => {
-    return address.trim().length >= 5;
+  const validateAddressField = (address) => {
+    const validation = validateAddress(address);
+    return { isValid: validation.isValid, error: validation.error };
+  };
+
+  const validatePasswordField = (password) => {
+    if (!password || password.trim() === '') return { isValid: true, error: '' }; // Password es opcional
+    const validation = validatePassword(password);
+    return { isValid: validation.isValid, error: validation.error };
   };
 
   const validateField = (field, value) => {
@@ -89,24 +106,27 @@ const EditCompany = () => {
     
     switch (field) {
       case 'email':
-        if (!value.trim()) {
-          error = t('validation.emailRequired');
-        } else if (!validateEmail(value)) {
-          error = t('validation.emailInvalid');
+        const emailValidation = validateEmailField(value);
+        if (!emailValidation.isValid) {
+          error = emailValidation.error;
         }
         break;
       case 'telefono':
-        if (!value.trim()) {
-          error = t('validation.phoneRequired');
-        } else if (!validatePhone(value)) {
-          error = t('validation.phoneInvalid');
+        const phoneValidation = validatePhoneField(value);
+        if (!phoneValidation.isValid) {
+          error = phoneValidation.error;
         }
         break;
       case 'direccion':
-        if (!value.trim()) {
-          error = t('validation.addressRequired');
-        } else if (!validateAddress(value)) {
-          error = t('validation.addressTooShort');
+        const addressValidation = validateAddressField(value);
+        if (!addressValidation.isValid) {
+          error = addressValidation.error;
+        }
+        break;
+      case 'password':
+        const passwordValidation = validatePasswordField(value);
+        if (!passwordValidation.isValid) {
+          error = passwordValidation.error;
         }
         break;
       default:
@@ -128,9 +148,18 @@ const EditCompany = () => {
       case 'direccion':
         setDireccion(value);
         break;
+      case 'password':
+        setPassword(value);
+        break;
       default:
         break;
     }
+
+    // Marcar el campo como tocado
+    setTouched(prev => ({
+      ...prev,
+      [field]: true
+    }));
 
     // Validar el campo
     const error = validateField(field, value);
@@ -145,19 +174,50 @@ const EditCompany = () => {
       [field]: error
     };
     const hasErrors = Object.values(allErrors).some(error => error !== '');
-    setIsValid(!hasErrors && email.trim() !== '' && telefono.trim() !== '' && direccion.trim() !== '');
+    const allRequiredFieldsFilled = email.trim() !== '' && telefono.trim() !== '' && direccion.trim() !== '';
+    setIsValid(!hasErrors && allRequiredFieldsFilled);
+  };
+
+  const handleFieldBlur = (field, value) => {
+    // Marcar el campo como tocado cuando pierde el foco
+    setTouched(prev => ({
+      ...prev,
+      [field]: true
+    }));
+
+    // Validar el campo
+    const error = validateField(field, value);
+    setErrors(prev => ({
+      ...prev,
+      [field]: error
+    }));
   };
 
   const guardarCambios = async () => {
+    // Prevenir múltiples envíos
+    if (isSubmitting) return;
+    
+    setIsSubmitting(true);
+
+    // Marcar todos los campos como tocados
+    setTouched({
+      telefono: true,
+      email: true,
+      direccion: true,
+      password: true
+    });
+
     // Validar todos los campos antes de enviar
     const emailError = validateField('email', email);
     const phoneError = validateField('telefono', telefono);
     const addressError = validateField('direccion', direccion);
+    const passwordError = validateField('password', password);
 
     const newErrors = {
       email: emailError,
       telefono: phoneError,
-      direccion: addressError
+      direccion: addressError,
+      password: passwordError
     };
 
     setErrors(newErrors);
@@ -166,10 +226,11 @@ const EditCompany = () => {
     const hasErrors = Object.values(newErrors).some(error => error !== '');
     
     if (hasErrors) {
+      setIsSubmitting(false);
       Swal.fire({
         icon: 'warning',
-        title: t('validation.formErrorsTitle'),
-        text: t('validation.formErrorsText'),
+        title: t('validation.formErrorsTitle') || 'Errores en el formulario',
+        text: t('validation.formErrorsText') || 'Por favor corrige los errores antes de continuar',
         confirmButtonColor: '#39a900'
       });
       return;
@@ -177,33 +238,40 @@ const EditCompany = () => {
 
     // Verificar que todos los campos requeridos estén llenos
     if (!email.trim() || !telefono.trim() || !direccion.trim()) {
+      setIsSubmitting(false);
       Swal.fire({
         icon: 'warning',
-        title: t('validation.requiredFieldsTitle'),
-        text: t('validation.requiredFieldsText'),
+        title: t('validation.requiredFieldsTitle') || 'Campos requeridos',
+        text: t('validation.requiredFieldsText') || 'Todos los campos son obligatorios',
         confirmButtonColor: '#39a900'
       });
       return;
     }
 
     try {
-      await axios.put(`http://localhost:3000/api/usuarios/${id}`, {
+      const updateData = {
         telefono,
         email,
         estado: estado || t('labels.active'),
-        password: password || 'default',
         direccion
-      });
+      };
 
-     const isDarkMode = document.body.classList.contains("dark");
-    Swal.fire({
-      title: t("alerts.dataUpdatedTitle"),      // ✅ i18n
-      text: t("alerts.dataUpdatedText"),        // ✅ i18n
-      icon: "success",
-      confirmButtonText: t("general.accept"),   // ✅ si tienes esta key en tu JSON
-      confirmButtonColor: "#39a900",
-      background: isDarkMode ? "#1e1e1e" : "#fff", // ✅ Dark / Light
-      color: isDarkMode ? "#fff" : "#000"
+      // Solo incluir password si se proporcionó
+      if (password && password.trim() !== '') {
+        updateData.password = password;
+      }
+
+      await axios.put(`http://localhost:3000/api/usuarios/${id}`, updateData);
+
+      const isDarkMode = document.body.classList.contains("dark");
+      Swal.fire({
+        title: t("alerts.dataUpdatedTitle") || "Datos actualizados",
+        text: t("alerts.dataUpdatedText") || "Los datos se han actualizado correctamente",
+        icon: "success",
+        confirmButtonText: t("general.accept") || "Aceptar",
+        confirmButtonColor: "#39a900",
+        background: isDarkMode ? "#1e1e1e" : "#fff",
+        color: isDarkMode ? "#fff" : "#000"
       }).then(() => {
         navigate('/listcompany');
       });
@@ -211,10 +279,12 @@ const EditCompany = () => {
       console.error(error);
       Swal.fire({
         icon: 'error',
-        title: t('alerts.errorTitle'),
-        text: t('errors.couldNotUpdate'),
+        title: t('alerts.errorTitle') || 'Error',
+        text: t('errors.couldNotUpdate') || 'No se pudo actualizar la información',
         confirmButtonColor: '#39a900'
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -270,10 +340,12 @@ const EditCompany = () => {
                 type="text"
                 value={telefono}
                 onChange={(e) => handleFieldChange('telefono', e.target.value)}
+                onBlur={(e) => handleFieldBlur('telefono', e.target.value)}
                 placeholder={t('placeholders.phoneNumber')}
-                className={errors.telefono ? 'error-input' : ''}
+                className={errors.telefono && touched.telefono ? 'error-input' : ''}
+                disabled={isSubmitting}
               />
-              {errors.telefono && <span className="error-message">{errors.telefono}</span>}
+              {errors.telefono && touched.telefono && <span className="error-message">{errors.telefono}</span>}
             </div>
             <div className="requirement">
               <h3>{t('labels.email')}</h3>
@@ -281,10 +353,12 @@ const EditCompany = () => {
                 type="email"
                 value={email}
                 onChange={(e) => handleFieldChange('email', e.target.value)}
+                onBlur={(e) => handleFieldBlur('email', e.target.value)}
                 placeholder={t('placeholders.email')}
-                className={errors.email ? 'error-input' : ''}
+                className={errors.email && touched.email ? 'error-input' : ''}
+                disabled={isSubmitting}
               />
-              {errors.email && <span className="error-message">{errors.email}</span>}
+              {errors.email && touched.email && <span className="error-message">{errors.email}</span>}
             </div>
             <div className="requirement">
               <h3>{t('labels.address')}</h3>
@@ -292,14 +366,33 @@ const EditCompany = () => {
                 type="text"
                 value={direccion}
                 onChange={(e) => handleFieldChange('direccion', e.target.value)}
+                onBlur={(e) => handleFieldBlur('direccion', e.target.value)}
                 placeholder={t('placeholders.address')}
-                className={errors.direccion ? 'error-input' : ''}
+                className={errors.direccion && touched.direccion ? 'error-input' : ''}
+                disabled={isSubmitting}
               />
-              {errors.direccion && <span className="error-message">{errors.direccion}</span>}
+              {errors.direccion && touched.direccion && <span className="error-message">{errors.direccion}</span>}
+            </div>
+            <div className="requirement">
+              <h3>{t('labels.password')} <span className="optional-text">({t('labels.optional')})</span></h3>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => handleFieldChange('password', e.target.value)}
+                onBlur={(e) => handleFieldBlur('password', e.target.value)}
+                placeholder={t('placeholders.password')}
+                className={errors.password && touched.password ? 'error-input' : ''}
+                disabled={isSubmitting}
+              />
+              {errors.password && touched.password && <span className="error-message">{errors.password}</span>}
+              <small className="help-text">
+                {t('validation.passwordHelp') || 'Mínimo 8 caracteres, al menos una letra y un número'}
+              </small>
             </div>
 
-            <div className="Box-Button" onClick={guardarCambios}>
-              <ButtonConfirm />
+            <div className="Box-Button" onClick={isSubmitting ? null : guardarCambios}>
+              <ButtonConfirm disabled={isSubmitting || !isValid} />
+              {isSubmitting && <span className="loading-text">{t('general.saving') || 'Guardando...'}</span>}
             </div>
           </div>
         </div>
