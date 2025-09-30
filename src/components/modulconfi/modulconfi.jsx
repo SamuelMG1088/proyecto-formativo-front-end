@@ -5,6 +5,14 @@ const modulesConfig = {
     { id: "listado-programas", title: "navbar.training", link: "/ListProgram" },
     { id: "diagnosis", title: "navbar.diagnosis", link: "/businessdiagnosis" },
     { id: "profile", title: "navbar.profile", link: "/viewprofile" },
+    { 
+      id: "logout", 
+      title: "navbar.logout", 
+      action: () => {
+        localStorage.removeItem("token");   // Limpia token
+        window.location.href = "/";    // Redirige al login
+      } 
+    },
   ],
 
   Admin: [
@@ -20,6 +28,14 @@ const modulesConfig = {
     },
     { id: "diagnosis", title: "navbar.diagnosis", link: "/businessdiagnosis" },
     { id: "profile", title: "navbar.profile", link: "/viewprofile" },
+    { 
+      id: "logout", 
+      title: "navbar.logout", 
+      action: () => {
+        localStorage.removeItem("token");
+        window.location.href = "/";
+      } 
+    },
   ],
 };
 

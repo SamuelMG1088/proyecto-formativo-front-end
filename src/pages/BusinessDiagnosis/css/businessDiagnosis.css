@@ -85,6 +85,7 @@
     text-align: center;
   }
   
+
   .form-subtitle {
     color: var(--neutral-1_3);
     text-align: center;
@@ -104,7 +105,7 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background-color: var(--neutral-1_2);
+    background-color: var( --color-primary5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -115,7 +116,7 @@
 
   .step.active {
     background-color: var(--color-primary);
-    color: var(--neutral-4);
+    color: white;
   }
 
   .step-line {
@@ -134,15 +135,16 @@
     gap: 9.5rem;
   }
 
+  
   .step-labels span {
-    color: var(--neutral-1_3);
+    color: var(--text-color);
     font-size: 14px;
     font-weight: 500;
     transition: all 0.3s ease;
   }
 
   .step-labels span.active {
-    color: var(--color-primary);
+    color: var(--text-color);
     font-weight: 600;
   }
 
@@ -222,7 +224,7 @@
 
   .button-secondary {
     background-color: var(--color-primary);
-    color: var(--neutral-4);
+    color: white;
     border: none;
     padding: 12px 30px;
     border-radius: 6px;
@@ -289,12 +291,12 @@
 
   /* Pasos del indicador */
   .step {
-    background-color: #555;
+    background-color: red;
     color: #ffffff;
   }
 
   .step.active {
-    background-color: #fdd835;
+    background-color: white;
     color: #222;
   }
 

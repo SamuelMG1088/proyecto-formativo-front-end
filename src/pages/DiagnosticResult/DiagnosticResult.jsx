@@ -4,6 +4,7 @@ import Gov from '../../layout/Gov/Gov.jsx';
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons.jsx';
 import NavBar from '../../layout/NavBar/NavBar.jsx';
 import './css/diagnosticResult.css';
+import '../../styles/variables.css'
 import { Link, useLocation, NavLink } from 'react-router-dom';
 import { FaChartBar, FaGraduationCap } from 'react-icons/fa';
 import { FaRegEdit } from "react-icons/fa";
@@ -161,13 +162,11 @@ const DiagnosticResult = () => {
     if (diagnostico && diagnostico.respuestas) {
       const resultados = calcularResultadosGrafica(diagnostico.respuestas);
       
-      // Destruir gráfico anterior si existe
       const ctx = document.getElementById('diagnosticoChart');
       if (ctx) {
         const chartInstance = Chart.getChart(ctx);
         if (chartInstance) chartInstance.destroy();
         
-        // Crear nuevo gráfico solo si hay datos
         if (Object.keys(resultados).length > 0) {
           new Chart(ctx, {
             type: 'bar',
@@ -184,19 +183,35 @@ const DiagnosticResult = () => {
             options: {
               responsive: true,
               scales: {
+                x: {
+                  ticks: {
+                    color: '#948e8eff', // 🔴 labels eje X en rojo
+                    font: {
+                      size: 14,
+                      weight: 'bold'
+                    }
+                  }
+                },
                 y: {
                   beginAtZero: true,
                   max: 100,
-                  ticks: { stepSize: 25 }
+                  ticks: { 
+                    stepSize: 25,
+                    color: '#948e8eff', // 🔴 números eje Y en rojo
+                    font: {
+                      size: 14
+                    }
+                  }
                 }
               },
-              plugins: { legend: { display: false } }
+              plugins: { 
+                legend: { display: false }
+              }
             }
           });
         }
       }
 
-      // Buscar programas recomendados
       const areasNecesarias = mapearAreasAProgramas(diagnostico.respuestas);
       buscarProgramasRecomendados(areasNecesarias);
     }

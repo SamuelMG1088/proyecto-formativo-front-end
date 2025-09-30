@@ -13,13 +13,19 @@ const NavBar = () => {
   const { t } = useTranslation();
   const { user, logout } = useAuth();
 
+
+  
   const AlertaLogout = () => {
+    const isDarkMode = document.body.classList.contains("dark");
+
     Swal.fire({
       position: "top-end",
       icon: "success",
       title: t("alerts.logoutSuccess"),
       showConfirmButton: false,
       timer: 1500,
+      background: isDarkMode ? "#1e1e1e" : "#fff",
+      color: isDarkMode ? "#fff" : "#000",
     });
     logout();
     navigate("/");
@@ -50,20 +56,25 @@ const NavBar = () => {
       <nav className="navbar">
         <ul className="navbar-menu">
           {roleModules.map((module) => (
-            <li key={module.id} className={isActive(module.link) ? "active" : ""}>
-              <NavLink to={parseLink(module.link)}>
-                {t(module.title)}
-              </NavLink>
+            <li 
+              key={module.id} 
+              className={module.link && isActive(module.link) ? "active" : ""}
+            >
+              {module.link ? (
+                <NavLink to={parseLink(module.link)}>
+                  {t(module.title)}
+                </NavLink>
+              ) : (
+                <button 
+                  onClick={module.action} 
+                  className="logout-btn"
+                  style={{ background: "none", border: "none", cursor: "pointer" }}
+                >
+                  {t(module.title)}
+                </button>
+              )}
             </li>
           ))}
-        </ul>
-
-        <ul className="navbar-logout">
-          <li>
-            <NavLink to="/" onClick={AlertaLogout}>
-              {t("navbar.logout")}
-            </NavLink>
-          </li>
         </ul>
       </nav>
     </div>

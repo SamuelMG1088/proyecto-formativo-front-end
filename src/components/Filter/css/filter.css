@@ -108,7 +108,7 @@
 
   .filter-option.selected {
     background-color: var(--color-primary);
-    color: var(--neutral-4);
+    color: var(--color-texto);
     border-color: var(--color-primary);
   }
 

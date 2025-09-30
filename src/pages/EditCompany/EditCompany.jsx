@@ -52,7 +52,9 @@ const EditCompany = () => {
           icon: 'error',
           title: t('alerts.errorTitle'),
           text: t('errors.couldNotLoadUserInfo'),
-          confirmButtonColor: '#39a900'
+          background: isDarkMode ? "#1e1e1e" : "#fff",
+          color: isDarkMode ? "#fff" : "#000",
+          confirmButtonColor: isDarkMode ? "#39a900" : "#d33",
         });
       }
     };
@@ -192,11 +194,16 @@ const EditCompany = () => {
         password: password || 'default',
         direccion
       });
-      Swal.fire({
-        title: t('alerts.dataUpdatedTitle'),
-        text: t('alerts.dataUpdatedText'),
-        icon: 'success',
-        confirmButtonColor: '#39a900'
+
+     const isDarkMode = document.body.classList.contains("dark");
+    Swal.fire({
+      title: t("alerts.dataUpdatedTitle"),      // ✅ i18n
+      text: t("alerts.dataUpdatedText"),        // ✅ i18n
+      icon: "success",
+      confirmButtonText: t("general.accept"),   // ✅ si tienes esta key en tu JSON
+      confirmButtonColor: "#39a900",
+      background: isDarkMode ? "#1e1e1e" : "#fff", // ✅ Dark / Light
+      color: isDarkMode ? "#fff" : "#000"
       }).then(() => {
         navigate('/listcompany');
       });

@@ -21,7 +21,7 @@ const Home = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    }, 16000);
+    }, 3500);
     return () => clearInterval(interval);
   }, [images.length]);
 

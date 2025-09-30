@@ -29,11 +29,16 @@ export const UpdatePasswordPage = () => {
     useEffect(() => {
         // Redirigir si no se proporcionan email o código
         if (!email || !code) {
-            Swal.fire(
-                t('updatePasswordPage.alerts.missingInfo.title'),
-                t('updatePasswordPage.alerts.missingInfo.text'),
-                'error'
-            ).then(() => navigate('/'));
+            Swal.fire({
+                icon: "error",
+                title: t("updatePasswordPage.alerts.missingInfo.title"),
+                text: t("updatePasswordPage.alerts.missingInfo.text"),
+                confirmButtonText: t("general.accept"),
+                background: isDarkMode ? "#1e1e1e" : "#fff",
+                color: isDarkMode ? "#fff" : "#000",
+                }).then(() => {
+                navigate("/");
+                });
         }
     }, [email, code, navigate, t]);
 
@@ -58,22 +63,32 @@ export const UpdatePasswordPage = () => {
             return;
         }
 
-        if (password !== confirmPassword) {
-            Swal.fire(
-                t('updatePasswordPage.alerts.passwordMismatch.title'),
-                t('updatePasswordPage.alerts.passwordMismatch.text'),
-                'error'
-            );
-            return;
+       if (!password || !confirmPassword) {
+        const isDarkMode = document.body.classList.contains("dark");
+
+        Swal.fire({
+            icon: "warning",
+            title: t("updatePasswordPage.alerts.emptyFields.title"),
+            text: t("updatePasswordPage.alerts.emptyFields.text"),
+            confirmButtonText: t("general.accept"),
+            background: isDarkMode ? "#1e1e1e" : "#fff",
+            color: isDarkMode ? "#fff" : "#000",
+        });
+        return;
         }
 
         if (password.length < 6) {
-            Swal.fire(
-                t('updatePasswordPage.alerts.passwordLength.title'),
-                t('updatePasswordPage.alerts.passwordLength.text'),
-                'error'
-            );
-            return;
+        const isDarkMode = document.body.classList.contains("dark");
+
+        Swal.fire({
+            icon: "error",
+            title: t("updatePasswordPage.alerts.passwordLength.title"),
+            text: t("updatePasswordPage.alerts.passwordLength.text"),
+            confirmButtonText: t("general.accept"),
+            background: isDarkMode ? "#1e1e1e" : "#fff",
+            color: isDarkMode ? "#fff" : "#000",
+        });
+        return;
         }
 
         try {
@@ -84,20 +99,31 @@ export const UpdatePasswordPage = () => {
                 confirmPassword
             });
 
-            Swal.fire(
-                t('updatePasswordPage.alerts.success.title'),
-                t('updatePasswordPage.alerts.success.text'),
-                'success'
-            ).then(() => {
+            const isDarkMode = document.body.classList.contains("dark");
+
+            Swal.fire({
+            icon: "success",
+            title: t("updatePasswordPage.alerts.success.title"),
+            text: t("updatePasswordPage.alerts.success.text"),
+            confirmButtonText: t("general.accept"),
+            background: isDarkMode ? "#1e1e1e" : "#fff",
+            color: isDarkMode ? "#fff" : "#000",
+            }).then(() => {
                 navigate('/');
             });
         } catch (error) {
             const msg = error?.response?.data?.message || t('updatePasswordPage.alerts.apiError.text');
-            Swal.fire(
-                t('updatePasswordPage.alerts.apiError.title'),
-                t('updatePasswordPage.alerts.apiError.text', { message: msg }),
-                'error'
-            );
+            const isDarkMode = document.body.classList.contains("dark");
+
+            Swal.fire({
+            icon: "error",
+            title: t("updatePasswordPage.alerts.apiError.title"),
+            text: t("updatePasswordPage.alerts.apiError.text", { message: msg }),
+            confirmButtonText: t("general.accept"),
+            background: isDarkMode ? "#1e1e1e" : "#fff",
+            color: isDarkMode ? "#fff" : "#000",
+            });
+
         }
     };
 

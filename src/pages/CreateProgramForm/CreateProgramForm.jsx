@@ -28,228 +28,16 @@ const CreateProgram = () => {
     competencia: ''
   });
 
-  // Estado para errores de validación
-  const [errors, setErrors] = useState({});
-  const [touched, setTouched] = useState({});
-
-  // Funciones de validación
-  const validateField = (name, value) => {
-    let error = '';
-
-    switch (name) {
-      case 'programcode':
-        if (!value.trim()) {
-          error = 'El código del programa es obligatorio';
-        } else if (!/^\d+$/.test(value)) {
-          error = 'El código debe contener solo números';
-        } else if (parseInt(value) <= 0) {
-          error = 'El código debe ser mayor a 0';
-        }else if (value.length < 5) {
-          error = 'El código debe contener al menos 5 dígitos';
-        }
-        break;
-
-      case 'programversion':
-        if (!value.trim()) {
-          error = 'La versión es obligatoria';
-        } else if (!/^\d+$/.test(value)) {
-          error = 'La versión debe contener solo números';
-        } else if (parseInt(value) <= 0) {
-          error = 'La versión debe ser mayor a 0';
-        }
-        break;
-
-      case 'programname':
-        if (!value.trim()) {
-          error = 'El nombre del programa es obligatorio';
-        } else if (value.trim().length < 3) {
-          error = 'El nombre debe tener al menos 3 caracteres';
-        } else if (value.trim().length > 100) {
-          error = 'El nombre no puede exceder 100 caracteres';
-        }
-        break;
-
-      case 'programduration':
-        if (!value.trim()) {
-          error = 'La duración es obligatoria';
-        } else if (!/^\d+$/.test(value)) {
-          error = 'La duración debe contener solo números';
-        } else if (parseInt(value) <= 0) {
-          error = 'La duración debe ser mayor a 0';
-        } else if (parseInt(value) > 10000) {
-          error = 'La duración no puede exceder 10000 horas';
-        }
-        break;
-
-      case 'traininglevel':
-        if (!value) {
-          error = 'Debe seleccionar un nivel de formación';
-        }
-        break;
-
-      case 'programarea':
-        if (!value) {
-          error = 'Debe seleccionar un área vinculada';
-        }
-        break;
-
-      case 'occupationalprofile':
-        if (!value.trim()) {
-          error = 'El perfil ocupacional es obligatorio';
-        } else if (value.trim().length < 5) {
-          error = 'El perfil debe tener al menos 5 caracteres';
-        } else if (value.trim().length > 200) {
-          error = 'El perfil no puede exceder 200 caracteres';
-        }
-        break;
-
-      case 'RAE':
-        if (!value.trim()) {
-          error = 'El RAE es obligatorio';
-        } else if (value.trim().length < 10) {
-          error = 'El RAE debe tener al menos 10 caracteres';
-        } else if (value.trim().length > 500) {
-          error = 'El RAE no puede exceder 500 caracteres';
-        }
-        break;
-
-      case 'lectiva':
-        if (!value.trim()) {
-          error = 'La duración lectiva es obligatoria';
-        } else if (!/^\d+$/.test(value)) {
-          error = 'La duración lectiva debe contener solo números';
-        } else if (parseInt(value) < 0) {
-          error = 'La duración lectiva no puede ser negativa';
-        } else if (parseInt(value) > 5000) {
-          error = 'La duración lectiva no puede exceder 5000 horas';
-        }
-        break;
-
-      case 'productiva':
-        if (!value.trim()) {
-          error = 'La duración productiva es obligatoria';
-        } else if (!/^\d+$/.test(value)) {
-          error = 'La duración productiva debe contener solo números';
-        } else if (parseInt(value) < 0) {
-          error = 'La duración productiva no puede ser negativa';
-        } else if (parseInt(value) > 5000) {
-          error = 'La duración productiva no puede exceder 5000 horas';
-        }
-        break;
-
-      case 'competencia':
-        if (!value.trim()) {
-          error = 'La competencia es obligatoria';
-        } else if (value.trim().length < 10) {
-          error = 'La competencia debe tener al menos 10 caracteres';
-        } else if (value.trim().length > 300) {
-          error = 'La competencia no puede exceder 300 caracteres';
-        }
-        break;
-
-      default:
-        break;
-    }
-
-    return error;
-  };
-
-  const validateStep = (step) => {
-    const stepErrors = {};
-    
-    if (step === 1) {
-      ['programcode', 'programversion', 'programname', 'programduration'].forEach(field => {
-        const error = validateField(field, userData[field]);
-        if (error) stepErrors[field] = error;
-      });
-    } else if (step === 2) {
-      ['traininglevel', 'programarea', 'occupationalprofile', 'RAE', 'lectiva', 'productiva', 'competencia'].forEach(field => {
-        const error = validateField(field, userData[field]);
-        if (error) stepErrors[field] = error;
-      });
-    }
-
-    setErrors(stepErrors);
-    return Object.keys(stepErrors).length === 0;
-  };
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUserData((prev) => ({ ...prev, [name]: value }));
-    
-    // Validación en tiempo real
-    if (touched[name]) {
-      const error = validateField(name, value);
-      setErrors(prev => ({
-        ...prev,
-        [name]: error
-      }));
-    }
   };
 
-  const handleBlur = (e) => {
-    const { name, value } = e.target;
-    setTouched(prev => ({ ...prev, [name]: true }));
-    
-    const error = validateField(name, value);
-    setErrors(prev => ({
-      ...prev,
-      [name]: error
-    }));
-  };
-
-  const nextStep = () => {
-    if (validateStep(currentStep)) {
-      setCurrentStep((prev) => Math.min(prev + 1, 3));
-    } else {
-      // Marcar todos los campos del paso actual como tocados
-      const fieldsToTouch = currentStep === 1 
-        ? ['programcode', 'programversion', 'programname', 'programduration']
-        : ['traininglevel', 'programarea', 'occupationalprofile', 'RAE', 'lectiva', 'productiva', 'competencia'];
-      
-      const newTouched = {};
-      fieldsToTouch.forEach(field => {
-        newTouched[field] = true;
-      });
-      setTouched(prev => ({ ...prev, ...newTouched }));
-    }
-  };
-
+  const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, 3));
   const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 1));
   const navegar = useNavigate();
 
   const handleSubmit = async () => {
-    // Validar todos los campos antes de enviar
-    const allFields = ['programcode', 'programversion', 'programname', 'programduration', 
-                      'traininglevel', 'programarea', 'occupationalprofile', 'RAE', 
-                      'lectiva', 'productiva', 'competencia'];
-    
-    const finalErrors = {};
-    allFields.forEach(field => {
-      const error = validateField(field, userData[field]);
-      if (error) finalErrors[field] = error;
-    });
-
-    if (Object.keys(finalErrors).length > 0) {
-      setErrors(finalErrors);
-      setTouched(prev => {
-        const newTouched = { ...prev };
-        allFields.forEach(field => {
-          newTouched[field] = true;
-        });
-        return newTouched;
-      });
-      
-      Swal.fire({
-        title: 'Error de validación',
-        text: 'Por favor, corrija los errores en el formulario antes de continuar.',
-        icon: 'error',
-        confirmButtonText: 'OK',
-        confirmButtonColor: '#d33'
-      });
-      return;
-    }
-
     try {
       const payload = {
         id: parseInt(userData.programcode),
@@ -270,12 +58,16 @@ const CreateProgram = () => {
 
       const response = await axios.post('http://localhost:3000/api/programas', payload);
 
+      const isDarkMode = document.body.classList.contains("dark");
+
       Swal.fire({
+        icon: 'success',
         title: t('createProgram.success.title'),
         text: response.data.message || t('createProgram.success.message'),
-        icon: 'success',
         confirmButtonText: 'OK',
-        confirmButtonColor: '#39a900'
+        confirmButtonColor: "#39a900",
+        background: isDarkMode ? "#1e1e1e" : "#fff",
+        color: isDarkMode ? "#fff" : "#000",
       }).then((result) => {
         if (result.isConfirmed) {
           navegar('/listProgram');
@@ -283,12 +75,17 @@ const CreateProgram = () => {
       });
     } catch (error) {
       console.error('Error al crear el programa:', error.response?.data || error);
+
+      const isDarkMode = document.body.classList.contains("dark");
+      
       Swal.fire({
+        icon: 'error',
         title: t('createProgram.error.title'),
         text: error.response?.data?.message || t('createProgram.error.message'),
-        icon: 'error',
         confirmButtonText: t('createProgram.error.button'),
-        confirmButtonColor: '#d33'
+         background: isDarkMode ? "#1e1e1e" : "#fff",
+        color: isDarkMode ? "#fff" : "#000",
+        confirmButtonColor: isDarkMode ? "#39a900" : "#d33",
       });
     }
   };
@@ -357,14 +154,9 @@ const CreateProgram = () => {
                   type="number" 
                   name="programcode" 
                   value={userData.programcode} 
-                  onChange={handleInputChange}
-                  onBlur={handleBlur}
-                  placeholder={t('createProgram.placeholders.programCode')}
-                  className={errors.programcode && touched.programcode ? 'error' : ''}
+                  onChange={handleInputChange} 
+                  placeholder={t('createProgram.placeholders.programCode')} 
                 />
-                {errors.programcode && touched.programcode && (
-                  <span className="error-message">{errors.programcode}</span>
-                )}
               </div>
               <div className="form-group">
                 <label>{t('createProgram.fields.version')}</label>
@@ -372,14 +164,9 @@ const CreateProgram = () => {
                   type="text" 
                   name="programversion" 
                   value={userData.programversion} 
-                  onChange={handleInputChange}
-                  onBlur={handleBlur}
-                  placeholder={t('createProgram.placeholders.version')}
-                  className={errors.programversion && touched.programversion ? 'error' : ''}
+                  onChange={handleInputChange} 
+                  placeholder={t('createProgram.placeholders.version')} 
                 />
-                {errors.programversion && touched.programversion && (
-                  <span className="error-message">{errors.programversion}</span>
-                )}
               </div>
               <div className="form-group">
                 <label>{t('createProgram.fields.programName')}</label>
@@ -387,14 +174,9 @@ const CreateProgram = () => {
                   type="text" 
                   name="programname" 
                   value={userData.programname} 
-                  onChange={handleInputChange}
-                  onBlur={handleBlur}
-                  placeholder={t('createProgram.placeholders.programName')}
-                  className={errors.programname && touched.programname ? 'error' : ''}
+                  onChange={handleInputChange} 
+                  placeholder={t('createProgram.placeholders.programName')} 
                 />
-                {errors.programname && touched.programname && (
-                  <span className="error-message">{errors.programname}</span>
-                )}
               </div>
               <div className="form-group">
                 <label>{t('createProgram.fields.duration')}</label>
@@ -402,14 +184,9 @@ const CreateProgram = () => {
                   type="text" 
                   name="programduration" 
                   value={userData.programduration} 
-                  onChange={handleInputChange}
-                  onBlur={handleBlur}
-                  placeholder={t('createProgram.placeholders.duration')}
-                  className={errors.programduration && touched.programduration ? 'error' : ''}
+                  onChange={handleInputChange} 
+                  placeholder={t('createProgram.placeholders.duration')} 
                 />
-                {errors.programduration && touched.programduration && (
-                  <span className="error-message">{errors.programduration}</span>
-                )}
               </div>
               <div className="form-navigation">
                 <Link to='/ListProgram'>
@@ -436,8 +213,6 @@ const CreateProgram = () => {
                   name="traininglevel" 
                   value={userData.traininglevel} 
                   onChange={handleInputChange}
-                  onBlur={handleBlur}
-                  className={errors.traininglevel && touched.traininglevel ? 'error' : ''}
                 >
                   <option value="">{t('createProgram.selectDefault')}</option>
                   <option value="Tecnico">{t('createProgram.options.technical')}</option>
@@ -445,9 +220,6 @@ const CreateProgram = () => {
                   <option value="Auxiliar">{t('createProgram.options.auxiliary')}</option>
                   <option value="Operario">{t('createProgram.options.operator')}</option>
                 </select>
-                {errors.traininglevel && touched.traininglevel && (
-                  <span className="error-message">{errors.traininglevel}</span>
-                )}
               </div>
               <div className="form-group">
                 <label>{t('createProgram.fields.linkedArea')}</label>
@@ -455,8 +227,6 @@ const CreateProgram = () => {
                   name="programarea" 
                   value={userData.programarea} 
                   onChange={handleInputChange}
-                  onBlur={handleBlur}
-                  className={errors.programarea && touched.programarea ? 'error' : ''}
                 >
                   <option value="">{t('createProgram.selectArea')}</option>
                   <option value="Teleinformática">{t('createProgram.options.teleinformatics')}</option>
@@ -466,9 +236,6 @@ const CreateProgram = () => {
                   <option value="Construcción">{t('createProgram.options.construction')}</option>
                   <option value="Confecciones">{t('createProgram.options.clothing')}</option>
                 </select>
-                {errors.programarea && touched.programarea && (
-                  <span className="error-message">{errors.programarea}</span>
-                )}
               </div>
               <div className="form-group">
                 <label>{t('createProgram.fields.occupationalProfile')}</label>
@@ -476,14 +243,9 @@ const CreateProgram = () => {
                   type="text" 
                   name="occupationalprofile" 
                   value={userData.occupationalprofile} 
-                  onChange={handleInputChange}
-                  onBlur={handleBlur}
-                  placeholder={t('createProgram.placeholders.profile')}
-                  className={errors.occupationalprofile && touched.occupationalprofile ? 'error' : ''}
+                  onChange={handleInputChange} 
+                  placeholder={t('createProgram.placeholders.profile')} 
                 />
-                {errors.occupationalprofile && touched.occupationalprofile && (
-                  <span className="error-message">{errors.occupationalprofile}</span>
-                )}
               </div>
               <div className="form-group">
                 <label>{t('createProgram.fields.RAE')}</label>
@@ -491,14 +253,9 @@ const CreateProgram = () => {
                   type="text" 
                   name="RAE" 
                   value={userData.RAE} 
-                  onChange={handleInputChange}
-                  onBlur={handleBlur}
-                  placeholder={t('createProgram.placeholders.RAE')}
-                  className={errors.RAE && touched.RAE ? 'error' : ''}
+                  onChange={handleInputChange} 
+                  placeholder={t('createProgram.placeholders.RAE')} 
                 />
-                {errors.RAE && touched.RAE && (
-                  <span className="error-message">{errors.RAE}</span>
-                )}
               </div>
               <div className="form-group">
                 <label>{t('createProgram.fields.lectivaDuration')}</label>
@@ -506,14 +263,9 @@ const CreateProgram = () => {
                   type="text" 
                   name="lectiva" 
                   value={userData.lectiva} 
-                  onChange={handleInputChange}
-                  onBlur={handleBlur}
-                  placeholder={t('createProgram.placeholders.lectiva')}
-                  className={errors.lectiva && touched.lectiva ? 'error' : ''}
+                  onChange={handleInputChange} 
+                  placeholder={t('createProgram.placeholders.lectiva')} 
                 />
-                {errors.lectiva && touched.lectiva && (
-                  <span className="error-message">{errors.lectiva}</span>
-                )}
               </div>
               <div className="form-group">
                 <label>{t('createProgram.fields.productivaDuration')}</label>
@@ -521,14 +273,9 @@ const CreateProgram = () => {
                   type="text" 
                   name="productiva" 
                   value={userData.productiva} 
-                  onChange={handleInputChange}
-                  onBlur={handleBlur}
-                  placeholder={t('createProgram.placeholders.productiva')}
-                  className={errors.productiva && touched.productiva ? 'error' : ''}
+                  onChange={handleInputChange} 
+                  placeholder={t('createProgram.placeholders.productiva')} 
                 />
-                {errors.productiva && touched.productiva && (
-                  <span className="error-message">{errors.productiva}</span>
-                )}
               </div>
               <div className="form-group">
                 <label>{t('createProgram.fields.competence')}</label>
@@ -536,14 +283,9 @@ const CreateProgram = () => {
                   type="text" 
                   name="competencia" 
                   value={userData.competencia} 
-                  onChange={handleInputChange}
-                  onBlur={handleBlur}
-                  placeholder={t('createProgram.placeholders.competence')}
-                  className={errors.competencia && touched.competencia ? 'error' : ''}
+                  onChange={handleInputChange} 
+                  placeholder={t('createProgram.placeholders.competence')} 
                 />
-                {errors.competencia && touched.competencia && (
-                  <span className="error-message">{errors.competencia}</span>
-                )}
               </div>
               <div className="form-navigation">
                 <button 

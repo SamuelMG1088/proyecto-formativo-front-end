@@ -48,11 +48,17 @@ export const LoginPage = () => {
     setLoading(true);
 
     if (!email || !password) {
+      const isDarkMode = document.body.classList.contains("dark");
+
       Swal.fire({
         icon: "warning",
         title: t("loginPage.alerts.incompleteFields.title"),
         text: t("loginPage.alerts.incompleteFields.text"),
+        background: isDarkMode ? "#1e1e1e" : "#fff",
+        color: isDarkMode ? "#fff" : "#000",
+        confirmButtonColor: isDarkMode ? "#39a900" : "#3085d6",
       });
+
       setLoading(false);
       return;
     }
@@ -74,6 +80,8 @@ export const LoginPage = () => {
             rol_usuario: response.data.user.rol_usuario,
           });
 
+          const isDarkMode = document.body.classList.contains("dark");
+
           Swal.fire({
             icon: "success",
             title: t("loginPage.alerts.welcome.title", {
@@ -82,6 +90,8 @@ export const LoginPage = () => {
             text: t("loginPage.alerts.welcome.text"),
             showConfirmButton: false,
             timer: 1500,
+            background: isDarkMode ? "#1e1e1e" : "#fff",
+            color: isDarkMode ? "#fff" : "#000",
           }).then(() => {
             navigate("/home");
           });
@@ -113,10 +123,15 @@ export const LoginPage = () => {
       messageKey = "loginPage.alerts.errors.genericError";
     }
 
+    const isDarkMode = document.body.classList.contains("dark");
+
     Swal.fire({
       icon: "error",
       title: t("loginPage.alerts.denied.title"),
       text: t("loginPage.alerts.denied.text", { message: t(messageKey) }),
+      background: isDarkMode ? "#1e1e1e" : "#fff",
+      color: isDarkMode ? "#fff" : "#000",
+      confirmButtonColor: isDarkMode ? "#39a900" : "#d33",
     });
   };
 

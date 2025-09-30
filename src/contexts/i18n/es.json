@@ -88,11 +88,7 @@
       "enterPassword": "Ingrese la contraseña",
       "requiredField": "Este campo es obligatorio"
     },
-    "buttons": {
-      "previous": "Anterior",
-      "next": "Siguiente",
-      "confirmCreateUser": "Confirmar creación"
-    },
+    
     "alerts": {
       "userCreated": "Usuario creado",
       "accountRegistered": "La cuenta ha sido registrada exitosamente",
@@ -124,17 +120,7 @@
       "inactivo": "Inactivo"
     }
     },
-    "buttons": {
-    "goBack": "Volver atrás",
-    "cancel": "Cancelar",
-    "yesSuspend": "Sí, suspender",
-    "suspend": "suspender",
-    "edit": "Editar",
-    "confirm": "Confirmar",
-    "previous": "Anterior",
-    "next": "Siguiente",
-    "confirm": "Confirmar"
-  },
+    
   "labels": {
     "status": "Estado",
     "company": "Empresa",
@@ -151,10 +137,7 @@
     "couldNotLoadProfile": "No se pudo cargar el perfil.",
     "invalidServerData": "Datos no válidos del servidor"
   },
-  "confirmation": {
-    "sureTitle": "¿Estás seguro?",
-    "suspendUserText": "Este usuario será suspendido."
-  },
+ 
   "alerts": {
     "suspendedTitle": "¡Suspendido!",
     "userSuspended": "El usuario ha sido suspendido.",
@@ -306,7 +289,7 @@
     "subtitle": "Explora y gestiona los programas de formación registrados",
     "tableHeaders": {
       "code": "CÓDIGO",
-      "name": "NOMBRE",
+      "name": "NOMBRE PROGRAMA DE FORMACIÓN",
       "level": "NIVEL",
       "duration": "DURACIÓN (MESES)",
       "modality": "MODALIDAD",
@@ -376,14 +359,12 @@
       "construction": "Construcción",
       "clothing": "Confecciones"
     },
-    "buttons": {
-      "previous": "Anterior",
-      "next": "Siguiente",
-      "confirm": "Confirmar y Crear programa"
-    },
     "confirmation": {
       "title": "Confirmación",
-      "description": "Revise la información antes de enviar"
+      "description": "Revise la información antes de enviar",
+      "sureTitle": "¿Estás seguro?",
+      "suspendUserText": "Este usuario será suspendido.",
+      "sureActivateTitle": "Seguro que quiere activar este programa"
     }
   },
   "viewProfile": {
@@ -556,8 +537,83 @@
   "AccestDirect": {
     "directAccest":"Acceso Directo"
 
+  },
+  
+  "buttons": {
+    "back": "Volver atrás",
+    "cancel": "Cancelar",
+    "suspend": "Sí, suspender",
+    "activate": "Sí, activar",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "confirm": "Confirmar ",
+    "yesActivate": "Si",
+    "edit": "Editar"
+    
+    
+  },
+  "general": {
+    "accept": "Aceptar",
+    "loading": "Cargando...",
+    "loadingProgram": "Cargando programa...",
+    "backToHome": "Volver al inicio",
+      "active": "Activo",
+      "always": "Siempre",
+      "sometimes": "A veces",
+      "yes": "Sí",
+      "no": "No",
+      "both": "Ambos",
+      "none": "Ninguno",
+      "others": "Otros",
+      "other": "Otro",
+      "always": "Siempre",
+      "sometimes": "Algunas veces",
+      "never": "Nunca",
+      "chooseOption": "Elija una opción",
+      "understand": "Entendido",
+      "goToLogin": "Ir a Login",
+      "tryAgain": "Intentar nuevamente",
+      "next": "Siguiente",
+      "previous": "Anterior",
+      "sending": "Enviando...",
+      "allAbove": "Todos los anteriores",
+      "noneAbove": "Ninguno de los anteriores"
+  },
+  "program": {
+    "level": "Nivel",
+    "area": "Área vinculada",
+    "state": "Estado",
+    "code": "Código del Programa",
+    "version": "Versión",
+    "duration": "Duración",
+    "profile": "Perfil ocupacional",
+    "skills": "Habilidades",
+    "lectiveTime": "Tiempo de etapa lectiva",
+    "productiveTime": "Tiempo de etapa productiva"
+  },
+  "confirmation": {
+    "sureTitle": "¿Estás seguro de suspender este programa?",
+    "sureActivateTitle": "¿Quieres activar este programa?",
+    "suspendUserText": "El programa será suspendido y no estará disponible.",
+    "activateUserText": "El programa será activado y estará disponible."
+  },
+  "alerts": {
+    "suspendedTitle": "Programa suspendido",
+    "activatedTitle": "Programa activado",
+    "userSuspended": "El programa ha sido suspendido correctamente.",
+    "userActivated": "El programa ha sido activado correctamente.",
+    "dataUpdatedTitle": "¡Datos actualizados!",
+    "dataUpdatedText": "La información se actualizó correctamente."
+     
+  },
+  "errors": {
+    "loadProgram": "Error al cargar el programa",
+    "changeState": "No se pudo cambiar el estado del programa"
   }
 }
+
+  
+
 
 
 

@@ -1,7 +1,6 @@
 #navbar {
         .navbar {
             background-color: var(--color-background);
-            padding: 1rem;
             transition: background-color 0.3s ease, color 0.3s ease;
             display: flex;
             justify-content: space-between;
@@ -10,7 +9,8 @@
         .navbar-menu{
             display: flex;
             align-items: center;
-            width: 80%;
+            width: 100%;
+            margin-left: -2.9rem;
         } 
         
         

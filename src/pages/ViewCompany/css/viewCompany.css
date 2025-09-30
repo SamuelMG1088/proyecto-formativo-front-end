@@ -179,6 +179,16 @@
      gap: 2rem;
     }
 
+    .btn-activate{
+     border-radius: 6px; 
+    width:  8rem;
+    height: 2.5rem;
+    background-color: var(--color-primary);
+    border: none;
+    cursor: pointer;
+    color: white;
+    }
+
     /*Prueba*/
 
     .view-company-page {

@@ -32,54 +32,87 @@ export const OldPasswordPage = () => {
 
   const handleSendCode = async () => {
     if (!email) {
-      Swal.fire(
-        t('oldPasswordPage.alerts.emptyEmail.title'),
-        t('oldPasswordPage.alerts.emptyEmail.text'),
-        'warning'
-      );
+      const isDarkMode = document.body.classList.contains("dark");
+
+      Swal.fire({
+        icon: "warning",
+        title: t("oldPasswordPage.alerts.emptyEmail.title"),
+        text: t("oldPasswordPage.alerts.emptyEmail.text"),
+        confirmButtonText: t("general.accept"),
+        background: isDarkMode ? "#1e1e1e" : "#fff",
+        color: isDarkMode ? "#fff" : "#000",
+      });
+
       return;
     }
 
     if (!isValidEmail(email)) {
-      Swal.fire(
-        t('oldPasswordPage.alerts.invalidEmail.title'),
-        t('oldPasswordPage.alerts.invalidEmail.text'),
-        'warning'
-      );
+      const isDarkMode = document.body.classList.contains("dark");
+
+      Swal.fire({
+        icon: "warning",
+        title: t("oldPasswordPage.alerts.invalidEmail.title"),
+        text: t("oldPasswordPage.alerts.invalidEmail.text"),
+        confirmButtonText: t("general.accept"),
+        background: isDarkMode ? "#1e1e1e" : "#fff",
+        color: isDarkMode ? "#fff" : "#000",
+      });
+
       return;
     }
+
 
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:3000/api/password-reset/forgot-password', { email });
-      const { code } = response.data;
+  const response = await axios.post(
+    "http://localhost:3000/api/password-reset/forgot-password",
+    { email }
+  );
+  const { code } = response.data;
 
-      if (code) {
-        Swal.fire({
-          title: t('oldPasswordPage.alerts.codeSent.title'),
-          html: t('oldPasswordPage.alerts.codeSent.text', { code }),
-          icon: 'info',
-        }).then(() => {
-          navigate('/verify', { state: { email } });
-        });
-      } else {
-        Swal.fire(
-          t('oldPasswordPage.alerts.success.title'),
-          t('oldPasswordPage.alerts.success.text'),
-          'success'
-        ).then(() => {
-          navigate('/verify', { state: { email } });
-        });
-      }
-    } catch (error) {
-      const msg = error?.response?.data?.message || t('oldPasswordPage.alerts.error.text');
-      Swal.fire(
-        t('oldPasswordPage.alerts.apiError.title'),
-        t('oldPasswordPage.alerts.apiError.text', { message: msg }),
-        'error'
-      );
-    } finally {
+  const isDarkMode = document.body.classList.contains("dark");
+
+  if (code) {
+    Swal.fire({
+      title: t("oldPasswordPage.alerts.codeSent.title"),
+      html: t("oldPasswordPage.alerts.codeSent.text", { code }),
+      icon: "info",
+      confirmButtonText: t("general.accept"),
+      background: isDarkMode ? "#1e1e1e" : "#fff",
+      color: isDarkMode ? "#fff" : "#000",
+    }).then(() => {
+      navigate("/verify", { state: { email } });
+    });
+  } else {
+    Swal.fire({
+      title: t("oldPasswordPage.alerts.success.title"),
+      text: t("oldPasswordPage.alerts.success.text"),
+      icon: "success",
+      confirmButtonText: t("general.accept"),
+      background: isDarkMode ? "#1e1e1e" : "#fff",
+      color: isDarkMode ? "#fff" : "#000",
+    }).then(() => {
+      navigate("/verify", { state: { email } });
+    });
+  }
+} catch (error) {
+  const isDarkMode = document.body.classList.contains("dark");
+  const msg =
+    error?.response?.data?.message ||
+    t("oldPasswordPage.alerts.error.text");
+
+  Swal.fire({
+    icon: "error",
+    title: t("oldPasswordPage.alerts.apiError.title"),
+    text: t("oldPasswordPage.alerts.apiError.text", { message: msg }),
+    confirmButtonText: t("general.accept"),
+    background: isDarkMode ? "#1e1e1e" : "#fff",
+    color: isDarkMode ? "#fff" : "#000",
+  });
+}
+
+     finally {
       setLoading(false);
     }
   };
@@ -147,6 +180,6 @@ export const OldPasswordPage = () => {
       </div>
     </div>
   );
-};
+}
 
 export default OldPasswordPage;

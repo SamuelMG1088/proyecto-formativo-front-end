@@ -75,7 +75,7 @@
     max-width: 800px;
     margin: 2rem auto;
     padding: 1rem;
-    background: var(--neutral-4);
+    background-color: var(--neutral-2);
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
@@ -85,19 +85,23 @@
     height: 40px;
     border-radius: 50%;
     color: var(--neutral-4);
-    background-color: var(--color-primary);
+    background-color: var(--neutral-3);
     margin-left: 8rem;
-    padding: 1rem;
+    padding: 0.9rem;
+  }
+
+  .diagnosticoChart{
+    color: #3e3a3a;
   }
 
   /* === Títulos y subtítulos === */
   .Sub-title {
-    margin-left: 39%;
+    margin-left: 40%;
   }
 
   .Sub-title h2 {
-    margin-left: 1rem;
-    color: var(--color-primary);
+    margin-left: 4rem;
+    color: var(--neutral-3);
   }
 
   /* === Loading === */
@@ -175,297 +179,7 @@
 
   .NavLink {
     text-decoration: none;
-    color: var(--color-primary);
-    position: relative;
-    top: 3rem;
-    left: 3rem;
-  }
-
-  .list-company-section h2 {
-    font-size: 2rem;
-    margin: 1.2rem 0 0.5rem 0;
-  }
-
-  .list-company-section p {
-    color: var(--neutral-1_2);
-    margin-bottom: 1rem;
-  }
-
-  .Export-pdf-excel {
-    margin-left: 80%;
-  }
-
-  .border {
-    border: 1px solid var(--neutral-1_2);
-    border-radius: 6px;
-  }
-
-  /* === Tabla === */
-  .empresa-table-container {
-    margin: 2rem auto;
-    width: 100%;
-    overflow-x: auto;
-  }
-
-  .empresa-table {
-    border: 1px solid var(--neutral-1_2);
-    width: 100%;
-    border-collapse: collapse;
-    background-color: var(--neutral-4);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .empresa-table th {
-    padding: 1rem;
-    text-align: left;
-    font-weight: 600;
-    color: var(--neutral-1_6);
-    border-bottom: 1px solid var(--neutral-1_2);
-  }
-
-  .empresa-table td {
-    padding: 1rem;
-    border-bottom: 2px solid #f6f6f6;
-    color: var(--neutral-1_5);
-  }
-
-  .empresa-table tbody tr:hover {
-    background-color: var(--neutral-2);
-  }
-
-  .status-badge {
-    padding: 5% 12%;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 500;
-    display: inline-block;
-  }
-
-  .status-badge.active {
-    background-color: var(--color-secundary-2);
-    color: var(--neutral-4);
-  }
-
-  .edit-button {
-    background: none;
-    border: none;
-    color: var(--neutral-1_6);
-    cursor: pointer;
-    font-size: 16px;
-  }
-
-  .edit-button:hover {
-    color: var(--color-primary);
-  }
-
-  /* ===================== */
-  /* === MODO OSCURO === */
-  /* ===================== */
-  .dark .Sub-title h2,
-  .dark .Sub-title p,
-  .dark .empresa-table th,
-  .dark .empresa-table td,
-  .dark .no-data-message,
-  .dark .error-container h2,
-  .dark .error-container p,
-  .dark .loading-container p,
-  .dark .NavLink,
-  .dark .edit-button {
-    color: #ffffff !important;
-  }
-
-  .dark .chart-container,
-  .dark .list-company-section,
-  .dark .empresa-table,
-  .dark .content-result-section {
-    background-color: var(--neutral-2);
-  }
-
-  
-
-
-
-CSS RESULT
-
-#DiagnosisResult {
-  .PageresultDiagnosis {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-image: url(../assets/images/Vector-Negroo.png);
-    background-size: cover;
-  }
-
-  /* === Carrusel === */
-  .diagnosis-carousel {
-    width: 100%;
-    height: 32rem;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    margin-bottom: -40px;
-    background-color: #f5f5f5;
-  }
-
-  .carousel-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-
-  .carousel-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-  }
-
-  .carousel-slide.active {
-    opacity: 1;
-  }
-
-  .carousel-dots {
-    position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 12px;
-    z-index: 2;
-  }
-
-  .dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.6);
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .dot.active {
-    background-color: #ffffff;
-    transform: scale(1.2);
-  }
-
-  .dot:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-  }
-
-  /* === Gráficas === */
-  .chart-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background: var(--neutral-4);
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .chart-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    color: var(--neutral-4);
-    background-color: var(--color-primary);
-    margin-left: 8rem;
-    padding: 1rem;
-  }
-
-  /* === Títulos y subtítulos === */
-  .Sub-title {
-    margin-left: 39%;
-  }
-
-  .Sub-title h2 {
-    margin-left: 1rem;
-    color: var(--color-primary);
-  }
-
-  /* === Loading === */
-  .loading-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-
-  .spinner {
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #3498db;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
-    margin-bottom: 20px;
-  }
-
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-
-  /* === Errores y mensajes === */
-  .error-container {
-    padding: 40px;
-    text-align: center;
-    background: #ffebee;
-    border-radius: 8px;
-    margin: 20px;
-  }
-
-  .error-container h2 {
-    margin-bottom: 1rem;
-    color: #c62828;
-  }
-
-  .no-data-message {
-    padding: 20px;
-    background: #fff3e0;
-    border-radius: 4px;
-    text-align: center;
-    color: #e65100;
-    margin-top: 20px;
-    font-style: italic;
-  }
-
-  /* === Contenedor principal === */
-  .content-result-section {
-    margin-top: 10rem;
-    background-color: var(--neutral-4);
-    margin-left: 5rem;
-    width: 90%;
-    height: 40%;
-  }
-
-  /* === Lista de empresas === */
-  .list-company-section {
-    width: 86.5%;
-    height: auto;
-    position: relative;
-    top: 2rem;
-    left: 5%;
-    background-color: var(--neutral-4);
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-  }
-
-  .icon-arrow {
-    margin-right: 0.5rem;
-  }
-
-  .NavLink {
-    text-decoration: none;
-    color: var(--color-primary);
+    color: var(--text-color); 
     position: relative;
     top: 3rem;
     left: 3rem;
@@ -577,7 +291,7 @@ CSS RESULT
 .programs-recommendation-section {
   margin-top: 2rem;
   padding: 1rem;
-  background-color: #f8f9fa;
+  background-color: var(--neutral-4);
   border-radius: 8px;
 }
 
@@ -586,12 +300,13 @@ CSS RESULT
   color: white;
   border: none;
   padding: 12px 20px;
-  border-radius: 6px;
+  border-radius: 0.6rem;
   cursor: pointer;
   font-size: 16px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 1rem;
+  margin-left: 2rem;
   transition: background-color 0.3s;
 }
 
@@ -602,13 +317,14 @@ CSS RESULT
 .recommended-programs-container {
   margin-top: 1rem;
   padding: 1rem;
-  background-color: white;
+  background-color: var(--neutral-4);
   border-radius: 8px;
+  color: var(--neutral-3);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .recommended-programs-container h3 {
-  color: #333;
+  color: var(--neutral-3);
   margin-bottom: 1rem;
   border-bottom: 2px solid #39a900;
   padding-bottom: 0.5rem;
@@ -625,7 +341,7 @@ CSS RESULT
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 1rem;
-  background-color: #fff;
+  background-color: var(--neutral-4);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -685,7 +401,4 @@ CSS RESULT
   background-color: #f8d7da;
   color: #721c24;
 }
-}
-
-
 }

@@ -126,7 +126,6 @@
     "cancel": "Cancel",
     "yesSuspend": "Yes, suspend",
     "suspend": "Suspend",
-    "edit": "Edit",
     "next": "Next",
     "previous": "Former",
     "confirmCreateUser": "Confirm creation"
@@ -559,13 +558,78 @@
   "AccestDirect": {
     "directAccest":"Direct Access"
 
-  }
-
-}
-
-
-  
+  },
+  "buttons": {
+    "back": "Go back",
+    "cancel": "Cancel",
+    "suspend": "Yes, suspend",
+    "activate": "Yes, activate",
+    "goBack": "Go back",
+    "yesSuspend": "Yes, suspend",
+    "edit": "Edit",
+    "next": "Next",
+    "previous": "Former",
+    "confirm": "Confirm ",
+    "confirmCreateUser": "Confirm creation",
+    "yesActivate": "Yes"
     
-
-
-
+  },
+  "general": {
+    "accept": "Accept",
+    "loading": "Loading...",
+    "loadingProgram": "Loading program...",
+    "backToHome": "Back to home",
+    "active": "Active",
+    "always": "Always",
+    "sometimes": "Sometimes",
+    "chooseOption": "Choose an option",
+    "yes": "Yes",
+    "no": "No",
+    "both": "Both",
+    "none": "None",
+    "others": "Others",
+    "other": "Other",
+    "always": "Always",
+    "sometimes": "Sometimes",
+    "never": "Never",
+    "chooseOption": "Choose an option",
+    "understand": "Understand",
+    "goToLogin": "Go to Login",
+    "tryAgain": "Try again",
+    "next": "Next",
+    "previous": "Previous",
+    "sending": "Sending...",
+    "allAbove": "All of the above",
+    "noneAbove": "None of the above"
+  },
+  "program": {
+    "level": "Level",
+    "area": "Linked area",
+    "state": "Status",
+    "code": "Program Code",
+    "version": "Version",
+    "duration": "Duration",
+    "profile": "Occupational profile",
+    "skills": "Skills",
+    "lectiveTime": "Lective stage duration",
+    "productiveTime": "Productive stage duration"
+  },
+  "confirmation": {
+    "sureTitle": "Are you sure you want to suspend this program?",
+    "sureActivateTitle": "Do you want to activate this program?",
+    "suspendUserText": "The program will be suspended and will not be available.",
+    "activateUserText": "The program will be activated and made available."
+  },
+  "alerts": {
+    "suspendedTitle": "Program suspended",
+    "activatedTitle": "Program activated",
+    "userSuspended": "The program has been successfully suspended.",
+    "userActivated": "The program has been successfully activated.",
+    "dataUpdatedTitle": "¡Data updated!",
+    "dataUpdatedText": "The information was updated successfully."
+  },
+  "errors": {
+    "loadProgram": "Error loading program",
+    "changeState": "The program status could not be changed"
+  }
+}

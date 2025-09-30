@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import './css/businessDiagnosis.css';
+import '../../styles/variables.css'
 import Gov from "../../layout/Gov/Gov";
 import HeaderIcons from '../../layout/HeaderIcons/HeaderIcons';
 import NavBar from '../../layout/NavBar/NavBar';
@@ -97,11 +98,15 @@ const BusinessDiagnosis = () => {
 
   const nextStep = () => {
     if (!validateCurrentStep()) {
+      const isDarkMode = document.body.classList.contains("dark");
       Swal.fire({
         icon: 'warning',
         title: t('diagnosis.incompleteFields'),
         text: t('diagnosis.completeAllFields'),
-        confirmButtonText: t('general.understand')
+        confirmButtonText: t('general.understand'),
+        background: isDarkMode ? "#1e1e1e" : "#fff",
+        color: isDarkMode ? "#fff" : "#000",
+        confirmButtonColor: isDarkMode ? "#39a900" : "#3085d6",
       });
       return;
     }
@@ -116,11 +121,15 @@ const BusinessDiagnosis = () => {
   const handleSubmitDiagnosis = async () => {
     const token = getToken();
     if (!token) {
+      const isDarkMode = document.body.classList.contains("dark");
       Swal.fire({
         icon: 'warning',
         title: t('diagnosis.sessionRequired'),
         text: t('diagnosis.loginRequired'),
-        confirmButtonText: t('general.goToLogin')
+        confirmButtonText: t('general.goToLogin'),
+        background: isDarkMode ? "#1e1e1e" : "#fff",
+        color: isDarkMode ? "#fff" : "#000",
+        confirmButtonColor: isDarkMode ? "#39a900" : "#3085d6",
       }).then(() => {
         navigate('/login');
       });
@@ -128,11 +137,16 @@ const BusinessDiagnosis = () => {
     }
 
     if (!validateCurrentStep()) {
+      const isDarkMode = document.body.classList.contains("dark");
+      
       Swal.fire({
         icon: 'warning',
         title: t('diagnosis.incompleteFields'),
         text: t('diagnosis.completeAllFields'),
-        confirmButtonText: t('general.understand')
+        confirmButtonText: t('general.understand'),
+        background: isDarkMode ? "#1e1e1e" : "#fff",
+        color: isDarkMode ? "#fff" : "#000",
+        confirmButtonColor: isDarkMode ? "#39a900" : "#3085d6",
       });
       return;
     }
@@ -140,10 +154,15 @@ const BusinessDiagnosis = () => {
     setIsLoading(true);
 
     try {
+      const isDarkMode = document.body.classList.contains("dark");
+
       Swal.fire({
         title: t('diagnosis.processing'),
         html: t('diagnosis.analyzingResponses'),
         allowOutsideClick: false,
+        background: isDarkMode ? "#1e1e1e" : "#fff",
+        color: isDarkMode ? "#fff" : "#000",
+        confirmButtonColor: isDarkMode ? "#39a900" : "#d33",
         didOpen: () => {
           Swal.showLoading();
         }
@@ -163,12 +182,15 @@ const BusinessDiagnosis = () => {
       if (response.data.success) {
         localStorage.setItem('lastDiagnosisId', response.data.data.diagnostico.id);
         
+        const isDarkMode = document.body.classList.contains("dark");
+
         Swal.fire({
           icon: 'success',
           title: t('diagnosis.completed'),
           text: t('diagnosis.successfullyProcessed'),
           confirmButtonText: t('diagnosis.viewResults'),
-          confirmButtonColor: '#39a900',
+          background: isDarkMode ? "#1e1e1e" : "#fff",
+          color: isDarkMode ? "#fff" : "#000",
         }).then(() => {
           navigate('/DiagnosisResult', { 
             state: { 
@@ -187,11 +209,16 @@ const BusinessDiagnosis = () => {
         localStorage.removeItem('authToken');
         localStorage.removeItem('token');
         
+        const isDarkMode = document.body.classList.contains("dark");
+
         Swal.fire({
           icon: 'warning',
           title: t('diagnosis.sessionExpiredTitle'),
           text: errorMessage,
-          confirmButtonText: t('general.goToLogin')
+          confirmButtonText: t('general.goToLogin'),
+          background: isDarkMode ? "#1e1e1e" : "#fff",
+          color: isDarkMode ? "#fff" : "#000",
+          confirmButtonColor: isDarkMode ? "#39a900" : "#3085d6",
         }).then(() => {
           navigate('/login');
         });
@@ -205,12 +232,15 @@ const BusinessDiagnosis = () => {
       } else if (error.message) {
         errorMessage = error.message;
       }
+      const isDarkMode = document.body.classList.contains("dark");
 
       Swal.fire({
+        
         icon: 'error',
         title: t('diagnosis.processingErrorTitle'),
-        text: errorMessage,
-        confirmButtonText: t('general.tryAgain')
+        background: isDarkMode ? "#1e1e1e" : "#fff",
+        color: isDarkMode ? "#fff" : "#000",
+        confirmButtonColor: isDarkMode ? "#39a900" : "#d33",
       });
     } finally {
       setIsLoading(false);
@@ -417,7 +447,7 @@ const BusinessDiagnosis = () => {
                   <option value="Sí, preventivo">{t('diagnosis.preventive')}</option>
                   <option value="Sí, correctivo">{t('diagnosis.corrective')}</option>
                   <option value="Ambos">{t('general.both')}</option>
-                  <option value="No">{t('general.no')}</option>
+                  <option value="no">{t('general.no')}</option>
                 </select>
               </div>
 

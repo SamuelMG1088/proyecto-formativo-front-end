@@ -74,13 +74,19 @@ export const VerifyCodePage = () => {
     const handleVerify = async () => {
         const fullCode = code.join('');
         if (fullCode.length < 6) {
-            Swal.fire(
-                t('verifyCodePage.alerts.incompleteCode.title'),
-                t('verifyCodePage.alerts.incompleteCode.text'),
-                'warning'
-            );
-            return;
-        }
+        const isDarkMode = document.body.classList.contains("dark");
+
+        Swal.fire({
+            icon: "warning",
+            title: t("verifyCodePage.alerts.incompleteCode.title"),
+            text: t("verifyCodePage.alerts.incompleteCode.text"),
+            confirmButtonText: t("general.accept"),
+            background: isDarkMode ? "#1e1e1e" : "#fff",
+            color: isDarkMode ? "#fff" : "#000",
+        });
+        return;
+}
+
 
         try {
             await axios.post('http://localhost:3000/api/password-reset/verify-code', {
@@ -88,20 +94,32 @@ export const VerifyCodePage = () => {
                 code: fullCode
             });
 
-            Swal.fire(
-                t('verifyCodePage.alerts.verified.title'),
-                t('verifyCodePage.alerts.verified.text'),
-                'success'
-            ).then(() => {
-                navigate('/update', { state: { email, code: fullCode } });
+            const isDarkMode = document.body.classList.contains("dark");
+
+            Swal.fire({
+            icon: "success",
+            title: t("verifyCodePage.alerts.verified.title"),
+            text: t("verifyCodePage.alerts.verified.text"),
+            confirmButtonText: t("general.accept"),
+            background: isDarkMode ? "#1e1e1e" : "#fff",
+            color: isDarkMode ? "#fff" : "#000",
+            }).then(() => {
+            navigate("/update", { state: { email, code: fullCode } });
             });
+
         } catch (error) {
             const msg = error?.response?.data?.message || t('verifyCodePage.alerts.error.text');
-            Swal.fire(
-                t('verifyCodePage.alerts.apiError.title'),
-                t('verifyCodePage.alerts.apiError.text', { message: msg }),
-                'error'
-            );
+            const isDarkMode = document.body.classList.contains("dark");
+
+            Swal.fire({
+            icon: "error",
+            title: t("verifyCodePage.alerts.apiError.title"),
+            text: t("verifyCodePage.alerts.apiError.text", { message: msg }),
+            confirmButtonText: t("general.accept"),
+            background: isDarkMode ? "#1e1e1e" : "#fff",
+            color: isDarkMode ? "#fff" : "#000",
+            });
+
         }
     };
 
