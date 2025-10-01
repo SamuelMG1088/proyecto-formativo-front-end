@@ -88,6 +88,7 @@
         background-color: var(--neutral-4);
         box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
         padding: 2rem;
+        margin-bottom: 3rem;
     }
 
     .icon-arrow {
@@ -187,8 +188,8 @@
     }
 
     .status-badge.inactive {
-      background-color: var(--neutral-1_2);
-      color: var(--text-color);
+      background-color: var(--color-secundary1_5);
+      color: var(--neutral-1_4);
     }
 
     .Create-program{
@@ -201,6 +202,14 @@
       color: white;
       position: relative;
       left: 80%
+    }
+
+    .edit-button {
+      background: none;
+        border: none;
+        color: var(--text-color);
+        cursor: pointer;
+        font-size: 16px;
     }
   
     .copy-button {

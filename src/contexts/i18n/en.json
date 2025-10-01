@@ -48,8 +48,8 @@
    },
   
   "createUser": {
-    "title": "Create Company",
-    "subtitle": "Fill in the information to register a new company",
+    "title": "Create Use",
+    "subtitle": "Fill in the information to register a new user",
     "step1": "Basic Information",
     "step1Description": "Enter the company's basic information",
     "step2": "Contact Information",

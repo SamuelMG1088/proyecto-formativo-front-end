@@ -22,6 +22,12 @@ const EditTraining = () => {
     version: "",
     estado: "",
     lectiva: "",
+
+
+    
+
+
+
     productiva: ""
   };
 

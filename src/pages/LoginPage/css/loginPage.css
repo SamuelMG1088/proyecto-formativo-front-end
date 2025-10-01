@@ -5,7 +5,7 @@
     background-image: var(--bg-image);
     border-top: 2px solid var(--color-border);
     background-size: cover;
-    height: 51.5rem;
+    height: 54.2rem;
     
   }
 
@@ -96,8 +96,8 @@
   /* Carrusel de Imágenes */
   .img-LoginPage {
     background-color: var(--color-secundary2_5);
-    width: 100%;
-    height: 100%;
+    width: 99.9%;
+    height: 99.9%;
     position: relative;
     overflow: hidden;
   }
@@ -173,7 +173,7 @@
 }
 
 .dark #LoginPage .img-LoginPage {
-  background-color: var(--neutral-1);
+  background-color: var(--neutral-1); 
 }
 
 .dark #LoginPage .dot {

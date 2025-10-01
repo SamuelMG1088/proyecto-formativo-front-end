@@ -98,6 +98,14 @@
         width:90%;
         height: 80%;    
     }
+    .Prueba-imagen2{
+        margin-top: 8rem;
+        margin-bottom: 2rem;
+        text-decoration: none;
+        width:95%;
+        height: 60%; 
+
+    }
     .link_sena{
         padding: 5px;
         display: flex;
@@ -105,18 +113,50 @@
         border-bottom: 3px solid var(--color-secundary-2);      
         color: var(--text-color);
     }
-    .link_senaa{
-        display: flex;
+    .link_senaa {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 14px;
+        border-radius: 8px;
         text-decoration: none;
-        border-radius: 5px; 
-        padding: 5px;
         color: var(--text-color);
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
     }
-
-    .link_senaa:hover{
+    
+    /* Efecto hover con borde animado */
+    .link_senaa::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 8px;
         border: 2px solid var(--color-secundary-2);
-        color: var(--color-secundary-2);
+        transform: scale(0);
+        opacity: 0;
+        transition: all 0.3s ease;
     }
+    
+    .link_senaa:hover::before {
+        transform: scale(1);
+        opacity: 1;
+    }
+    
+    .link_senaa:hover {
+        color: var(--color-secundary-2);
+        background: rgba(0, 0, 0, 0.05); /* leve fondo en hover */
+        transform: translateY(-2px); /* efecto flotante */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Animación de "onda" al hacer click */
+    .link_senaa:active {
+        transform: scale(0.96);
+    }
+    
 
     .sena-colombia {
         display: flex;
@@ -159,7 +199,10 @@
     .prueba1{
         margin-top: 5rem;
     }
-
+    .prueba2{
+        margin-top: 2rem;
+    }
+    
     .prueba-p{
         padding: 3rem;
     }

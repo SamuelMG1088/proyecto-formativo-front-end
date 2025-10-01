@@ -47,8 +47,8 @@
   },
     
   "createUser": {
-      "title": "Crear Empresa",
-      "subtitle": "Complete los datos para registrar una nueva empresa",
+      "title": "Crear Usuario",
+      "subtitle": "Complete los datos para registrar un nuevo usuario",
       "step1": "Información Básica",
       "step1Description": "Ingrese la información básica de la empresa",
       "step2": "Información de Contacto",
