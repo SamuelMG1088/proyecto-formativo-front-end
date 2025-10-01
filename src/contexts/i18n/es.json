@@ -171,8 +171,8 @@
     "logoutSuccess": "Has cerrado sesión exitosamente"
   },
   "diagnosis": {
-    "createBusinessDiagnosis": "Creación del diagnóstico empresarial",
-    "completeFields": "Complete los campos para registrar el diagnóstico Empresarial",
+    "createBusinessDiagnosis": "Creación del diagnóstico usuario",
+    "completeFields": "Complete los campos para registrar el diagnóstico usuario",
     "section": "Sección",
     "section1Title": "Diagnóstico empresarial para asignación de aprendices SENA",
     "section1Description": "Llena el diagnóstico para saber qué aprendices necesita",
