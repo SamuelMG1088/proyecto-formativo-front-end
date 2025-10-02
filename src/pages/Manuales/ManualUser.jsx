@@ -101,9 +101,7 @@ const ManualUser = () => {
               <Link to="/ManualOperaciones" className='link_sena'>
                  <h> Manual de operaciones</h>
               </Link>
-              <Link to="/Manualinstalacion" className='link_sena'>
-                 <h> Manual de instalacion</h>
-              </Link>
+             
             </section>
             <div className='sena-content-section'>
                <img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen'/><p className='prueba1'>Se carga el navegador preferido y que cuente con internet disponible. En esta demostración utilizaremos Google Chrome. Colocamos el puntero del ratón (mouse) sobre el icono Google Chrome y presionamos dos veces seguidas el botón izquierdo del ratón. Una vez que se encuentre en el entorno del navegador, digitamos la dirección de la página web correspondiente a la aplicación SISGEEC (PENDIENTE) en la casilla de URL.</p>

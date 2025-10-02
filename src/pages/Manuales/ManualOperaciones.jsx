@@ -59,15 +59,13 @@ const ManualUser = () => {
 
             {/* SENA Colombia */}
             <section className="sena-colombia">
-              <Link to="/" className='link_sena'>
+              <Link to="/" className='link_senaa'>
                  <h> Volver al login</h>
               </Link>
-              <Link to="/ManualUser" className='link_senaa'>
+              <Link to="/ManualUser" className='link_sena'>
                  <h> Manual de usuario</h>
               </Link>
-              <Link to="/Manualinstalacion" className='link_sena'>
-                 <h> Manual de instalacion</h>
-              </Link>
+              
             </section>
             <div className='sena-content-section'>
                <img src={miImagen} alt="Acceso denegado"  className='Prueba-imagen'/><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus ab doloribus saepe quisquam ipsum ratione quos officiis. Ducimus similique reprehenderit id maiores temporibus quo expedita asperiores officiis cum quae.</p>

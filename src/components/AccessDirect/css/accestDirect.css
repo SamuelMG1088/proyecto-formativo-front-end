@@ -1,16 +1,15 @@
 #frame-accest {
     .box-assest{
         display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        width: 105%;
-        margin-top: 3rem;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
     }
     
     
     
     .box{
-        width: 120%;
+        width: 30%;
         border: 1px solid;
         text-decoration: none;
         
