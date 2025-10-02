@@ -13,8 +13,6 @@ const NavBar = () => {
   const { t } = useTranslation();
   const { user, logout } = useAuth();
 
-
-  
   const AlertaLogout = () => {
     const isDarkMode = document.body.classList.contains("dark");
 
@@ -27,6 +25,7 @@ const NavBar = () => {
       background: isDarkMode ? "#1e1e1e" : "#fff",
       color: isDarkMode ? "#fff" : "#000",
     });
+
     logout();
     navigate("/");
   };
@@ -56,8 +55,8 @@ const NavBar = () => {
       <nav className="navbar">
         <ul className="navbar-menu">
           {roleModules.map((module) => (
-            <li 
-              key={module.id} 
+            <li
+              key={module.id}
               className={module.link && isActive(module.link) ? "active" : ""}
             >
               {module.link ? (
@@ -65,8 +64,8 @@ const NavBar = () => {
                   {t(module.title)}
                 </NavLink>
               ) : (
-                <button 
-                  onClick={module.action} 
+                <button
+                  onClick={module.id === "logout" ? AlertaLogout : module.action}
                   className="logout-btn"
                   style={{ background: "none", border: "none", cursor: "pointer" }}
                 >

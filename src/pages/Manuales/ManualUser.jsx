@@ -30,10 +30,24 @@ import Imagenmanual15 from "../../assets/Manuales/Usuario/imagen-manual15.jpg"
 import Imagenmanual16 from "../../assets/Manuales/Usuario/imagen-manual16.jpg"
 import Imagenmanual17 from "../../assets/Manuales/Usuario/imagen-manual17.jpg"
 import Imagenmanual18 from "../../assets/Manuales/Usuario/imagen-manual18.jpg"
-// import Imagenmanual16 from "../../assets/Manuales/Usuario/imagen-manual16.jpg"
-// import Imagenmanual16 from "../../assets/Manuales/Usuario/imagen-manual16.jpg"
-// import Imagenmanual16 from "../../assets/Manuales/Usuario/imagen-manual16.jpg"
-// import Imagenmanual16 from "../../assets/Manuales/Usuario/imagen-manual16.jpg"
+import Imagenmanual19 from "../../assets/Manuales/Usuario/imagen-manual19.jpg"
+import Imagenmanual20 from "../../assets/Manuales/Usuario/imagen-manual20.jpg"
+import Imagenmanual21 from "../../assets/Manuales/Usuario/imagen-manual21.jpg"
+import Imagenmanual22 from "../../assets/Manuales/Usuario/imagen-manual22.jpg"
+import Imagenmanual23 from "../../assets/Manuales/Usuario/imagen-manual23.jpg"
+import Imagenmanual24 from "../../assets/Manuales/Usuario/imagen-manual24.jpg"
+import Imagenmanual25 from "../../assets/Manuales/Usuario/imagen-manual25.jpg"
+import Imagenmanual26 from "../../assets/Manuales/Usuario/imagen-manual26.jpg"
+import Imagenmanual27 from "../../assets/Manuales/Usuario/imagen-manual27.jpg"
+import Imagenmanual28 from "../../assets/Manuales/Usuario/imagen-manual28.jpg"
+import Imagenmanual29 from "../../assets/Manuales/Usuario/imagen-manual29.jpg"
+import Imagenmanual30 from "../../assets/Manuales/Usuario/imagen-manual30.jpg"
+import Imagenmanual31 from "../../assets/Manuales/Usuario/imagen-manual31.jpg"
+import Imagenmanual32 from "../../assets/Manuales/Usuario/imagen-manual32.jpg"
+import Imagenmanual33 from "../../assets/Manuales/Usuario/imagen-manual33.jpg"
+import Imagenmanual34 from "../../assets/Manuales/Usuario/imagen-manual34.jpg"
+import Imagenmanual35 from "../../assets/Manuales/Usuario/imagen-manual35.jpg"
+import Imagenmanual36 from "../../assets/Manuales/Usuario/imagen-manual36.jpg"
 
 const ManualUser = () => {
   const { t } = useTranslation();
@@ -187,7 +201,134 @@ const ManualUser = () => {
               nota: Los datos de los usuarios se muestran de forma censurada para garantizar la protección de la información personal y cumplir con las normas de seguridad de datos</p><img src={Imagenmanual18} alt="Acceso denegado"  className='Prueba-imagen1'/>
             </div>
             <div className='sena-content-section'>
-               <img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen'/><p className='prueba1'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quis eveniet perferendis? Nobis ut iusto veniam harum ratione. Velit minima iure harum quas recusandae. Quisquam consectetur laboriosam autem iure iste.</p>
+               <img src={Imagenmanual19} alt="Acceso denegado"  className='Prueba-imagen'/><p className='prueba2'>En la parte superior de la tabla de registros se encuentra una barra de filtros que facilita la búsqueda y organización de la información. Las opciones disponibles son: <br /> <br />
+              Tipo de documento: permite filtrar por C.C (Cédula de Ciudadanía), C.E (Cédula de Extranjería) o NIT. <br /> <br />
+              Rol: filtra según el rol asignado al usuario, ya sea Administrador o Empresa. <br /> <br />
+              Estado: muestra únicamente los usuarios en estado Activo o Inactivo. <br /> <br />
+              Resetear filtros: opción para limpiar todos los filtros aplicados y volver a mostrar la lista completa de usuarios. <br /> <br />
+              Esta barra de filtros ayuda al administrador a localizar de manera rápida y precisa la información que necesita.</p> 
+            </div>
+
+
+            <div className='sena-content-section1'>
+              <p className='prueba-p'>En la tabla se listan todos los usuarios registrados en el sistema. Este módulo es de uso exclusivo para el administrador. <br /> <br />
+              La información que se muestra en la tabla incluye las siguientes columnas: <br /> <br />
+              ID: número identificador único de cada usuario. <br /> <br />
+              Nombre completo: nombres y apellidos del usuario. <br /> <br />
+              Correo electrónico: dirección de correo registrada en el sistema. <br /> <br />
+              Tipo de documento: identificación asociada al usuario (C.C, C.E o NIT). <br /> <br />
+              Rol: perfil asignado al usuario (Administrador o Empresa). <br /> <br />
+              Estado: indica si el usuario se encuentra Activo o Inactivo.</p><img src={Imagenmanual20} alt="Acceso denegado"  className='Prueba-imagen1'/>
+            </div>
+            <div className='sena-content-section'>
+               <img src={Imagenmanual21} alt="Acceso denegado"  className='Prueba-imagen'/><p className='prueba1'>A la derecha de la columna Estado se encuentra un ícono que funciona como acceso directo al perfil de cada usuario. <br /> <br />
+                Al seleccionarlo, el administrador podrá visualizar la información completa del usuario elegido, lo que le permite consultar en detalle todos los datos registrados en el sistema.</p>
+            </div>
+
+
+            <div className='sena-content-section1'>
+              <p className='prueba3'>Al hacer clic en el ícono situado a la derecha de la columna Estado, se abrirá inmediatamente la vista detallada del usuario. El diseño de esta pantalla muestra, de forma clara y ordenada, la información del usuario (los datos que aparecen son únicamente ejemplos y no son verídicos).</p><img src={Imagenmanual22} alt="Acceso denegado"  className='Prueba-imagen1'/>
+            </div>
+
+            <div className='sena-content-section'>
+               <img src={Imagenmanual23} alt="Acceso denegado"  className='Prueba-imagen'/><p className='prueba1'>En la interfaz del perfil de usuario aparecen dos botones principales con funciones específicas: <br /> <br />
+               Botón verde – Editar: permite modificar únicamente la información habilitada por el sistema, como el número de contacto, el correo electrónico y la dirección. <br /> <br />
+               Botón azul – Suspender: inactiva al usuario seleccionado, impidiendo que continúe interactuando con el software.</p>
+            </div>
+
+
+            <div className='sena-content-section1'>
+              <p className='prueba-p'>Al regresar a la vista de Directorio de Usuarios, se encuentra un botón de color azul con el nombre “Crear Usuario”. <br /> <br />
+               Este botón redirige al administrador a un formulario en el cual podrá registrar un nuevo usuario, ingresando la información requerida por el sistema para completar el proceso de creación.</p><img src={Imagenmanual24} alt="Acceso denegado"  className='Prueba-imagen1'/>
+            </div>
+            <div className='sena-content-section'>
+               <img src={Imagenmanual25} alt="Acceso denegado"  className='Prueba-imagen'/><p className='prueba1'>Al hacer clic en el botón “Crear usuario”, el sistema lo redirigirá a un formulario de registro. <br /> <br />
+                En este formulario aparecerán los campos que deben ser diligenciados con la información correspondiente. Es importante completar todos los campos obligatorios, ya que solo de esta manera el sistema permitirá guardar el registro correctamente y asegurar que el usuario quede con   información completa, verídica y confiable.</p>
+            </div>
+
+
+            <div className='sena-content-section1'>
+              <p className='prueba-p'>Se diligenció el formulario de creación de usuario a modo de ejemplo. <br /> <br />
+              Si toda la información ingresada es correcta y coincide con los requisitos del sistema, el registro será exitoso. En este caso, el sistema mostrará una alerta de confirmación como se evidencia en la imagen de referencia.</p><img src={Imagenmanual26} alt="Acceso denegado"  className='Prueba-imagen1'/>
+            </div>
+            <div className='sena-content-section'>
+               <img src={Imagenmanual27} alt="Acceso denegado"  className='Prueba-imagen'/><p className='prueba1'>En la sección de Directorio de Usuarios, donde se listan todos los registros, se encuentran dos botones de exportación identificados con los logotipos de PDF y Excel. <br /> <br />
+               Al hacer clic en el botón con el logo de PDF, el sistema generará un reporte de los usuarios en dicho formato. <br /> <br />
+               Al hacer clic en el botón con el logo de Excel, se exportará la información en formato .xlsx. <br /> <br /> 
+               De esta manera, el administrador puede obtener reportes de los usuarios en el formato que más se ajuste a sus necesidades.</p>
+            </div>
+
+
+            <div className='sena-content-section1'>
+              <p className='prueba-p'>Al hacer clic en la opción Programas de Formación de la barra de navegación, el sistema lo redirigirá al Directorio de Programas de Formación. <br /> br
+                En este módulo, el administrador podrá realizar las siguientes acciones: <br /> <br />
+                1. Crear nuevos Programas de Formación. <br /> <br />
+                2. Listar los Programas de Formación existentes. <br /> <br />
+                3. Visualizar la información detallada de cada Programa de Formación. <br /> <br />
+                4. Modificar los datos registrados. <br /> <br />
+                5. Inactivar Programas de Formación cuando sea necesario. <br /> <br />
+                6. Generar reportes de los programas de formación en formatos Excel y PDF. <br /> <br />
+                En el caso del usuario empresa, podrá realizar las opciones: 2, 3 y 6.</p><img src={Imagenmanual28} alt="Acceso denegado"  className='Prueba-imagen1'/>
+            </div>
+            <div className='sena-content-section'>
+               <img src={Imagenmanual29} alt="Acceso denegado"  className='Prueba-imagen3'/>
+                <p className='prueba4'>La arquitectura del software mantiene una estructura uniforme en todos los módulos, lo que facilita la navegación y el uso del sistema. <br /> <br />
+                Tablas: representan la información listada de los registros disponibles en cada módulo.<br /> <br />
+                Íconos a la derecha: permiten visualizar en detalle el contenido seleccionado o la información requerida.<br /> <br />
+                Botones de exportación (PDF y Excel): generan reportes de la información listada en los formatos correspondientes.<br /> <br />
+                Barra de filtros (parte superior de la tabla): permite refinar la búsqueda según las opciones disponibles en cada módulo.<br /> <br />
+                Botón “Crear”: su disponibilidad depende de los permisos del usuario. Por ejemplo, el usuario final no cuenta con acceso a este botón ni a ciertas acciones, ya que solo están habilitadas para el administrador u otros roles con privilegios específicos.<br /> <br />
+                Esta organización garantiza que cada usuario tenga acceso únicamente a las funciones que le corresponden, manteniendo así la seguridad y el control dentro del sistema.</p>
+            </div>
+
+
+            <div className='sena-content-section1'>
+              <p className='prueba-p'>Al hacer clic en la opción Diagnóstico Empresarial de la barra de navegación, el sistema lo redirigirá al Directorio de Programas de Formación. <br /> <br />
+              En este módulo, el administrador podrá realizar las siguientes acciones: <br /> <br />
+              1. Crear/Diligenciar  nuevos Diagnósticos Empresariales. <br /> <br />
+              2. Visualizar la información detallada de cada Diagnóstico Empresarial. <br /> <br />
+              3. Modificar los datos registrados. <br /> <br />
+              4. Inactivar Diagnóstico Empresarial  cuando sea necesario. <br /> <br />
+              5. Generar reportes del Diagnóstico Empresarial  en formatos Excel y PDF. <br /> <br />
+              En el caso del usuario empresa, podrá realizar las opciones: 1, 2 y 5</p><img src={Imagenmanual30} alt="Acceso denegado"  className='Prueba-imagen1'/>
+            </div>
+            <div className='sena-content-section'>
+               <img src={Imagenmanual31} alt="Acceso denegado"  className='Prueba-imagen3'/>
+                <p className='prueba4'>Para realizar el Diagnóstico Empresarial, el usuario debe diligenciar un formulario compuesto por campos de selección (no de opinión libre). <br /> <br />
+                De acuerdo con las opciones seleccionadas en cada campo, el sistema generará automáticamente: <br /> <br />
+                Una gráfica con los resultados del diagnóstico. <br /> <br />
+                Un listado de programas de formación que más se asemejan a las necesidades de la empresa. <br /> <br />
+                De esta forma, las empresas pueden identificar qué programas de formación y qué aprendices se ajustan mejor a sus requerimientos, basándose en la información diligenciada en el formulario. <br /> <br />
+                Es importante recalcar que se deben diligenciar todos los formularios para que este funcione correctamente</p>
+            </div>
+
+            <div className='sena-content-section1'>
+              <p className='prueba3'>Al diligenciar el Diagnóstico Empresarial, el sistema mostrará una alerta de confirmación que le indicará si el proceso fue exitoso. <br /> <br />
+              Para que el diagnóstico se complete correctamente, es indispensable que todas las opciones del formulario sean seleccionadas con la respuesta de su elección. Solo de esta manera el sistema podrá generar la gráfica y el listado de programas de formación correspondientes.</p><img src={Imagenmanual32} alt="Acceso denegado"  className='Prueba-imagen1'/>
+            </div>
+            <div className='sena-content-section'>
+               <img src={Imagenmanual33} alt="Acceso denegado"  className='Prueba-imagen3'/>
+                <p className='prueba1'>Después de confirmar la alerta con la opción “Ver resultados”, el sistema mostrará dos elementos principales: <br /> <br />
+                1. Gráfica de compatibilidad: representa de manera visual el nivel de coincidencia entre las respuestas diligenciadas en el formulario y los programas de formación disponibles</p>
+            </div>
+
+
+            <div className='sena-content-section1'>
+              <p className='prueba-p'>2. Listado de programas de formación: muestra los programas ofrecidos por el SENA CDITI, organizados según el nivel de compatibilidad con la información ingresada en el diagnóstico. <br /> <br />
+              De esta forma, el usuario puede interpretar fácilmente los resultados y tomar decisiones informadas sobre los programas de formación más adecuados.</p><img src={Imagenmanual34} alt="Acceso denegado"  className='Prueba-imagen1'/>
+            </div>
+            <div className='sena-content-section'>
+               <img src={Imagenmanual35} alt="Acceso denegado"  className='Prueba-imagen3'/>
+                <p className='prueba4'>Al seleccionar en la barra de navegación el módulo Perfil, el usuario podrá visualizar su propia información registrada en el sistema.</p>
+            </div>
+
+
+            <div className='sena-content-section1'>
+              <p className='prueba3'>En esta sección se encuentra la interfaz de visualización del perfil de usuario, donde cada persona podrá consultar sus datos personales registrados en el sistema. Además, se ofrece la posibilidad de actualizar cierta información, únicamente en aquellos campos que el sistema tiene autorizados para su edición, garantizando así la seguridad y confiabilidad de la información.</p><img src={Imagenmanual36} alt="Acceso denegado"  className='Prueba-imagen1'/>
+            </div>
+            <div className='sena-content-section'>
+               <img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen3'/>
+                <p className='prueba4'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia iusto corporis a dignissimos, eaque numquam aut nihil iste quod, perferendis velit. Voluptate deleniti reprehenderit molestias, dolorum corporis fuga accusantium temporibus.</p>
             </div>
 
 
@@ -195,7 +336,8 @@ const ManualUser = () => {
               <p className='prueba-p'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus ab doloribus saepe quisquam ipsum ratione quos officiis. Ducimus similique reprehenderit id maiores temporibus quo expedita asperiores officiis cum quae.</p><img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen1'/>
             </div>
             <div className='sena-content-section'>
-               <img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen'/><p className='prueba1'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quis eveniet perferendis? Nobis ut iusto veniam harum ratione. Velit minima iure harum quas recusandae. Quisquam consectetur laboriosam autem iure iste.</p>
+               <img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen3'/>
+                <p className='prueba4'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia iusto corporis a dignissimos, eaque numquam aut nihil iste quod, perferendis velit. Voluptate deleniti reprehenderit molestias, dolorum corporis fuga accusantium temporibus.</p>
             </div>
 
 
@@ -203,31 +345,8 @@ const ManualUser = () => {
               <p className='prueba-p'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus ab doloribus saepe quisquam ipsum ratione quos officiis. Ducimus similique reprehenderit id maiores temporibus quo expedita asperiores officiis cum quae.</p><img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen1'/>
             </div>
             <div className='sena-content-section'>
-               <img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen'/><p className='prueba1'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quis eveniet perferendis? Nobis ut iusto veniam harum ratione. Velit minima iure harum quas recusandae. Quisquam consectetur laboriosam autem iure iste.</p>
-            </div>
-
-
-            <div className='sena-content-section1'>
-              <p className='prueba-p'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus ab doloribus saepe quisquam ipsum ratione quos officiis. Ducimus similique reprehenderit id maiores temporibus quo expedita asperiores officiis cum quae.</p><img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen1'/>
-            </div>
-            <div className='sena-content-section'>
-               <img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen'/><p className='prueba1'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quis eveniet perferendis? Nobis ut iusto veniam harum ratione. Velit minima iure harum quas recusandae. Quisquam consectetur laboriosam autem iure iste.</p>
-            </div>
-
-
-            <div className='sena-content-section1'>
-              <p className='prueba-p'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus ab doloribus saepe quisquam ipsum ratione quos officiis. Ducimus similique reprehenderit id maiores temporibus quo expedita asperiores officiis cum quae.</p><img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen1'/>
-            </div>
-            <div className='sena-content-section'>
-               <img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen'/><p className='prueba1'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quis eveniet perferendis? Nobis ut iusto veniam harum ratione. Velit minima iure harum quas recusandae. Quisquam consectetur laboriosam autem iure iste.</p>
-            </div>
-
-
-            <div className='sena-content-section1'>
-              <p className='prueba-p'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus ab doloribus saepe quisquam ipsum ratione quos officiis. Ducimus similique reprehenderit id maiores temporibus quo expedita asperiores officiis cum quae.</p><img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen1'/>
-            </div>
-            <div className='sena-content-section'>
-               <img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen'/><p className='prueba1'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quis eveniet perferendis? Nobis ut iusto veniam harum ratione. Velit minima iure harum quas recusandae. Quisquam consectetur laboriosam autem iure iste.</p>
+               <img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen3'/>
+                <p className='prueba4'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia iusto corporis a dignissimos, eaque numquam aut nihil iste quod, perferendis velit. Voluptate deleniti reprehenderit molestias, dolorum corporis fuga accusantium temporibus.</p>
             </div>
 
 

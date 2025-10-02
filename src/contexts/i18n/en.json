@@ -626,7 +626,8 @@
     "userSuspended": "The program has been successfully suspended.",
     "userActivated": "The program has been successfully activated.",
     "dataUpdatedTitle": "¡Data updated!",
-    "dataUpdatedText": "The information was updated successfully."
+    "dataUpdatedText": "The information was updated successfully.",
+    "logoutSuccess": "You have successfully logged out"
   },
   "errors": {
     "loadProgram": "Error loading program",

@@ -548,7 +548,9 @@
     "next": "Siguiente",
     "confirm": "Confirmar ",
     "yesActivate": "Si",
-    "edit": "Editar"
+    "edit": "Editar",
+    "goBack": "Volver al inicio",
+    "confirmCreateUser": "Confirmar"
     
     
   },
@@ -603,7 +605,9 @@
     "userSuspended": "El programa ha sido suspendido correctamente.",
     "userActivated": "El programa ha sido activado correctamente.",
     "dataUpdatedTitle": "¡Datos actualizados!",
-    "dataUpdatedText": "La información se actualizó correctamente."
+    "dataUpdatedText": "La información se actualizó correctamente.",
+    "userCreated":"Usuario creado",
+    "logoutSuccess" : "Has cerrado sesión exitosamente"
      
   },
   "errors": {

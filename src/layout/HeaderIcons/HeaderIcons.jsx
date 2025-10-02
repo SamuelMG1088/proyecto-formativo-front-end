@@ -41,7 +41,7 @@ const HeaderLogin = () => {
             aria-label="Change language"
           >
             <GrLanguage className='icon-language' />
-            <span>{i18n.language === 'es' ? 'EN' : 'ES'}</span>
+            <span className='EN-ES'>{i18n.language === 'es' ? 'EN' : 'ES'}</span>
           </button>
 
           <img className='img-sena' src={logosena} alt="logo-sena" />
