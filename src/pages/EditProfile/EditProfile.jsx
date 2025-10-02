@@ -182,7 +182,8 @@ const EditProfile = () => {
       });
     } catch (error) {
       console.error("Error al actualizar perfil:", error);
-      const isDarkMode = document.body.classList.contains("dark");
+      const isDarkMode = documen
+t.body.classList.contains("dark");
       
       Swal.fire({
         title: "Error",

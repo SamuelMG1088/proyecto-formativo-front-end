@@ -8,14 +8,12 @@ import { MdPictureAsPdf } from "react-icons/md";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import * as XLSX from "xlsx";
-import html2canvas from "html2canvas"; 
 
 const ExportPdfExcel = ({ 
   data, 
   fileName = "exported-data", 
   columns, 
-  excludeColumns = [],
-  chartId 
+  excludeColumns = []
 }) => {
   const processData = (rawData) => {
     if (!rawData || rawData.length === 0) return [];
@@ -50,26 +48,16 @@ const ExportPdfExcel = ({
     });
   };
 
-  //  Exportar a PDF (tabla + gráfico)
-  const exportToPDF = async () => {
+  // ✅ Exportar SOLO Programas recomendados (tabla)
+  const exportToPDF = () => {
     try {
       const processedData = processData(data);
       const doc = new jsPDF({
         orientation: processedData.length > 0 && Object.keys(processedData[0]).length > 5 ? 'landscape' : 'portrait'
       });
 
-      doc.text("Reporte de Datos", 14, 10);
+      doc.text("Programas de Formación Recomendados", 14, 15);
 
-      // Insertar gráfico si existe
-      if (chartId) {
-        const chartElement = document.getElementById(chartId);
-        if (chartElement) {
-          const canvas = await html2canvas(chartElement, { scale: 2 });
-          const chartImage = canvas.toDataURL("image/png", 1.0);
-          doc.addImage(chartImage, "PNG", 14, 20, 180, 90); // Ajusta posición/tamaño
-        }
-      }
-      
       if (processedData.length > 0) {
         const headers = [Object.keys(processedData[0])];
         const tableData = processedData.map(item => Object.values(item));
@@ -77,10 +65,10 @@ const ExportPdfExcel = ({
         autoTable(doc, {
           head: headers,
           body: tableData,
-          margin: { top: chartId ? 120 : 20 }, // Si hay gráfico, empuja la tabla
+          margin: { top: 25 },
           styles: {
-            fontSize: 8,
-            cellPadding: 2,
+            fontSize: 9,
+            cellPadding: 3,
             overflow: 'linebreak'
           },
           headStyles: {
@@ -100,7 +88,7 @@ const ExportPdfExcel = ({
     }
   };
 
-  // Exportar a Excel
+  // Exportar a Excel (sin cambios)
   const exportToExcel = () => {
     try {
       const processedData = processData(data);

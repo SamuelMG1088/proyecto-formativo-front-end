@@ -343,22 +343,22 @@ const DiagnosticResult = () => {
             <div className="chart-header">
               {/* Exportar PDF/Excel */}
               <div className='Export-pdf-excel'>
-                {diagnostico && (
-                  <ExportPdfExcel
-                    data={[diagnostico]}
-                    fileName="diagnostico"
-                    columns={{
-                      id: "ID",
-                      nombre: "Nombre", 
-                      correo: "Correo",
-                      actividad: "Actividad",
-                      empresa: "Empresa",
-                      estado: "Estado"
-                    }}
-                    chartId="diagnosticoChart"
-                  />
-                )}
-              </div>
+  {programasRecomendados && programasRecomendados.length > 0 && (
+    <ExportPdfExcel
+      data={programasRecomendados}   // 🔹 Exportar solo los programas recomendados
+      fileName="programas_recomendados"
+      columns={{
+        nombre: "Nombre",
+        nivel: "Nivel",
+        duracion: "Duración",
+        area_vinculada: "Área Vinculada",
+        estado: "Estado"
+      }}
+      excludeColumns={["id", "id_perfil", "nombre_perfil", "id_rae", "rae", "lectiva", "productiva", "competencia"]}
+      chartId="diagnosticoChart"  // 🔹 la gráfica se muestra en pantalla pero NO se exporta
+    />
+  )}
+</div>
 
               <div className='Sub-title'>
                 <FaChartBar className="chart-icon" />

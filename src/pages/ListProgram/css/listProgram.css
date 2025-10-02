@@ -200,8 +200,7 @@
       border: none;
       cursor: pointer;
       color: white;
-      position: relative;
-      left: 80%
+      margin-left: 80%;
     }
 
     .edit-button {

@@ -1,4 +1,8 @@
 #Homepages {
+    .homes{
+        background-image: url(../assets/images/Vector-Blanco.png);
+        height: 1120rem;
+    }
 
 
    /* Estilos principales del carrusel */
@@ -78,7 +82,17 @@
         background-color: var(--neutral-4);
         margin-top: 1rem;
         margin-bottom: 1rem;
-        height: 65rem;
+        height: 1075rem;
+        width: 70%;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .home-section {
+        padding: 0.5rem 2rem 0rem 2rem; 
+        background-color: var(--neutral-4);
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        height: 100%;
         width: 70%;
         box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
     }
@@ -197,6 +211,12 @@
         gap: 1rem;
         padding: 3rem;
     }
+    .sena-content-section3{
+        display: grid;
+        align-items: center;
+        gap: 1rem;
+        padding: 3rem;
+    }
 
     .sena-content-section p {
         text-align: start;
@@ -214,7 +234,7 @@
     }
     .prueba4{
         margin-top: 3rem;
-        margin-left: 3rem;
+        margin-left: rem;
     }
     
     .prueba-p{
@@ -243,6 +263,59 @@
         color: var(--color-secundary-2);
         font-weight: bold;
     }
+
+    /* Contenedor del texto del manual */
+.Manual-operaciones {
+    display: flex;
+    flex-direction: column; /* El contenido queda en columna */
+    justify-content: center;
+    align-items: flex-start; /* Texto alineado a la izquierda */
+    padding: 2rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--neutral-4);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Imagen dentro del manual */
+  .img-operaciones {
+    width: 40%;
+    max-width: 350px;
+    height: auto;
+    margin: 1rem 2rem;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Títulos internos */
+  .Manual-operaciones h2,
+  .Manual-operaciones h3,
+  .Manual-operaciones h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+    font-weight: bold;
+  }
+  
+  /* Texto destacado */
+  .Manual-operaciones strong {
+    color: var(--text-color);
+  }
+  
+  /* Enlaces dentro del manual */
+  .Manual-operaciones a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .Manual-operaciones a:hover {
+    text-decoration: underline;
+  }
+  
 
 }
 

@@ -48,6 +48,7 @@ import Imagenmanual33 from "../../assets/Manuales/Usuario/imagen-manual33.jpg"
 import Imagenmanual34 from "../../assets/Manuales/Usuario/imagen-manual34.jpg"
 import Imagenmanual35 from "../../assets/Manuales/Usuario/imagen-manual35.jpg"
 import Imagenmanual36 from "../../assets/Manuales/Usuario/imagen-manual36.jpg"
+import Imagenmanual37 from "../../assets/Manuales/Usuario/imagen-manual37.jpg"
 
 const ManualUser = () => {
   const { t } = useTranslation();
@@ -64,7 +65,7 @@ const ManualUser = () => {
 
   return (
     <div id="Homepages">
-      <div className="home">
+      <div className="homes">
           <Gov />
           <HeaderIcons />
 
@@ -139,7 +140,9 @@ const ManualUser = () => {
             <div className='sena-content-section'>
                <img src={Imagenmanual9} alt="Acceso denegado"  className='Prueba-imagen'/><p className='prueba1'>Cuando el código de 6 dígitos llegue a su correo electrónico y sea ingresado correctamente, el sistema habilitará la opción para actualizar la contraseña. Deberá escribir la nueva contraseña en el primer campo y confirmarla en el segundo, con el fin de verificar que coincidan.
                Una vez actualizada, podrá ingresar al sistema sin inconvenientes utilizando su nueva contraseña.</p>
-            </div>
+            </div>Al iniciar sesión, se mostrará una ventana emergente de bienvenida con su nombre de usuario. En el ejemplo, el sistema muestra el mensaje de bienvenida dirigido al usuario Super Admin.
+
+
 
 
             <div className='sena-content-section1'>
@@ -325,31 +328,8 @@ const ManualUser = () => {
               <p className='prueba3'>En esta sección se encuentra la interfaz de visualización del perfil de usuario, donde cada persona podrá consultar sus datos personales registrados en el sistema. Además, se ofrece la posibilidad de actualizar cierta información, únicamente en aquellos campos que el sistema tiene autorizados para su edición, garantizando así la seguridad y confiabilidad de la información.</p><img src={Imagenmanual36} alt="Acceso denegado"  className='Prueba-imagen1'/>
             </div>
             <div className='sena-content-section'>
-               <img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen3'/>
-                <p className='prueba4'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia iusto corporis a dignissimos, eaque numquam aut nihil iste quod, perferendis velit. Voluptate deleniti reprehenderit molestias, dolorum corporis fuga accusantium temporibus.</p>
-            </div>
-
-
-            <div className='sena-content-section1'>
-              <p className='prueba-p'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus ab doloribus saepe quisquam ipsum ratione quos officiis. Ducimus similique reprehenderit id maiores temporibus quo expedita asperiores officiis cum quae.</p><img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen1'/>
-            </div>
-            <div className='sena-content-section'>
-               <img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen3'/>
-                <p className='prueba4'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia iusto corporis a dignissimos, eaque numquam aut nihil iste quod, perferendis velit. Voluptate deleniti reprehenderit molestias, dolorum corporis fuga accusantium temporibus.</p>
-            </div>
-
-
-            <div className='sena-content-section1'>
-              <p className='prueba-p'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus ab doloribus saepe quisquam ipsum ratione quos officiis. Ducimus similique reprehenderit id maiores temporibus quo expedita asperiores officiis cum quae.</p><img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen1'/>
-            </div>
-            <div className='sena-content-section'>
-               <img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen3'/>
-                <p className='prueba4'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia iusto corporis a dignissimos, eaque numquam aut nihil iste quod, perferendis velit. Voluptate deleniti reprehenderit molestias, dolorum corporis fuga accusantium temporibus.</p>
-            </div>
-
-
-            <div className='sena-content-section1'>
-              <p className='prueba-p'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus ab doloribus saepe quisquam ipsum ratione quos officiis. Ducimus similique reprehenderit id maiores temporibus quo expedita asperiores officiis cum quae.</p><img src={Imagenmanual1} alt="Acceso denegado"  className='Prueba-imagen1'/>
+               <img src={Imagenmanual37} alt="Acceso denegado"  className='Prueba-imagen3'/>
+                <p className='prueba4'>Al momento de cerrar la sesión, el sistema mostrará una ventana emergente de confirmación, la cual notificará al usuario que su sesión ha finalizado de manera exitosa. Posteriormente, será redirigido automáticamente a la pantalla inicial del login, donde podrá ingresar nuevamente sus credenciales en caso de que desee acceder otra vez..</p>
             </div>
           </div>
         </div>

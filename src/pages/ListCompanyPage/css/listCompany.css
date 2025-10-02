@@ -195,8 +195,7 @@
     border: none;
     cursor: pointer;
     color: var(--neutral-5);
-    position: relative;
-    left: 80%;
+    margin-left: 80%;
   }
 
   .edit-button {
