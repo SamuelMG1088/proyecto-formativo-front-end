@@ -133,16 +133,10 @@
   "loading": {
     "profile": "Cargando perfil..."
   },
-  "errors": {
-    "couldNotLoadProfile": "No se pudo cargar el perfil.",
-    "invalidServerData": "Datos no válidos del servidor"
-  },
+  
  
   "alerts": {
-    "suspendedTitle": "¡Suspendido!",
-    "userSuspended": "El usuario ha sido suspendido.",
-    "errorTitle": "Error",
-    "couldNotSuspendUser": "No se pudo suspender el usuario."
+    
   },
   "labels": {
     "unknownUser": "Usuario desconocido",
@@ -160,10 +154,7 @@
     "email": "Ingrese su correo electrónico",
     "address": "Ingrese su dirección"
   },
-  "errors": {
-    "couldNotLoadUserInfo": "No se pudo cargar la información del usuario",
-    "couldNotUpdate": "No se pudo actualizar la información"
-  },
+
   "alerts": {
     "errorTitle": "Error",
     "dataUpdatedTitle": "¡Datos actualizados!",
@@ -612,7 +603,16 @@
   },
   "errors": {
     "loadProgram": "Error al cargar el programa",
-    "changeState": "No se pudo cambiar el estado del programa"
+    "changeState": "No se pudo cambiar el estado del programa",
+    "couldNotLoadProfile": "No se pudo cargar el perfil.",
+    "invalidServerData": "Datos no válidos del servidor",
+    "couldNotLoadUserInfo": "No se pudo cargar la información del usuario",
+    "couldNotUpdate": "No se pudo actualizar la información",
+    "invalidCredentials": "Correo o contraseña inválidos.",
+    "disabledAccount": "Cuenta desactivada. Contacta al administrador.",
+    "serverError": "Error interno del servidor. Intenta más tarde.",
+    "networkError": "Error de conexión. Verifica tu internet.",
+    "genericError": "Error al iniciar sesión. Intenta nuevamente."
   }
 }
 

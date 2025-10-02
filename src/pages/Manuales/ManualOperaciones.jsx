@@ -179,11 +179,9 @@ const ManualUser = () => {
                 <h3>Contactos</h3>
                 <strong>Equipo de desarrollo SISGEEC</strong> <br /><br />
 
-                Stephania Herrera Duque – Backend <br />
-                Jhonatan Stiven Acevedo Mendoza – Frontend <br />
-                Samuel Monsalve Gómez – Frontend <br />
-                Todos – Documentación y pruebas <br /><br />
-
+                Stephania Herrera Duque – Desarrollador Backend <br /><br />
+                Jhonatan Stiven Acevedo Mendoza, Samuel Monsalve Gómez – Desarrollador Frontend <br /><br />
+                Jhonatan Stiven Acevedo Mendoza, Samuel Monsalve Gómez y Stephania Herrera Duque – Documentación y pruebas <br /><br />
                 Correo de soporte: <a href="mailto:sisgeec@gmail.com">sisgeec@gmail.com</a> <br /><br />
 
                 <h3>Glosario</h3>
