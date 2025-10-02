@@ -29,7 +29,6 @@ import EditTraining from './pages/EditTrainingProgram/EditTrainingProgram.jsx';
 import ViewCompany from './pages/ViewCompany/ViewCompany.jsx';
 import ManualUser from './pages/Manuales/ManualUser.jsx';
 import ManualOperaciones from './pages/Manuales/ManualOperaciones.jsx';
-import Manualinstalacion from './pages/Manuales/ManualInstalacion.jsx';
 
 
 function ThemeSync() {
@@ -110,7 +109,6 @@ function App() {
               <Route path="/viewCompany/:id" element={<ProtectedRoute><ViewCompany /></ProtectedRoute>} />
               <Route path="/ManualUser" element={<ManualUser /> } />
               <Route path="/ManualOperaciones" element={<ManualOperaciones /> } />
-              <Route path="/Manualinstalacion" element={<Manualinstalacion /> } />
 
               {/* Ruta por defecto */}
               <Route path="*" element={<Navigate to="/" replace />} />
