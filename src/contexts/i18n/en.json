@@ -87,7 +87,16 @@
     "address": "Address",
     "enterAddress": "Enter address",
     "password": "Password",
-    "enterPassword": "Enter password"
+    "enterPassword": "Enter password",
+    "requiredField": "This field is required",
+      "invalidEmail": "correo electrónico inválido",
+      "addressMinLength" : "invalid email ",
+      "passwordRequirements" : "Mandatory password",
+      "passwordMinLength": "Short password",
+      "passwordLowercase": "Lowercase",
+      "passwordUppercase": "Capital letters",
+      "passwordNumber" :"Numbers",
+      "passwordSpecial": "Special character"
   },
   "alerts": {
     "userCreated": "User created",

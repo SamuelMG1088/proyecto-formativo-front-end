@@ -86,7 +86,15 @@
       "enterAddress": "Ingrese la dirección",
       "password": "Contraseña",
       "enterPassword": "Ingrese la contraseña",
-      "requiredField": "Este campo es obligatorio"
+      "requiredField": "Este campo es obligatorio",
+      "invalidEmail": "correo electrónico inválido",
+      "addressMinLength" : "Dirección corta ",
+      "passwordRequirements" : "Contraseña obligatoria",
+      "passwordMinLength": "Contraseña corta",
+      "passwordLowercase": "Minúsculas",
+      "passwordUppercase": "Mayúsculas",
+      "passwordNumber" :"Numeros",
+      "passwordSpecial": "Caracter especial"
     },
     
     "alerts": {
@@ -306,6 +314,7 @@
       "title": "Registro de Programa de formación",
       "subtitle": "Completa el formulario para registrar el programa de formación",
       "empresa": "Empresa"
+      
     },
     "steps": {
       "step1": "Información Personal",
