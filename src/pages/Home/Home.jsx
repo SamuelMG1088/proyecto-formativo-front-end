@@ -9,7 +9,7 @@ import { IoIosCheckbox } from "react-icons/io";
 import factor1 from '../../assets/images/factorHumano1.jpg'
 import { GiColombia } from "react-icons/gi";
 import { Link } from 'react-router-dom';
-import './css/home.css';
+import './css/home.css'; 
 import { useTranslation } from 'react-i18next';
 
 const Home = () => {
