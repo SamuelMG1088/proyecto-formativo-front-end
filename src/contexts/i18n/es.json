@@ -128,7 +128,8 @@
     "successText": "Tus datos han sido actualizados correctamente",
     "errorTitle": "Error",
     "errorText": "No se pudieron actualizar los datos. Inténtalo de nuevo",
-    "ok": "Aceptar"
+    "ok": "Aceptar",
+    "profileupdate" : "Actualizado correctamente"
 
   },
   "profile": {

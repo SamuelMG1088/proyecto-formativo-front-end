@@ -1,10 +1,12 @@
 // src/contexts/AuthContext/AuthContext.jsx
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
+import { useTranslation } from "react-i18next"; // 🔹 Importar i18n
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
+  const { t } = useTranslation(); // 🔹 Hook de traducción
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -94,7 +96,7 @@ export function AuthProvider({ children }) {
         success: true, 
         data: response.data, 
         updatedUser,
-        message: "Perfil actualizado correctamente"
+        text: t("swal.profileupdate")
       };
     } catch (error) {
       console.error("❌ Error completo al actualizar usuario:", error);

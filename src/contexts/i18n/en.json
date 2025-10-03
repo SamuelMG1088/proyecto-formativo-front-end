@@ -128,7 +128,10 @@
     "successText": "Your information has been updated successfully",
     "errorTitle": "Error",
     "errorText": "Unable to update data. Please try again",
-    "ok": "OK"
+    "ok": "OK",
+    "profileupdate" : "Updated successfully"
+    
+    
   },
   "profile": {
     "user": "User",
