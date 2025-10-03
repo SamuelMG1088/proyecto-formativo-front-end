@@ -105,8 +105,37 @@
       "ceTooLong": "La cédula de extranjería es demasiado larga",
       "nameMinLength" : "Nombre muy corto",
       "namesMinLength" : "Apellido muy corto",
-      "minLength": "Debe tener al menos {{min}} caracteres"
+      "minLength": "Debe tener al menos {{min}} caracteres",
+      "requiredPhone": "El número telefónico es requerido",
+      "requiredEmail": "El correo electrónico es requerido",
+      "correctErrors": "Por favor corrige los errores en el formulario antes de guardar",
+      "documentTypeDisabled": "El tipo de documento no se puede modificar",
+      "nit": "NIT",
+      "phonePlaceholder": "Ej: 3001234567",
+      "emailPlaceholder": "Ej: usuario@correo.com",
+      "addressPlaceholder": "Ingresa tu dirección",
+      "optional": "Opcional",
+      "passwordPlaceholder": "Nueva contraseña (déjalo vacío para mantener la actual)",
+      "passwordInfo": "Si dejas vacío, se mantendrá tu contraseña actual",
+      "saving": "Guardando..."
     },
+    "swal": {
+    "noChangesTitle": "Sin cambios",
+    "noChangesText": "No se detectaron cambios para guardar",
+    "validationErrorTitle": "Error de validación",
+    "validationErrorText": "Por favor corrige los errores en el formulario",
+    "successTitle": "¡Éxito!",
+    "successText": "Tus datos han sido actualizados correctamente",
+    "errorTitle": "Error",
+    "errorText": "No se pudieron actualizar los datos. Inténtalo de nuevo",
+    "ok": "Aceptar"
+
+  },
+  "profile": {
+    "user": "Usuario",
+    "status": "Estado",
+    "active": "Activo"
+  },
     
     "alerts": {
       "userCreated": "Usuario creado",
