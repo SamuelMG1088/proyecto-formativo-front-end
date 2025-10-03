@@ -1,6 +1,5 @@
 // src/pages/LoginPage/LoginPage.jsx
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext/AuthContext.jsx";
 import { useTranslation } from "react-i18next";
@@ -64,75 +63,49 @@ export const LoginPage = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3000/api/auth/login", {
-        email: email.trim(),
-        password: password.trim(),
-      });
+      // 🔹 Llamamos directamente al login del AuthContext
+      const result = await login({ email: email.trim(), password: password.trim() });
 
-      if (response?.status === 200 && response?.data?.token) {
-        // 🔑 Guardamos token
-        localStorage.setItem("authToken", response.data.token);
+      if (result.success) {
+        const isDarkMode = document.body.classList.contains("dark");
 
-        if (response.data.user) {
-          // 🔑 Guardamos usuario en el contexto con su rol
-          login({
-            ...response.data.user,
-            rol_usuario: response.data.user.rol_usuario,
-          });
-
-          const isDarkMode = document.body.classList.contains("dark");
-
-          Swal.fire({
-            icon: "success",
-            title: t("loginPage.alerts.welcome.title", {
-              name: response.data.user.nombre || "",
-            }),
-            text: t("loginPage.alerts.welcome.text"),
-            showConfirmButton: false,
-            timer: 1500,
-            background: isDarkMode ? "#1e1e1e" : "#fff",
-            color: isDarkMode ? "#fff" : "#000",
-          }).then(() => {
-            navigate("/home");
-          });
-        }
+        Swal.fire({
+          icon: "success",
+          title: t("loginPage.alerts.welcome.title", {
+            name: result.user.nombre || "",
+          }),
+          text: t("loginPage.alerts.welcome.text"),
+          showConfirmButton: false,
+          timer: 1500,
+          background: isDarkMode ? "#1e1e1e" : "#fff",
+          color: isDarkMode ? "#fff" : "#000",
+        }).then(() => navigate("/home"));
       } else {
-        throw new Error("Unexpected server response");
+        const isDarkMode = document.body.classList.contains("dark");
+
+        Swal.fire({
+          icon: "error",
+          title: t("loginPage.alerts.denied.title"),
+          text: result.error || t("loginPage.alerts.errors.genericError"),
+          background: isDarkMode ? "#1e1e1e" : "#fff",
+          color: isDarkMode ? "#fff" : "#000",
+          confirmButtonColor: "#d33",
+        });
       }
     } catch (error) {
       console.error("Login error:", error);
-      handleLoginError(error);
+      const isDarkMode = document.body.classList.contains("dark");
+      Swal.fire({
+        icon: "error",
+        title: t("loginPage.alerts.denied.title"),
+        text: t("loginPage.alerts.errors.genericError"),
+        background: isDarkMode ? "#1e1e1e" : "#fff",
+        color: isDarkMode ? "#fff" : "#000",
+        confirmButtonColor: "#d33",
+      });
     } finally {
       setLoading(false);
     }
-  };
-
-  const handleLoginError = (error) => {
-    const status = error.response?.status;
-    let messageKey;
-
-    if (status === 401 || status === 404) {
-      messageKey = "loginPage.alerts.errors.invalidCredentials";
-    } else if (status === 403) {
-      messageKey = "loginPage.alerts.errors.disabledAccount";
-    } else if (status === 500) {
-      messageKey = "loginPage.alerts.errors.serverError";
-    } else if (error.message === "Network Error") {
-      messageKey = "loginPage.alerts.errors.networkError";
-    } else {
-      messageKey = "loginPage.alerts.errors.genericError";
-    }
-
-    const isDarkMode = document.body.classList.contains("dark");
-
-    Swal.fire({
-      icon: "error",
-      title: t("loginPage.alerts.denied.title"),
-      text: t("loginPage.alerts.denied.text", { message: t(messageKey) }),
-      background: isDarkMode ? "#1e1e1e" : "#fff",
-      color: isDarkMode ? "#fff" : "#000",
-      confirmButtonColor: isDarkMode ? "#39a900" : "#d33",
-    });
   };
 
   return (

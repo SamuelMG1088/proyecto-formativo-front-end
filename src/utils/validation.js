@@ -74,7 +74,7 @@ export const validationRules = {
   // Address validation
   address: {
     required: true,
-    minLength: 10,
+    minLength: 5,
     maxLength: 200,
     pattern: /^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s#\-.,]+$/,
     message: {
@@ -297,12 +297,11 @@ export const validateAddress = (address) => {
   const basicValidation = validateField('address', address);
   if (!basicValidation.isValid) return basicValidation;
 
-  // Check for valid address format (should contain street indicators and numbers)
-  const hasStreet = /\b(calle|carrera|avenida|av|diagonal|diag|transversal|trans|manzana|mz|barrio|br|sector|set|urbanizacion|urb|conjunto|cjto|edificio|edif|torre|torr|apartamento|apto|oficina|of|local|loc|piso|planta|pl)\b/i.test(address);
-  const hasNumbers = /\d/.test(address);
-
-  if (!hasStreet || !hasNumbers) {
-    return { isValid: false, error: 'La dirección debe incluir indicadores de vía (calle, carrera, etc.) y números' };
+  // Simple validation: just check that it has at least 3 letters
+  const letterCount = (address.match(/[a-zA-ZáéíóúÁÉÍÓÚñÑ]/g) || []).length;
+  
+  if (letterCount < 3) {
+    return { isValid: false, error: 'La dirección debe tener al menos 3 letras' };
   }
 
   return { isValid: true, error: '' };

@@ -40,12 +40,13 @@ const CreateProgram = () => {
     let error = '';
 
     switch (name) {
-      case 'programcode':
-        const codeValidation = validateField('programCode', value);
-        if (!codeValidation.isValid) {
-          error = codeValidation.error;
+      case "programCode": {
+        const durationValidation = validateField('duration', value);
+        if (!durationValidation.isValid) {
+          error = durationValidation.error;
         }
         break;
+      }
 
       case 'programversion':
         if (!value.trim()) {
@@ -426,7 +427,7 @@ const CreateProgram = () => {
               <div className="form-navigation">
                 <Link to='/ListProgram'>
                   <button type="button" className="secondary-button">
-                    {t('createProgram.buttons.previous')}
+                    {t('buttons.previous')}
                   </button>
                 </Link>
                 <button 
@@ -434,7 +435,7 @@ const CreateProgram = () => {
                   className="primary-button" 
                   onClick={nextStep}
                 >
-                  {t('createProgram.buttons.next')}
+                  {t('buttons.next')}
                 </button>
               </div>
             </div>
@@ -563,14 +564,14 @@ const CreateProgram = () => {
                   className="secondary-button" 
                   onClick={prevStep}
                 >
-                  {t('createProgram.buttons.previous')}
+                  {t('buttons.previous')}
                 </button>
                 <button 
                   type="button" 
                   className="primary-button" 
                   onClick={nextStep}
                 >
-                  {t('createProgram.buttons.next')}
+                  {t('buttons.next')}
                 </button>
               </div>
             </div>

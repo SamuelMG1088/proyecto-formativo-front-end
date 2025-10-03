@@ -10,124 +10,149 @@ import BannerHome4 from "../../assets/banners/BannerHome4.png";
 import BannerHome5 from "../../assets/banners/BannerHome5.png";
 import ButtonConfirm from "../../components/Buttons/ButtonConfirm/ButtonConfirm.jsx";
 import Swal from "sweetalert2";
-import { useAuth } from "../../contexts/AuthContext/AuthContext.jsx"; // ✅ importar contexto
-import { validateEmail, validatePhone, validateAddress, validateDocument } from "../../utils/validation.js";
+import { useAuth } from "../../contexts/AuthContext/AuthContext.jsx";
+import { validateEmail, validatePhone, validateAddress, validatePassword } from "../../utils/validation.js";
 import "../../styles/validation.css";
 import "./css/editProfile.css";
 
 const EditProfile = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const { user, updateUser } = useAuth(); // ✅ acceder a updateUser y datos
+  const { user, updateUser } = useAuth();
   const navigate = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Estados de formulario con valores iniciales desde user
   const [formData, setFormData] = useState({
-    tipoDocumento: user?.tipoDocumento || "",
-    telefono: user?.telefono || "",
-    email: user?.email || "",
-    direccion: user?.direccion || "",
-  });
-
-  // Estados para validaciones
-  const [errors, setErrors] = useState({
+    tipoDocumento: "CC",
     telefono: "",
     email: "",
     direccion: "",
+    password: "",
   });
-  const [touched, setTouched] = useState({
-    telefono: false,
-    email: false,
-    direccion: false,
-  });
-  const [isValid, setIsValid] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
 
   const images = [BannerHome3, BannerHome4, BannerHome5];
 
-  // 🎞 Carrusel automático
+  // 🔹 Inicializar formulario con datos del usuario
+  useEffect(() => {
+    if (user) {
+      setFormData({
+        tipoDocumento: user.tipoDocumento || "CC",
+        telefono: user.telefono || "",
+        email: user.email || "",
+        direccion: user.direccion || "",
+        password: "",
+      });
+    }
+  }, [user]);
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) =>
-        prev === images.length - 1 ? 0 : prev + 1
-      );
+      setCurrentSlide(prev => (prev === images.length - 1 ? 0 : prev + 1));
     }, 3500);
     return () => clearInterval(interval);
   }, [images.length]);
 
-  // Función para validar un campo específico
   const validateField = (fieldName, value) => {
     let error = "";
     
+    // 🔹 Validar campos requeridos
+    if ((fieldName === "telefono" || fieldName === "email") && (!value || value.trim() === "")) {
+      return "Este campo es requerido";
+    }
+
     switch (fieldName) {
       case "telefono":
-        const phoneValidation = validatePhone(value);
-        if (!phoneValidation.isValid) {
-          error = phoneValidation.error;
+        if (value && value.trim() !== "") {
+          const phoneValidation = validatePhone(value);
+          if (!phoneValidation.isValid) error = phoneValidation.error;
         }
         break;
       case "email":
-        const emailValidation = validateEmail(value);
-        if (!emailValidation.isValid) {
-          error = emailValidation.error;
+        if (value && value.trim() !== "") {
+          const emailValidation = validateEmail(value);
+          if (!emailValidation.isValid) error = emailValidation.error;
         }
         break;
       case "direccion":
-        const addressValidation = validateAddress(value);
-        if (!addressValidation.isValid) {
-          error = addressValidation.error;
+        if (value && value.trim() !== "") {
+          const addressValidation = validateAddress(value);
+          if (!addressValidation.isValid) error = addressValidation.error;
+        }
+        break;
+      case "password":
+        if (value && value.trim() !== "") {
+          const passwordValidation = validatePassword(value, user);
+          if (!passwordValidation.isValid) error = passwordValidation.error;
         }
         break;
       default:
         break;
     }
-    
     return error;
   };
 
-  // Manejar cambios en los inputs
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData(prev => ({ ...prev, [name]: value }));
     
-    // Validar en tiempo real si el campo ha sido tocado
+    // 🔹 Validación en tiempo real solo para campos tocados
     if (touched[name]) {
       const error = validateField(name, value);
       setErrors(prev => ({ ...prev, [name]: error }));
     }
   };
 
-  // Manejar cuando un campo pierde el foco
-  const handleBlur = (e) => {
+  const handleBlur = e => {
     const { name, value } = e.target;
     setTouched(prev => ({ ...prev, [name]: true }));
     const error = validateField(name, value);
     setErrors(prev => ({ ...prev, [name]: error }));
   };
 
-  // Validar todo el formulario
   const validateForm = () => {
     const newErrors = {};
     let isValid = true;
 
-    // Validar teléfono
-    const phoneError = validateField("telefono", formData.telefono);
-    if (phoneError) {
-      newErrors.telefono = phoneError;
+    // 🔹 Validar campos requeridos
+    if (!formData.telefono || formData.telefono.trim() === "") {
+      newErrors.telefono = "El número telefónico es requerido";
       isValid = false;
+    } else {
+      const phoneError = validateField("telefono", formData.telefono);
+      if (phoneError) {
+        newErrors.telefono = phoneError;
+        isValid = false;
+      }
     }
 
-    // Validar email
-    const emailError = validateField("email", formData.email);
-    if (emailError) {
-      newErrors.email = emailError;
+    if (!formData.email || formData.email.trim() === "") {
+      newErrors.email = "El correo electrónico es requerido";
       isValid = false;
+    } else {
+      const emailError = validateField("email", formData.email);
+      if (emailError) {
+        newErrors.email = emailError;
+        isValid = false;
+      }
     }
 
-    // Validar dirección
-    const addressError = validateField("direccion", formData.direccion);
-    if (addressError) {
-      newErrors.direccion = addressError;
-      isValid = false;
+    // 🔹 Validar campos opcionales solo si tienen contenido
+    if (formData.direccion && formData.direccion.trim() !== "") {
+      const addressError = validateField("direccion", formData.direccion);
+      if (addressError) {
+        newErrors.direccion = addressError;
+        isValid = false;
+      }
+    }
+
+    if (formData.password && formData.password.trim() !== "") {
+      const passwordError = validateField("password", formData.password);
+      if (passwordError) {
+        newErrors.password = passwordError;
+        isValid = false;
+      }
     }
 
     setErrors(newErrors);
@@ -135,69 +160,134 @@ const EditProfile = () => {
       telefono: true,
       email: true,
       direccion: true,
+      password: true,
     });
-
+    
     return isValid;
   };
 
-  // Guardar cambios
+  const hasChanges = () => {
+    if (!user) return false;
+    
+    return (
+      formData.telefono !== user.telefono ||
+      formData.email !== user.email ||
+      formData.direccion !== (user.direccion || "") ||
+      (formData.password && formData.password.trim() !== "")
+      // ❌ NO incluir tipoDocumento en la verificación de cambios - no se puede actualizar
+    );
+  };
+
   const handleSave = async () => {
-    // Prevenir múltiples envíos
     if (isSubmitting) return;
     
-    setIsSubmitting(true);
-
-    // Validar formulario antes de guardar
-    if (!validateForm()) {
-      setIsSubmitting(false);
-      const isDarkMode = document.body.classList.contains("dark");
-      
+    // 🔹 Verificar si hay cambios
+    if (!hasChanges()) {
       Swal.fire({
-        title: "Error de validación",
-        text: "Por favor corrige los errores antes de continuar",
-        icon: "error",
+        title: "Sin cambios",
+        text: "No se detectaron cambios para guardar",
+        icon: "info",
         confirmButtonText: "Aceptar",
-        confirmButtonColor: "#d33",
-        background: isDarkMode ? "#1e1e1e" : "#fff",
-        color: isDarkMode ? "#fff" : "#000",
+        confirmButtonColor: "#3085d6",
+        background: document.body.classList.contains("dark") ? "#1e1e1e" : "#fff",
+        color: document.body.classList.contains("dark") ? "#fff" : "#000",
       });
       return;
     }
 
-    try {
-      updateUser(formData); // ✅ actualiza en contexto y localStorage
+    setIsSubmitting(true);
 
-      const isDarkMode = document.body.classList.contains("dark");
-
+    if (!validateForm()) {
       Swal.fire({
-        title: "¡Datos actualizados!",
-        text: "Tus datos han sido actualizados correctamente.",
-        icon: "success",
-        confirmButtonText: "Aceptar",
-        confirmButtonColor: "#39a900",
-        background: isDarkMode ? "#1e1e1e" : "#fff",
-        color: isDarkMode ? "#fff" : "#000",
-      }).then(() => {
-        navigate("/viewprofile"); // ✅ redirige al perfil SIN perder sesión
-      });
-    } catch (error) {
-      console.error("Error al actualizar perfil:", error);
-      const isDarkMode = documen
-t.body.classList.contains("dark");
-      
-      Swal.fire({
-        title: "Error",
-        text: "No se pudieron actualizar los datos. Inténtalo de nuevo.",
+        title: "Error de validación",
+        text: "Por favor corrige los errores en el formulario",
         icon: "error",
         confirmButtonText: "Aceptar",
         confirmButtonColor: "#d33",
-        background: isDarkMode ? "#1e1e1e" : "#fff",
-        color: isDarkMode ? "#fff" : "#000",
+        background: document.body.classList.contains("dark") ? "#1e1e1e" : "#fff",
+        color: document.body.classList.contains("dark") ? "#fff" : "#000",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      // 🔹 Preparar datos para enviar - SOLO CAMPOS PERMITIDOS
+      const dataToSend = { 
+        telefono: formData.telefono.trim(), // Se convertirá a INTEGER en el backend
+        email: formData.email.trim(),
+        direccion: formData.direccion.trim()
+        // ❌ NO enviar tipoDocumento - no está permitido en la actualización
+      };
+
+      // 🔹 Solo agregar password si el usuario la está cambiando
+      if (formData.password && formData.password.trim() !== "") {
+        dataToSend.password = formData.password.trim();
+      }
+
+      console.log("📝 Datos a enviar desde EditProfile:", dataToSend);
+
+      const result = await updateUser(dataToSend);
+      
+      if (result.success) {
+        await Swal.fire({
+          title: "¡Éxito!",
+          text: result.message || "Tus datos han sido actualizados correctamente",
+          icon: "success",
+          confirmButtonText: "Aceptar",
+          confirmButtonColor: "#39a900",
+          background: document.body.classList.contains("dark") ? "#1e1e1e" : "#fff",
+          color: document.body.classList.contains("dark") ? "#fff" : "#000",
+        });
+        navigate("/viewprofile");
+      } else {
+        // 🔹 Mostrar errores específicos del backend
+        let errorText = result.error;
+        
+        if (result.details && result.details.length > 0) {
+          errorText += "\n\n" + result.details.map(detail => `• ${detail}`).join('\n');
+        }
+        
+        if (result.responseData) {
+          console.log("🔍 Datos completos de error:", result.responseData);
+        }
+
+        throw new Error(errorText);
+      }
+    } catch (error) {
+      console.error("Error completo al actualizar perfil:", error);
+      
+      // 🔹 Mensaje de error más específico
+      let errorMessage = error.message;
+      
+      if (errorMessage.includes("validation") || errorMessage.includes("validación")) {
+        errorMessage = "Errores de validación en los datos:\n" + errorMessage;
+      }
+
+      Swal.fire({
+        title: "Error al guardar",
+        text: errorMessage,
+        icon: "error",
+        confirmButtonText: "Aceptar",
+        confirmButtonColor: "#d33",
+        background: document.body.classList.contains("dark") ? "#1e1e1e" : "#fff",
+        color: document.body.classList.contains("dark") ? "#fff" : "#000",
       });
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  // 🔹 Verificar si el formulario tiene errores
+  const hasErrors = () => {
+    return Object.values(errors).some(error => error !== "");
+  };
+
+  // 🔹 Agregar useEffect temporal para debug
+  useEffect(() => {
+    console.log("🔍 Datos actuales del usuario:", user);
+    console.log("🔍 Datos actuales del formulario:", formData);
+  }, [user, formData]);
 
   return (
     <div id="EditProfilePage">
@@ -233,9 +323,7 @@ t.body.classList.contains("dark");
           <div className="profile-header">
             <FaGraduationCap className="icon-Training" />
           </div>
-          <h1 className="profile-title">
-            {user?.nombre || "Usuario"}
-          </h1>
+          <h1 className="profile-title">{user?.nombre || "Usuario"}</h1>
 
           <div className="info-boxes">
             <div className="info-box">
@@ -244,104 +332,102 @@ t.body.classList.contains("dark");
             </div>
           </div>
 
+          {/* 🔹 Mostrar alerta de errores general */}
+          {hasErrors() && (
+            <div className="global-error-alert">
+              ⚠️ Por favor corrige los errores en el formulario antes de guardar
+            </div>
+          )}
+
           <div className="requirements">
             <div className="requirement">
               <h3>Tipo de documento</h3>
-              <select
+              <select 
                 name="tipoDocumento"
                 value={formData.tipoDocumento}
                 onChange={handleChange}
+                disabled={false} // 👈 DESHABILITADO - no se puede cambiar
+                title="El tipo de documento no se puede modificar"
               >
                 <option value="CC">Cédula de Ciudadanía</option>
                 <option value="NIT">NIT</option>
                 <option value="CE">Cédula de Extranjería</option>
-                <option value="PA">Pasaporte</option>
               </select>
+              <p className="field-disabled-note">⚠️ El tipo de documento no se puede modificar</p>
             </div>
 
             <div className="requirement">
-              <h3>Número Telefónico</h3>
+              <h3>Número Telefónico *</h3>
               <input
                 type="text"
                 name="telefono"
                 value={formData.telefono}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                placeholder="Ingresa el nuevo número de teléfono"
-                className={touched.telefono && errors.telefono ? "error-input" : ""}
+                placeholder="Ej: 3001234567"
+                className={errors.telefono ? "error-input" : ""}
                 disabled={isSubmitting}
-                aria-invalid={touched.telefono && errors.telefono ? "true" : "false"}
-                aria-describedby={touched.telefono && errors.telefono ? "telefono-error" : "telefono-help"}
               />
-              {touched.telefono && errors.telefono && (
-                <span id="telefono-error" className="error-message" role="alert">
-                  {errors.telefono}
-                </span>
-              )}
-              {!touched.telefono && (
-                <small id="telefono-help" className="help-text">
-                  Ingresa un número de teléfono válido (7-15 dígitos)
-                </small>
+              {errors.telefono && (
+                <span className="error-message">❌ {errors.telefono}</span>
               )}
             </div>
 
             <div className="requirement">
-              <h3>Correo Electrónico</h3>
+              <h3>Correo Electrónico *</h3>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                placeholder="Ingresa la nueva dirección de correo"
-                className={touched.email && errors.email ? "error-input" : ""}
+                placeholder="Ej: usuario@correo.com"
+                className={errors.email ? "error-input" : ""}
                 disabled={isSubmitting}
-                aria-invalid={touched.email && errors.email ? "true" : "false"}
-                aria-describedby={touched.email && errors.email ? "email-error" : "email-help"}
               />
-              {touched.email && errors.email && (
-                <span id="email-error" className="error-message" role="alert">
-                  {errors.email}
-                </span>
-              )}
-              {!touched.email && (
-                <small id="email-help" className="help-text">
-                  Ingresa una dirección de correo válida
-                </small>
+              {errors.email && (
+                <span className="error-message">❌ {errors.email}</span>
               )}
             </div>
 
             <div className="requirement">
-              <h3>Dirección</h3>
+              <h3>Dirección *</h3>
               <input
                 type="text"
                 name="direccion"
                 value={formData.direccion}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                placeholder="Ingresa la dirección actualizada"
-                className={touched.direccion && errors.direccion ? "error-input" : ""}
+                placeholder="Ingresa tu dirección"
+                className={errors.direccion ? "error-input" : ""}
                 disabled={isSubmitting}
-                aria-invalid={touched.direccion && errors.direccion ? "true" : "false"}
-                aria-describedby={touched.direccion && errors.direccion ? "direccion-error" : "direccion-help"}
               />
-              {touched.direccion && errors.direccion && (
-                <span id="direccion-error" className="error-message" role="alert">
-                  {errors.direccion}
-                </span>
+              {errors.direccion && (
+                <span className="error-message">❌ {errors.direccion}</span>
               )}
-              {!touched.direccion && (
-                <small id="direccion-help" className="help-text">
-                  Incluye calle, carrera, números y referencias (10-200 caracteres)
-                </small>
+            </div>
+
+            <div className="requirement">
+              <h3>Contraseña <span className="optional-text">(Opcional)</span></h3>
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="Nueva contraseña (déjalo vacío si no deseas cambiarla)"
+                className={errors.password ? "error-input" : ""}
+                disabled={isSubmitting}
+              />
+              {errors.password && (
+                <span className="error-message">❌ {errors.password}</span>
               )}
             </div>
           </div>
 
-          {/* Botón Guardar */}
           <div className="Box-Button">
             <div className="Button" onClick={isSubmitting ? null : handleSave}>
-              <ButtonConfirm disabled={isSubmitting} />
+              <ButtonConfirm disabled={isSubmitting || hasErrors()} />
               {isSubmitting && <span className="loading-text">Guardando...</span>}
             </div>
           </div>

@@ -6,7 +6,7 @@ import BannerHome1 from '../../assets/banners/BannerHome1.png';
 import BannerUsers from '../../assets/banners/BannerUsers.png';
 import BannerHome6 from '../../assets/banners/BannerHome6.png';
 import { FaGraduationCap } from "react-icons/fa";
-import './css/EditCompany.css';
+import './css/editCompany.css';
 import ButtonConfirm from '../../components/Buttons/ButtonConfirm/ButtonConfirm.jsx';
 import { useParams, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';

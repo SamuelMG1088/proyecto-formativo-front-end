@@ -22,12 +22,6 @@ const EditTraining = () => {
     version: "",
     estado: "",
     lectiva: "",
-
-
-    
-
-
-
     productiva: ""
   };
 
@@ -54,7 +48,6 @@ const EditTraining = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const images = [BannerHome4, BannerHome6, BannerHome7];
 
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
@@ -62,12 +55,17 @@ const EditTraining = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
+  // 🔹 Normalización: siempre convertir a string
+  const toStr = (value) => (value !== undefined && value !== null ? String(value) : "");
+
   // Funciones de validación
   const validateVersion = (value) => {
-    if (!value || value.trim() === '') {
+    const strValue = toStr(value).trim();
+
+    if (!strValue) {
       return 'La versión es obligatoria';
     }
-    const numValue = Number(value);
+    const numValue = Number(strValue);
     if (isNaN(numValue)) {
       return 'La versión debe ser un número válido';
     }
@@ -81,31 +79,41 @@ const EditTraining = () => {
   };
 
   const validateEstado = (value) => {
-    if (!value || value.trim() === '') {
+    const strValue = toStr(value).trim();
+
+    if (!strValue) {
       return 'El estado es obligatorio';
     }
-    if (value.trim().length < 2) {
+    if (strValue.length < 2) {
       return 'El estado debe tener al menos 2 caracteres';
     }
-    if (value.trim().length > 50) {
+    if (strValue.length > 50) {
       return 'El estado no puede tener más de 50 caracteres';
     }
-    // Validar que solo contenga letras, espacios y algunos caracteres especiales
     const estadoRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s\-\.]+$/;
-    if (!estadoRegex.test(value.trim())) {
+    if (!estadoRegex.test(strValue)) {
       return 'El estado solo puede contener letras, espacios, guiones y puntos';
     }
     return '';
   };
 
   const validateLectiva = (value) => {
-    if (!value || value.trim() === '') {
+    const strValue = toStr(value).trim();
+  
+    if (!strValue) {
       return 'La fase lectiva es obligatoria';
     }
-    const numValue = Number(value);
-    if (isNaN(numValue)) {
-      return 'La fase lectiva debe ser un número válido';
+  
+    // Regex: número + opcional "mes" o "meses"
+    const regex = /^(\d+)\s*(mes(es)?)?$/i;
+    const match = strValue.match(regex);
+  
+    if (!match) {
+      return 'La fase lectiva debe ser un número válido, con o sin "meses"';
     }
+  
+    const numValue = Number(match[1]);
+  
     if (numValue < 0) {
       return 'La fase lectiva no puede ser negativa';
     }
@@ -114,15 +122,24 @@ const EditTraining = () => {
     }
     return '';
   };
-
+  
   const validateProductiva = (value) => {
-    if (!value || value.trim() === '') {
+    const strValue = toStr(value).trim();
+  
+    if (!strValue) {
       return 'La fase productiva es obligatoria';
     }
-    const numValue = Number(value);
-    if (isNaN(numValue)) {
-      return 'La fase productiva debe ser un número válido';
+  
+    // Regex: número + opcional "mes" o "meses"
+    const regex = /^(\d+)\s*(mes(es)?)?$/i;
+    const match = strValue.match(regex);
+  
+    if (!match) {
+      return 'La fase productiva debe ser un número válido, con o sin "meses"';
     }
+  
+    const numValue = Number(match[1]);
+  
     if (numValue < 0) {
       return 'La fase productiva no puede ser negativa';
     }
@@ -316,7 +333,7 @@ const EditTraining = () => {
               <div className="requirement">
                 <h3>Lectiva</h3>
                 <input
-                  type="text"  // cambio a text para no confundir al usuario
+                  type="text"
                   placeholder="Mes lectiva"
                   value={lectiva}
                   onChange={(e) => handleFieldChange('lectiva', e.target.value, setLectiva)}
@@ -330,7 +347,7 @@ const EditTraining = () => {
               <div className="requirement">
                 <h3>Productiva</h3>
                 <input
-                  type="text"  // cambio a text también
+                  type="text"
                   placeholder="Mes productiva"
                   value={productiva}
                   onChange={(e) => handleFieldChange('productiva', e.target.value, setProductiva)}

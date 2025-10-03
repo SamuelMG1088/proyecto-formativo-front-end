@@ -7,7 +7,7 @@ import BannerHome1 from '../../assets/banners/BannerHome1.png';
 import BannerUsers from '../../assets/banners/BannerUsers.png';
 import BannerHome6 from '../../assets/banners/BannerHome6.png';
 import { FaGraduationCap } from "react-icons/fa";
-import './css/ViewCompany.css';
+import './css/viewCompany.css';
 import ButtonEdit from '../../components/Buttons/ButtonEdit/ButtonEdit.jsx';
 import { Link, useParams, NavLink, useNavigate } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";

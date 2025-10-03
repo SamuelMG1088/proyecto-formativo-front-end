@@ -32,7 +32,7 @@ import Imagenmanual19 from "../../assets/Manuales/Usuario/imagen-manual19.jpg"
 import Imagenmanual34 from "../../assets/Manuales/Usuario/imagen-manual34.jpg"
 
 // Estilos
-import '../Manuales/Manuales.css';
+import '../Manuales/manuales.css';
 
 const ManualUser = () => {
   const { t } = useTranslation();

@@ -58,21 +58,28 @@ const CreateCompanyPage = () => {
           newErrors.documentNumber = t("form.onlyNumbers");
         } else {
           const docType = userData.documentType;
+    
           if (docType === "C.C") {
-            if (value.length < 6 || value.length > 10) {
-              newErrors.documentNumber = t("form.ccLength");
+            if (value.length < 6) {
+              newErrors.documentNumber = t("form.ccTooShort"); // Muy corto
+            } else if (value.length > 10) {
+              newErrors.documentNumber = t("form.ccTooLong"); // Muy largo
             } else {
               delete newErrors.documentNumber;
             }
           } else if (docType === "NIT") {
-            if (value.length < 9 || value.length > 15) {
-              newErrors.documentNumber = t("form.nitLength");
+            if (value.length < 9) {
+              newErrors.documentNumber = t("form.nitTooShort");
+            } else if (value.length > 15) {
+              newErrors.documentNumber = t("form.nitTooLong");
             } else {
               delete newErrors.documentNumber;
             }
           } else if (docType === "C.E") {
-            if (value.length < 6 || value.length > 15) {
-              newErrors.documentNumber = t("form.ceLength");
+            if (value.length < 6) {
+              newErrors.documentNumber = t("form.ceTooShort");
+            } else if (value.length > 15) {
+              newErrors.documentNumber = t("form.ceTooLong");
             } else {
               delete newErrors.documentNumber;
             }
@@ -95,7 +102,7 @@ const CreateCompanyPage = () => {
         if (!value) {
           newErrors.lastName = t("form.requiredField");
         } else if (value.length < 2) {
-          newErrors.lastName = t("form.nameMinLength");
+          newErrors.lastName = t("form.namesMinLength");
         } else {
           delete newErrors.lastName;
         }

@@ -48,7 +48,7 @@
    },
   
   "createUser": {
-    "title": "Create Use",
+    "title": "Create User",
     "subtitle": "Fill in the information to register a new user",
     "step1": "Basic Information",
     "step1Description": "Enter the company's basic information",
@@ -89,14 +89,22 @@
     "password": "Password",
     "enterPassword": "Enter password",
     "requiredField": "This field is required",
-      "invalidEmail": "correo electrónico inválido",
-      "addressMinLength" : "invalid email ",
+    "phoneMinLength" : "Short number",
+      "invalidEmail": "invalid email ",
+      "addressMinLength" : "Minimum length",
       "passwordRequirements" : "Mandatory password",
       "passwordMinLength": "Short password",
       "passwordLowercase": "Lowercase",
       "passwordUppercase": "Capital letters",
       "passwordNumber" :"Numbers",
-      "passwordSpecial": "Special character"
+      "passwordSpecial": "Special character",
+      "onlyNumbers": "Only numbers are allowed",
+      "ccTooShort": "The ID number is too short",
+      "ccTooLong": "The ID number is too long",
+      "nitTooShort": "The NIT is too short",
+      "nitTooLong": "The NIT is too long",
+      "ceTooShort": "The foreign ID is too short",
+      "ceTooLong": "The foreign ID is too long"
   },
   "alerts": {
     "userCreated": "User created",
@@ -389,11 +397,6 @@
       "construction": "Construction",
       "clothing": "Clothing"
     },
-    "buttons": {
-      "previous": "Previous",
-      "next": "Next",
-      "confirm": "Confirm and Create program"
-    },
     "confirmation": {
       "title": "Confirmation",
       "description": "Review the information before submitting"
@@ -571,8 +574,9 @@
   "buttons": {
     "back": "Go back",
     "cancel": "Cancel",
-    "suspend": "Yes, suspend",
+    "suspend": " suspend",
     "activate": "Yes, activate",
+    
     "goBack": "Go back",
     "yesSuspend": "Yes, suspend",
     "edit": "Edit",
@@ -581,6 +585,7 @@
     "confirm": "Confirm ",
     "confirmCreateUser": "Confirm creation",
     "yesActivate": "Yes"
+    
     
   },
   "general": {

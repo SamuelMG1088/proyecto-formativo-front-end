@@ -86,6 +86,7 @@
       "enterAddress": "Ingrese la dirección",
       "password": "Contraseña",
       "enterPassword": "Ingrese la contraseña",
+      "phoneMinLength" : "Numero  corto",
       "requiredField": "Este campo es obligatorio",
       "invalidEmail": "correo electrónico inválido",
       "addressMinLength" : "Dirección corta ",
@@ -94,7 +95,17 @@
       "passwordLowercase": "Minúsculas",
       "passwordUppercase": "Mayúsculas",
       "passwordNumber" :"Numeros",
-      "passwordSpecial": "Caracter especial"
+      "passwordSpecial": "Caracter especial",
+      "onlyNumbers": "Solo se permiten números",
+      "ccTooShort": "La cédula es demasiado corta",
+      "ccTooLong": "La cédula es demasiado larga",
+      "nitTooShort": "El NIT es demasiado corto",
+      "nitTooLong": "El NIT es demasiado largo",
+      "ceTooShort": "La cédula de extranjería es demasiado corta",
+      "ceTooLong": "La cédula de extranjería es demasiado larga",
+      "nameMinLength" : "Nombre muy corto",
+      "namesMinLength" : "Apellido muy corto",
+      "minLength": "Debe tener al menos {{min}} caracteres"
     },
     
     "alerts": {
@@ -542,7 +553,7 @@
   "buttons": {
     "back": "Volver atrás",
     "cancel": "Cancelar",
-    "suspend": "Sí, suspender",
+    "suspend": " suspender",
     "activate": "Sí, activar",
     "previous": "Anterior",
     "next": "Siguiente",
@@ -550,7 +561,9 @@
     "yesActivate": "Si",
     "edit": "Editar",
     "goBack": "Volver al inicio",
-    "confirmCreateUser": "Confirmar"
+    "confirmCreateUser": "Confirmar"  ,
+    "yesSuspend": "Si, suspender"
+    
     
     
   },
@@ -622,6 +635,10 @@
     "serverError": "Error interno del servidor. Intenta más tarde.",
     "networkError": "Error de conexión. Verifica tu internet.",
     "genericError": "Error al iniciar sesión. Intenta nuevamente."
+  },
+  "validation": {
+    "formErrorsTitle": "Error",
+    "formErrorsText" : "Revisa los campos"
   }
 }
 
