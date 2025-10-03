@@ -8,7 +8,7 @@ import { IoIosCheckbox } from "react-icons/io";
 import factor1 from '../../assets/images/factorHumano1.jpg'
 import { GiColombia } from "react-icons/gi";
 import { Link } from 'react-router-dom';
-import '../Manuales/Manuales.css';
+import '../Manuales/manuales.css';
 import '../../styles/variables.css'
 import { useTranslation } from 'react-i18next';
 import { FaArrowLeftLong } from "react-icons/fa6";
