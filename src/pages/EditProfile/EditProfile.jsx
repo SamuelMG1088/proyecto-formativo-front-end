@@ -212,18 +212,14 @@ const EditProfile = () => {
     }
 
     try {
-      // 🔹 Preparar datos para enviar - SOLO CAMPOS PERMITIDOS
+      // 🔹 Preparar datos para enviar - INCLUIR PASSWORD SIEMPRE
       const dataToSend = { 
-        telefono: formData.telefono.trim(), // Se convertirá a INTEGER en el backend
+        telefono: formData.telefono.trim(),
         email: formData.email.trim(),
-        direccion: formData.direccion.trim()
-        // ❌ NO enviar tipoDocumento - no está permitido en la actualización
+        direccion: formData.direccion.trim(),
+        // El backend siempre requiere password, enviar el actual si no se cambia
+        password: formData.password || user.password // 👈 SIEMPRE REQUERIDO
       };
-
-      // 🔹 Solo agregar password si el usuario la está cambiando
-      if (formData.password && formData.password.trim() !== "") {
-        dataToSend.password = formData.password.trim();
-      }
 
       console.log("📝 Datos a enviar desde EditProfile:", dataToSend);
 
@@ -346,7 +342,7 @@ const EditProfile = () => {
                 name="tipoDocumento"
                 value={formData.tipoDocumento}
                 onChange={handleChange}
-                disabled={false} // 👈 DESHABILITADO - no se puede cambiar
+                disabled={true} // 👈 DESHABILITADO - no se puede cambiar
                 title="El tipo de documento no se puede modificar"
               >
                 <option value="CC">Cédula de Ciudadanía</option>
@@ -415,13 +411,14 @@ const EditProfile = () => {
                 value={formData.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                placeholder="Nueva contraseña (déjalo vacío si no deseas cambiarla)"
+                placeholder="Nueva contraseña (déjalo vacío para mantener la actual)"
                 className={errors.password ? "error-input" : ""}
                 disabled={isSubmitting}
               />
               {errors.password && (
                 <span className="error-message">❌ {errors.password}</span>
               )}
+              <p className="field-info-note">💡 Si dejas vacío, se mantendrá tu contraseña actual</p>
             </div>
           </div>
 

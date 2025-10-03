@@ -51,18 +51,14 @@ export function AuthProvider({ children }) {
     try {
       console.log("🔍 Datos recibidos en updateUser:", newData);
       
-      // ⚡ SOLO ENVIAR LOS CAMPOS PERMITIDOS por ActualizarUsuarioDto
+      // ⚡ ENVIAR TODOS LOS CAMPOS REQUERIDOS por la validación Joi
       const updateData = {
         telefono: newData.telefono || user.telefono,
         email: newData.email || user.email,
         direccion: newData.direccion || user.direccion || "",
-        estado: user.estado || "Activo",
+        estado: user.estado || "Activo", // 👈 REQUERIDO
+        password: newData.password || user.password // 👈 REQUERIDO - enviar password actual si no se cambia
       };
-
-      // 🔹 Solo agregar password si no está vacío
-      if (newData.password && newData.password.trim() !== "") {
-        updateData.password = newData.password;
-      }
 
       console.log("📤 Datos FINALES que se enviarán al backend:", JSON.stringify(updateData, null, 2));
 
@@ -79,7 +75,7 @@ export function AuthProvider({ children }) {
 
       console.log("✅ Respuesta exitosa del backend:", response.data);
 
-      // Actualizar usuario en frontend
+      // Actualizar usuario en frontend (sin password por seguridad)
       const updatedUser = {
         ...user,
         telefono: newData.telefono,
@@ -98,27 +94,16 @@ export function AuthProvider({ children }) {
       };
     } catch (error) {
       console.error("❌ Error completo al actualizar usuario:", error);
-      console.error("❌ Status del error:", error.response?.status);
-      console.error("❌ Headers del error:", error.response?.headers);
-      console.error("❌ Datos COMPLETOS del error response:", error.response?.data);
+      console.error("❌ Datos del error response:", error.response?.data);
       
-      // 🔹 MOSTRAR LOS ERRORES ESPECÍFICOS
       let errorMessage = "Error al actualizar el perfil";
-      let errorDetails = [];
       
       if (error.response?.data) {
         const errorData = error.response.data;
-        console.error("❌ Estructura COMPLETA del error:", errorData);
+        console.error("❌ Estructura completa del error:", errorData);
         
         if (errorData.message) {
           errorMessage = errorData.message;
-        }
-        
-        // 🔹 MOSTRAR LOS ERRORES ESPECÍFICOS DEL ARRAY
-        if (errorData.errors && Array.isArray(errorData.errors)) {
-          errorDetails = errorData.errors;
-          console.error("❌ Errores específicos:", errorDetails);
-          errorMessage = errorDetails.join(", ");
         } else if (errorData.error) {
           errorMessage = errorData.error;
         }
@@ -127,7 +112,6 @@ export function AuthProvider({ children }) {
       return {
         success: false,
         error: errorMessage,
-        details: errorDetails,
         status: error.response?.status,
         responseData: error.response?.data
       };
