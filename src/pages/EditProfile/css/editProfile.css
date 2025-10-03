@@ -173,7 +173,7 @@
     }
 
     .requirement p {
-    color: var(--neutral-1_6);
+    color: var(--text-color);
     }
 
     .Box-Button{
@@ -182,4 +182,5 @@
         justify-content: center;
         padding: 1.5rem;
     }
+   
 }

@@ -212,14 +212,13 @@ const EditProfile = () => {
     }
 
     try {
-      // 🔹 Preparar datos para enviar - SOLO CAMPOS PERMITIDOS
+      // 🔹 Preparar datos para enviar
       const dataToSend = { 
-        telefono: formData.telefono.trim(), // Se convertirá a INTEGER en el backend
+        telefono: formData.telefono.trim(),
         email: formData.email.trim(),
-        direccion: formData.direccion.trim()
-        // ❌ NO enviar tipoDocumento - no está permitido en la actualización
+        direccion: formData.direccion.trim(),
       };
-
+      
       // 🔹 Solo agregar password si el usuario la está cambiando
       if (formData.password && formData.password.trim() !== "") {
         dataToSend.password = formData.password.trim();
@@ -241,32 +240,13 @@ const EditProfile = () => {
         });
         navigate("/viewprofile");
       } else {
-        // 🔹 Mostrar errores específicos del backend
-        let errorText = result.error;
-        
-        if (result.details && result.details.length > 0) {
-          errorText += "\n\n" + result.details.map(detail => `• ${detail}`).join('\n');
-        }
-        
-        if (result.responseData) {
-          console.log("🔍 Datos completos de error:", result.responseData);
-        }
-
-        throw new Error(errorText);
+        throw new Error(result.error);
       }
     } catch (error) {
-      console.error("Error completo al actualizar perfil:", error);
-      
-      // 🔹 Mensaje de error más específico
-      let errorMessage = error.message;
-      
-      if (errorMessage.includes("validation") || errorMessage.includes("validación")) {
-        errorMessage = "Errores de validación en los datos:\n" + errorMessage;
-      }
-
+      console.error("Error al actualizar perfil:", error);
       Swal.fire({
-        title: "Error al guardar",
-        text: errorMessage,
+        title: "Error",
+        text: error.message || "No se pudieron actualizar los datos. Inténtalo de nuevo.",
         icon: "error",
         confirmButtonText: "Aceptar",
         confirmButtonColor: "#d33",
@@ -346,14 +326,14 @@ const EditProfile = () => {
                 name="tipoDocumento"
                 value={formData.tipoDocumento}
                 onChange={handleChange}
-                disabled={false} // 👈 DESHABILITADO - no se puede cambiar
+                disabled={true} // 👈 DESHABILITADO - no se puede cambiar
                 title="El tipo de documento no se puede modificar"
               >
                 <option value="CC">Cédula de Ciudadanía</option>
                 <option value="NIT">NIT</option>
                 <option value="CE">Cédula de Extranjería</option>
               </select>
-              <p className="field-disabled-note">⚠️ El tipo de documento no se puede modificar</p>
+              <p className="field-disabled-note"> El tipo de documento no se puede modificar</p>
             </div>
 
             <div className="requirement">
@@ -415,13 +395,14 @@ const EditProfile = () => {
                 value={formData.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                placeholder="Nueva contraseña (déjalo vacío si no deseas cambiarla)"
+                placeholder="Nueva contraseña (déjalo vacío para mantener la actual)"
                 className={errors.password ? "error-input" : ""}
                 disabled={isSubmitting}
               />
               {errors.password && (
-                <span className="error-message">❌ {errors.password}</span>
+                <span className="error-message"> {errors.password}</span>
               )}
+              <p className="field-info-note"> Si dejas vacío, se mantendrá tu contraseña actual</p>
             </div>
           </div>
 
